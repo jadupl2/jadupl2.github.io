@@ -1,8 +1,13 @@
 ---
-layout: page
-title: Quickstart
+layout: posts
+title: Quick Start
+limit: 1
+paginate: true
+show_excerpts: false
+entries_layout: list
+author_profile: true
 ---
 
-<p class="message">
-  Quick Start Page
-</p>
+
+Quick Start Guide under construction
+
