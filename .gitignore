@@ -12,6 +12,9 @@ _asset_bundler_cache
 _site
 _site/*
 
+# Private Dir
+private
+
 # Ignore these files extensions
 *.obj
 *.pdb
