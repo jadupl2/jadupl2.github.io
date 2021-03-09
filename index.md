@@ -1,10 +1,10 @@
 ---
 layout: home
 limit: 1
-paginate: true
+paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
+author_profile: false
 ---
 
 
