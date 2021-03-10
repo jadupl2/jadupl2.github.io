@@ -10,9 +10,9 @@ author_profile: false
 If you are a Unix system administrator who is taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable. 
 With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you 
-know that your script ran with success. You can received these alerts via email, SMS or 
+know that your script ran with success. You can received these alerts via email, SMS or with the
 Slack application. 
-SADMIN surely can help you, improve and standardize the administration of your server farm.
+SADMIN can surely help you improve and standardize the administration of your server farm.
 
 
 **The SADMIN tools is a web interface and a series of command line**
