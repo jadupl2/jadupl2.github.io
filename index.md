@@ -4,44 +4,22 @@ limit: 1
 paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
+author_profile: false
 ---
 
-
-About System Administrator Tools
-
-If you are a Unix system administrator who is taking care of multiple servers, you probably created 
-some scripts to help you keeping your environment stable. 
-With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you know 
-that your script ran with success. You can received these alerts via email, SMS or Slack application. 
-SADMIN surely can help you, improve and standardize the administration of your server farm.
-
-Some of the SADMIN Tools features ; 
+If you are a Unix system administrator who is taking care of multiple servers, you probably 
+created some scripts to help you keeping your environment stable. 
+With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you 
+know that your script ran with success. You can received these alerts via email, SMS or with the
+Slack application. 
+SADMIN can surely help you improve and standardize the administration of your server farm.
 
 
-
-![SADMIN Tools][1] 
-## SADMIN Tools v1.2.8  
-
-- [Brief description](#brief-description)  
-- [Run on most popular Linux distributions](#run-on-most-popular-linux-distributions)  
-- [Download](#download)  
-- [Before you install](#before-you-install)  
-- [Installing SADMIN Tools](#installing-sadmin-tools)  
-  - [Method 1 : Cloning our git repository (Recommended)](#method-1--cloning-our-git-repository-recommended)  
-  - [Method 2 : Using the downloaded 'tgz' file](#method-2--using-the-downloaded-tgz-file)  
-  - [Running the setup script](#running-the-setup-script)  
-- [SADMIN Support](#sadmin-support)  
-- [Authors](#authors)  
-- [Copyright and license](#copyright-and-license)  
-  
----
-
-## Brief description
-
-**The SADMIN tools is a series of command line and web interface that allow you to :**
+**The SADMIN tools is a web interface and a series of command line**
 
 * **Scripts Framework and Monitoring Tools**
+![monitor](assets/img/index_monitor.png)
+
   * The SADMIN server is the central place for monitoring scripts running on your systems.
   * View the [status of all your scripts](https://www.sadmin.ca/img/sadm_web_scripts_status.png) that run in your server farm.
   * Access script log from SADMIN server [Web interface](https://www.sadmin.ca/img/sadm_view_logs.png) or from the [command line](https://www.sadmin.ca/img/file_log_format.png).
