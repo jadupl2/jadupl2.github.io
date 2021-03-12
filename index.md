@@ -4,7 +4,7 @@ limit: 1
 paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: false
+author_profile: true`
 classes: wide
 ---
 
