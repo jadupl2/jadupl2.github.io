@@ -7,8 +7,6 @@ entries_layout: list
 author_profile: true
 ---
 
-# Download page
-
 ## Latest Release
 
 | :---| :--- | 
