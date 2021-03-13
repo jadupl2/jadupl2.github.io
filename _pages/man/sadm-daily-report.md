@@ -7,15 +7,15 @@ limit:          1
 paginate:       false
 show_excerpts:  false
 entries_layout: list
-author_profile: false
-classes:        wide
+author_profile: true
+
 tags:           sadm_daily_report script 
 categories:     manpage scripts 
+toc:            true
 ---
 
 Date created : {{ page.date_created }}
 Date updates : {{ page.date_updated }}
-Compatibility: Linux, Aix, MacOS
 
 This script produce web reports of the last 24 hrs activities and email them to the sysadmin. It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), but you can also be run it manually when desired. It can only be run on the SADMIN server.
 
