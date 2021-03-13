@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-inimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+#minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 minimal_mistakes_skin    : "dark"
 
 # Site Settings
@@ -22,7 +22,7 @@ title_separator          : "-"
 subtitle                 : "Under construction" # site tagline that appears below site title in masthead
 name                     : "Jacques Duplessis"
 description              : "System Administration Tools"
-url                      : "http://127.0.0.1:4000" # the base hostname & protocol for your site e.g. "https://jadupl2.github.io"
+url                      : "https://jadupl2.github.io" # the base hostname & protocol for your site e.g. "https://jadupl2.github.io"
 #url                      : "https://jadupl2.github.io" # the base hostname & protocol for your site e.g. "https://jadupl2.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : jadupl2/jadupl2.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -73,7 +73,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : sadm_linux
 facebook:
   username               :
   app_id                 :
@@ -98,16 +98,16 @@ analytics:
 author:
   name             : "Jacques Duplessis"
   avatar           : assets/img/author.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Linux Developper"
-  location         : "Laval, Quebec, Canada"
-  email            :
+  bio              : "Unix Admin"
+  location         : "Quebec, Canada"
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:support@sadmin.ca"
+      url: "mailto:sadmlinux@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://www.sadmin.ca"
+      url: "https://sadmin.ca"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/sadm_linux"
@@ -116,7 +116,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jadupl2"
+      url: "https://github.com/jadupl2/sadmin"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -132,7 +132,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://jadupl2.github.com/"
+      url: "https://github.com/jadupl2/sadmin"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:

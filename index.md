@@ -4,7 +4,8 @@ limit: 1
 paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: false
+author_profile: true`
+classes: wide
 ---
 
 If you are a Unix system administrator who is taking care of multiple servers, you probably 
