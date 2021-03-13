@@ -1,10 +1,9 @@
 # main links
 main:
   - title: "Quick-Start"
-    url: https://jadupl2.github.io/_pages/quickstart/
-  #  https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+    url: /_pages/quickstart/
   - title: "Download"
-    url: https://jadupl2.github.io/_pages/download/
+    url: /_pages/download/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

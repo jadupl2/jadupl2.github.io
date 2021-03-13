@@ -1,0 +1,139 @@
+---
+layout: single
+limit: 1
+paginate: false
+show_excerpts: false
+entries_layout: list
+author_profile: false
+---
+
+
+	<A NAME=sadmin_1.3.1>&nbsp;</A>
+	<li><p><strong>Version 1.3.1&nbsp;&nbsp;2021-02-06</strong></p>
+		<ul>
+		<li><b>New</b></li>
+			<ul>
+			<li><A HREF='/doc/man/man_sadm_daily_report.html'>sadm_daily_report.sh<a> (v1.21)
+                <ul>
+                <li>New daily email report that give you a status of your scripts, daily backup and 
+                <A HREF='https://relax-and-recover.org/'>'ReaR'</a> backup.</li>
+                </ul>
+            </ul>
+        <li><b>Update</b></li>
+			<ul>
+			<li><A HREF='/doc/man/man_sadm_fetch_clients.php'>sadm_fetch_clients.sh</a> (v3.21)</li>
+                <ul>
+                <li>Now use the new global '$SADM_LOCK_TIMEOUT' variable, to prevent false alert while O/S 
+                update is running on the client.</li>
+                <li>Generation of the O/S update cron file is changed to use 
+                '<A HREF='/doc/man/man_sadm_osupdate_starter.php'>sadm_osupdate_starter.sh</a>' instead of 'sadm_osupdate_farm.sh'.</li>
+		    	<li>New alert summary added to the log and miscellaneous fixes.</li>
+			    <li>Now copy SADMIN server the 'alert group file' and then 'slack configuration file' of the SADMIN server to client</li>
+                </ul>
+    		<li><A HREF='/doc/man/man_sadm_daily_farm_fetch.php'>sadm_daily_farm_fetch.sh</a> (v4.5)
+                <ul>
+                <li>Fix problem when comma was used in server description, it cause delimiter problem.</li>
+    			<li>Don't generate an alert while O/S update in running on client.</li>
+                <li>Now aware of new global '$SADM_LOCK_TIMEOUT' variable, that prevent false alert while O/S update is running.</li>
+                </ul>
+			<li><A HREF='/doc/man/man_sadm_push_sadmin.php'>sadm_push_sadmin.sh</a> (v2.28)</li>
+                <ul>
+	    		<li>For uniformity of our command line uniformity, option '-c' changed to '-n'</li>
+    			<li>Fix delimiter problem, that happen when a ',' was part of the server description.</li>
+                <li>Use new global '$SADM_LOCK_TIMEOUT' variable, that prevent false alert while O/S update is running.</li>
+                </ul>
+			<li><A HREF='/doc/man/sadmlib_std_sh.html'>sadmlib_std.sh</a> v3.65 - SADMIN standard Library</li>
+                <ul>
+    		    <li>Fix some problem with Slack and SMS alerting function.</li>
+			    <li>Add 'sadm_capitalize()' function to library</li>
+			    <li>Change function 'sadm_get_osname()' so that on 'CentOSStream' is still return 'CENTOS'.</li>
+                <li>The 'sadm_start()' function was changed, so that it take action depending of '$SADM_PID_TIMEOUT' value when the PID file exist.</li>
+			    <li>The log header ('$SADM_LOG_HEADER') and footer ('$SADM_LOG_FOOTER') were produced, even if they were set "N".</li>
+			    <li>A global variable '$SADM_WWW_ARC_DIR' was added that specify the directory where deleted host info are archived.</li>
+                <li>Default user temporary file declaration "$SADM_TMP_FILE[1-3]" can now be done in caller in SADMIN section</li>
+                </ul>
+            <li><A HREF='/doc/man/man_sadm_template_sh.php'>sadm_template.sh</a> - New global variables</li>
+                <ul>
+                <li>New global 'SADM_PID_TIMEOUT' variable</li>
+                    <ul>
+                    <li>Normally when a script start and the script PID file ($SADM_PID_FILE) exist, the script exit with an error, unless 
+                        "$SADM_MULTIPLE_EXEC" was set to "N".</li>
+                    <li>In this situation the script will never execute again, unless you manually delete the PID file.
+                        This is when the global variable SADM_PID_TIMEOUT comes in handy. The "SADM_PID_TIMEOUT" variable contain the maximum 
+                        number of seconds (Default 7200) a script PID file can block execution.</li>
+                    <li>If the PID file was created less than $SADM_PID_TIMEOUT seconds the script is not executed. If it was created more than $SADM_PID_TIMEOUT 
+                        seconds, a new PID is created and script now run.</li>
+                    <li>The script PID file ($SADM_PID_FILE) is automatically created when the script start and deleted when it end. 
+                        This variable was added to the "SADMIN section" at the beginning of the script. If this variable is not present in the 
+                        SADMIN section (old script), then a default value of 7200 seconds is assumed.</li>
+                    <li>In future version, the default value of 'SADM_PID_TIMEOUT' will come from the SADMIN configuration file.</li>
+                    </ul>
+                <li>New global 'SADM_LOCK_TIMEOUT' variable</li>
+                    <ul>
+                    <li>When a SADMIN client doesn't respond to ping or the ssh to the host doesn't work or a rsync report an error, an alert is issued.</li>
+                    <li>But before issuing an alert, it check if a lock file exist for the host (client) ("${SADMIN}/tmp/${server_name}.lock") on the SADMIN server. </li>
+                    <li>For example, the lock file is created on the SADMIN server just before the O/S update is started on a SADMIN client.</li>
+                    <li>If a lock file exist for the host and : </li>
+                    <ul>
+                        <li>If it has been created less than $SADM_LOCK_TIMEOUT seconds, no alert is issue.</li>
+                        <li>If it has been created more than $SADM_LOCK_TIMEOUT seconds, then the lock file is deleted and the script start normally.</li>
+                    </ul>
+                    <li>The variable is not part of the updated "SADMIN section" at the beginning of the script. </li>
+                    <li>If this variable is not present in the SADMIN section (old script), no problem, the default value of 3600 seconds (1Hr) is assumed.</li>
+                    <li>In future version, the default value of 'SADM_LOCK_TIMEOUT' will come from the SADMIN configuration file.</li>
+                    </ul>
+                </ul>
+    		<li><A HREF='/doc/man/man_sadm_server_housekeeping.php'>sadm_server_housekeeping.sh</a> (v2.7)
+                 <ul>
+                <li>Make sure the crontab line for generating the daily report email is present.</li>
+                </ul>
+    		<li><A HREF='/doc/pdf/sadm_setup_server_example.pdf'>sadm_setup.py</a> (v3.53)
+                <ul>
+                <li>New Daily Report Email is now part of the SADMIN server crontab (/etc/cron.d/sadm_system).</li>
+    			<li>Make sure that package 'util-linux' is installed on client & server.</li>
+	    		<li>Package <A HREF='https://wkhtmltopdf.org/'>wkhtmltopdf</a> added to server installation.</li>
+		    	<li>Bypass installation of 'ReaR' on ARM platform (Not available).</li>
+			    <li>Fix missing database password file, while installing SADMIN server.</li>
+    			<li>Bypass installation of 'syslinux' on ARM platform (Not available).</li>
+		    	<li>Fix problem with <A HREF='https://relax-and-recover.org/'>'rear'</a> & 'syslinux' when installing SADMIN server.</li>
+        	    <li>O/S Name 'CentOSStream' now return 'CENTOS'.</li>
+                <li>Activate Startup and Shutdown Script (<A HREF='/doc/man/man_sadm_service_ctrl.php'>SADMIN Service</a>)</li>
+                </ul>
+			<li><A HREF='/doc/man/man_sadm_osupdate_starter.php'>sadm_osupdate_starter.sh</a> (v4.2) 
+                <ul>
+                <li>Rename 'sadm_osupdate_farm.sh' to 'sadm_osupdate_starter.sh' and optimize code.</li>
+                <li>Fix problem when comma was used in server description, it cause delimiter problem.</li>
+                <li>Create a lock file ("${SADMIN}/tmp/${server_name}.lock") before starting the O/S update on a client, and delete it when it finished.</li>
+                <li>This version is aware of '$SADM_PID_TIMEOUT' and the '$SADM_LOCK_TIMEOUT' variable utilization.</li>
+                </ul>
+			<li><A HREF='/doc/man/man_sadm_backup.php'>sadm_backup.sh</a> (v3.27)</li>
+                <ul>
+                <li>A list of the backup directory content is produced at the end of backup.</li>
+			    <li>Fix 'chmod' error message on backup directory.</li>
+                </ul>
+			<li><A HREF='/doc/man/man_sadm_rear_backup.php'>sadm_rear_backup.sh</a> (v2.25)</li>
+                <ul>
+                <li>NFS drive was not unmounted when the backup failed.</li>
+                </ul>
+            <li><A HREF='/doc/man/man_sadm_sysmon.php'>sadm_sysmon.pl</a> (v2.41)</li>
+                <ul>
+                <li>Fix problem with iostat on MacOS.</li>
+		    	<li>Fix problem reading 'SADMIN' variable in /etc/environment.</li>
+                </ul>
+            <li><A HREF='/doc/man/man_sadm_check_requirements.php'>sadm_check_requirements.sh</a> (v1.9)</li>
+                <ul>
+                <li>Added package 'wkhtmltopdf' installation to server requirement.</li>
+                </ul>
+            <li>Web Interface</li>
+                <ul>
+			    <li>Add link in the heading to view the Daily Backup Report, if HTML file exist.</li>
+			    <li>Add link in the heading to view the Daily Scripts Report, if HTML exist.</li>
+			    <li>Fix Date for starting & ending maintenance mode was not show properly.</li>
+			    <li>Show Architecture un-capitalize.</li>
+			    <li>Add link in heading to view ReaR Daily Report.</li>
+			    <li>Various fixes and enhancements.</li>
+                </ul>
+			</ul>
+		</ul>
+	</li>
+
