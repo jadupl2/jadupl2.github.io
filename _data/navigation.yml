@@ -4,6 +4,8 @@ main:
     url: /_pages/quickstart/
   - title: "Download"
     url: /_pages/download/
+  - title: "Install"
+    url: /_pages/install/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

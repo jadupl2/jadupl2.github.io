@@ -102,13 +102,13 @@ author:
   location         : "Quebec, Canada"
   email            : 
   links:
-    - label: "Email"
+    - label: "sadmlinux@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:sadmlinux@gmail.com"
     - label: "Home Page"
       icon: "fas fa-fw fa-link"
       url: "https://sadmin.ca"
-    - label: "Twitter"
+    - label: "@sadmlinux"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/sadm_linux"
     - label: "Facebook"
