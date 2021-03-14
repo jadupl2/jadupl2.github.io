@@ -17,13 +17,12 @@ classes: wide
 ## Summary of installation
 
 - Installation must be executed by 'root' user or with 'sudo'.
-- We recommend using '/opt/sadmin', but you can select the directory of your choice.
 - Instruction below assume you have chosen to install SADMIN in '/opt/sadmin' directory.
-- Main components of SADMIN tools reside in one directory.
+- We recommend using '/opt/sadmin', but you can select the directory of your choice.
 - We recommend 5Gb of free space for the SADMIN server and 400Mb for each client.
-- Setup process create/modify the file (/etc/environment) to include 'SADMIN' environment variable.
-- The installation process describe below is the same for an SADMIN server or client.
-- The 'SADMIN' contain the installation directory path and is critical for all the tools to work.
+- Setup process modify the file "[/etc/environment](/assets/img/files/etc_environment.png)" to include 'SADMIN' environment variable.
+- The 'SADMIN' environment variable contain the installation directory path.
+- The installation process is the same for an SADMIN server or client.
 - Directory '$SADMIN/bin' and $SADMIN/usr/bin is added to your PATH (via /etc/profile.d/sadmin.sh). 
 
 ## Installation requirements
@@ -66,3 +65,29 @@ Install using the downloaded 'tgz' file
     - When installation is finished you will have a working Web SADMIN environment.  
 
 
+## Update to the latest release
+
+### Method 1
+Use the 'git pull' command (Recommended)
+
+To always get the latest version of SADMIN, use the 'git pull' command (recommended).
+```bash
+    # cd $SADMIN
+    # /opt/sadmin# git pull origin master
+    From https://github.com/jadupl2/sadmin
+    * branch            master     -> FETCH_HEAD
+    Updating 1f8e79d..38034ee
+    Fast-forward
+    bin/sadm_uninstall.sh | 16 +++++++++-------
+    1 file changed, 9 insertions(+), 7 deletions(-)
+```
+
+### Method 2
+**Use SADMIN updater**
+Update your system using the SADMIN updater (sadm_updater.sh).
+We have a dedicated section for the updater in our manual, take a look at it.
+
+### SADMIN Support
+Should you ran into problem while installing or running the SADMIN tools, please run the 
+'sadm_support_request.sh', attach the resulting log to an email with a description of your 
+problem or question and sent it to support@sadmin.ca. We will get back to you as soon as possible.  
