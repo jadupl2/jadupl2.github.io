@@ -27,7 +27,7 @@ url                      : "https://jadupl2.github.io" # the base hostname & pro
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : jadupl2/jadupl2.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : assets/img/sadmin_small_logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : assets/img/sadmin_logo_88x88.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -96,16 +96,16 @@ analytics:
 
 # Site Author
 author:
-  name             : "Jacques Duplessis"
-  avatar           : assets/img/author.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Unix Admin"
+  name             : "SADMIN"
+  avatar           : assets/img/sadmin_logo.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "SysAdmin Tools"
   location         : "Quebec, Canada"
   email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:sadmlinux@gmail.com"
-    - label: "Website"
+    - label: "Home Page"
       icon: "fas fa-fw fa-link"
       url: "https://sadmin.ca"
     - label: "Twitter"
