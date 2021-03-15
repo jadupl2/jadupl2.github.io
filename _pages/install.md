@@ -23,12 +23,12 @@ classes: wide
 - Setup process modify the file "[/etc/environment](/assets/img/files/etc_environment.png)" to include 'SADMIN' environment variable.
 - The 'SADMIN' environment variable contain the installation directory path.
 - The installation process is the same for an SADMIN server or client.
-- Directory '$SADMIN/bin' and $SADMIN/usr/bin is added to your PATH (via /etc/profile.d/sadmin.sh). 
+- Directory '$SADMIN/bin' and $SADMIN/usr/bin is added to your PATH (via "[/etc/profile.d/sadmin.sh](/assets/img/files/etc_profile_d_sadmin_sh.png)"). 
 
 ## Installation requirements
 - You need to have an internet access on the system you are installing.
 - Some of the packages needed by SADMIN, may not be present on your system and will need to be downloaded.
-  - On Redhat and CentOS the "EPEL repository" is activated only for the installation time.
+  - On Red Hat and CentOS the "EPEL repository" is activated only for the installation time.
   - On other distributions the packages needed are available in the distribution repository.
 
  
@@ -83,7 +83,7 @@ To always get the latest version of SADMIN, use the 'git pull' command (recommen
 ```
 
 ### Method 2
-**Use SADMIN updater**
+**Use SADMIN updater**  
 Update your system using the SADMIN updater (sadm_updater.sh).
 We have a dedicated section for the updater in our manual, take a look at it.
 
