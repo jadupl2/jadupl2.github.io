@@ -15,16 +15,13 @@ know that your script ran with success. You can received these alerts via email,
 Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
 
+**Monitoring your scripts**
+![monitor](assets/img/index_monitor.png "SADMIN monitor page")
 
-**The SADMIN tools is a web interface and a series of command line**
-
-* **Scripts Framework and Monitoring Tools**
-![monitor](assets/img/index_monitor.png)
-
-  * The SADMIN server is the central place for monitoring scripts running on your systems.
-  * View the [status of all your scripts](https://www.sadmin.ca/img/sadm_web_scripts_status.png) that run in your server farm.
-  * Access script log from SADMIN server [Web interface](https://www.sadmin.ca/img/sadm_view_logs.png) or from the [command line](https://www.sadmin.ca/img/file_log_format.png).
-  * Choose to be alerted or not by ['SMS/Texto'](https://www.sadmin.ca/www/how-to_use_sms_alert.php), ['Slack'](https://www.sadmin.ca/img/slack_warning.png) or by [email](https://www.sadmin.ca/img/mail_notification.png)  when a script failed or succeed.
+  * Monitoring your scripts is all done from one place, the SADMIN server.
+  * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
+  * View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
+  * Your scripts can send alert by ['SMS/Texto'](/_pages/slack/howto_slack), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png)  when a script failed or succeed.
   * Use our [Shell](https://www.sadmin.ca/doc/man/man_sadm_template_sh.php) and/or [Python](https://www.sadmin.ca/doc/man/man_sadm_template_py.php) templates to create new scripts and benefit of SADMIN tools.
   * Use [SADMIN wrapper](https://www.sadmin.ca/doc/man/man_sadm_wrapper.php) and run your existing scripts using the SADMIN tools
     * $SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh
@@ -193,4 +190,4 @@ See the [LICENSE](LICENSE) file for details.
 
 ---
 
-[1]: https://www.sadmin.ca/img/sadmin_small_logo.png
+[1]: https://www.sadmin.ca/img/logo/sadmin_small_logo.png

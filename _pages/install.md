@@ -32,7 +32,7 @@ classes: wide
   - On other distributions the packages needed are available in the distribution repository.
 
  
-## Installation Method 1
+## Installation Method 1  
 Install using the github repository (Recommended)
 ```bash
     # cd /opt                                   # Change Dir. to /opt
@@ -40,7 +40,7 @@ Install using the github repository (Recommended)
     # /opt/sadmin/setup/setup.sh                # Run setup script
 ```
 
-## Installation Method 2 
+## Installation Method 2  
 Install using the downloaded 'tgz' file   
 ```bash
     # cp sadmin_xx.xx.xx.tgz /opt               # Copy sadmin tgz to /opt
@@ -50,8 +50,7 @@ Install using the downloaded 'tgz' file
     # /opt/sadmin/setup/setup.sh                # Run setup script
 ```
 
-## The Setup script
-
+## The Setup script  
 - The setup script will ask questions regarding your environment.  
 - Your answers are store in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).  
 - The SADMIN configuraion file is used by the web interface and the SADMIN tools.  
@@ -65,9 +64,9 @@ Install using the downloaded 'tgz' file
     - When installation is finished you will have a working Web SADMIN environment.  
 
 
-## Update to the latest release
+## Update to the latest release  
 
-### Method 1
+### Method 1  
 Use the 'git pull' command (Recommended)
 
 To always get the latest version of SADMIN, use the 'git pull' command (recommended).
@@ -82,12 +81,12 @@ To always get the latest version of SADMIN, use the 'git pull' command (recommen
     1 file changed, 9 insertions(+), 7 deletions(-)
 ```
 
-### Method 2
+### Method 2  
 **Use SADMIN updater**  
 Update your system using the SADMIN updater (sadm_updater.sh).
 We have a dedicated section for the updater in our manual, take a look at it.
 
-### SADMIN Support
+### SADMIN Support  
 Should you ran into problem while installing or running the SADMIN tools, please run the 
 'sadm_support_request.sh', attach the resulting log to an email with a description of your 
 problem or question and sent it to support@sadmin.ca. We will get back to you as soon as possible.  

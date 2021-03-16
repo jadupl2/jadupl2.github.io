@@ -192,4 +192,4 @@ See the [LICENSE](LICENSE) file for details.
 
 ---
 
-[1]: https://www.sadmin.ca/img/sadmin_small_logo.png
+[1]: https://www.sadmin.ca/img/logo/sadmin_small_logo.png
