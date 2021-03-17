@@ -46,10 +46,10 @@ You can using your credit card or use Paypal to checkout.
 
 ## Setup Textbelt in SADMIN configuration file
 
-* Now that we have our 'Textbelt' key, we need to put it into the SADMIN configuration file (sadmin.cfg).  
-* Using your favorite editor open ‘$SADMIN/cfg/sadmin.cfg’.  
+* Now that we have our 'Textbelt' key, we need to record it in the SADMIN configuration file.  
+* Using your favorite editor open ‘$SADMIN/cfg/sadmin.cfg’ and update the two Textbelt fields.  
 
-```bash
+{% highlight bash %}
 # vi $SADMIN/cfg/sadmin.cfg
 #----------------------------------------------------------------------------
 # TEXTBELT SMS TEXT MESSAGE VARIABLE
@@ -60,9 +60,9 @@ You can using your credit card or use Paypal to checkout.
 #----------------------------------------------------------------------------
 SADM_TEXTBELT_KEY = 12b0f573dfc4e1377471dc930684dfbcdded045eiSw1swtuyrUyRxHTJX2vAFhdxs
 SADM_TEXTBELT_URL = https://textbelt.com/text
-```   
+{% endhighlight %} 
 
-You need to update two fields :  
+ 
 **SADM_TEXTBELT_KEY:**  
 This field contain the textbelt key that was previously generated for you.  
 To eliminate any typo error, use the clipboard copy/paste to enter the key.  
@@ -90,8 +90,7 @@ With your favorite editor open ‘alert-group’ file and define your own cellul
 
 `# vi $SADMIN/cfg/alert_group.cfg   `
 
-![BrokenImage](/assets/img/slack/textbelt_web_part4.png)  
-
+![image-center](/assets/img/slack/textbelt_web_part4.png){: .align-center}
 
 ## Setting the default alerting group
 
