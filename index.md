@@ -18,11 +18,13 @@ SADMIN can surely help you improve and standardize the administration of your se
 **Monitoring your scripts**
 ![monitor](assets/img/index_monitor.png "SADMIN monitor page")
 
-  * Monitoring your scripts is all done from one place, the SADMIN server.
+* Monitoring your scripts is all done from one place, the SADMIN server.
   * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
   * View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
   * Your scripts can send alert by ['SMS/Texto'](/_pages/slack/howto_slack), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png)  when a script failed or succeed.
-  * Use our [Shell](https://www.sadmin.ca/doc/man/man_sadm_template_sh.php) and/or [Python](https://www.sadmin.ca/doc/man/man_sadm_template_py.php) templates to create new scripts and benefit of SADMIN tools.
+
+**Create/Modify your scripts using our templates**
+* Use our [Shell](https://www.sadmin.ca/doc/man/man_sadm_template_sh.php) and/or [Python](https://www.sadmin.ca/doc/man/man_sadm_template_py.php) templates to create new scripts and benefit of SADMIN tools.
   * Use [SADMIN wrapper](https://www.sadmin.ca/doc/man/man_sadm_wrapper.php) and run your existing scripts using the SADMIN tools
     * $SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh
   * Each script starting and ending time along with the ending status are recorded in a [history file](https://www.sadmin.ca/img/file_rch_format.png).
