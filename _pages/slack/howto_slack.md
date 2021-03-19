@@ -67,48 +67,54 @@ SADM_TEXTBELT_URL = https://textbelt.com/text
         SADMIN is using the ‘curl’ linux command to issue the request to textbelt.  
 
 
-## Defining cellular number and sms alert group  
-  
-**Cellular group definition**
+<br>
 
-* You need to declare what are the cellular number that can receive SADMIN alert.  
-* In column one, we give the cellular number a name, it can be the cellular owner name or cellular purpose (like support,on_call,...).  
-* On the definition line, we need to have the name, the cellular group type ('c') and finally the telephone number.  
+## Defining cellular number and sms alert group  
+
+
+**Cellular group definition**
+![BrokenImage](/assets/img/slack/textbelt_web_part4.png){: .align-center}  
+
+First give a name to the cellular number owner or cellular purpose (like support,on_call). 
+Then the second column is a 'c' for Cellular definition group and finally the telephone number.
+{: .text-justify}
+
 
 **SMS/Texto group definition**  
+![BrokenImage](/assets/img/slack/textbelt_web_part5.png){: .align-center}  
 
-* If you need to alert more than one person (cellular) when an alert is issue, you can use the SMS/Texto group to do so.  
-* You declare the SMS/Texto group, like 'webteam', 'telecom', 'sysadmin', that include multiple cellular definition.  
-* In the example below, the SMS/Texto group 'emergency', will send the alert to four cellulars.  
-
-With your favorite editor open ‘alert-group’ file and define your own cellular and SMS/Texto group.  
-
+* If you need to alert more than one person (cellular) when an alert is issue, you can use the SMS/Texto group to do so. 
+You declare the SMS/Texto group name, like 'webteam', 'emergency', 'sysadmin', that include multiple cellular definition. 
+In the example above, the SMS/Texto group 'emergency', will send the alert to four cellulars. 
+{: .text-justify}
+* Open the ‘alert-group.cfg’ file With your favorite editor and define your own cellular and SMS/Texto group.  
+{: .text-justify}
 `# vi $SADMIN/cfg/alert_group.cfg   `
 
-![BrokenImage](/assets/img/slack/textbelt_web_part4.png)  
+
+<br>
 
 
 ## Setting the default alerting group
 
-* When an alert is issue from a script or from the SADMISystem Monitor, it is sent to an alert group.
-* The default alert group name used is the one specified ithe SADMIN configuration file (See image below).
-* The 'SADM_ALERT_GROUP' name doesn't have to be 'default', icould be any of the group define in the alert group file.
-* You can change the 'SADM_ALERT_GROUP' name with youfavorite editor whenever you need to.
-* The group name you specify, MUST exist in the Alert Groufile ($SADMIN/cfg/alert_group.cfg).
+* Every alert is issued is sent to an alert group. The default alert group name, is specify by 
+the content of the variable 'SADM_ALERT_GROUP’ defined in the SADMIN configuration file (see image below) .
+* The 'SADM_ALERT_GROUP' name doesn't have to be named 'default', it could be any of the group define in the alert group file.
+* You can change the content of 'SADM_ALERT_GROUP' variable with your favorite editor whenever you need to.
 * You may also leave it to 'default' and change the definition of the 'default' group in the alert group file.
 
-![BrokenImage](/assets/img/slack/default_alert_group_in_sadmincfg.png)  
+![BrokenImage](/assets/img/slack/default_alert_group_in_sadmincfg.png){: .align-center}    
 
 
 <br>
 
 ## Changing the default alerting group
 
-* If SMS/Texto is your preferred way to get alerted, change the definition o* the default alert group.
-* Here, we change the 'default' group definition to have a group type 't* (Texto) and to use alert group 'sysadmin_sms'.
-* This means that by default, all alert will be sent to group 'sysadmin_sms* which contain one cellular definition 'john_doe'
-* So all alert will be sent to John Doe cellular, if you don't override it i* your script or in system monitor configuration file.
-* Remember, each group name must begin in column one, be unique and must no* contain any space.
+* If you wish to get alerted via SMS/Texto, you can change the definition of the 'default' alert group.
+* In our example, we change the 'default' group definition to have a group type 't' (Texto) and to use alert group 'sysadmin_sms'.
+* This means that by default, all alert will be send to group 'sysadmin_sms' which contain one cellular definition 'john_doe'
+* So all alert will be sent to John Doe cellular, if you don't override it in your script or in system monitor configuration file.
+* Remember, each group name must begin in column one, be unique and must not contain any space.
 
 With your favorite editor open the alert group file.   
 
@@ -116,33 +122,169 @@ With your favorite editor open the alert group file.
 
 ```
 # Default Alert Group (It should not be changed or deleted).
-# 1st column : Group Name : 'default' 
-# 2nd column : Group Type : [s]=SlackChannel [m]=Email [c]=Cell.Number [t]=TextoGroup
-# 3nd column : Group Value: Value depend on the group type (See description below)
-#default             c   5147577706
-#default             s   sadm_prod
-#default             m   batman@batcave.com,robin@batcave.com
-default             t   sysadmin_sms
+default              t   sysadmin_sms
  
 # Cellular number of individual 
-# 1st column : Name you give to identify the cellular number (No space ingroup name).
-# 2nd column : 'c' specify that the line is a cellular definition.
-# 3th column : Actual cellular number used to send the alert.
-# Only one cell. number must be specify, if you want more use SMS(Text) alertgroup
 john_doe            c   5147577706
 robert_smith        c   4187570067
 support_cell        c   5147570068
 jerry_calder        c   5147779302
 diane_watson        c   5147779303
 
-# SMS(Text) Alert Group (group cellular number together to form a SMSAlert Group.)
-# 1st column : SMS (Texto) group name (No space in group name)
-# 2nd column : 't' specifying that the line is a SMS (Texto) group definition.
-# 3th column : Cellular name previously defined used to send the alert.
-# If more than one is specified, they must be separated by comma & no space between
+# SMS(Text) Alert Group
 sysadmin_sms        t   john_doe  
 emergency_sms       t   john_doe,support_cell,robert_smith,diane_watson
-webteam_sms	        t   diane_watson
+webteam_sms         t   diane_watson
 ```
 
 
+
+<a name="OverrideScriptDefaultAlertGroup"></a>  
+
+## Override the default alert group and type in a script
+
+Here, we assume that you have created a script using our Shell script template 
+(cp $SADMIN/bin/sadm_template.sh $SADMIN/usr/bin/helloWorld.sh) or Python template 
+(cp $SADMIN/bin/sadm_template.py $SADMIN/usr/bin/helloWorld.py). To override 'SADM_ALERT_GROUP' 
+and/or 'SADM_ALERT_TYPE' default value, remove the '#' in front of the variable and change it to 
+the value of your choice. Remember, that the alert group name you assign to 'SADM_ALERT_GROUP' 
+variable, must be define in the alert group file, if not the 'default' alert group will be used.
+We have an override example, later on this page.  
+{: .text-justify}
+
+These lines are located in the SADMIN section near the top of the script.  
+
+**Shell Script (See sadm_template.sh) :**    
+```
+#export SADM_ALERT_TYPE=1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Always  
+#export SADM_ALERT_GROUP="default"   # AlertGroup define in alert_group.cfg  
+```
+
+**Python Script (See sadm_template.py) :**  
+```
+#inst.cfg_alert_type  = 1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Always  
+#inst.cfg_alert_group = "default"    # AlertGroup define in alert_group.cfg  
+```    
+ 
+**The script default alert type**
+* The alert type is only use at the end of the script, to determine whether or not we send an an alert.  
+* The default alert type is set at installation time and is set to '1' by default. You can view 
+the actual value by looking at the value of the variable 'SADM_ALERT_TYPE' in the SADMIN 
+configuration file ($SADMIN/cfg/sadmin.cfg). When you run a Python or a Shell script using the 
+SADMIN Tools, by default it use this value.
+
+![BrokenImage](/assets/img/slack/default_alert_type_in_sadmincfg.png){: .align-center}    
+
+**The Alert type have four possible values :**  
+* 0 Don't ever send an alert, either if the script finish with success or failure.  
+* 1 Send an alert only if the script finish with an error (exit code not equal to 0).  
+* 2 Send an alert only when the script finish with success (Exit code = 0).  
+* 3 Always send an alert, whether the script terminate with failure or success.  
+
+
+<a name="OverrideSysmonDefaultAlertGroup"></a>  
+## Override the default alert group in SADMIN System Monitor
+
+    The alert group used by the SADMIN System Monitor are specify in the configuration file ($SADMIN/cfg/hostname.smon).
+    If none are specified, the 'default' alert group is use.
+    The alert group is specified near the end of each configuration lines.
+    The columns are labelled as column J for Warning and column K for Error.
+    If the Alert group used in SysMon configuration don't exist in the alert group file, the group 'default' is use.
+
+    Here is an example to check filesystem space usage in SysMon configuration file (hostname.smon). 
+
+```
+       #Column
+    #  1        2  3  4  5   6   7    8  9 A B C D E F G    H       I     J          K              L
+    FS/opt     49 >= 85 90 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default sysadmin_sms sadm_fs_incr.sh
+```
+
+
+In the example above ;
+
+    If the filesystem /opt percentage usage become greater or equal to 85%, a warning alert will be send to 'default' alert group.
+    If the filesystem /opt percentage usage become greater or equal to 90%, an error alert will be send to 'sysadmin_sms' alert group.
+    Note, that if a script ('sadm_fs_incr.sh') is specified in the last column of a filesystem check line, the script is executed.
+    The script is executed when the warning level is reach (here, if the filesystem usage is greater or equal to 85%).
+    If the filesystem is a LVM created in a volume group that have more that 10% free, the filesystem is increase by 10% (Max. 2 time a day).
+    The last column can contain a script name (placed in $SADMIN/usr/bin), nothing or a '-' (place holder).
+
+## Testing SMS/Texto alert
+Let's make a copy of the shell template script to create our test script.
+Let's begin by typing the following command to create our test script name 'sadm_test_alert.sh' ;
+
+    # cd $SADMIN/usr/bin
+    /sadmin/usr/bin # cp $SADMIN/bin/sadm_template.sh sadm_test_alert.sh
+    /sadmin/usr/bin # nano sadm_test_alert.sh
+    
+Before we change anything
+
+    Let's see what we have by default, for our global alert variables in our script.
+    The 'SADM_ALERT_TYPE' variable is set to '1', this means that alert will be send only when the script terminate with error.
+    The alert group that would get alerted is 'default', as define by the content of global variable 'SADM_ALERT_GROUP'.
+    We will change these variables later on.
+
+![BrokenImage](/assets/img/slack/textbelt_step1_initial_script.png)  
+
+The 'default' Alert Group is currently set to send email to 'linternux@gmail.com'.  
+
+![BrokenImage](/assets/img/slack/textbelt_step2_initial_alertgroup.png)  
+
+Also in our alert group file, we have the following group define, we'll use the 'sms_sysadmin' group in our test.  
+
+![BrokenImage](/assets/img/slack/textbelt_step3_initial_alertgroup.png)  
+
+Let's execute our test script before we make any change to it, to see what the output look like.  
+We can see that it run without error '(Script return code is 0') and that it ran in 4 seconds.  
+That it 'Requested alert only if script fail' and that it 'Won't send alert', since the script terminate with success.  
+Everything seem normal, so let's modify our script to test the SMS/Texto alerting system.  
+
+![BrokenImage](/assets/img/slack/textbelt_step4_initial_execution.png)  
+
+
+**Making change to test SMS/Texto alert**  
+
+
+    Let's change the script and simulate an error, so an alert is send.
+    /sadmin/usr/bin # nano sadm_test_alert.sh
+    We will add a line that make 'SADM_EXIT_CODE' equal to '1', to provoke an error.
+
+    First change : Original code  
+![BrokenImage](/assets/img/slack/textbelt_step5_initial_script.png)  
+
+
+First change : Modified code   
+![BrokenImage](/assets/img/slack/textbelt_step6_change_script.png)  
+
+Let's see what we have by default, for our global alert variables in our script.  
+The 'SADM_ALERT_TYPE' variable is set to '1', this means that alert will be send only when the script terminate with error.  
+We will leave the 'SADM_ALERT_TYPE' variable like it is.  
+The alert group that would get alerted is 'default', as define by the content of global variable 'SADM_ALERT_GROUP'.  
+For our test, we would like to send the alert (if any) to the 'sms_sysadmin' alert group, so let's change that.  
+
+
+Second change : Original code  
+![BrokenImage](/assets/img/slack/textbelt_step7_initial_script.png)   
+
+Second change : Modified code  
+![BrokenImage](/assets/img/slack/textbelt_step8_change_script.png)    
+
+### Running our test script
+
+We are now ready to execute our test script and see if we receive this alert.
+
+![BrokenImage](/assets/img/slack/textbelt_step9_change_execution.png)    
+
+
+Alert that we received on our cellular  
+
+![BrokenImage](/assets/img/slack/textbelt_step10_sms_receive.png)    
+
+        Note:
+        It can take a few seconds up to 4-5 minutes to receive the alert.
+        This is due to the fact that SADMIN collect clients info every 5 minutes.
+        This is something that will be enhance in the future version. 
+
+
+We hope you have a better understanding of how the alarm system work in SADMIN.
+We could have done the same test using the Python template ($SADMIN/bin/sadm_template.py) script. 
