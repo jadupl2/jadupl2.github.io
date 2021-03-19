@@ -21,8 +21,8 @@ classes: wide
 3. Defining cellular number and sms alert group.  
 3. Set the default alerting group.  
 3. Changing the default alerting group.  
-3. Override the default alert group and type in a script.  
-3. Override the default alert group in SADMIN System Monitor.  
+3. [Override the default alert group and type in a script](#OverrideScriptDefaultAlertGroup).  
+3. [Override the default alert group in SADMIN System Monitor](#OverrideSysmonDefaultAlertGroup).  
 3. Testing SMS/Texto alert.
 
  
@@ -152,24 +152,26 @@ webteam_sms	        t   diane_watson
 
 
 
+<a name="OverrideScriptDefaultAlertGroup"></a>  
 ## Override the default alert group and type in a script
 
-    Here, we assume that you have created your script based on our Shell script template or Python template.
-    To override 'SADM_ALERT_GROUP' and/or 'SADM_ALERT_TYPE' default value, remove the '#' and change it to the value of your choice.
-    Remember that the alert group name you assign to 'SADM_ALERT_GROUP' variable, must be define in the alert group file.
-    We have an override example, later on this page.
-    These lines are located in the SADMIN section near the top of the script.
+Here, we assume that you have created your script based on our Shell script template or Python template.  
+To override 'SADM_ALERT_GROUP' and/or 'SADM_ALERT_TYPE' default value, remove the '#' and change it to the value of your choice.  
+Remember that the alert group name you assign to 'SADM_ALERT_GROUP' variable, must be define in the alert group file.  
+We have an override example, later on this page.  
 
-    Shell Script (See sadm_template.sh) :
-            #export SADM_ALERT_TYPE=1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Allways
-            #export SADM_ALERT_GROUP="default"   # AlertGroup define in alert_group.cfg
-            
-    Python Script (See sadm_template.py) :
-            #inst.cfg_alert_type  = 1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Allways
-            #inst.cfg_alert_group = "default"    # AlertGroup define in alert_group.cfg
-            
-     
-    The script default alert type
+These lines are located in the SADMIN section near the top of the script.  
+
+Shell Script (See sadm_template.sh) :  
+        #export SADM_ALERT_TYPE=1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Always  
+        #export SADM_ALERT_GROUP="default"   # AlertGroup define in alert_group.cfg  
+        
+Python Script (See sadm_template.py) :  
+        #inst.cfg_alert_type  = 1            # 0=None 1=AlertOnErr 2=AlertOnOK 3=Always  
+        #inst.cfg_alert_group = "default"    # AlertGroup define in alert_group.cfg  
+        
+ 
+The script default alert type
         The alert type is only use at the end of the script, to determine whether or not we send an an alert.
         The default alert type is set at installation time and is set to '1' by default.
         You can view that actual value by looking in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).
@@ -177,13 +179,14 @@ webteam_sms	        t   diane_watson
 
 ![BrokenImage](/assets/img/slack/default_alert_type_in_sadmincfg.png)  
 
-        The Alert type have four possible values :
-            0 Means that you don't want any alert to be send, either if the script finish with success or failure.
-            1 You want to send an alert only if the script finish with an error (Exit code not equal to 0).
-            2 An alert will be send only when the script finish with success (Exit code = 0).
-            3 Always send an alert, whether the script terminate with failure or success.
+The Alert type have four possible values :  
+* 0 Means that you don't want any alert to be send, either if the script finish with success or failure.  
+* 1 You want to send an alert only if the script finish with an error (Exit code not equal to 0).  
+* 2 An alert will be send only when the script finish with success (Exit code = 0).  
+* 3 Always send an alert, whether the script terminate with failure or success.  
 
 
+<a name="OverrideSysmonDefaultAlertGroup"></a>  
 ## Override the default alert group in SADMIN System Monitor
 
     The alert group used by the SADMIN System Monitor are specify in the configuration file ($SADMIN/cfg/hostname.smon).
