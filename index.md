@@ -14,23 +14,31 @@ With SADMIN you can be alerted when something goes wrong, when a script fail or 
 know that your script ran with success. You can received these alerts via email, SMS or with the
 Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
+{: .text-justify}
 
 **Monitoring your scripts**
 ![monitor](assets/img/index_monitor.png "SADMIN monitor page")
 
-* Monitoring your scripts is all done from one place, the SADMIN server.
-  * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
-  * View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
-  * Your scripts can send alert by ['SMS/Texto'](/_pages/slack/howto_slack), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png)  when a script failed or succeed.
+**Monitoring your scripts is all done from one place**
+* View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
+* View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
+* Your scripts can send alert by ['SMS/Texto'](/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png)  when a script failed or succeed.
 
-**Create/Modify your scripts using our templates**
-* Use our [Shell](https://www.sadmin.ca/doc/man/man_sadm_template_sh.php) and/or [Python](https://www.sadmin.ca/doc/man/man_sadm_template_py.php) templates to create new scripts and benefit of SADMIN tools.
-  * Use [SADMIN wrapper](https://www.sadmin.ca/doc/man/man_sadm_wrapper.php) and run your existing scripts using the SADMIN tools
-    * $SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh
-  * Each script starting and ending time along with the ending status are recorded in a [history file](https://www.sadmin.ca/img/file_rch_format.png).
-* **Create an inventory of your systems (Linux,Aix)**.
-  * Add, [update](https://www.sadmin.ca/img/sadm_server_update.png) or delete system in your inventory.
-  * It collect [system configuration](https://www.sadmin.ca/img/sadmin_web_interface.png)and [performance data](https://www.sadmin.ca/img/sadm_nmon_rrd_update_cpu_graph.png) of your systems.
+
+
+### Create/Modify your scripts using our templates**
+* Use our [Shell](/_pages/man/sadm-template-sh) and [Python](/_pages/man/sadm-template-py) 
+templates to create new scripts and benefit of SADMIN tools.  
+* Use [SADMIN wrapper](/_pages/man/sadm-wrapper) and run your existing scripts using the SADMIN tools.  
+  `$SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh`  
+* Starting and ending time of each script along with the exit status is recorded in a 
+[history file](/assets/img/files/rch_file_format.png). 
+
+
+
+### Create an inventory of your systems (Linux,Aix).
+  * Add, [update](/assets/img/webui/server_static_info.png) or delete system in your inventory.
+  * It collect [system configuration](/assets/img/webui/server_information.png) and [performance data](https://www.sadmin.ca/img/sadm_nmon_rrd_update_cpu_graph.png) of your systems.
   * Access all this information from a [Web interface](https://www.sadmin.ca/img/sadmin_main_screen.png) or from the command line.
   * View your servers farm [subnet utilization](https://www.sadmin.ca/img/sadm_view_subnet.png) and see what IP are free to use.
 * **Help you keeping up to date with O/S update**.
