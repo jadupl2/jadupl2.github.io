@@ -14,13 +14,12 @@ toc:            false
 classes: wide
 ---
 
-
-We have included four templates that are ready to use :
-
-    The Shell script template ($SADMIN/bin/sadm_template.sh).
-    The Python script template ($SADMIN/bin/sadm_template.py).
-    The Terminal Menu builder template ($SADMIN/bin/sadm_template_menu.sh).
-    The SADMIN wrapper script allowing you to run existing script and benefit of the SADMIN tools ($SADMIN/bin/sadm_wrapper.sh).
+<br>
+We have included 3 templates that are ready to use :  
+- The [Shell script template](/_pages/man/sadm-template-sh) ($SADMIN/bin/sadm_template.sh).  
+- The [Python script template](/_pages/man/sadm-template-py) ($SADMIN/bin/sadm_template.py).    
+- The [SADMIN wrapper script](/_pages/man/sadm-wrapper) allow you to run existing script and benefit of the SADMIN tools ($SADMIN/bin/sadm_wrapper.sh).  
+ 
 
 
 What you need to know to use the SADMIN tools library
