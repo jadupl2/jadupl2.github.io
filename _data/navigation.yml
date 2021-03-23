@@ -1,11 +1,15 @@
 # main links
 main:
+  - title: "Home"
+    url: /index/
   - title: "Quick-Start"
     url: /_pages/quickstart/
   - title: "Download"
     url: /_pages/download/
   - title: "Install"
     url: /_pages/install/
+  - title: "Contact"
+    url: /_pages/contact/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

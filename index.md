@@ -10,6 +10,10 @@ classes: wide
 
 <a name="top_of_page"></a> 
 
+![sadm_text](/assets/img/logo/sadmin_logo_88x88.png "SADMIN Logo")
+![sadm_logo](/assets/img/logo/sadmin_text_343x93.png "SADMIN Text Logo")
+
+
 If you're a Unix system administrator who is taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable. 
 With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you 
@@ -152,7 +156,8 @@ See our information page about [running the setup script](/_pages/man/sadm-setup
 ---
 
 ## SADMIN Support
-Should you ran into problem while installing or running the SADMIN tools, please run the 'sadm_support_request.sh', attach the resulting file to an email with a description of your
+Should you ran into problem while installing or running the SADMIN tools, please run the 
+'sadm_support_request.sh', attach the resulting file to an email with a description of your 
 problem or question and sent it to <sadmlinux@gmail.com>.
 We will get back to you as soon as possible.
 
