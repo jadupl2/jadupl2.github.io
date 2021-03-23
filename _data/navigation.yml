@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "Home"
-    url: /index/
-  - title: "Quick-Start"
-    url: /_pages/quickstart/
+    url: /
   - title: "Download"
     url: /_pages/download/
+  - title: "Quick-Start"
+    url: /_pages/quickstart/
   - title: "Install"
     url: /_pages/install/
   - title: "Contact"
