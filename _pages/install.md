@@ -14,8 +14,8 @@ classes: wide
 ---
 ## Before you install
 
-* [SADMIN tools reside in one directory](https://sadmin.ca/assets/pdf/sadmin_directory_structure.pdf) (recommend '/opt/sadmin'), but you can install it in the directory of your choice.
-* We recommend 5Gb of free space for the SADMIN server and 400Mb for each client.
+* The [SADMIN tools reside in one directory](/assets/img/directory_structure.png), we recommend using  '/opt/sadmin', but you can install it in the directory of your choice.
+* We recommend around 5Gb of free space for the SADMIN server and 200Mb for each client.
 * The 'SADMIN' environment variable is critical for the SADMIN tools and contain the installation directory name.
 * The setup script will make sure that this environment variable is defined and persistent after a reboot.
   * It create a script "[/etc/profile.d/sadmin.sh](https://sadmin.ca/assets/img/files/etc_profile_d_sadmin_sh.png)" that's executed every time you login.
