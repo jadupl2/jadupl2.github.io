@@ -2,19 +2,20 @@
 layout: single
 title: Installation Guide
 limit: 1
-paginate: true
+paginate: false
 show_excerpts: false
 entries_layout: list
 author_profile: true
 tags:           sadm_daily_report script 
 categories:     manpage scripts 
-toc:            false
 classes: wide
-
+toc:            true
 ---
-## Before you install
 
-* The [SADMIN tools reside in one directory](/assets/img/directory_structure.png), we recommend using  '/opt/sadmin', but you can install it in the directory of your choice.
+## SADMIN Ecosystem
+
+* We recommend installing the SADMIN tools in ['/opt/sadmin'](/assets/img/directory_structure.png), 
+but you can install it in the directory of your choice.
 * We recommend around 5Gb of free space for the SADMIN server and 200Mb for each client.
 * The 'SADMIN' environment variable is critical for the SADMIN tools and contain the installation directory name.
 * The setup script will make sure that this environment variable is defined and persistent after a reboot.

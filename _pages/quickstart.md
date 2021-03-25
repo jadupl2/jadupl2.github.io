@@ -91,4 +91,31 @@ $SADMIN/bin/sadmlib_std_demo.py
 - [See pdf output](/assets/pdf/sadmlib_std_demo_sh.pdf) of the bash script "[sadmlib_std_demo.sh](/_pages/man/sadmlib-std-demo-sh)".  
 - [See pdf output](/assets/pdf/sadmlib_std_demo_py.pdf) of the Python script "[sadmlib_std_demo.py](/_pages/man/sadmlib-std-demo-py)".  
 
+### Terminal Menu & Tools Library
+
+The screen below is an example of what you can easely do with the SADMIN screen library. You can 
+use it to show a menu like below, it can have up to 30 items and the item are automatically 
+positionning themself to have one or two columns. It will accept user response and validate it 
+for allowed values.
+{: .text-justify}
+
+Run the following command to run the example script.
+{% highlight bash %}
+$ sadm_template_menus.sh
+{% endhighlight %} 
+
+![menuscreen1](/assets/img/cmdline/sadm_template_menu.png "Main Menu example")
+
+You can accept data from the terminal, validate the content numeric, position the cursor at a 
+particular line and column. The "sadm_mess()" function will show an error message to the user at 
+the bottom of the screen and wait for a key to be press. 
+The library include all sorts of functions that will save you time when building a user interface
+the terminal.
+
+To have a complete list of functions available in the screen library, have a look at this 
+[page](/_pages/man/sadmlib-screen).
+To use use it in within your scripts, just add the command below.
+{% highlight bash %}
+source $SADMIN/bin/sadmlib_screen.sh 
+{% endhighlight %} 
 This is it, you are now ready the use the SADMIN tool.

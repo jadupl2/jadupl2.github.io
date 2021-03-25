@@ -11,21 +11,31 @@ categories:     requirements
 toc:            true
 ---
 
+Whether you are installing a SADMIN client or a server, they both need "python3" and the 
+"lsb_release" command installed. So the first thing the setup script will do, is to verify that 
+they are installed, if there not the setup script will be installed them. If it's not able 
+to installed them, you will be notified and the script will terminate. 
 
-Requirements
-When you run the setup script to install SADMIN Tools, one of the first question you will be asked, is to indicate if you want to do a Client or a Server installation. Depending on your response, the require packages will be different. Below is a list of requirements for each type of installation.
+Below is a list of all the packages needed. If you want to see what packages will be installed, 
+you can run the command below. 
 
-IMPORTANT :
+{% highlight bash %}
+$SADMIN/bin/sadm_check_requirements.sh   
+{% endhighlight %} 
+
+It will verify each package needed and will tell you which one will have to installed. For 
+more info on this script [view the man page of sadm-check-requirements.sh](/_pages/man/sadm-check-requirements)"
+{: .text-justify}
+
+**IMPORTANT**  
 You need to have an internet access on the system you are installing.
 Some of the packages needed by SADMIN, may not be present on your system and will need to be downloaded.
-On Redhat and CentOS the "EPEL repository" is activated only for the installation time.
-On other distributions the packages needed are available in the distribution repository.
+On Redhat and CentOS the "EPEL repository" is activated at installation time and disable afterward.
+On other distribution the packages needed are available in the distribution repository and will be
+install automatically. 
 {: .notice--warning}
 
 
-Whether you are installing a SADMIN client or a server, they both need "python3" and the "lsb_release" command installed.
-So the first thing the setup script will do, is to verify if they are installed, if there not they will be installed.
-If it's not able to installed them, you will be notified and the script will terminate.
 
 
 <br>

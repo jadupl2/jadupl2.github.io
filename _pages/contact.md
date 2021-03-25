@@ -9,6 +9,11 @@ author_profile: true
 ---
 
 
+You can always reach us at [sadmlinux@gmail.com](mailto:sadmlinux@gmail.com).  
+To be alerted when a new release is available, subscribe to our twitter feed at 
+[@sadmlinux](https://twitter.com/sadmlinux).   
+
+
 Should you ran into problem while installing or running the SADMIN tools, please run the 
 support request script :
 
@@ -16,9 +21,6 @@ support request script :
 # $SADMIN/bin/sadm_support_request.sh
 {% endhighlight %} 
 
-Attach the resulting log to an email with a description of your problem or question and sent to 
+Attach the resulting log to an email with a description of your problem or question and send it to 
 [sadmlinux@gmail.com](mailto:sadmlinux@gmail.com).
 We will get back to you as soon as possible.
-
-* In all other case you can contact us by email at [sadmlinux@gmail.com](mailto:sadmlinux@gmail.com).
-* You can subscribe to our twitter feed at [@sadmlinux](https://twitter.com/sadmlinux). 
