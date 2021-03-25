@@ -52,6 +52,16 @@ templates to create new scripts and benefit of SADMIN tools.
 
 <br>
 
+**Use the Web Interface to administrate your server farm**  
+The web interface is available at http://sadmin.YourDomainName or http://YourSadminServerName  
+
+* For http://sadmin.YourDomainName to work, it must be define in your DNS or /etc/hosts file.
+* Use it to add, update and delete server in your server farm.
+* View performance graph of your servers up to two years in the past.
+* Have your servers configuration on hand, usefull in case of a Disaster Recovery.
+
+<br>
+
 **Help you keeping up to date with O/S update**.
   * Choose when and what system get updated.
   * Choose [date and time to perform the update](/assets/img/webui/osupdate_screen.png).
@@ -62,7 +72,7 @@ templates to create new scripts and benefit of SADMIN tools.
 
 **Backup your important directories and files to a NFS server**
   * Choose what to backup, what to exclude and [how many copies to keep](/assets/img/backup/backup_options.png).
-  * Create automatically [daily, weekly, monthly and yearly](/assets/img/backup/backup_tree.png) backup.
+  * Backup directory structure automatically [daily, weekly, monthly and yearly](/assets/img/backup/backup_tree.png) created.
   * Decide when is [the right time to perform the daily backup](/assets/img/backup/backup_screen.png).
   
 <br>

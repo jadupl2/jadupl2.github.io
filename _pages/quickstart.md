@@ -1,64 +1,94 @@
 ---
-layout: posts
+layout: single
 title: Quick Start
 limit: 1
-paginate: true
+paginate: false
 show_excerpts: false
 entries_layout: list
 author_profile: true
+toc:            true
 ---
 
-## Create your own script using SADMIN library
-To create your own script using the SADMIN tools, you may want to take a look at the templates, run them and view their code.
-Check our tutorial page on using the [shell template](/_pages/man/sadm-template-sh) for a full example.
+So you just finish [installing SADMIN tools](/_pages/install) and you want to see what it can 
+bring to you. First you can take a look at the web interface at "http://yourserverIP" and you could
+run the two demo scripts "[sadmlib_std_demo.sh](/_pages/man/sadmlib-std-demo-sh)" and 
+"[sadmlib_std_demo.py](/_pages/man/sadmlib-std-demo-py)". This will give you an idea of what
+functions you have access in our Library (sadmlib_std.sh and sadmlib_std.py) and how to use them.
+You can also run our [template shell script](/_pages/man/sadm-template-sh) and 
+[python template](/_pages/man/sadm-template-py), take a look at the code, they are a good starting 
+point to create your next shell or Python script.
+{: .text-justify}
+
+
+## Meet the templates
+To create your own script using the SADMIN tools, you may want to take a look at the templates, 
+run them and check their code. Check our tutorial page on using the 
+[shell template](/_pages/man/sadm-template-sh) for a full example.
+{: .text-justify}
+
 
 ### Shell script template
-
-Running the template below, will show the kind of [output we get on the screen](/assets/img/cmdline/sadm_template_output_screen.png), but also [the log](/assets/img/cmdline/sadm_template_output_log.png) that is generated along with [Result Code History file (.rch)](/assets/img/cmdline/sadm_template_output_rch.png).
-
 {% highlight bash %}
 $SADMIN/bin/sadm_template.sh   
 {% endhighlight %} 
 
+Running the template above, will show the kind of 
+[output we get on the screen](/assets/img/cmdline/sadm_template_output_screen.png), but also 
+[the log](/assets/img/cmdline/sadm_template_output_log.png) that is generated along with 
+[Result Code History file (.rch)](/assets/img/cmdline/sadm_template_output_rch.png).
+
+
 
 ### Python script template
-
 {% highlight bash %}
 $SADMIN/bin/sadm_template.py   
 {% endhighlight %} 
 
-
-By looking at the output you will notice that we get almost the same look, this is what we wanted, standardize the usage and the output. The Shell and the Python library have almost the same functions and both react the same way.
-For example, to create your own shell script :
-
-    cp $SADMIN/bin/sadm_template.sh $SADMIN/usr/bin/newscript.sh
-
-modify it to your need, run it and see the results.
+By looking at the [script output](/assets/img/cmdline/sadm_template_py_output_screen.png) you will notice that we get almost the same look, this is what we wanted, standardize the usage and the output. The Shell and the 
+Python library have almost the same functions and both react the same way.
+{: .text-justify}
 
 
-Learn how to use SADMIN Libraries by running the demos
+## Create your own shell script
+Make a copy of one of our template, modify it to your need and run it and see the result. 
+Go an have a look at the log from the command line and from the web interface. Your script is now
+part of the web interface.
 
-    $SADMIN/bin/sadmlib_std_demo.sh (See output)
-    $SADMIN/bin/sadmlib_std_demo.py (See output)
+{% highlight bash %}
+$ cp $SADMIN/bin/sadm_template.sh $SADMIN/usr/bin/newscript.sh
+$ chmod 775 $SADMIN/usr/bin/newscript.sh
+$ $SADMIN/usr/bin/newscript.sh
+{% endhighlight %} 
 
 
-## Use SADMIN wrapper and run your existing using the SADMIN tools
+## Run existing script with the wrapper
+Use the [SADMIN wrapper](/_pages/man/sadm-wrapper) to run your existing script. 
+Afterward, look at the log it produced in "$SADMIN/log" and the history file in "$SADMIN/dat/rch". 
+You can also go to the script section on the web interface and see the same information. The web 
+interface is the central point to check your scripts logs and history file. If your script fail 
+(exit with non zero value), it will appear on the monitoring page of the web interface. If you 
+want it can also alert you when it fail or even it succeed, it is all up to you to decide 
+(See SADM_ALERT variable).
+{: .text-justify}
 
-    $SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh
+{% highlight bash %}
+$SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh
+{% endhighlight %} 
 
 
-Use the Web Interface to administrate your server farm
-The Web interface is available at http://sadmin.YourDomainName or http://YourSadminServerName
+## SADMIN libraries in action
+Learn how to use SADMIN Libraries by running the demos. Running the demo will give an idea of the
+functions available to you in your script and how to use them. In the script output, you see 
+three columns, the first shows you how to call the function, the center column give you a brief 
+description of the function and the last one give the result it returned when you ran it. 
+{: .text-justify}
 
-    For http://sadmin.YourDomainName to work, it must be define in your DNS or /etc/hosts file.
-    Use it to add, update and delete server in your server farm.
-    View performance graph of your servers up to two years in the past.
-    If you want, you can automatically update your server O/S at the time and day you scheduled.
-    Have server configuration on hand, usefull in case of a Disaster Recovery.
-    View your servers farm subnet utilization and see what IP are free to use.
-    There's still a lot more to come.
+{% highlight bash %}
+$SADMIN/bin/sadmlib_std_demo.sh 
+$SADMIN/bin/sadmlib_std_demo.py
+{% endhighlight %} 
+
+- [See pdf output](/assets/pdf/sadmlib_std_demo_sh.pdf) of the bash script "[sadmlib_std_demo.sh](/_pages/man/sadmlib-std-demo-sh)".  
+- [See pdf output](/assets/pdf/sadmlib_std_demo_py.pdf) of the Python script "[sadmlib_std_demo.py](/_pages/man/sadmlib-std-demo-py)".  
 
 This is it, you are now ready the use the SADMIN tool.
-
-## SADMIN Support
-If you ever ran into problem while installing or running the SADMIN tools, please run the 'sadm_support_request.sh', attach the resulting log to an email with a description of your problem or question and sent to support@sadmin.ca. We will get back to you as soon as possible. 
