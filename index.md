@@ -17,28 +17,28 @@ classes: wide
 If you're a Unix system administrator who is taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable. 
 With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you 
-know that your script ran with success. You can received these alerts via email, SMS or with the
+know that your script ran with success. You can received these alerts via email, SMS or the
 Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
 {: .text-justify}
 
 ![monitor](https://sadmin.ca/assets/img/index_monitor.png "SADMIN monitor page")
 
-**Monitoring your scripts is all done from one place**
+**Monitor your scripts from just one place**
 * View the [status of all your scripts](https://sadmin.ca/assets/img/webui/scripts_status.png) that run in your server farm.
 * View your script log directly from the [web interface](https://sadmin.ca/assets/img/webui/view_logs.png) or from the [command line](https://sadmin.ca/assets/img/cmdline/cat_log.png).
-* Your scripts can send alert by ['SMS/Texto'](https://sadmin.ca/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](https://sadmin.ca/assets/img/slack/slack_warning.png) or by [email](https://sadmin.ca/assets/img/mail/sysmon_mail_notification.png)  when a script failed or succeed.
+* When a script fail or succeed, can receive a notification by ['SMS/Texto'](https://sadmin.ca/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](https://sadmin.ca/assets/img/slack/slack_warning.png) or by [email](https://sadmin.ca/assets/img/mail/sysmon_mail_notification.png).
 
 
 <br>
 
 **Create/Modify your scripts using our templates**  
-* Use our [Shell](https://sadmin.ca/_pages/man/sadm-template-sh) and [Python](https://sadmin.ca/_pages/man/sadm-template-py) 
+* Use our [Shell](/_pages/man/sadm-template-sh) and [Python](_pages/man/sadm-template-py) 
 templates to create new scripts and benefit of SADMIN tools.  
-* Use [SADMIN wrapper](https://sadmin.ca/_pages/man/sadm-wrapper) and run your existing scripts using the SADMIN tools.  
+* Use [SADMIN wrapper](/_pages/man/sadm-wrapper) and *run your existing scripts using the SADMIN tools*.  
   `$SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/yourscript.sh`  
 * Starting and ending time of each script along with the exit status is recorded in a 
-[history file](https://sadmin.ca/assets/img/files/rch_file_format.png). 
+[history file](/assets/img/files/rch_file_format.png). 
 
 <br>
 
