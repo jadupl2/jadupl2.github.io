@@ -2,7 +2,7 @@
 title:          Using SADMIN Python template
 layout:         single
 date_created:   2021-03-16
-date_updated:   2021-03-16 
+date_updated:   2021-04-01 
 limit:          1
 paginate:       false
 show_excerpts:  false
@@ -21,14 +21,14 @@ The best way to learn how to use the SADMIN tools, is to create a new script as 
 We will demonstrate further down on this page, how to use the template and what are the benefits of using it.
 
 To create a Python script using the SADMIN tools you need to include these requirements in your code :
-    The setup_admin() function should appear at the beginning of your script, as in the template $SADMIN/bin/sadm_template.py.
-    It create an instance of the sadmtools() class under the name 'st' ([S]admin [T]ools).
+- The 'setup_admin()' function should appear at the beginning of your script, as in the template $SADMIN/bin/sadm_template.py.
+- It create an instance of the sadmtools() class under the name 'st' ([S]admin [T]ools).
 
 ```
 st = setup_sadmin()                         # Setup Var. & Load SADM Lib
 ```
 
-The setup_admin() function also call the SADMIN 'start' module/function, to initialize the environment.
+The setup_admin() function also call the SADMIN 'sadm_start()' module/function, to initialize the environment.
 
 
 ```
