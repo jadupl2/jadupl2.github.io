@@ -15,19 +15,19 @@ classes: wide
 
 
 If you're a Unix system administrator who is taking care of multiple servers, you probably 
-created some scripts to help you keeping your environment stable. 
-With SADMIN you can be alerted when something goes wrong, when a script fail or just to let you 
-know that your script ran with success. You can received these alerts via email, SMS or the
+created some scripts to help you keeping your environment stable and under control. 
+With SADMIN you can be notified when something goes wrong, when a script fail or just to let you 
+know that your script ran with success. You can received notification via email, SMS or the
 Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
 {: .text-justify}
 
-![monitor](https://sadmin.ca/assets/img/index_monitor.png "SADMIN monitor page")
+![monitor](/assets/img/index_monitor.png "SADMIN monitor page")
 
 **Monitor your scripts from just one place**
-* View the [status of all your scripts](https://sadmin.ca/assets/img/webui/scripts_status.png) that run in your server farm.
-* View your script log directly from the [web interface](https://sadmin.ca/assets/img/webui/view_logs.png) or from the [command line](https://sadmin.ca/assets/img/cmdline/cat_log.png).
-* When a script fail or succeed, can receive a notification by ['SMS/Texto'](https://sadmin.ca/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](https://sadmin.ca/assets/img/slack/slack_warning.png) or by [email](https://sadmin.ca/assets/img/mail/sysmon_mail_notification.png).
+* View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
+* View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
+* When a script fail or succeed, can receive a notification by ['SMS/Texto'](/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png).
 
 
 <br>
