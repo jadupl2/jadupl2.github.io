@@ -14,11 +14,11 @@ toc:            false
 classes: wide
 ---
 
-<br>
-We have included 3 templates that are ready to use :  
+
+**We have included 3 templates that are ready to use :**  
 - The [Shell script template](/_pages/man/sadm-template-sh) ($SADMIN/bin/sadm_template.sh).  
 - The [Python script template](/_pages/man/sadm-template-py) ($SADMIN/bin/sadm_template.py).    
-- The [SADMIN wrapper script](/_pages/man/sadm-wrapper) allow you to run existing script and benefit of the SADMIN tools ($SADMIN/bin/sadm_wrapper.sh).  
+- The [SADMIN wrapper script](/_pages/man/sadm-wrapper) ($SADMIN/bin/sadm_wrapper.sh) allow you to run your existing script and benefit of the SADMIN tools.  
  
 
 ### What you need to know to use the SADMIN tools library.  
@@ -29,61 +29,66 @@ We have included 3 templates that are ready to use :
 <br>
 ### The script template script include three things :
 
-    The SADMIN definition section at the beginning of your script, that set script parameters and load the Shell Library.
+The [SADMIN definition section](/assets/img/sadmin_section_sh.png) at the beginning of your script, 
+that set script parameters and load the Shell Library.  
 
-```
-#===================================================================================================
-# To use the SADMIN tools and libraries, this section MUST be present near the top of your code.
-# SADMIN Section - Setup SADMIN Global Variables and Load SADMIN Shell Library
-#===================================================================================================
 
-# MAKE SURE THE ENVIRONMENT 'SADMIN' IS DEFINED, IF NOT EXIT SCRIPT WITH ERROR.
-if [ -z $SADMIN ] || [ ! -r "$SADMIN/lib/sadmlib_std.sh" ]          # If SADMIN EnvVar not right
-    then printf "\nPlease set 'SADMIN' environment variable to the install directory."
-         EE="/etc/environment" ; grep "SADMIN=" $EE >/dev/null      # SADMIN in /etc/environment
-         if [ $? -eq 0 ]                                            # Yes it is 
+```bash
+# ---------------------------------------------------------------------------------------
+# SADMIN section - Setup for Global Variables and import SADMIN Python module
+# To use SADMIN tools module, this section MUST be present near the top of your code.    
+# ---------------------------------------------------------------------------------------
+
+# MAKE SURE THE ENVIRONMENT 'SADMIN' VARIABLE IS DEFINED, IF NOT EXIT SCRIPT WITH ERROR.
+if [ -z $SADMIN ] || [ ! -r "$SADMIN/lib/sadmlib_std.sh" ]     # If SADMIN EnvVar not right
+    then printf "\nPlease set 'SADMIN' environment variable to the install directory.\n"
+         EE="/etc/environment" ; grep "SADMIN=" $EE >/dev/null # SADMIN in /etc/environment
+         if [ $? -eq 0 ]                                       # Found SADMIN in /etc/env..
             then export SADMIN=`grep "SADMIN=" $EE |sed 's/export //g'|awk -F= '{print $2}'`
-                 printf "\n'SADMIN' Environment variable was temporarily set to ${SADMIN}."
-            else exit 1                                             # No SADMIN Env. Var. Exit
+                 printf "'SADMIN' environment variable temporarily set to ${SADMIN}.\n"
+            else exit 1                                        # No SADMIN Env. Var. Exit
          fi
 fi 
 
-# USE CONTENT OF VARIABLES BELOW, BUT DON'T CHANGE THEM (Used by SADMIN Standard Library).
-export SADM_PN=${0##*/}                             # Current Script filename(with extension)
-export SADM_INST=`echo "$SADM_PN" |cut -d'.' -f1`   # Current Script filename(without extension)
-export SADM_TPID="$$"                               # Current Script PID
-export SADM_HOSTNAME=`hostname -s`                  # Current Host name without Domain Name
-export SADM_OS_TYPE=`uname -s | tr '[:lower:]' '[:upper:]'` # Return LINUX,AIX,DARWIN,SUNOS 
+# USE VARIABLES BELOW, BUT DON'T CHANGE THEM (Used by SADMIN Standard Library).
+export SADM_PN=${0##*/}                                    # Script name(with extension)
+export SADM_INST=`echo "$SADM_PN" |cut -d'.' -f1`          # Script name(without extension)
+export SADM_TPID="$$"                                      # Script Process ID.
+export SADM_HOSTNAME=`hostname -s`                         # Host name without Domain Name
+export SADM_OS_TYPE=`uname -s |tr '[:lower:]' '[:upper:]'` # Return LINUX,AIX,DARWIN,SUNOS 
 
-# USE AND CHANGE VARIABLES BELOW TO YOUR NEEDS (They influence execution of standard library).
-export SADM_VER='2.8'                               # Your Current Script Version
-export SADM_LOG_TYPE="B"                            # Write goes to [S]creen [L]ogFile [B]oth
-export SADM_LOG_APPEND="N"                          # [Y]=Append Existing Log [N]=Create New One
-export SADM_LOG_HEADER="Y"                          # [Y]=Include Log Header  [N]=No log Header
-export SADM_LOG_FOOTER="Y"                          # [Y]=Include Log Footer  [N]=No log Footer
-export SADM_MULTIPLE_EXEC="N"                       # Allow running multiple copy at same time ?
-export SADM_USE_RCH="Y"                             # Generate Entry in Result Code History file
-export SADM_DEBUG=0                                 # Debug Level - 0=NoDebug Higher=+Verbose
-export SADM_TMP_FILE1=""                            # Temp File1 you can use, Libr will set name
-export SADM_TMP_FILE2=""                            # Temp File2 you can use, Libr will set name
-export SADM_TMP_FILE3=""                            # Temp File3 you can use, Libr will set name
-export SADM_EXIT_CODE=0                             # Current Script Default Exit Return Code
+# USE & CHANGE VARIABLES BELOW TO YOUR NEEDS (They influence execution of SADMIN Library).
+export SADM_VER='1.0'                                       # Script Version
+export SADM_EXIT_CODE=0                                     # Script Default Exit Code
+export SADM_LOG_TYPE="B"                                    # Log [S]creen [L]og [B]oth
+export SADM_LOG_APPEND="N"                                  # Y=AppendLog, N=CreateNewLog
+export SADM_LOG_HEADER="Y"                                  # Y=IncludeHeader N=NoHeader
+export SADM_LOG_FOOTER="Y"                                  # Y=IncludeFooter N=NoFooter
+export SADM_MULTIPLE_EXEC="N"                               # Run Simultaneous copy ?
+export SADM_PID_TIMEOUT=7200                                # Sec. PIDfile no script exec
+export SADM_LOCK_TIMEOUT=3600                               # Sec. before Del. LockFile
+export SADM_USE_RCH="Y"                                     # Update RCH HistoryFile 
+export SADM_DEBUG=0                                         # Debug Level(0-9) 0=NoDebug
+export SADM_TMP_FILE1="${SADMIN}/tmp/${SADM_INST}_1.$$"     # Tmp File1 for you to use
+export SADM_TMP_FILE2="${SADMIN}/tmp/${SADM_INST}_2.$$"     # Tmp File2 for you to use
+export SADM_TMP_FILE3="${SADMIN}/tmp/${SADM_INST}_3.$$"     # Tmp File3 for you to use
 
-. ${SADMIN}/lib/sadmlib_std.sh                      # Load Standard Shell Library Functions
-export SADM_OS_NAME=$(sadm_get_osname)              # O/S in Uppercase,REDHAT,CENTOS,UBUNTU,...
-export SADM_OS_VERSION=$(sadm_get_osversion)        # O/S Full Version Number  (ex: 7.6.5)
-export SADM_OS_MAJORVER=$(sadm_get_osmajorversion)  # O/S Major Version Number (ex: 7)
+# LOAD SADMIN SHELL LIBRARY AND SET SOME O/S VARIABLES.
+. ${SADMIN}/lib/sadmlib_std.sh                              # LOAD SADMIN Shell Library
+export SADM_OS_NAME=$(sadm_get_osname)                      # O/S Name in Uppercase
+export SADM_OS_VERSION=$(sadm_get_osversion)                # O/S Full Ver.No. (ex: 9.0.1)
+export SADM_OS_MAJORVER=$(sadm_get_osmajorversion)          # O/S Major Ver. No. (ex: 9)
 
-#---------------------------------------------------------------------------------------------------
-# Values of these variables are loaded from SADMIN config file ($SADMIN/cfg/sadmin.cfg file).
-# They can be overridden here, on a per script basis (if needed).
-#export SADM_ALERT_TYPE=1                           # 0=None 1=AlertOnErr 2=AlertOnOK 3=Always
-#export SADM_ALERT_GROUP="default"                  # Alert Group to advise (alert_group.cfg)
-#export SADM_MAIL_ADDR="your_email@domain.com"      # Email to send log (To override sadmin.cfg)
-#export SADM_MAX_LOGLINE=500                        # When script end Trim log to 500 Lines
-#export SADM_MAX_RCLINE=35                          # When script end Trim rch file to 35 Lines
-#export SADM_SSH_CMD="${SADM_SSH} -qnp ${SADM_SSH_PORT} " # SSH Command to Access Server 
-#===================================================================================================
+# VALUES OF VARIABLES BELOW ARE LOADED FROM SADMIN CONFIG FILE ($SADMIN/cfg/sadmin.cfg)
+# THEY CAN BE OVERRIDDEN HERE, ON A PER SCRIPT BASIS (IF NEEDED).
+#export SADM_ALERT_TYPE=1                                    # 0=No 1=OnError 2=OnOK 3=Always
+#export SADM_ALERT_GROUP="default"                           # Alert Group to advise
+#export SADM_MAIL_ADDR="your_email@domain.com"               # Email to send log
+#export SADM_MAX_LOGLINE=500                                 # Nb Lines to trim(0=NoTrim)
+#export SADM_MAX_RCLINE=35                                   # Nb Lines to trim(0=NoTrim)
+#export SADM_SSH_CMD="${SADM_SSH} -qnp ${SADM_SSH_PORT} "    # SSH CMD to Access Server
+# ---------------------------------------------------------------------------------------
+
 ```   
 
 ## The call to the 'sadm_start' function to initialize SADMIN environment.

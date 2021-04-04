@@ -98,7 +98,7 @@ Install using the downloaded 'tgz' file
 
 After running the setup script, you need to log out and log back in before using SADMIN Tools or type the command below.  
 
-    `sudo . /etc/profile.d/sadmin.sh`   
+`sudo . /etc/profile.d/sadmin.sh`   
 This will make sure "SADMIN" environment variable is define (The dot and the space are important).  
 
 [Back To The Top](#top_of_page)
