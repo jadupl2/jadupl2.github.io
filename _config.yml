@@ -97,7 +97,8 @@ analytics:
 # Site Author
 author:
   name             : "SADMIN"
-  avatar           : assets/img/logo/sadmin_logo.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+#  avatar           : assets/img/logo/sadmin_logo.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : assets/img/author.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "SysAdmin Tools"
   location         : "Quebec, Canada"
   email            : 
