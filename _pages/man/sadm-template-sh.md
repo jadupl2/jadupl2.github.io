@@ -38,13 +38,13 @@ any SADMIN database information. By default, the 'main_process()' is activated, 
 which one you need for the script you're starting.  
 ![sadm_template_sh_main_process.png](/assets/img/sadm_template_sh_main_process.png "main_process() Template functions")
 
-- The '**process_servers()**' can be use where you need to perform action based on the content 
-of the server database. This function, demonstrate how to access the information in the 
-server database. It actually build a list of all active server (active field set to true) and 
-test the 'ssh' to each of the servers. To use it, just remove the '#' in front of the 
-'process_server' line. Running the script won't harm anything, so can run it to see it in action.
+- In the Shell Script template, you will also find a function that demonstrate how to access the 
+information in the server database. The '**process_servers()**' can be use when you need to 
+perform action based on the content of the server database. It actually build a list of all 
+active systems (active field set to true) and test the 'ssh' to each of the servers. To use it, 
+just remove the '#' in front of the 'process_server' line. Running the script won't harm 
+anything, so can run it to see it in action.
 {: .text-justify}
-
 
 
 <br>
@@ -134,36 +134,60 @@ SADMIN section.
     ```bash
     export SADM_LOG_FOOTER="N"      # [Y]=Include Log Footer [N]=No log Footer
     ```
-- The first line is a separator line that signal the end of the script and the beginning of the footer output.
-- The second line show the exit code of the script (0=Success 1=Error).
-- The third one, show the execution time of the script (HH:MM:SS).
-- The fourth line show the name of the [R]eturn [C]ode [H]istory file and the maximum of lines, you decided to have in it.
-- The default for the maximum number of lines to keep in the RCH file is taken from the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).   
+- The second line show the exit code of the script (0=Success 1=Error), the next line show 
+the execution time of the script (HH:MM:SS).
+- The fourth line show the name of the [R]eturn [C]ode [H]istory file and the maximum of lines, 
+you decided to have in it. The default maximum number of lines to keep in the RCH file is 
+taken from the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).   
     ```bash
     SADM_MAX_RCHLINE=125
     ```
-- You can override this value for your script by changing the value of the variable below in the SADMIN Section of the script.  
+- You can override this value for your script by changing the value of the variable in the 
+SADMIN Section.  
     ```bash
     export SADM_MAX_RCLINE=100      # When Script End Trim rch file to 125 Lines  
     ``` 
-- The next line inform you if an alert will be send or not.
-- The next line show the log file name and the maximum of lines, you decided to have in it.
-- The default for the maximum number of lines to keep in the log file is taken from the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).  
-    `SADM_MAX_LOGLINE=2000`   
-- You can override this value for your script by changing the value of the variable below in the SADMIN Section of the script.  
-    `export SADM_MAX_LOGLINE=1000       # At end of script Trim log to 1000 Lines`   
-- The last two lines indicate the ending date and time of the script and a final line consisting of eighty equal sign '='.
+- The next lines inform you if an alert will be send or not, the log file name and the maximum 
+of lines, you decided to have in it. 
+- The default for the maximum number of lines to keep in the log file is taken from the SADMIN 
+configuration file ($SADMIN/cfg/sadmin.cfg).  
+    ```bash
+    SADM_MAX_LOGLINE=2000
+    ```  
+- You can override this value for your script by changing the value of the variable below in the 
+SADMIN Section.  
+    ```bash
+    export SADM_MAX_LOGLINE=1000       # At end of script Trim log to 1000 Lines
+    ```
+- The last two lines indicate the ending date and time of the script.
 
- 
-## A [R]esult [C]ode [H]istory file was created
 
+## The [R]esult [C]ode [H]istory file
 - Every time you run a script that's using the SADMIN Tools, there is a RCH file created or updated.
-- The RCH file is created in the SADMIN data directory '$SADMIN/dat/rch'.
-- The RCH file name is prefix by the hostname, followed by the script name and have an extension of '.rch'
-- In our example, we are on a host named 'holmes', the script name is 'helloWorld', so the RCH file name is 'holmes_helloWorld.rch'.
-- The SADMIN server collect every rch files that changed from every SADMIN client every 5 minutes (via a rsync).
-- The information included in this file will be visible from the Web interface and on the command line.
-- It could also be used to trigger an alert, if it were requested.
+- The **RCH file are created in the SADMIN data directory '$SADMIN/dat/rch'**.
+- The RCH file name is prefix by the hostname, followed by the script name and have an extension 
+of '.rch'. In our example, we are on a host named 'holmes', the script name is 'helloWorld', so 
+the RCH file name is 'holmes_helloWorld.rch'. 
+- The SADMIN server collect every '*.rch' files that changed from every SADMIN client every 
+5 minutes (via a rsync). Information included in this file will be visible from the Web interface 
+and from the command line. It is also be used to trigger an alert, if it were requested.
+- If you created an interactive script and you don't care about the exit code, you can disable 
+usage of the RCH file.
+  - In this situation, you can set variable 'SADM_USE_RCH' to 'N' in the 
+[SADMIN definition section](/assets/img/sadmin_section_sh.png) of the script.  
+    `export SADM_USE_RCH="N"        # Generate Entry in Result Code History file`     
+  - The default maximum number of lines to keep in the '.rch' file is taken from the SADMIN 
+configuration file ($SADMIN/cfg/sadmin.cfg).   
+    ```SADM_MAX_RCHLINE=125```   
+- You can override this default by changing 'SADM_MAX_RCLINE' variable in the SADMIN Section of your script.   
+    `export SADM_MAX_RCLINE=125     # When Script End Trim rch file to 125 Lines`    
+  - By default the RCH file is trim at the end of each execution (Unless 'SADM_MAX_RCLINE' is set to 0.).
+
+**Example of a [R]esult [C]ode [H]istory file**   
+![rch_file_format.png](/assets/img/files/rch_file_format.png "SADMIN rch_file_format"){: .align-center}
+
+
+## A [R]esult [C]ode [H]istory file was created
 - If you created an interactive script and you don't care about the exit code, you can disable usage of the RCH file.
 - In this situation, you can set variable 'SADM_USE_RCH' to 'N' in the SADMIN Section of the script.  
     `export SADM_USE_RCH="Y"        # Generate Entry in Result Code History file`   
@@ -176,7 +200,7 @@ SADMIN section.
 
  
 
-## A log file was created
+## The script log file
 
 - When a script is run that's using the SADMIN Tools, there is a log file created or updated.
 - Log are created in the $SADMIN/log directory.
@@ -192,38 +216,33 @@ SADMIN section.
 - You can override this default by changing 'SADM_MAX_LOGLINE' variable in the SADMIN Section of your script.  
     `export SADM_MAX_LOGLINE=1000   # At end of script Trim log to 1000 Lines`   
 
-    The log file file that was created
+### The log file file that was created  
+![sadm_template_sh_30.png](/assets/img/sadm_template_sh_30.png "Log Output Example"){: .align-left}   
 
 
-RCH and log file can be viewed from the Web interface
+### RCH and log file can be viewed from the Web interface  
+![sadm_template_sh_34.png](/assets/img/sadm_template_sh_34.png "Web view of example script"){: .align-left}  
 
-    Web view of our helloWorld script
+### Web view of the log  
+![sadm_template_sh_42.png](/assets/img/sadm_template_sh_42.png "Web view of script log"){: .align-left}  
 
-
-    Viewing the RCH file from the web interface
-
-
-    Viewing the script log from the web interface
-
-
-    Viewing all your servers scripts results on the terminal
+### Web view of the RCH file   
+![sadm_template_sh_38.png](/assets/img/sadm_template_sh_38.png "Web view of script rch file"){: .align-left}  
 
 
- 
-Controlling the script Header and Footer output
+### Viewing all systems "*.rch' scripts results on the terminal  
+```bash
+# srch  
+```
+![sadm_template_sh_45.png](/assets/img/sadm_template_sh_45.png "Command line view of our scripts"){: .align-left}   
 
-    To suppress header/footer from log and screen, change "SADM_LOG_FOOTER" and "SADM_LOG_HEADER" variable from "Y" to "N".
+<br> 
+## Controlling the script Header and Footer output
 
+To suppress header/footer from log and screen, change "**SADM_LOG_FOOTER**" and 
+"**SADM_LOG_HEADER**" variable from "Y" to "N".   
+![sadm_template_sh_20.png](/assets/img/sadm_template_sh_20.png "Portion of SADMIN Section"){: .align-left}  
 
-    We can see now the header and footer doesn't appear anymore on the screen and in the log of the script.
-    . 
-
-
-
-Accessing the server database
-
-
-
-
-
-I hope this page was useful for you. 
+<br>
+As you can see now the header and footer doesn't appear anymore on the screen (and in the log of the script).  
+![sadm_template_sh_24.png](/assets/img/sadm_template_sh_24.png "Output with No Header & Footer"){: .align-center}  

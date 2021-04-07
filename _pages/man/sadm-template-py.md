@@ -54,7 +54,7 @@ We can divide the output of the screen in three section. We have the *Header*, t
 
 {% include {{ page.sadm_header_footer }} %}
 
-## A [R]esult [C]ode [H]istory file was created
+## The [R]esult [C]ode [H]istory file
 - Every time you run a script that's using the SADMIN Tools, by default there is a RCH file 
 created or updated.
 - The **RCH file are created in the SADMIN data directory '$SADMIN/dat/rch'**.
