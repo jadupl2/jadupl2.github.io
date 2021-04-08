@@ -13,6 +13,7 @@ categories:         alert
 toc:                false
 classes:            wide
 sadm_section_sh:    sadm/sadm_section_sh.md
+sadm_file_rch:      sadm/sadm_rch_file.md
 ---
 
 <br>
@@ -50,8 +51,12 @@ anything, so can run it to see it in action.
 <br>
 ### The template script include three things
 
-1- The [SADMIN definition section](/assets/img/sadmin_section_sh.png) at the beginning of the 
-template, that set script variables and load the Shell Library.  
+1- The [SADMIN definition section](#sadmin_shell_section)
+You will find near the beginning of the template shell script, a code section that is require to
+use the SADMIN tools, we will call it the 'SADMIN Section'. This is where defined and set 
+variables that will influence the behavior of the library. Of course you can use them within 
+your script. This is where the shell library is loaded. for a list of all the library functions
+and variables that are available to you, please visit the [Shell Library page](/_pages/man/sadmlib_std_sh).
 
 {% include {{ page.sadm_section_sh }} %}
 
@@ -117,7 +122,7 @@ export SADM_LOG_TYPE="B"             # Write goes to [S]creen [L]ogFile [B]oth`
     export SADM_LOG_HEADER="Y"      # Y=ProduceLogHeader N=NoHeader`  
     ```
 - The second line of the header show the date, the script name and version and the SADMIN library version.
-  - You set your script version number in the [SADMIN section](/assets/img/sadmin_section_sh.png) of the script. 
+  - You set your script version number in the [SADMIN section](#sadmin_shell_section) of the script. 
     ```bash
     export SADM_VER='1.0'           # Your Current Script Version`  
     ```
@@ -162,55 +167,25 @@ SADMIN Section.
 - The last two lines indicate the ending date and time of the script.
 
 
-## The [R]esult [C]ode [H]istory file
-- Every time you run a script that's using the SADMIN Tools, there is a RCH file created or updated.
-- The **RCH file are created in the SADMIN data directory '$SADMIN/dat/rch'**.
-- The RCH file name is prefix by the hostname, followed by the script name and have an extension 
-of '.rch'. In our example, we are on a host named 'holmes', the script name is 'helloWorld', so 
-the RCH file name is 'holmes_helloWorld.rch'. 
-- The SADMIN server collect every '*.rch' files that changed from every SADMIN client every 
-5 minutes (via a rsync). Information included in this file will be visible from the Web interface 
-and from the command line. It is also be used to trigger an alert, if it were requested.
-- If you created an interactive script and you don't care about the exit code, you can disable 
-usage of the RCH file.
-  - In this situation, you can set variable 'SADM_USE_RCH' to 'N' in the 
-[SADMIN definition section](/assets/img/sadmin_section_sh.png) of the script.  
-    `export SADM_USE_RCH="N"        # Generate Entry in Result Code History file`     
-  - The default maximum number of lines to keep in the '.rch' file is taken from the SADMIN 
-configuration file ($SADMIN/cfg/sadmin.cfg).   
-    ```SADM_MAX_RCHLINE=125```   
-- You can override this default by changing 'SADM_MAX_RCLINE' variable in the SADMIN Section of your script.   
-    `export SADM_MAX_RCLINE=125     # When Script End Trim rch file to 125 Lines`    
-  - By default the RCH file is trim at the end of each execution (Unless 'SADM_MAX_RCLINE' is set to 0.).
+{% include {{ page.sadm_file_rch }} %}
 
-**Example of a [R]esult [C]ode [H]istory file**   
-![rch_file_format.png](/assets/img/files/rch_file_format.png "SADMIN rch_file_format"){: .align-center}
-
-
-## A [R]esult [C]ode [H]istory file was created
-- If you created an interactive script and you don't care about the exit code, you can disable usage of the RCH file.
-- In this situation, you can set variable 'SADM_USE_RCH' to 'N' in the SADMIN Section of the script.  
-    `export SADM_USE_RCH="Y"        # Generate Entry in Result Code History file`   
-- By default the RCH file is trim at the end of each execution (Unless specified otherwise SADM_USE_RCH="N").
-- The RCH file is trim to the number of line specified in $SADMIN/cfg/sadmin.cfg by the variable 'SADM_MAX_RCHLINE'.
-- You can override this default by changing 'SADM_MAX_RCLINE' variable in the SADMIN Section of your script.   
-    `export SADM_MAX_RCLINE=125     # When Script End Trim rch file to 125 Lines`    
-
-    The [R]esult [C]ode [H]istory file that was created
-
- 
 
 ## The script log file
 
-- When a script is run that's using the SADMIN Tools, there is a log file created or updated.
-- Log are created in the $SADMIN/log directory.
-- The log file name is prefix by the hostname, followed by the script name and have an extension of '.log'
-- In our example, we are on a host named 'holmes', the script name is 'helloWorld', so the log name is 'holmes_helloWorld.log'.
-- The SADMIN server collect every log files that changed from every SADMIN client every 5 minutes (via a rsync).
+- When a script using the SADMIN Tools is executed, there is a log file that is created or updated.
+All scripts logs are created in the "**$SADMIN/log**" directory.
+The log file name is prefix by the host name, an underscore and  followed by the script name 
+and have an extension of '.log'. For example, if the host name is '*holmes*', the script name 
+is '*helloWorld*', then the log name will be '*holmes_helloWorld.log*'.
+{: .text-justify}
+- The SADMIN server collect every log files created or modified from every clients at regular 
+interval (every 5min via a cron job in /etc/cron.d/sadm_server). It is one of the responsibility 
+of script '[sadm_fetch_client.sh](/_pages/man/sadm_fetch_client)' to transfer any logs changed 
+to the SADMIN server. 
 - The log of a script can be cumulative or a new one can be created at each execution.
-- The default in the template is set to created a new log file at each execution (SADM_LOG_APPEND="N")
-- But if you want your script log to be cumulative, then set the SADM_LOG_APPEND="Y" to "Y".  
-    `export SADM_LOG_APPEND="Y"     # [Y]=Append Existing Log [N]=Create New One`   
+  - The default in the template is set to created a new log file at each execution (SADM_LOG_APPEND="N")
+  - But if you want your script log to be cumulative, then set the SADM_LOG_APPEND="Y" to "Y".  
+        `export SADM_LOG_APPEND="Y"     # [Y]=Append Existing Log [N]=Create New One`   
 - By default the log file is trim at the end of each execution.
 - The log file is trim to the number of line specified in $SADMIN/cfg/sadmin.cfg by the variable 'SADM_MAX_LOGLINE'.
 - You can override this default by changing 'SADM_MAX_LOGLINE' variable in the SADMIN Section of your script.  
