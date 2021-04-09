@@ -1,20 +1,29 @@
 ## The [R]esult [C]ode [H]istory (.rch) file
 
-### The RCH file format
-The Result Code History file, is a simple text file used to record some information and 
-statistics at the end of each script. With the information included in this file we can see
-the date and time the script was started, when it ended and did it finish with success or failure.
-We can also determine if a notification should be sent, who to send it and how to send it with
+### The History (*.rch) file format
+The Result Code History file, is a simple text file that is automatically created by the SADMIN
+Tools at the end of the execution of a script. It is use to record some information and 
+statistics at the end of each script. Included in this file, is the date and time the script 
+was started, when it ended and did it finish with success or failure. With this file we can 
+also determine if a notification should be sent, who to send it and how to send it with
 the use of the alert group included on the line. 
 Below is an example of what a RCH file look like.
 {: .text-justify}
-```
+
+```bash
+$ cat $SADMIN/dat/rch/holmes_sadm_template.rch
 holmes 2021.04.05 13:32:18 2021.04.05 13:32:22 00:00:04 sadm_template default 1 0
+$ 
 ```
+
+| System| Start Date | Start Time | End Date | End Time | Elapse | Script Name | Alert Group | Alert Type |Status|   
+| :---  | :---       | :---   | :---       | :---    | :---    | :---         | :---     | :---:   | :---: |  
+| holmes| 2021.04.05 |13:32:18| 2021.04.05 |13:32:22 |00:00:04 |sadm_template |default   | 1      | 0 |  
+
 First we have the *host name* where the script was executed, then the *date and time it started and
 finished*, followed by the *elapse execution time* of the script. The seventh field is the *script
 name* (without extension) and then the *alert group* that the notification (alert) would be sent. 
->The ninth field is the *alert type*, it determine what to do with the success or the failure of the script.   
+>The *alert type* is the ninth field, it dictate the action to do base on the success or failure of the script.   
 > '0' mean never send an alert, whether the script was a success or not.  
 > '1' mean if the script terminated with an error, send an alert.  
 > '2' mean if the script terminated with success, send an alert.  
@@ -34,15 +43,19 @@ By default, every time you execute a script that's using the SADMIN Tools, there
 line is added to the history file. If the file doesn't exist it will be created. If the script 
 failed, normally you get a notification (alert) by email, by SMS or by Slack. There are time when
 you don't want to be alerted whatever the result of a script is. For example, if you created an 
-interactive script you may not care about the exit code, you can then disable usage of the RCH file. 
-In this situation, you can set variable '**SADM_USE_RCH**' to 'N' in the 
+interactive script you may not care about the exit code, you can then disable usage of the RCH file.  
+Within the shell script you can set variable '**SADM_USE_RCH**' to 'N' in the 
 [SADMIN definition section](#sadmin_shell_section) of the script.  
 {: .text-justify}
 
 ```bash
 export SADM_USE_RCH="N"  # Generate or not Entry in Result Code History file`  
 ```  
-
+Within a Python script set attribute '**st.use_rch**' to 'False' in the 
+[SADMIN definition section](/assets/img/sadmin_section_py.png) of the script.   
+```python
+st.use_rch = False             # Generate entry in Result Code History (.rch)
+```
 
 ### The History file name convention
 
@@ -78,17 +91,34 @@ from the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).
 SADM_MAX_RCHLINE=35
 ```   
 
-You can override this default by changing '**SADM_MAX_RCLINE**' variable in the [SADMIN definition section](#sadmin_shell_section) of your script.   
+You can override this default by setting the maximum number of line to trim directly in your script 
+by changing the associated variable.
+
+In a shell script you change the value of the variable '**SADM_MAX_RCLINE**'
 
 ```bash
 `export SADM_MAX_RCLINE=31     # When Script End Trim rch file to 31 lines   
 ```
 
-If you don't want to trim the history file for a particular script, then set the '**SADM_MAX_RCLINE**' 
-variable to '0' in the [SADMIN definition section](#sadmin_shell_section) .   
+In a Python script you change the value of the '**st.cfg_max_rchline**' attribute.
 
+```python
+st.cfg_max_rchline  = 31    # When Script End Trim rch file to 31 Lines
+```
+
+In a shell script, to prevent the '.rch' file from being trimmed, set the value of the variable 
+'**SADM_MAX_RCLINE**' to '0'.
+
+In a bash script :  
 ```bash
-export SADM_MAX_RCLINE=0       # Don't trim the history file (.rch) 
+export SADM_MAX_RCLINE=0   # Don't trim the history file (.rch) 
+```
+
+In Python, to prevent the '.rch' file from being trimmed, change the value of the 
+'**st.cfg_max_rchline**' attribute to '0'.
+
+```python
+st.cfg_max_rchline  = 0    # Don't trim the history file (.rch) 
 ```
 
 ### [R]esult [C]ode [H]istory File Summary

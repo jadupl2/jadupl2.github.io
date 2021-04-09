@@ -13,6 +13,7 @@ categories:             template
 toc:                    false
 classes:                wide
 sadm_header_footer:     sadm/log_header_footer.md
+sadm_file_rch:          sadm/sadm_rch_file.md
 ---
 
 ## What you need to know to use the SADMIN tools library
@@ -54,31 +55,7 @@ We can divide the output of the screen in three section. We have the *Header*, t
 
 {% include {{ page.sadm_header_footer }} %}
 
-## The [R]esult [C]ode [H]istory file
-- Every time you run a script that's using the SADMIN Tools, by default there is a RCH file 
-created or updated.
-- The **RCH file are created in the SADMIN data directory '$SADMIN/dat/rch'**.
-- The RCH file name is prefix by the hostname, followed by the script name and have an extension 
-of '.rch'. In our example, we are on a host named 'holmes', the script name is 'helloWorld', so 
-the RCH file name is 'holmes_helloWorld.rch'. 
-- The SADMIN server collect every '*.rch' files that changed from every SADMIN client every 
-5 minutes (via a rsync). Information included in this file will be visible from the Web interface 
-and from the command line. It is also be used to trigger an alert, if it were requested.
-- If you created an interactive script and you don't care about the exit code, you can disable 
-usage of the RCH file.
-  - In this situation, set attribute '**st.use_rch**' to 'False' in the 
-[SADMIN definition section](/assets/img/sadmin_section_sh.png) of the script.   
-    ```st.use_rch = False             # Generate entry in Result Code History (.rch)```   
-  - The default maximum number of lines to keep in the '.rch' file is taken from the SADMIN 
-configuration file ($SADMIN/cfg/sadmin.cfg).   
-    ```SADM_MAX_RCHLINE=125```   
-  - You can override this default by changing '**st.cfg_max_rchline**' attribute in the SADMIN 
-Section of your script.
-    ```st.cfg_max_rchline  = 125      # When Script End Trim rch file to 125 Lines```   
-  - By default the RCH file is trim at the end of each execution (Unless 'st.use_rch' is set to 'False').
-
-**Example of a [R]esult [C]ode [H]istory file**   
-![rch_file_format.png](/assets/img/files/rch_file_format.png "SADMIN rch_file_format"){: .align-center}
+{% include {{ page.sadm_file_rch }} %}
 
 
 
