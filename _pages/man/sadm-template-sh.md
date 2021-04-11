@@ -97,6 +97,7 @@ This directory ($SADMIN/usr) will never be modified by newer version of SADMIN.
 To create our first 'Hello World' shell script using SADMIN tools, with the editor of your 
 choice just add the line below in the function called 'main_process()' of your new 
 script "helloWorld.sh".
+
 ```bash
 sadm_write "Hello World\n"
 ```
@@ -182,7 +183,6 @@ As you can see now the header and footer doesn't appear anymore on the screen (a
 
 <br>
 {% include {{ page.sadm_file_rch }} %}
-
 
 
 

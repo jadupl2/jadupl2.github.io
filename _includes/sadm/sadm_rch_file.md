@@ -92,34 +92,32 @@ SADM_MAX_RCHLINE=35
 ```   
 
 You can override this default by setting the maximum number of line to trim directly in your script 
-by changing the associated variable.
+by changing the associated variable.  
 
-In a shell script you change the value of the variable '**SADM_MAX_RCLINE**'
-
+*In a Shell script* you change the value of the variable '**SADM_MAX_RCLINE**'
 ```bash
 `export SADM_MAX_RCLINE=31     # When Script End Trim rch file to 31 lines   
 ```
 
-In a Python script you change the value of the '**st.cfg_max_rchline**' attribute.
+*In a Python script* you change the value of the '**st.cfg_max_rchline**' attribute.
 
 ```python
-st.cfg_max_rchline  = 31    # When Script End Trim rch file to 31 Lines
+st.cfg_max_rchline  = 31       # When Script End Trim rch file to 31 Lines
 ```
-
-In a shell script, to prevent the '.rch' file from being trimmed, set the value of the variable 
-'**SADM_MAX_RCLINE**' to '0'.
-
-In a bash script :  
+<br>
+Preventing the history from being trim in a Shell script, can be done by setting the value of 
+the variable '**SADM_MAX_RCLINE**' to '0'.
 ```bash
 export SADM_MAX_RCLINE=0   # Don't trim the history file (.rch) 
 ```
 
-In Python, to prevent the '.rch' file from being trimmed, change the value of the 
-'**st.cfg_max_rchline**' attribute to '0'.
+Preventing the history from being trim in a Python script, can be done by changing the value of 
+the '**st.cfg_max_rchline**' attribute to '0'.
 
 ```python
 st.cfg_max_rchline  = 0    # Don't trim the history file (.rch) 
 ```
+
 
 ### [R]esult [C]ode [H]istory File Summary
 

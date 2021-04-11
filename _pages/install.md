@@ -8,7 +8,6 @@ entries_layout: list
 author_profile: true
 tags:           sadm_daily_report script 
 categories:     manpage scripts 
-classes: wide
 toc:            true
 ---
 
@@ -103,32 +102,9 @@ This will make sure "SADMIN" environment variable is define (The dot and the spa
 
 [Back To The Top](#top_of_page)
 
+<br>
 
+---
 
-## Update to the latest release  
-
-### Method 1  
-Use the 'git pull' command (Recommended)
-
-To always get the latest version of SADMIN, use the 'git pull' command (recommended).
-```bash
-    # cd $SADMIN
-    # /opt/sadmin# git pull origin master
-    From https://github.com/jadupl2/sadmin
-    * branch            master     -> FETCH_HEAD
-    Updating 1f8e79d..38034ee
-    Fast-forward
-    bin/sadm_uninstall.sh | 16 +++++++++-------
-    1 file changed, 9 insertions(+), 7 deletions(-)
-```
-
-### Method 2  
-**Use SADMIN updater**  
-Update your system using the SADMIN updater (sadm_updater.sh).
-We have a dedicated section for the updater in our manual, take a look at it.
-
-### SADMIN Support  
-Should you ran into problem while installing or running the SADMIN tools, please run the 
-'sadm_support_request.sh', attach the resulting log to an email with a description of your 
-problem or question and sent it to [sadmlinux@gmail.com](mailto:sadmlinux@gmail.com). 
-We will get back to you as soon as possible.  
+### Updating SADMIN Tools
+To update to the latest version of SADMIN, see our [Update SADMIN Tools page](/_pages/man/sadm_update)
