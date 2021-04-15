@@ -48,17 +48,16 @@ templates to create new scripts and benefit of SADMIN tools.
 * Add, [update](/assets/img/webui/server_static_info.png) or delete system in your inventory.
 * It collect [system configuration](/assets/img/webui/server_information.png) and [performance data](/assets/img/perfo/rrd_update_cpu_graph.png) of your systems.
 * Access all this information from a [web interface](/assets/img/webui/main_screen.png) or from the command line.
-* View your servers farm [subnet utilization](/assets/img/webui/view_subnet.png) and see what IP are free to use.  
+* View your systems farm [subnet utilization](/assets/img/webui/view_subnet.png) and see what IP are free to use.  
 
 ![SubnetInfo](/assets/img/webui/view_subnet.png "SADMIN Subnet Information")
 
 
 
 ## Web Interface to administrate your systems
-The web interface is available at http://YourSadminServerName  
 * Use it to add, update and delete server in your server farm.
-* View performance graph of your servers up to two years in the past.
-* Have your servers configuration on hand, useful in case of a Disaster Recovery.
+* View [performance graph of your servers up to two years in the past](assets/img/perfo/sadm_perf_adhoc.png).
+* Have your systems configuration on hand, useful in case of a Disaster Recovery.
 * View all your scripts logs and history files from the web interface.
 
 
@@ -67,7 +66,9 @@ The web interface is available at http://YourSadminServerName
 * Choose when and what system are updated.
 * Choose [date and time to perform the update](/assets/img/webui/osupdate_screen.png).
 * Choose to reboot or not your system after the update.
-* Choose to be notify by 'Slack', SMS or Email if something goes wrong.
+* Choose to be notify by ['SMS/Texto'](/assets/img/sms/textbelt_step10_sms_receive.png), 
+['Slack'](/assets/img/slack/slack_warning.png) or by 
+[email](/assets/img/mail/sysmon_mail_notification.png) if something goes wrong.
 
 
 
