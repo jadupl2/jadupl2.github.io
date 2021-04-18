@@ -1,17 +1,18 @@
 ---
 title:          sadm_daily_report.sh
-layout:         single
-date_created:   2008-02-11
-date_updated:   2009-02-12 
+layout:         posts
+date_created:   2021-04-01
+date_updated:   2009-04-02 
 limit:          1
 paginate:       false
 show_excerpts:  false
 entries_layout: list
 author_profile: true
-
-tags:           sadm_daily_report script 
-categories:     manpage scripts 
+search:         true
+tags:           [ sadm_daily_report, script ] 
+categories:     [ manpage, scripts ] 
 toc:            true
+classes : wide
 ---
 
 Date created : {{ page.date_created }}
@@ -32,13 +33,13 @@ If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMI
 If one of the three report is not desired, you can use the '-r', '-b' or the '-s' command line switch to disable the desired report (email). Note that only the actives systems will appear on these reports.  
 
 ### The scripts report:
-![Daily Script Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_script.png)
+![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png)
   - The running scripts are listed first, then the scripts that terminated with an error and finally all the scripts grouped by system. So it give you view of the statistics of each script (start time, end time, elapse time,...) of each systems sorted and grouped by name. When something look different than the normal, like the alert group used is different than the default group or the last execution date of a script is more than thirty days, it will be shown with a yellow background. 
   - You can also view the log of each script just by clicking on the script name. 
   - The same report is also accessible in the heading of any of the "Scripts Status" web pages.  
 
 ### The Daily backup report:
-![Daily Backup Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_backup.png)
+![Daily Backup Report Example](/assets/img/man/sadm_daily_report_backup.png)
   - This report present the last execution statistics of all the daily backup script (sadm_backup.sh) for each systems. Since the daily backup should have been taken during the night, they should all have the same execution date. If this is not the case, then the execution date cell will have a yellow background, to advise you that there may be a problem with the backup on that system. 
   - The daily backup report is also accessible in the heading of the "Daily Backup Status" web page.  
   - If you want to change the backup schedule of a particular system, just click on the "Schedule Activated" cell of the desired system.
@@ -46,7 +47,7 @@ If one of the three report is not desired, you can use the '-r', '-b' or the '-s
 
 
 ### The [Rear](https://relax-and-recover.org/) system image backup:
-![Daily ReaR Image Backup Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_rear.png)
+![Daily ReaR Image Backup Report Example](/assets/img/man/sadm_daily_report_rear.png)
   - The [ReaR](https://relax-and-recover.org/) report, show you the last ReaR backup execution result of each systems.
   - If a backup last execution date is older than 7 days, the date cell of that backup will have a yellow background. If the current backup size and the  previous backup differ than more than 50% they will have a yellow background as well. This may tell you that your backup have greater than expected and you may want to take a look at it.
   - If you want to change the backup schedule of a particular system just click on the "Schedule Activated" cell of the desired system.  

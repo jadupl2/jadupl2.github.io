@@ -4,15 +4,19 @@ main:
     url: /
   - title: "Download"
     url: /_pages/download/
-  - title: "Quick-Start"
-    url: /_pages/quickstart/
   - title: "Install"
     url: /_pages/install/
+  - title: "Quick-Start"
+    url: /_pages/quickstart/
+  - title: "Categories"
+    url: /_pages/categories/
+  - title: "Tags"
+    url: /_pages/tags/
   - title: "Contact"
     url: /_pages/contact/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
-  # - title: "Sitemap"
+  #- title: "Sitemap"
   #   url: /sitemap/
