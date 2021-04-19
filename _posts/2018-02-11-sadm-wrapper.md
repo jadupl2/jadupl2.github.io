@@ -1,30 +1,20 @@
 ---
-title:          sadm_wrapper.sh
-layout:         single
-date_created:   2018-02-11
-date_updated:   2021-03-12 
-version:        1.6
-limit:          1
-paginate:       false
-show_excerpts:  false
-entries_layout: list
-author_profile: true
-classes:        wide
-tags:           sadm_wrapper script 
-categories:     manpage scripts 
-toc:            false
+title:              sadm_wrapper.sh
+layout:             single
+date_created:       2018-02-11
+date_updated:       2021-03-12 
+version:            1.6
+show_excerpts:      false
+entries_layout:     list
+tags:               Tools
+categories:         Utilities 
+author_profile:     false
+toc:                false
+classes:            wide
 ---
 
 Date created : {{ page.date_created }}
 Date updates : {{ page.date_updated }}
-
-
-<br>
-We have included 3 templates that are ready to use :  
-- The [Shell script template](/_pages/man/sadm-template-sh) ($SADMIN/bin/sadm_template.sh).  
-- The [Python script template](/_pages/man/sadm-template-py) ($SADMIN/bin/sadm_template.py).    
-- The [SADMIN wrapper script](/_pages/man/sadm-wrapper) allow you to run existing script and benefit of the SADMIN tools ($SADMIN/bin/sadm_wrapper.sh).  
- 
 
 
 ### Create a test script

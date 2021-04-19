@@ -284,3 +284,6 @@ defaults:
       comments: # true
       share: true
       related: true
+
+# Make sure Jekyll "sees" and processes the files inside of _pages
+include: ["_pages"]

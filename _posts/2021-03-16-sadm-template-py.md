@@ -8,12 +8,15 @@ paginate:               false
 show_excerpts:          false
 entries_layout:         list
 author_profile:         true
-tags:                   python scripts
-categories:             template
+tags:                   Templates
+categories:             Templates
 toc:                    false
 classes:                wide
 sadm_header_footer:     sadm/log_header_footer.md
 sadm_file_rch:          sadm/sadm_rch_file.md
+coll_name: sadm_template.py
+coll_desc: SADM Python Script Template 
+coll_cat: "SADMIN Utilities Scripts" 
 ---
 
 ## What you need to know to use the SADMIN tools library

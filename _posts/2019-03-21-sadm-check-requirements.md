@@ -1,15 +1,16 @@
 ---
 layout: single
-title: sadm_check_requirements
-limit: 1
-paginate: false
+title: sadm_check_requirements.sh
 show_excerpts: false
 entries_layout: list
-author_profile: true
-tags:           requirements 
-categories:     requirements
+tags:               Tools
+categories:         Utilities 
+author_profile: false
 toc:            false
-classes: wide
+classes:        wide
+coll_name:      sadm_check_requirements.sh
+coll_desc:      Script to check SADMIN requirement
+coll_cat:       "SADMIN Utilities" 
 ---
 
 sadm_check_requirements.sh

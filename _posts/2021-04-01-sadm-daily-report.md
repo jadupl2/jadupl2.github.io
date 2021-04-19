@@ -1,31 +1,29 @@
 ---
 title:          sadm_daily_report.sh
-layout:         posts
+desc:           Produce and email daily reports
+layout:         single
 date_created:   2021-04-01
 date_updated:   2009-04-02 
-limit:          1
-paginate:       false
 show_excerpts:  false
 entries_layout: list
-author_profile: true
 search:         true
-tags:           [ sadm_daily_report, script ] 
-categories:     [ manpage, scripts ] 
-toc:            true
-classes : wide
+tags:           [ Server_Scripts, Tools ] 
+categories:     [ Server_Scripts, Utilities ] 
+author_profile: false
+toc:            false
+classes:        wide
 ---
 
-Date created : {{ page.date_created }}
-Date updates : {{ page.date_updated }}
-
-This script produce web reports of the last 24 hrs activities and email them to the sysadmin. It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), but you can also be run it manually when desired. It can only be run on the SADMIN server.
+This script produce web reports of the last 24 hrs activities and email them to the sysadmin. 
+It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), 
+but you can also be run it manually when desired. It can only be run on the SADMIN server.
 
 {% highlight bash %}
 $ sudo $SADMIN/bin/sadm_daily_report.sh [-v] [-h] [-b] [-r] [-s] [-d 0-9]  
 {% endhighlight %}
 
 
-## DESCRIPTION
+## Description
 The script produce three reports, each of them is sent to the email(s) defined by the field '*SADM_MAIL_ADDR*' in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg). It can only be run on the SADMIN server (Not on a SADMIN client). The reports are also accessible via the web interface.
 
 If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMIN server (It should have been installed by the setup process), a PDF version of each report is also attached to the email.
@@ -152,7 +150,4 @@ There is NO WARRANTY to the extent permitted by law.
 
 
 ## SEE ALSO
-The Daily Backup Script - [sadm_backup.sh](http://sadmin/www/doc/man/sadm_backup.html)
-
-
-
+The Daily Backup Script - [sadm_backup.sh](#)

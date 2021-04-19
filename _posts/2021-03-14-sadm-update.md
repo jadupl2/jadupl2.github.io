@@ -1,13 +1,16 @@
 ---
+title: Update SADMIN Tools
 layout: single
-limit: 1
-paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
-title: Update SADMIN Tools
-toc:            true
-
+author_profile: false
+toc:            false
+classes:        wide
+coll_name:      sadm_updater.sh
+coll_desc:      SADMIN Updater
+coll_cat:       "SADMIN Utilities" 
+tags:               Tools
+categories:         Utilities 
 ---
 
 

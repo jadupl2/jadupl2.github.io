@@ -1,12 +1,17 @@
 ---
 layout: single
-title: SADMIN Screen library functions (sadmlib_screen.sh)
-limit: 1
+title: sadmlib_screen.sh
 paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
-toc:            true
+tags:               [ Libraries ]
+categories:         [ Libraries ] 
+author_profile: false
+toc:            false
+classes:        wide
+coll_name:      sadmlib_screen.sh
+coll_desc:      SADMIN Screen library functions.
+coll_cat:       "SADMIN Screen Utilities Library" 
 ---
 
 In construction

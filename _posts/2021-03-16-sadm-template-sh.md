@@ -8,20 +8,17 @@ paginate:           false
 show_excerpts:      false
 entries_layout:     list
 author_profile:     true
-tags:               slack alert scripts
-categories:         alert
+tags:               [ Templates ]
+categories:         [ Templates ]
 toc:                false
 classes:            wide
 sadm_section_sh:    sadm/sadm_section_sh.md
 sadm_file_rch:      sadm/sadm_rch_file.md
+coll_name: sadm_template.sh
+coll_desc: SADM Bash Script Template 
+coll_cat: "SADMIN Utilities Scripts" 
 ---
 
-<br>
-**We have included 3 templates that are ready to use**  
-> The [Shell script template](/_pages/man/sadm-template-sh) ($SADMIN/bin/sadm_template.sh).  
-> The [Python script template](/_pages/man/sadm-template-py) ($SADMIN/bin/sadm_template.py).    
-> The [SADMIN wrapper script](/_pages/man/sadm-wrapper) ($SADMIN/bin/sadm_wrapper.sh) allow you to run your existing script and benefit of the SADMIN tools.  
- 
 
 ## What's in the shell script template  
 The shell script template ($SADMIN/bin/sadm_template.sh) is ready to use. You can run it now, 

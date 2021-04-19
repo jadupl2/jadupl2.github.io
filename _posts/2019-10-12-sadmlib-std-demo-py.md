@@ -1,17 +1,19 @@
 ---
-title:          Python Script Library Demo
+title:          sadmlib_std_demo.py
 layout:         single
 date_created:   2021-03-16
 date_updated:   2021-03-16 
-limit:          1
 paginate:       false
 show_excerpts:  false
 entries_layout: list
-author_profile: true
-tags:           library demo scripts
-categories:     library demo
+tags:               [ Libraries ]
+categories:         [ Libraries ] 
+author_profile: false
 toc:            false
-classes: wide
+classes:        wide
+coll_name:      sadmlib_std_demo.py
+coll_desc:      Demonstrate SADM Python Library usage
+coll_cat:       "SADMIN Utilities Scripts" 
 ---
 
 NAME

@@ -1,18 +1,19 @@
 ---
-title:              srch (sadm_show_rch.sh)
+title:              sadm_show_rch.sh
 layout:             single
 date_created:       2021-04-09
 date_updated:       2021-04-09 
-limit:              1
-paginate:           false
 show_excerpts:      false
 entries_layout:     list
-author_profile:     true
-tags:               scripts srch sadm_show_rch
-categories:         man 
-toc:                false
-classes:            wide
+tags:               [ Tools ]
+categories:         [ Server_Scripts, Utilities ]  
 sadm_section_sh:    sadm/sadm_section_sh.md
+author_profile: false
+toc:            false
+classes:        wide
+coll_name:      srch.sh
+coll_desc:      SADMIN Show All Systems Script History
+coll_cat:       "SADMIN Utilities" 
 ---
 
 Under construction, will be here soon.

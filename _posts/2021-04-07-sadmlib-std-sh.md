@@ -3,15 +3,16 @@ title:              sadmlib_std.sh
 layout:             single
 date_created:       2021-04-07
 date_updated:       2021-04-08 
-limit:              1
-paginate:           false
 show_excerpts:      false
 entries_layout:     list
-author_profile:     true
-tags:               scripts
-categories:         man 
+tags:               [ Libraries ]
+categories:         [ Libraries ] 
+author_profile:     false
 toc:                false
 classes:            wide
+coll_name:          sadmlib_std_.sh
+coll_desc:          SADMIN Shell Main Library
+coll_cat:           "SADMIN Utilities Scripts" 
 sadm_section_sh:    sadm/sadm_section_sh.md
 ---
 
