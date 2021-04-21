@@ -11,11 +11,11 @@ toc:            true
 
 So you just finish [installing SADMIN tools](/_pages/install) and you want to see what it can 
 bring to you. First you can take a look at the web interface at "http://yourserverIP" and you could
-run the two demo scripts "[sadmlib_std_demo.sh](/_pages/man/sadmlib-std-demo-sh)" and 
-"[sadmlib_std_demo.py](/_pages/man/sadmlib-std-demo-py)". This will give you an idea of what
+run the two demo scripts "[sadmlib_std_demo.sh](/libraries/sadmlib-std-demo-sh)" and 
+"[sadmlib_std_demo.py](/libraries/sadmlib-std-demo-py)". This will give you an idea of what
 functions you have access in our Library (sadmlib_std.sh and sadmlib_std.py) and how to use them.
-You can also run our [template shell script](/_pages/man/sadm-template-sh) and 
-[python template](/_pages/man/sadm-template-py), take a look at the code, they are a good starting 
+You can also run our [template shell script](/templates/man/sadm-template-sh) and 
+[python template](/templates/sadm-template-py), take a look at the code, they are a good starting 
 point to create your next shell or Python script.
 {: .text-justify}
 
@@ -88,8 +88,8 @@ $SADMIN/bin/sadmlib_std_demo.sh
 $SADMIN/bin/sadmlib_std_demo.py
 {% endhighlight %} 
 
-- [See pdf output](/assets/pdf/sadmlib_std_demo_sh.pdf) of the bash script "[sadmlib_std_demo.sh](/_pages/man/sadmlib-std-demo-sh)".  
-- [See pdf output](/assets/pdf/sadmlib_std_demo_py.pdf) of the Python script "[sadmlib_std_demo.py](/_pages/man/sadmlib-std-demo-py)".  
+- [See pdf output](/assets/pdf/sadmlib_std_demo_sh.pdf) of the bash script "[sadmlib_std_demo.sh](/libraries/sadmlib-std-demo-sh)".  
+- [See pdf output](/assets/pdf/sadmlib_std_demo_py.pdf) of the Python script "[sadmlib_std_demo.py](/libraries/sadmlib-std-demo-py)".  
 
 ### Terminal Menu & Tools Library
 
@@ -113,7 +113,7 @@ The library include all sorts of functions that will save you time when building
 the terminal.
 
 To have a complete list of functions available in the screen library, have a look at this 
-[page](/_pages/man/sadmlib-screen).
+[page](/libraries/sadmlib-screen).
 To use use it in within your scripts, just add the command below.
 {% highlight bash %}
 source $SADMIN/bin/sadmlib_screen.sh 
