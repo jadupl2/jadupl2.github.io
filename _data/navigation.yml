@@ -9,9 +9,9 @@ main:
   - title: "Quick-Start"
     url: /_pages/quickstart/
   - title: "Categories"
-    url: /_pages/categories/
+    url: /categories/
   - title: "Tags"
-    url: /_pages/tags/
+    url: /tags/
   - title: "Contact"
     url: /_pages/contact/
   # - title: "Sample Posts"
@@ -20,3 +20,61 @@ main:
   #   url: /collection-archive/
   #- title: "Sitemap"
   #   url: /sitemap/
+
+
+
+
+sidebar-manpage:
+
+  - title: "Command Line Tools"
+    children:
+      - title:  "sadm_show_rch.sh (srch)"
+        url:    /command_line/sadm-show-rch
+
+  - title: "Utilities"
+    children:
+      - title:  "sadm_check_requirements.sh"
+        url:    /utilities/sadm-check-requirements
+      - title:  "sadm_setup.sh"
+        url:    /utilities/sadm-setup-sh
+      - title:  "sadm_update.sh"
+        url:    /utilities/sadm-update
+      - title:  "sadm_wrapper.sh"
+        url:    /utilities/sadm-wrapper
+        
+  - title: "System Monitor"
+    children:
+      - title:  "How-to setup SMS alerting system"
+        url:    /system_monitor/how-to-sms
+
+  - title: "Server Scripts"
+    children:
+      - title:  "sadm_daily_report.sh"
+        url:    /server_scripts/sadm-daily-report
+      - title:  "sadm_fetch_client.sh"
+        url:    /server_scripts/sadm-fetch-client
+
+  - title: "Client Scripts"
+    children:
+      - title: "sadm_create_sysinfo.sh"
+        url:    /client_scripts/sadm-create-sysinfo
+
+  - title: "Script Templates"
+    children:
+      - title:  "sadm_template.sh"
+        url:    /templates/sadm-template-sh
+      - title: "sadm_template.py"
+        url:    /templates/sadm-template-py
+
+  - title: "Libraries"
+    children:
+      - title:  "sadmlib_std.sh"
+        url:    /libraries/sadmlib-std-sh
+      - title:  "sadmlib_std_demo.sh"
+        url:    /libraries/sadmlib-std-demo-sh
+      - title:  "sadmlib_std.py"
+        url:    /libraries/sadmlib-std-py
+      - title:  "sadmlib_std_demo.py"
+        url:    /libraries/sadmlib-std-demo-py
+      - title:  "sadmlib_screen.sh"
+        url:    /libraries/sadmlib-screen-sh

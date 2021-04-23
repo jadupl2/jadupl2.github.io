@@ -4,14 +4,14 @@ desc:           Produce and email daily reports
 layout:         single
 date_created:   2021-04-01
 date_updated:   2009-04-02 
-show_excerpts:  false
-entries_layout: list
 search:         true
-tags:           [ Server_Scripts, Tools ] 
-categories:     [ Server_Scripts, Utilities ] 
-author_profile: true
+tags:           [ server_scripts ] 
+categories:     [ server_scripts ] 
+author_profile: false
 toc:            false
-classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 This script produce web reports of the last 24 hrs activities and email them to the sysadmin. 

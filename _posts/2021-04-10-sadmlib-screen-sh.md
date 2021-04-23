@@ -4,14 +4,14 @@ title: sadmlib_screen.sh
 paginate: false
 show_excerpts: false
 entries_layout: list
-tags:               [ Libraries ]
-categories:         [ Libraries ] 
+tags:               [ libraries ]
+categories:         [ libraries ] 
 author_profile: false
 toc:            false
 classes:        wide
-coll_name:      sadmlib_screen.sh
-coll_desc:      SADMIN Screen library functions.
-coll_cat:       "SADMIN Screen Utilities Library" 
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
 In construction

@@ -6,11 +6,14 @@ date_updated:       2021-03-12
 version:            1.6
 show_excerpts:      false
 entries_layout:     list
-tags:               Tools
-categories:         Utilities 
+tags:               tools
+categories:         utilities 
 author_profile:     false
 toc:                false
 classes:            wide
+sidebar:
+  title:            "Documentation"
+  nav:              sidebar-manpage
 ---
 
 Date created : {{ page.date_created }}

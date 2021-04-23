@@ -5,14 +5,14 @@ date_created:   2021-03-22
 date_updated:   2021-03-22 
 show_excerpts:  false
 entries_layout: list
-tags:           Tools
-categories:     Utilities
+tags:           tools
+categories:     utilities
 author_profile: false
 toc:            false
 classes:        wide
-coll_name:      setup.sh
-coll_desc:      SADMIN Setup Script
-coll_cat:       "SADMIN Utilities" 
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 ## Before you install

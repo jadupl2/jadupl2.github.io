@@ -5,15 +5,14 @@ date_created:       2021-04-09
 date_updated:       2021-04-09 
 show_excerpts:      false
 entries_layout:     list
-tags:               [ Tools ]
-categories:         [ Server_Scripts, Utilities ]  
-sadm_section_sh:    sadm/sadm_section_sh.md
-author_profile: false
-toc:            false
-classes:        wide
-coll_name:      srch.sh
-coll_desc:      SADMIN Show All Systems Script History
-coll_cat:       "SADMIN Utilities" 
+tags:               [ tools ]
+categories:         [ command_line ] 
+author_profile:     false
+toc:                false
+classes:            wide
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
 Under construction, will be here soon.

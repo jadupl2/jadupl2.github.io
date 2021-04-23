@@ -211,6 +211,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
+#permalink: /:year/:month/:day/:title
 
 # Paginate Options
 #paginate:       5               # amount of posts to show

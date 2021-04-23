@@ -6,11 +6,11 @@ entries_layout: list
 author_profile: false
 toc:            false
 classes:        wide
-coll_name:      sadm_updater.sh
-coll_desc:      SADMIN Updater
-coll_cat:       "SADMIN Utilities" 
-tags:               Tools
-categories:         Utilities 
+tags:               tools
+categories:         utilities 
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 

@@ -8,8 +8,8 @@ paginate:               false
 show_excerpts:          false
 entries_layout:         list
 author_profile:         true
-tags:                   Templates
-categories:             Templates
+tags:                   templates
+categories:             templates
 toc:                    false
 classes:                wide
 sadm_header_footer:     sadm/log_header_footer.md

@@ -6,8 +6,8 @@ date_updated:   2021-03-16
 paginate:       false
 show_excerpts:  false
 entries_layout: list
-tags:               [ Libraries ]
-categories:         [ Libraries ] 
+tags:               [ libraries ]
+categories:         [ libraries ] 
 author_profile: false
 toc:            false
 classes:        wide
