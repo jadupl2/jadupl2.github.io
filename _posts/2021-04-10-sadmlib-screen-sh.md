@@ -1,12 +1,17 @@
 ---
 layout: single
-title: SADMIN Screen library functions (sadmlib_screen.sh)
-limit: 1
+title: sadmlib_screen.sh
 paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
-toc:            true
+tags:               [ libraries ]
+categories:         [ libraries ] 
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
 In construction

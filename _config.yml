@@ -23,7 +23,6 @@ subtitle                 : "Under construction" # site tagline that appears belo
 name                     : "Jacques Duplessis"
 description              : "System Administration Tools"
 url                      : "https://jadupl2.github.io" # the base hostname & protocol for your site e.g. "https://jadupl2.github.io"
-#url                      : "https://jadupl2.github.io" # the base hostname & protocol for your site e.g. "https://jadupl2.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : jadupl2/jadupl2.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -54,8 +53,9 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
+
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -70,6 +70,7 @@ google_site_verification :
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
+
 
 # Social Sharing
 twitter:
@@ -86,6 +87,7 @@ social:
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
+
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
@@ -97,10 +99,10 @@ analytics:
 # Site Author
 author:
   name             : "SADMIN"
-  avatar           : assets/img/logo/sadmin_logo.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : /assets/img/author.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "SysAdmin Tools"
   location         : "Quebec, Canada"
-  email            : 
+  email            : "sadmlinux@gmail.com"
   links:
     - label: "sadmlinux@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
@@ -189,7 +191,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-
 # Markdown Processing
 kramdown:
   input: GFM
@@ -210,12 +211,17 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-#paginate: 5 # amount of posts to show
-#paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+#permalink: /:year/:month/:day/:title
 
+# Paginate Options
+#paginate:       5               # amount of posts to show
+#paginate_path:  /page:num/
+
+# TimeZone
+timezone: America/Toronto       # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
+<<<<<<< HEAD
 #  - jekyll-paginate
 #plugins:
 #  - jekyll-sitemap
@@ -233,21 +239,28 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
+=======
+>>>>>>> 7b8ce2100e0de9b9ed824c6d27fc96a4c1c2d799
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-lunr-js-search
 
+<<<<<<< HEAD
 # mimic GitHub Pages with --safe
+=======
+# Mimic GitHub Pages with --safe
+>>>>>>> 7b8ce2100e0de9b9ed824c6d27fc96a4c1c2d799
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-
+  - jekyll-lunr-js-search
 
 # Archives
 #  Type
@@ -277,14 +290,11 @@ tag_archive:
 #     category: /categories/:name/
 #     tag: /tags/:name/
 
-
-# HTML Compression
-# - https://jch.penibelst.de/
+# HTML Compression - https://jch.penibelst.de/
 compress_html:
   clippings: all
   ignore:
     envs: development
-
 
 # Defaults
 defaults:
@@ -299,3 +309,6 @@ defaults:
       comments: # true
       share: true
       related: true
+
+# Make sure Jekyll "sees" and processes the files inside of _pages
+include: ["_pages"]

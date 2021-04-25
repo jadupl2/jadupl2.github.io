@@ -1,17 +1,19 @@
 ---
-title:          Shell Script Library Demo
+title:          sadmlib_std_demo.sh
 layout:         single
 date_created:   2021-03-16
 date_updated:   2021-03-16 
-limit:          1
 paginate:       false
 show_excerpts:  false
 entries_layout: list
-author_profile: true
-tags:           library demo scripts
-categories:     library demo
+tags:               [ libraries ]
+categories:         [ libraries ] 
+author_profile: false
 toc:            false
-classes: wide
+classes:        wide
+coll_name:      sadmlib_std_demo.sh
+coll_desc:      Demonstrate SADM Bash Shell Library usage
+coll_cat:       "SADMIN Utilities Scripts" 
 ---
 
 O/S : Aix, Linux, MacOS
@@ -135,8 +137,8 @@ DESCRIPTION
                 3) Make sure Return Code History (.rch) exist and have the right permission
                 4) If PID file exist, show error message and abort.
                 Unless user allow more than one copy to run simultaniously (SADM_MULTIPLE_EXEC='Y')
-                5) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2)
-                6) Write HostName - Script name and version - O/S Name and version to the Log file (SADM_LOG)
+                1) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2)
+                2) Write HostName - Script name and version - O/S Name and version to the Log file (SADM_LOG)
 
         sadm_stop
             Accept one parameter - Either 0 (Successfull) or non-zero (Error Encountered)
@@ -151,7 +153,7 @@ DESCRIPTION
                 7) Trim the Log based on user selection in sadmin.cfg
                 8) Send Email to sysadmin (if user selected that option in sadmin.cfg)
                 9) Delete the PID File of the script (SADM_PID_FILE)
-            10) Delete the User 3 TMP Files (SADM_TMP_FILE1, SADM_TMP_FILE2, SADM_TMP_FILE3)
+            1)  Delete the User 3 TMP Files (SADM_TMP_FILE1, SADM_TMP_FILE2, SADM_TMP_FILE3)
          
 
 

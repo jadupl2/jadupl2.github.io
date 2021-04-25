@@ -1,15 +1,16 @@
 ---
 layout: single
-title: sadm_check_requirements
-limit: 1
-paginate: false
+title: sadm_check_requirements.sh
 show_excerpts: false
 entries_layout: list
-author_profile: true
-tags:           requirements 
-categories:     requirements
+tags:               utilities
+categories:         utilities
+author_profile: false
 toc:            false
-classes: wide
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 sadm_check_requirements.sh

@@ -1,17 +1,18 @@
 ---
-title:          Running the setup script
+title:          setup.sh
 layout:         single
 date_created:   2021-03-22
 date_updated:   2021-03-22 
-limit:          1
-paginate:       false
 show_excerpts:  false
 entries_layout: list
-author_profile: true
-tags:           slack alert scripts
-categories:     alert
+tags:           tools
+categories:     utilities
+author_profile: false
 toc:            false
-classes: wide
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 ## Before you install

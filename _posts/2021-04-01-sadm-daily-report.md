@@ -1,30 +1,29 @@
 ---
 title:          sadm_daily_report.sh
+desc:           Produce and email daily reports
 layout:         single
-date_created:   2008-02-11
-date_updated:   2009-02-12 
-limit:          1
-paginate:       false
-show_excerpts:  false
-entries_layout: list
-author_profile: true
-
-tags:           sadm_daily_report script 
-categories:     manpage scripts 
-toc:            true
+date_created:   2021-04-01
+date_updated:   2009-04-02 
+search:         true
+tags:           [ server_scripts ] 
+categories:     [ server_scripts ] 
+author_profile: false
+toc:            false
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
-Date created : {{ page.date_created }}
-Date updates : {{ page.date_updated }}
-
-This script produce web reports of the last 24 hrs activities and email them to the sysadmin. It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), but you can also be run it manually when desired. It can only be run on the SADMIN server.
+This script produce web reports of the last 24 hrs activities and email them to the sysadmin. 
+It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), 
+but you can also be run it manually when desired. It can only be run on the SADMIN server.
 
 {% highlight bash %}
 $ sudo $SADMIN/bin/sadm_daily_report.sh [-v] [-h] [-b] [-r] [-s] [-d 0-9]  
 {% endhighlight %}
 
 
-## DESCRIPTION
+## Description
 The script produce three reports, each of them is sent to the email(s) defined by the field '*SADM_MAIL_ADDR*' in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg). It can only be run on the SADMIN server (Not on a SADMIN client). The reports are also accessible via the web interface.
 
 If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMIN server (It should have been installed by the setup process), a PDF version of each report is also attached to the email.
@@ -32,23 +31,26 @@ If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMI
 If one of the three report is not desired, you can use the '-r', '-b' or the '-s' command line switch to disable the desired report (email). Note that only the actives systems will appear on these reports.  
 
 ### The scripts report:
-![Daily Script Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_script.png)
+![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center}
   - The running scripts are listed first, then the scripts that terminated with an error and finally all the scripts grouped by system. So it give you view of the statistics of each script (start time, end time, elapse time,...) of each systems sorted and grouped by name. When something look different than the normal, like the alert group used is different than the default group or the last execution date of a script is more than thirty days, it will be shown with a yellow background. 
+  {: .text-justify}
   - You can also view the log of each script just by clicking on the script name. 
   - The same report is also accessible in the heading of any of the "Scripts Status" web pages.  
 
-### The Daily backup report:
-![Daily Backup Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_backup.png)
-  - This report present the last execution statistics of all the daily backup script (sadm_backup.sh) for each systems. Since the daily backup should have been taken during the night, they should all have the same execution date. If this is not the case, then the execution date cell will have a yellow background, to advise you that there may be a problem with the backup on that system. 
+### The daily backup report:
+![Daily Backup Report Example](/assets/img/man/sadm_daily_report_backup.png){: .align-center}
+  - This report present the last execution statistics of all the daily backup script (sadm_backup.sh) for each systems. Since the daily backup should have been taken during the night, they should all have the same execution date. If this is not the case, then the execution date cell will have a yellow background, to advise you that there may be a problem with the backup on that system.
+  {: .text-justify} 
   - The daily backup report is also accessible in the heading of the "Daily Backup Status" web page.  
   - If you want to change the backup schedule of a particular system, just click on the "Schedule Activated" cell of the desired system.
   - If you want to see the log of the backup, click on the "Status" cell of the desired system.
 
 
-### The [Rear](https://relax-and-recover.org/) system image backup:
-![Daily ReaR Image Backup Report Example](/assets/img/man/sadm_daily_report/sadm_daily_report_rear.png)
+### The [ReaR](https://relax-and-recover.org/) system image backup:
+![Daily ReaR Image Backup Report Example](/assets/img/man/sadm_daily_report_rear.png){: .align-center}
   - The [ReaR](https://relax-and-recover.org/) report, show you the last ReaR backup execution result of each systems.
   - If a backup last execution date is older than 7 days, the date cell of that backup will have a yellow background. If the current backup size and the  previous backup differ than more than 50% they will have a yellow background as well. This may tell you that your backup have greater than expected and you may want to take a look at it.
+  {: .text-justify} 
   - If you want to change the backup schedule of a particular system just click on the "Schedule Activated" cell of the desired system.  
   - The ReaR daily report is also accessible in the heading of the "ReaR Backup Schedule Status" web page.
   - If you want to see the log of the backup, just click on the "Status" cell of the desired system.  
@@ -151,7 +153,4 @@ There is NO WARRANTY to the extent permitted by law.
 
 
 ## SEE ALSO
-The Daily Backup Script - [sadm_backup.sh](http://sadmin/www/doc/man/sadm_backup.html)
-
-
-
+The Daily Backup Script - [sadm_backup.sh](#)
