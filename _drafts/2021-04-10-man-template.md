@@ -4,7 +4,7 @@ desc:           Template for scripts documentation
 date:           2021-01-01
 updated:        2021-04-22
 modified:       2021-04-22
-os:             Linux,Aix,MacOS
+os:             Linux, Aix, MacOS
 layout:         single
 search:         true
 tags:           [ test ] 
@@ -16,11 +16,13 @@ classes:        wide
 sidebar:
   title: "Documentation"
   nav: sidebar-manpage
-
 ---
+
 <font size="3">
-Updated: {{ page.updated | date_to_string }} - O/S: {{ page.os }}
-</font> 
+<div>$SADMIN/bin/{{ page.title }}</div>
+<div>Updated {{ page.updated }}</div>
+<div>Run on {{ page.os }}</div>
+</font>
 
 
 ### NAME

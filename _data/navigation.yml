@@ -41,6 +41,8 @@ sidebar-manpage:
         url:    /utilities/sadm-update
       - title:  "sadm_wrapper.sh"
         url:    /utilities/sadm-wrapper
+      - title:  "sadm_support_request.sh"
+        url:    /utilities/sadm-support-request
         
   - title: "System Monitor"
     children:
