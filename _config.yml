@@ -219,7 +219,7 @@ permalink: /:categories/:title/
 
 # TimeZone
 timezone: America/Toronto       # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
+ 
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
