@@ -221,6 +221,26 @@ permalink: /:categories/:title/
 timezone: America/Toronto       # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  
 # Plugins (previously gems:)
+<<<<<<< HEAD
+#  - jekyll-paginate
+#plugins:
+#  - jekyll-sitemap
+#  - jekyll-gist
+#  - jekyll-feed
+#  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+#  - jekyll-paginate
+#whitelist:
+#  - jekyll-sitemap
+#  - jekyll-gist
+#  - jekyll-feed
+#  - jekyll-include-cache
+
+
+# Plugins (previously gems:)
+=======
+>>>>>>> 7b8ce2100e0de9b9ed824c6d27fc96a4c1c2d799
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -229,7 +249,11 @@ plugins:
   - jekyll-include-cache
   - jekyll-lunr-js-search
 
+<<<<<<< HEAD
+# mimic GitHub Pages with --safe
+=======
 # Mimic GitHub Pages with --safe
+>>>>>>> 7b8ce2100e0de9b9ed824c6d27fc96a4c1c2d799
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
