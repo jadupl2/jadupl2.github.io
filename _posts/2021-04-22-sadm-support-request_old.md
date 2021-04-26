@@ -1,56 +1,42 @@
 ---
-title:          sadm_support_request.sh
-desc:           Create a file that will help us, when you submit a problem.
-version:        2.2
-date:           2021-01-01
-updated:        2021-04-22
-os:             Linux, Aix, MacOS
-sadm_author:    sadm/author.md
-sadm_copyright: sadm/copyright.md
-layout:         single
-search:         true
-tags:           [ Utilities ] 
-categories:     [ Utilities ] 
+title:              sadm_support_request.sh
+layout:             single
+date_created:       2021-04-22
+date_updated:       2021-04-22
+show_excerpts:      false
+entries_layout:     list
+tags:               [ utilities ] 
+categories:         [ utilities ] 
 author_profile: false
 toc:            false
 classes:        wide
+tags:                   utilities
+categories:             utilities
 sidebar:
   title: "Documentation"
   nav: sidebar-manpage
 ---
 
 <font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
+<div>$SADMIN/bin/sadm_support_request.sh</div>
+<div>Updated 2018/11/15</div>
+<div>Run on Aix, Linux, MacOS</div>
 </font>
 
-
-<a id="name"></a>
-## NAME
-{{ page.title }} -- {{ page.desc }}
+### NAME
 
 
-<a id="synopsis"></a>
-## SYNOPSIS
-
-```bash
-    {{ page.title }} [-v] [-h] [-d 0-9]  
-```
-
-
-<a id="description"></a>
-## DESCRIPTION
-
-This script is use to create a file that contain information that will help us, when you submit 
-a problem. When you submit a problem or request support it is important to attach the file 
-produced by this script to your email.
-  {: .text-justify}
+sadm_support_request.sh   
+This script create a file that contain information that will help us, when you submit a problem.
  
+### SYNOPSIS
 
+sadm_support_request.sh     [ -v ] [ -h ]    [ -d  [0-9] ]   
+ 
+DESCRIPTION
 
-<a id="examples"></a>
-## EXAMPLE
+This script is use to create a file that contain information that will help us, when you submit a problem.
+When you submit a problem or request support it is important to attach the file produced by this script to your email.
 
 ```bash
 root@borg:/etc/cron.d  # sadm_support_request.sh 
@@ -99,17 +85,44 @@ We will get back to you as soon as possible.
 ```
 
 
-{% include {{ site.section_options     }} %}
-
-{% include {{ site.section_environment }} %}
-
-{% include {{ site.section_exitcode    }} %}
-
-{% include {{ site.section_author      }} %}
-
-{% include {{ site.section_copyright   }} %}
 
 
-<a id="seealso"></a>
-## SEE ALSO
-List SADMIN requirements - [sadm_check_requirements.sh]({% post_url 2019-03-21-sadm-check-requirements %})
+ 
+OPTIONS
+
+-d
+    Specify debug level (0-9).
+    Value of 0 indicate that no debug information is to be displayed.
+-h
+    Display this help and exit.
+-v
+    Output version information and exit.
+
+
+
+REQUIREMENTS
+
+    Environment variable 'SADMIN', specify the root directory of the SADMIN tools.
+    Define by setup script in /etc/profile.d/sadmin.sh and in /etc/environment .
+    SADMIN main configuration file, "$SADMIN/cfg/sadmin.cfg"
+    SADMIN Tools Shell Library, "$SADMIN/lib/sadmlib.sh".
+
+
+ 
+EXIT STATUS
+[0]    An exit status of zero indicates success
+[1]    Failure is indicated by a nonzero value, typically ‘1’.
+
+ 
+AUTHOR
+Jacques Duplessis (jacques.duplessis@sadmin.ca.).
+Any suggestions or bug report can be sent at http://www.sadmin.ca/support.php
+
+ 
+COPYRIGHT
+Copyright © 2020 Free Software Foundation, Inc. License GPLv3+:
+    - GNU GPL version 3 or later http://gnu.org/licenses/gpl.html.
+This is free software, you are free to change and redistribute it.
+There is NO WARRANTY to the extent permitted by law.
+
+ 

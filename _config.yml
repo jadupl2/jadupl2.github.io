@@ -208,6 +208,13 @@ sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
+# SADMIN Global Variables
+section_author:      sadm/author.md
+section_copyright:   sadm/copyright.md
+section_exitcode:    sadm/exitcode.md  
+section_options:     sadm/options.md  
+section_environment: sadm/environment.md  
+
 
 # Outputting
 permalink: /:categories/:title/

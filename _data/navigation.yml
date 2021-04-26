@@ -80,3 +80,9 @@ sidebar-manpage:
         url:    /libraries/sadmlib-std-demo-py
       - title:  "sadmlib_screen.sh"
         url:    /libraries/sadmlib-screen-sh
+
+  - title: "Configuration files"
+    children:
+      - title:  "sadmin.cfg"
+        url:    /configuration_files/sadmin-cfg
+

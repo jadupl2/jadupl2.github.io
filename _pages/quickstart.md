@@ -93,9 +93,9 @@ $SADMIN/bin/sadmlib_std_demo.py
 
 ### Terminal Menu & Tools Library
 
-The screen below is an example of what you can easely do with the SADMIN screen library. You can 
+The screen below is an example of what you can easily do with the SADMIN screen library. You can 
 use it to show a menu like below, it can have up to 30 items and the item are automatically 
-positionning themself to have one or two columns. It will accept user response and validate it 
+positioning themselves to have one or two columns. It will accept user response and validate it 
 for allowed values.
 {: .text-justify}
 
