@@ -8,46 +8,45 @@ entries_layout: list
 author_profile: true
 tags:           sadm_daily_report script 
 categories:     manpage scripts 
-toc:            true
+toc:            false
+classes:        wide
 ---
 
 ## SADMIN Ecosystem
 
+* The 'SADMIN' environment variable is critical for the SADMIN tools and contain the installation 
+directory name. The setup script will make sure that this environment variable is set properly and 
+that it's persistent after a reboot.
+
+  * The Setup script create "[/etc/profile.d/sadmin.sh](https://sadmin.ca/assets/img/files/etc_profile_d_sadmin_sh.png)" 
+that's executed every time you login and to ease the use of the SADMIN tools, directories '$SADMIN/bin' 
+& $SADMIN/usr/bin are added to the PATH. It also modify the "[/etc/environment](https://sadmin.ca/assets/img/files/etc_environment.png)" 
+so it contain SADMIN install directory.
+{: .text-justify}
 * We recommend installing the SADMIN tools in ['/opt/sadmin'](/assets/img/directory_structure.png), 
-but you can install it in the directory of your choice.
-* We recommend around 5Gb of free space for the SADMIN server and 200Mb for each client.
-* The 'SADMIN' environment variable is critical for the SADMIN tools and contain the installation directory name.
-* The setup script will make sure that this environment variable is defined and persistent after a reboot.
-  * It create a script "[/etc/profile.d/sadmin.sh](https://sadmin.ca/assets/img/files/etc_profile_d_sadmin_sh.png)" that's executed every time you login.
-    * To ease the use of the SADMIN tools, directories '$SADMIN/bin' & $SADMIN/usr/bin are added to the PATH.
-  * It also modify the "[/etc/environment](https://sadmin.ca/assets/img/files/etc_environment.png)" so it contain SADMIN install directory.
-* The installation process MUST be executed by the 'root' user.
-* **IMPORTANT : You need to have an internet access on the system you are installing.**  
-  * The setup script, may need to download and install some [packages needed by SADMIN](https://sadmin.ca/_pages/requirements).
-    * On Redhat and CentOS the "EPEL repository" is activated only for the installation time.
-    * On other distributions the packages needed are available in the distribution repository.
-* Instructions below assume you have chosen to install SADMIN tools in '/opt/sadmin' directory..
+but you can install it in the directory of your choice. We recommend around 5Gb of free space 
+for the SADMIN server and 400Mb for each client.
+{: .text-justify}
+
+**IMPORTANT**  
+You need to have an internet access on the system you are installing the SADMIN tools.
+Some of the [packages needed by SADMIN](https://sadmin.ca/_pages/requirements), may not be present 
+on your system and will need to be downloaded. On Redhat and CentOS the 
+"[EPEL repository](https://fedoraproject.org/wiki/EPEL)" is activated at installation time and 
+disable afterward. On other distribution the packages needed are available in the distribution 
+repository and will be install automatically. 
+{: .notice--warning}
+
 
 [Back To The Top](#top_of_page)
 
+
 ## Summary of installation
-
 - Installation must be executed by 'root' user or with 'sudo'.
-- Instruction below assume you have chosen to install SADMIN in '/opt/sadmin' directory.
 - We recommend using '/opt/sadmin', but you can select the directory of your choice.
-- We recommend 5Gb of free space for the SADMIN server and 400Mb for each client.
-- Setup process modify the file "[/etc/environment](/assets/img/files/etc_environment.png)" to include 'SADMIN' environment variable.
-- The 'SADMIN' environment variable contain the installation directory path.
+- Instruction below assume you have chosen to install SADMIN in '/opt/sadmin' directory.
 - The installation process is the same for an SADMIN server or client.
-- Directory '$SADMIN/bin' and $SADMIN/usr/bin is added to your PATH (via "[/etc/profile.d/sadmin.sh](/assets/img/files/etc_profile_d_sadmin_sh.png)"). 
 
-## Installation requirements
-- You need to have an internet access on the system you are installing.
-- Some of the packages needed by SADMIN, may not be present on your system and will need to be downloaded.
-  - On Red Hat and CentOS the "EPEL repository" is activated only for the installation time.
-  - On other distributions the packages needed are available in the distribution repository.
-
- 
 ## Installation Method 1  
 Install using the github repository (Recommended)
 ```bash
@@ -67,44 +66,30 @@ Install using the downloaded 'tgz' file
 ```
 
 ## The Setup script  
-- The setup script will ask questions regarding your environment.  
-- Your answers are store in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).  
-- The SADMIN configuraion file is used by the web interface and the SADMIN tools.  
-- The scripts you will create will also use it, it add flexibility to your SADMIN environment.  
-- Don't worry, the configuration can be modified afterward if you need to.  
-- The setup script can be run more than once, so don't worry if you made a mistake, just run it again.  
-- If there are missing packages, the setup program will install them for you.  
-- You will be asked what type of installation you want, a 'SADMIN server' or a 'SADMIN client'.  
+The setup script will ask some questions regarding your environment. Your answers are store in 
+the [SADMIN configuration file]( {% post_url 2021-04-26-sadmin-cfg %}) ($SADMIN/cfg/sadmin.cfg). This 
+configuration file is used by the web interface and across the SADMIN tools scripts. The scripts you 
+create will also use it and it add flexibility to your SADMIN environment. The configuration file 
+can be modified after running the setup script, if you need to.  
+{: .text-justify}
+
+The setup script can be run more than once, so don't worry if you made a mistake, just run it again. 
+If there are missing packages, the setup program will install them for you. You will be asked what 
+type of installation you want, a 'SADMIN server' or a 'SADMIN client'. As an example, I have kept 
+the [setup log](/assets//pdf/setup_centos7.pdf) of an installation that were done on a CentOS 7 server.
+{: .text-justify}
+
 - If you are installing a 'SADMIN server':  
-    - Setup script will install and configure for you the 'Mariadb' (Database) and an Apache Web Server.  
-    - When installation is finished you will have a working Web SADMIN environment.  
-
-
-<br>
-
----
-
-### Running the setup script
-* Setup ask several questions regarding your environment and store answers in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).  
-* Here's the [output running the setup script](https://sadmin.ca/assets//pdf/setup_centos7.pdf) to install a SADMIN client on a CentOS 7 system.
-* This file is used by the web interface, the SADMIN scripts, libraries and the new scripts you will create.  
-* This configuration can be modified when ever you need to.  
-* The setup script can be run more than once, so don't worry if you made a mistake, just run it again.
-* If there are missing packages, the setup program will download and install them for you.
-* You will be asked what type of installation you want, a 'SADM server' or a 'SADMIN client'.
-* If you are installing a 'SADMIN server', the 'Mariadb' (Database) and the Apache Web Server will be installed and configure for you.  
-* When installation is finished you will have a working Web SADMIN environment at 'http://sadmin'.
+    - Setup script will install and configure for you the 'Mariadb' (Database) and the Apache web 
+server. At the end of the installation you will have a working Web SADMIN environment at 'http://sadmin' 
+or 'http://localhost'.
 
 After running the setup script, you need to log out and log back in before using SADMIN Tools or type the command below.  
+```bash
+sudo source /etc/profile.d/sadmin.sh
+```
+This will make sure “SADMIN” environment variable is define.
 
-`sudo . /etc/profile.d/sadmin.sh`   
-This will make sure "SADMIN" environment variable is define (The dot and the space are important).  
 
-[Back To The Top](#top_of_page)
-
-<br>
-
----
-
-### Updating SADMIN Tools
-To update to the latest version of SADMIN, see our [Update SADMIN Tools page](/_pages/man/sadm_update)
+## Updating SADMIN Tools
+To update to the latest version of SADMIN, see our [Update SADMIN Tools page]( {% post_url 2021-03-14-sadm-update %} )

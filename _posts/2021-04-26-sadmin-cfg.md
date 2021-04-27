@@ -7,8 +7,8 @@ updated:        2021-04-26
 os:             Linux, Aix, MacOS
 layout:         single
 search:         true
-tags:           [ Configuration_files ] 
-categories:     [ Configuration_files ] 
+tags:           [ configuration_files ] 
+categories:     [ configuration_files ] 
 author_profile: false
 toc:            false
 classes:        wide

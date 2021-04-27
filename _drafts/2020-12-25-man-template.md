@@ -5,13 +5,12 @@ version:        2.2
 date:           2021-01-01
 updated:        2021-04-22
 os:             Linux, Aix, MacOS
-sadm_author:    sadm/author.md
-sadm_copyright: sadm/copyright.md
+tags:           [ test ] 
+#categories:     [ web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
+categories:     [ test ] 
+#
 layout:         single
 search:         true
-tags:           [ test ] 
-#categories:     [ Web Interface, Configuration files, System Monitor, Automated Server Scripts, Automated Client Scripts, Command Line Tools,  Utilities, Libraries, Templates, Test ] 
-categories:     [ test ] 
 author_profile: false
 toc:            false
 classes:        wide
@@ -28,19 +27,22 @@ sidebar:
 
 
 <a id="name"></a>
+
 ## NAME
 {{ page.title }} -- {{ page.desc }}
 
 
 <a id="synopsis"></a>
+
 ## SYNOPSIS
 
 ```bash
-    {{ page.title }} [-v] [-h] [-b] [-r] [-s] [-d 0-9]  
+    {{ page.title }} [-v] [-h] [-d 0-9]  
 ```
 
 
 <a id="description"></a>
+
 ## DESCRIPTION
 
 <!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
@@ -58,6 +60,7 @@ sidebar:
 
 
 <a id="examples"></a>
+
 ## EXAMPLE
 
 ```bash
@@ -77,5 +80,6 @@ sidebar:
 
 
 <a id="seealso"></a>
+
 ## SEE ALSO
 [The Daily Backup Script - sadm_backup.sh](#)

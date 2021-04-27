@@ -1,28 +1,51 @@
 ---
-title:              sadm_wrapper.sh
-layout:             single
-date_created:       2018-02-11
-date_updated:       2021-03-12 
-version:            1.6
-show_excerpts:      false
-entries_layout:     list
-tags:               tools
-categories:         utilities 
-author_profile:     false
-toc:                false
-classes:            wide
+title:          sadm_wrapper.sh
+desc:           Wrapper to run your existing scripts and benefit of SADMIN tools.
+version:        1.6
+date:           2018-02-11
+updated:        2021-03-12 
+os:             Linux, Aix, MacOS
+tags:           [ tools, wrapper ]
+categories:     [ utilities ]
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
 sidebar:
-  title:            "Documentation"
-  nav:              sidebar-manpage
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
-Date created : {{ page.date_created }}
-Date updates : {{ page.date_updated }}
+
+<font size="3">
+<div>$SADMIN/bin/{{ page.title }}</div>
+<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Run on {{ page.os }}</div>
+</font>
 
 
-### Create a test script
+<a id="name"></a>
 
-First let's create our test script, with the editor of your choice, create the file $SADMIN/usr/bin/show_date.sh
+## NAME
+{{ page.title }} -- {{ page.desc }}
+
+
+<a id="synopsis"></a>
+
+## SYNOPSIS
+
+```bash
+    {{ page.title }} [-v] [-h] [-d 0-9]  
+```
+
+
+<a id="description"></a>
+
+## DESCRIPTION
+
+First let's create a test script, with the editor of your choice, create the file $SADMIN/usr/bin/show_date.sh
 
 {% highlight bash %}
 /sadmin/usr/bin$ vi show_date.sh   
@@ -31,7 +54,7 @@ echo "Today is `date`"
 {% endhighlight %}        
 
 
-### Using the SADMIN wrapper
+## Run it using the SADMIN wrapper
 
 {% highlight bash %}
 sadmin/usr/bin$ $SADMIN/bin/sadm_wrapper.sh $SADMIN/usr/bin/show_date.sh
@@ -55,10 +78,11 @@ Sat Nov  3 13:47:37 EDT 2018 - End of show_date.sh
 {% endhighlight %}  
         
 
+<a id="examples"></a>
 
-## View the script generated log
-       
-{% highlight bash %}
+## EXAMPLE
+
+```bash
 /sadmin/usr/bin$ cat $SADMIN/log/holmes_show_date.log
  
 2018.11.03 13:47:37 ================================================================================
@@ -82,15 +106,14 @@ Today is Sat Nov  3 13:47:37 EDT 2018
 2018.11.03 13:47:37 ================================================================================
 2018.11.03 13:47:37  
 /sadmin/usr/bin$ 
-{% endhighlight %}
+```
         
 
-### View the generated Result Code History (*.rch) file
+## View the generated Result Code History (*.rch) file
 
 {% highlight bash %}
 /sadmin/usr/bin$ cat $SADMIN/dat/rch/holmes_show_date.rch 
-holmes 2018.11.03 13:47:37 .......... ........ ........ show_date default 2
-holmes 2018.11.03 13:47:37 2018.11.03 13:47:37 00:00:00 show_date default 0
+holmes 2018.11.03 13:47:37 2018.11.03 13:47:37 00:00:00 show_date default 1 0
 /sadmin/usr/bin$ 
 {% endhighlight %} 
         

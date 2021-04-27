@@ -9,8 +9,8 @@ sadm_author:    sadm/author.md
 sadm_copyright: sadm/copyright.md
 layout:         single
 search:         true
-tags:           [ Utilities ] 
-categories:     [ Utilities ] 
+tags:           [ utilities ] 
+categories:     [ utilities ] 
 author_profile: false
 toc:            false
 classes:        wide
@@ -27,11 +27,13 @@ sidebar:
 
 
 <a id="name"></a>
+
 ## NAME
 {{ page.title }} -- {{ page.desc }}
 
 
 <a id="synopsis"></a>
+
 ## SYNOPSIS
 
 ```bash
@@ -39,17 +41,20 @@ sidebar:
 ```
 
 
+
 <a id="description"></a>
+
 ## DESCRIPTION
 
 This script is use to create a file that contain information that will help us, when you submit 
 a problem. When you submit a problem or request support it is important to attach the file 
 produced by this script to your email.
-  {: .text-justify}
+{: .text-justify}
  
 
 
 <a id="examples"></a>
+
 ## EXAMPLE
 
 ```bash
@@ -111,5 +116,6 @@ We will get back to you as soon as possible.
 
 
 <a id="seealso"></a>
+
 ## SEE ALSO
 List SADMIN requirements - [sadm_check_requirements.sh]({% post_url 2019-03-21-sadm-check-requirements %})
