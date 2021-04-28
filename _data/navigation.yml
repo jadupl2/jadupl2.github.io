@@ -12,8 +12,8 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
-  - title: "Contact"
-    url: /_pages/contact/
+  #- title: "Contact"
+  #  url: /_pages/contact/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
@@ -28,12 +28,12 @@ sidebar-manpage:
 
   - title: "Command Line Tools"
     children:
-      - title:  "sadm_show_rch.sh (srch)"
+      - title:  "(srch) sadm_show_rch.sh"
         url:    /command_line/sadm-show-rch
 
   - title: "Utilities"
     children:
-      - title:  "sadm_check_requirements.sh"
+      - title:  "sadm_requirements.sh"
         url:    /utilities/sadm-check-requirements
       - title:  "sadm_setup.sh"
         url:    /utilities/sadm-setup-sh
@@ -46,7 +46,7 @@ sidebar-manpage:
         
   - title: "System Monitor"
     children:
-      - title:  "How-to setup SMS alerting system"
+      - title:  "Setup SMS notification"
         url:    /system_monitor/how-to-sms
 
   - title: "Server Scripts"

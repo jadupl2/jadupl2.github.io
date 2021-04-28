@@ -1,6 +1,6 @@
 ---
 layout: single
-title: sadm_check_requirements.sh
+title: sadm_requirements.sh
 show_excerpts: false
 entries_layout: list
 tags:               utilities
@@ -13,17 +13,17 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-sadm_check_requirements.sh
+sadm_requirements.sh
 Updated: 2019/03/21
 O/S : Linux
  
 NAME
 
-sadm_check_requirements.sh   -   Permit to identify missing 'SADMIN' requirements (if any) and install missing package (option -i).
+sadm_requirements.sh   -   Permit to identify missing 'SADMIN' requirements (if any) and install missing package (option -i).
  
 SYNOPSIS
 
-sadm_check_requirements.sh     [ -v -h  ]    [ -i  ]    [ -d   0-9  ]   
+sadm_requirements.sh     [ -v -h  ]    [ -i  ]    [ -d   0-9  ]   
  
 DESCRIPTION
 
@@ -34,9 +34,9 @@ DESCRIPTION
 ### Verify 'SADMIN' requirements
 Check, but do not install missing package(s).
 ```
-# $SADMIN/bin/sadm_check_requirements.sh 
+# $SADMIN/bin/sadm_requirements.sh 
 ================================================================================
-Starting sadm_check_requirements.sh V1.1 - SADM Lib. V2.66
+Starting sadm_requirements.sh V1.1 - SADM Lib. V2.66
 Server Name: ubuntu1604.maison.ca - Type: LINUX
 UBUNTU 16.04 Kernel 4.4.0-66-generic
 ==================================================
@@ -70,7 +70,7 @@ Script execution time is 00:00:00
 Trim History /sadmin/dat/rch/ubuntu1604_sadm_check_requirements.rch to 125 lines
 Requested alert only if script fail (Won't send alert)
 Trim log /sadmin/log/ubuntu1604_sadm_check_requirements.log to 1000 lines
-Wed Mar 20 11:34:25 EDT 2019 - End of sadm_check_requirements.sh
+Wed Mar 20 11:34:25 EDT 2019 - End of sadm_requirements.sh
 ================================================================================
 ```
 
@@ -78,9 +78,9 @@ Wed Mar 20 11:34:25 EDT 2019 - End of sadm_check_requirements.sh
 ### Verify and install missing package(s) to meet 'SADMIN' requirements.
         
 ```
-$SADMIN/bin/sadm_check_requirements.sh -i 
+$SADMIN/bin/sadm_requirements.sh -i 
 ================================================================================
-Starting sadm_check_requirements.sh V1.1 - SADM Lib. V2.66
+Starting sadm_requirements.sh V1.1 - SADM Lib. V2.66
 Server Name: ubuntu1604.maison.ca - Type: LINUX
 UBUNTU 16.04 Kernel 4.4.0-66-generic
 ==================================================

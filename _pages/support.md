@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Contact us
+title: Support
 author_profile: true
 ---
 

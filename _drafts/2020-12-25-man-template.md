@@ -29,7 +29,7 @@ sidebar:
 <a id="name"></a>
 
 ## NAME
-{{ page.title }} -- {{ page.desc }}
+**{{ page.title }}** - ***{{ page.desc }}***   
 
 
 <a id="synopsis"></a>

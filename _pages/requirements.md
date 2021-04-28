@@ -20,7 +20,7 @@ to installed them, you will be notified and the script will terminate.
 Below is a list of all the packages needed. If you want to see what packages will be installed by 
 the setup script before running it, you can run the command below. 
 ```bash
-$SADMIN/bin/sadm_check_requirements.sh   
+$SADMIN/bin/sadm_requirements.sh   
 ```
 
 It will verify each package needed and will tell you which one will have to installed. For 
@@ -33,7 +33,7 @@ more info on this script [view the man page of sadm-check-requirements.sh](/_pag
 ## SADMIN Client Installation
 
 The SADMIN client will install these packages, if they are not installed.
-To verify if all the SADMIN requirements are met, you can run the script 'sadm_check_requirements.sh'.
+To verify if all the SADMIN requirements are met, you can run the script 'sadm_requirements.sh'.
 It will give you a status of what package are already installed and the one that will be installed.
 {: .text-justify}
 
@@ -64,7 +64,7 @@ It will give you a status of what package are already installed and the one that
 
 
 The SADMIN server must meet all the client requirements (Server is also a client) and the packages below.
-To verify if all the SADMIN requirements are met, you can run the script 'sadm_check_requirements.sh'.
+To verify if all the SADMIN requirements are met, you can run the script 'sadm_requirements.sh'.
 It will give you a status of what package are already installed and the one that will be installed.
 The Web Server and the Database will be installed, created and configured for you.
 {: .text-justify}

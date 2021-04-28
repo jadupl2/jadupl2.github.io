@@ -42,10 +42,9 @@ repository and will be install automatically.
 
 
 ## Summary of installation
-- Installation must be executed by 'root' user or with 'sudo'.
-- We recommend using '/opt/sadmin', but you can select the directory of your choice.
-- Instruction below assume you have chosen to install SADMIN in '/opt/sadmin' directory.
-- The installation process is the same for an SADMIN server or client.
+Installation must be executed by 'root' user or with 'sudo'. We recommend using '/opt/sadmin' for the install directory, but you can select the directory of your choice. Instruction below assume you have chosen to install SADMIN in '/opt/sadmin' directory.  The setup script is used to install either the SADMIN client or server.
+{: .text-justify}
+
 
 ## Installation Method 1  
 Install using the github repository (Recommended)
@@ -68,7 +67,7 @@ Install using the downloaded 'tgz' file
 ## The Setup script  
 The setup script will ask some questions regarding your environment. Your answers are store in 
 the [SADMIN configuration file]( {% post_url 2021-04-26-sadmin-cfg %}) ($SADMIN/cfg/sadmin.cfg). This 
-configuration file is used by the web interface and across the SADMIN tools scripts. The scripts you 
+configuration file is used by the web interface and by the SADMIN tools scripts. The scripts you 
 create will also use it and it add flexibility to your SADMIN environment. The configuration file 
 can be modified after running the setup script, if you need to.  
 {: .text-justify}
