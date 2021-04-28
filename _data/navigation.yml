@@ -34,7 +34,7 @@ sidebar-manpage:
   - title: "Utilities"
     children:
       - title:  "sadm_requirements.sh"
-        url:    /utilities/sadm-check-requirements
+        url:    /utilities/sadm-requirements
       - title:  "sadm_setup.sh"
         url:    /utilities/sadm-setup-sh
       - title:  "sadm_update.sh"
