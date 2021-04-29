@@ -29,7 +29,7 @@ sidebar:
 <a id="name"></a>
 
 ## NAME
-**{{ page.title }}** - ***{{ page.desc }}***   
+**{{ page.title }}** - *{{ page.desc }}*   
 
 
 <a id="synopsis"></a>
@@ -37,7 +37,7 @@ sidebar:
 ## SYNOPSIS
 
 ```bash
-    {{ page.title }} [-v] [-h] [-d 0-9]  
+{{ page.title }} [-d 0-9] [-h] [-v]
 ```
 
 
@@ -69,6 +69,7 @@ sidebar:
 
 
 {% include {{ site.section_options     }} %}
+| **-i** | Example | 
 
 {% include {{ site.section_environment }} %}
 
@@ -82,4 +83,5 @@ sidebar:
 <a id="seealso"></a>
 
 ## SEE ALSO
-[The Daily Backup Script - sadm_backup.sh](#)
+[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN Server.
+[sadm_requirements.sh](post_url 2019-03-21-sadm-requirements %})

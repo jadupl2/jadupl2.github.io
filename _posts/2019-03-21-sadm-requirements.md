@@ -1,115 +1,129 @@
 ---
-layout: single
-title: sadm_requirements.sh
-show_excerpts: false
-entries_layout: list
-tags:               utilities
-categories:         utilities
+title:          sadm_requirements.sh
+desc:           List/Install required SADMIN Tools packages
+version:        1.9
+date:           2019-03-21
+updated:        2021-04-22
+os:             Linux, Aix, MacOS
+tags:           [ utilities ] 
+categories:     [ utilities ] 
+#
+layout:         single
+search:         true
 author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title:        "Documentation"
-  nav:          sidebar-manpage
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
-sadm_requirements.sh
-Updated: 2019/03/21
-O/S : Linux
- 
-NAME
 
-sadm_requirements.sh   -   Permit to identify missing 'SADMIN' requirements (if any) and install missing package (option -i).
- 
-SYNOPSIS
-
-sadm_requirements.sh     [ -v -h  ]    [ -i  ]    [ -d   0-9  ]   
- 
-DESCRIPTION
-
-    Permit to identify missing 'SADMIN' package requirement (if any) and to install missing package (option -i).
+<font size="3">
+<div>$SADMIN/bin/{{ page.title }}</div>
+<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Run on {{ page.os }}</div>
+</font>
 
 
+<a id="name"></a>
 
-### Verify 'SADMIN' requirements
-Check, but do not install missing package(s).
+## NAME
+**{{ page.title }}** - *{{ page.desc }}*   
+
+
+<a id="synopsis"></a>
+
+## SYNOPSIS
+
+```bash
+{{ page.title }} [-d 0-9] [-h] [-i] [-v]
 ```
-# $SADMIN/bin/sadm_requirements.sh 
-================================================================================
-Starting sadm_requirements.sh V1.1 - SADM Lib. V2.66
-Server Name: ubuntu1604.maison.ca - Type: LINUX
-UBUNTU 16.04 Kernel 4.4.0-66-generic
-==================================================
 
+
+<a id="description"></a>
+
+## DESCRIPTION
+
+The script allow you to check if any SADMIN required packages are missing. Running the script with the option '-i', will install any missing package.
+
+
+
+<a id="examples"></a>
+
+## EXAMPLE
+List missing required packages, but don't install any of them.
+
+```
+# sadm_requirements.sh 
+================================================================================
+Thu Apr 29 09:28:05 EDT 2021 - sadm_requirements.sh V1.9 - SADM Lib. V3.69
+Server Name: holmes.maison.ca - Type: LINUX
+CENTOS 7.9.2009 Kernel 3.10.0-1160.24.1.el7.x86_64
+==================================================
+ 
 SADMIN client requirements
-Checking availability of command lsb_release ... /usr/bin/lsb_release [OK]
-Checking availability of command dmidecode ... /usr/sbin/dmidecode [OK]
-Checking availability of command nmon ... /usr/bin/nmon [OK]
+Checking availability of command lsb_release ... /bin/lsb_release [OK]
+Checking availability of command dmidecode ... /sbin/dmidecode [OK]
+Checking availability of command nmon ... /bin/nmon [OK]
 Checking availability of command ethtool ... /sbin/ethtool [OK]
-Checking availability of command sudo ... /usr/bin/sudo [OK]
-Checking availability of command lshw ... Command missing [Warning]
+Checking availability of command sudo ... /bin/sudo [OK]
+Checking availability of command lshw ... /sbin/lshw [OK]
 Checking availability of command ifconfig ... /sbin/ifconfig [OK]
-Checking availability of command iostat ... Command missing [Warning]
+Checking availability of command iostat ... /bin/iostat [OK]
 Checking availability of command parted ... /sbin/parted [OK]
-Checking availability of command mutt ... /usr/bin/mutt [OK]
-Checking availability of command gawk ... /usr/bin/gawk [OK]
-Checking availability of command curl ... /usr/bin/curl [OK]
-Checking availability of command lscpu ... /usr/bin/lscpu [OK]
+Checking availability of command mutt ... /bin/mutt [OK]
+Checking availability of command gawk ... /bin/gawk [OK]
+Checking availability of command curl ... /bin/curl [OK]
+Checking availability of command lscpu ... /bin/lscpu [OK]
 Checking availability of command fdisk ... /sbin/fdisk [OK]
-Checking availability of deb package libwww-perl ... [OK]
-Checking availability of command perl ... /usr/bin/perl [OK]
-Checking availability of command ssh ... /usr/bin/ssh [OK]
-Checking availability of command mail ... /usr/bin/mail [OK]
-Checking availability of command bc ... /usr/bin/bc [OK]
-Checking availability of command facter ... /usr/bin/facter [OK]
-Checking availability of command python3 ... /usr/bin/python3 [OK]
+Checking availability of rpm package perl-libwww-perl ... [OK]
+Checking availability of command perl ... /bin/perl [OK]
+Checking availability of command ssh ... /bin/ssh [OK]
+Checking availability of command mail ... /bin/mail [OK]
+Checking availability of command bc ... /bin/bc [OK]
+Checking availability of command python3 ... /bin/python3 [OK]
+
+SADMIN server requirements.
+Checking availability of command mysql ... /bin/mysql [OK]
+Checking availability of command rrdtool ... /bin/rrdtool [OK]
+Checking availability of command fping ... /sbin/fping [OK]
+Checking availability of command pip3 ... /bin/pip3 [OK]
+Checking availability of command wkhtmltopdf ... /usr/local/bin/wkhtmltopdf [OK]
+Checking availability of command php ... /bin/php [OK]
+Checking availability of command httpd ... /sbin/httpd [OK]
 
 ==================================================
-Script return code is 0
-Script execution time is 00:00:00
-Trim History /sadmin/dat/rch/ubuntu1604_sadm_check_requirements.rch to 125 lines
-Requested alert only if script fail (Won't send alert)
-Trim log /sadmin/log/ubuntu1604_sadm_check_requirements.log to 1000 lines
-Wed Mar 20 11:34:25 EDT 2019 - End of sadm_requirements.sh
+Script exit code is 0 (Success) and execution time is 00:00:04
+Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
+Script succeeded, no alert will be send to 'default' alert group.
+New log (/sadmin/log/holmes_sadm_requirements.log) created ($SADM_LOG_APPEND='N').
+End of sadm_requirements.sh - Thu Apr 29 09:28:05 EDT 2021
 ================================================================================
+# 
 ```
 
 
 ### Verify and install missing package(s) to meet 'SADMIN' requirements.
+List and install missing required packages.
         
 ```
-$SADMIN/bin/sadm_requirements.sh -i 
+# sadm_requirements.sh -i
 ================================================================================
-Starting sadm_requirements.sh V1.1 - SADM Lib. V2.66
-Server Name: ubuntu1604.maison.ca - Type: LINUX
-UBUNTU 16.04 Kernel 4.4.0-66-generic
+Thu Apr 29 09:37:26 EDT 2021 - sadm_requirements.sh V1.9 - SADM Lib. V3.69
+Server Name: raspi3.maison.ca - Type: LINUX
+RASPBIAN 10 Kernel 5.10.17-v7+
 ==================================================
-
+ 
 SADMIN client requirements
 Checking availability of command lsb_release ... /usr/bin/lsb_release [OK]
 Checking availability of command dmidecode ... /usr/sbin/dmidecode [OK]
 Checking availability of command nmon ... /usr/bin/nmon [OK]
 Checking availability of command ethtool ... /sbin/ethtool [OK]
 Checking availability of command sudo ... /usr/bin/sudo [OK]
-Checking availability of command lshw ... Command missing [Warning]
-Synchronize package index files
-Running "apt-get update"
-Return Code after apt-get update is 0
-Installing the Package lshw now
-apt-get -y install lshw
-Return Code after installation of lshw is 0
 Checking availability of command lshw ... /usr/bin/lshw [OK]
-
 Checking availability of command ifconfig ... /sbin/ifconfig [OK]
-Checking availability of command iostat ... Command missing [Warning]
-Synchronize package index files
-Running "apt-get update"
-Return Code after apt-get update is 0
-Installing the Package sysstat now
-apt-get -y install sysstat
-Return Code after installation of sysstat is 0
 Checking availability of command iostat ... /usr/bin/iostat [OK]
-
 Checking availability of command parted ... /sbin/parted [OK]
 Checking availability of command mutt ... /usr/bin/mutt [OK]
 Checking availability of command gawk ... /usr/bin/gawk [OK]
@@ -121,64 +135,43 @@ Checking availability of command perl ... /usr/bin/perl [OK]
 Checking availability of command ssh ... /usr/bin/ssh [OK]
 Checking availability of command mail ... /usr/bin/mail [OK]
 Checking availability of command bc ... /usr/bin/bc [OK]
-Checking availability of command facter ... /usr/bin/facter [OK]
 Checking availability of command python3 ... /usr/bin/python3 [OK]
 
+SADMIN server requirements.
+Checking availability of command mysql ... /usr/bin/mysql [OK]
+Checking availability of command rrdtool ... /usr/bin/rrdtool [OK]
+Checking availability of command fping ... /usr/bin/fping [OK]
+Checking availability of command pip3 ... /usr/bin/pip3 [OK]
+Checking availability of command wkhtmltopdf ... /usr/bin/wkhtmltopdf [OK]
+Checking availability of command php ... /usr/bin/php [OK]
+Checking availability of command apache2 ... /usr/sbin/apache2 [OK]
+
 ==================================================
-Script return code is 0
-Script execution time is 00:00:21
-Trim History /sadmin/dat/rch/ubuntu1604_sadm_check_requirements.rch to 125 lines
-Requested alert only if script fail (Won't send alert)
-Trim log /sadmin/log/ubuntu1604_sadm_check_requirements.log to 1000 lines
-Wed Mar 20 11:35:49 EDT 2019 - End of sadm_check_requirements.sh
+Script exit code is 0 (Success) and execution time is 00:00:52
+Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
+Script succeeded, no alert will be send to 'default' alert group.
+New log (/opt/sadmin/log/raspi3_sadm_requirements.log) created ($SADM_LOG_APPEND='N').
+End of sadm_requirements.sh - Thu Apr 29 09:37:31 EDT 2021
 ================================================================================
-root@ubuntu1604/sadmin# 
+# 
 ```        
 
 
+{% include {{ site.section_options     }} %}
+| **-i** | Install missing packages |   
 
- 
-OPTIONS
+{% include {{ site.section_environment }} %}
 
--i
-    Check and install missing package(s) to meet 'SADMIN' requirements.
--d
-    Specify debug level (0-9).
-    Value of 0 indicate that no debug information is to be displayed.
--h
-    Display this help and exit.
--v
-    Output version information and exit.
+{% include {{ site.section_exitcode    }} %}
+
+{% include {{ site.section_author      }} %}
+
+{% include {{ site.section_copyright   }} %}
 
 
+<a id="seealso"></a>
 
-REQUIREMENTS
-
-    Environment variable 'SADMIN', specify the root directory of the SADMIN tools.
-    Define by setup script in /etc/profile.d/sadmin.sh and in /etc/environment .
-    SADMIN main configuration file, "$SADMIN/cfg/sadmin.cfg"
-    SADMIN Tools Shell Library, "$SADMIN/lib/sadmlib.sh".
+## SEE ALSO
+[setup.sh](/_pages/install/#the-setup-script) - SADMIN Setup script.
 
 
- 
-EXIT STATUS
-[0]    An exit status of zero indicates success
-[1]    Failure is indicated by a nonzero value, typically ‘1’.
-
- 
-AUTHOR
-Jacques Duplessis (jacques.duplessis@sadmin.ca.).
-Any suggestions or bug report can be sent at http://www.sadmin.ca/support.php
-
- 
-COPYRIGHT
-Copyright © 2020 Free Software Foundation, Inc. License GPLv3+:
-    - GNU GPL version 3 or later http://gnu.org/licenses/gpl.html.
-This is free software, you are free to change and redistribute it.
-There is NO WARRANTY to the extent permitted by law.
-
- 
-SEE ALSO
-Installation guide    - Installation Guide, running the setup.sh script.
-sadmlib_std_demo.sh    - Show with examples all global variables and functions you can use within your shell script.
-sadmlib_std_demo.py    - Show with examples all global variables and functions/modules you can use within your Python script.
