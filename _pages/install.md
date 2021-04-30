@@ -55,7 +55,7 @@ Install using the github repository (Recommended)
 ```
 
 ## Installation Method 2  
-Install using the downloaded 'tgz' file   
+Install using the downloaded 'tgz' file from our [download page](/_pages/download).
 ```bash
     # cp sadmin_xx.xx.xx.tgz /opt               # Copy sadmin tgz to /opt
     # mkdir /opt/sadmin                         # Create sadmin directory
