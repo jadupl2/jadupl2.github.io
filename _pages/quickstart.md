@@ -14,8 +14,8 @@ bring to you. First you can take a look at the web interface at "http://yourserv
 run the two demo scripts "[sadmlib_std_demo.sh](/libraries/sadmlib-std-demo-sh)" and 
 "[sadmlib_std_demo.py](/libraries/sadmlib-std-demo-py)". This will give you an idea of what
 functions you have access in our Library (sadmlib_std.sh and sadmlib_std.py) and how to use them.
-You can also run our [template shell script](/templates/man/sadm-template-sh) and 
-[python template](/templates/sadm-template-py), take a look at the code, they are a good starting 
+You can also run our [template shell script]({% post_url 2021-03-16-sadm-template-sh %}) and 
+[python template]({% post_url 2021-03-16-sadm-template-py %}), take a look at the code, they are a good starting 
 point to create your next shell or Python script.
 {: .text-justify}
 
@@ -23,7 +23,7 @@ point to create your next shell or Python script.
 ## Meet the templates
 To create your own script using the SADMIN tools, you may want to take a look at the templates, 
 run them and check their code. Check our tutorial page on using the 
-[shell template](/_pages/man/sadm-template-sh) for a full example.
+[shell template]({% post_url 2021-03-16-sadm-template-sh %}) for a full example.
 {: .text-justify}
 
 
