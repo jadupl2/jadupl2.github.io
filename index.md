@@ -1,6 +1,7 @@
 ---
 layout:         single
-limit:          1
+version:        1.3.2
+updated:        2021-04-30
 paginate:       false
 show_excerpts:  false
 entries_layout: list
@@ -15,6 +16,7 @@ toc:            false
 ![sadm_text](/assets/img/logo/sadmin_logo_88x88.png "SADMIN Logo")
 ![sadm_logo](/assets/img/logo/sadmin_text_343x93.png "SADMIN Text Logo")
 
+[**Latest version v{{ page.version }} - Updated {{ page.updated }}**](_pages/download)
 
 If you're a Unix system administrator who is taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable and under control. SADMIN can 

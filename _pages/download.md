@@ -1,13 +1,12 @@
 ---
+title: Latest Release
 layout: single
-limit: 1
-paginate: false
 show_excerpts: false
 entries_layout: list
 author_profile: true
-title: Latest Release
 ---
 
+---
 
 | :---| :--- | 
 | Version           | 1.3.2 | 
