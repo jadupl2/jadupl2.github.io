@@ -1,5 +1,5 @@
 ---
-title:                  Using SADMIN Python template
+title:                  Using SADMIN Python script template
 layout:                 single
 date_created:           2021-03-16
 date_updated:           2021-04-04 

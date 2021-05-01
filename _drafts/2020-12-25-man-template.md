@@ -27,13 +27,11 @@ sidebar:
 
 
 <a id="name"></a>
-
 ## NAME
 **{{ page.title }}** - *{{ page.desc }}*   
 
 
 <a id="synopsis"></a>
-
 ## SYNOPSIS
 
 ```bash
@@ -42,7 +40,6 @@ sidebar:
 
 
 <a id="description"></a>
-
 ## DESCRIPTION
 
 <!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
@@ -60,7 +57,6 @@ sidebar:
 
 
 <a id="examples"></a>
-
 ## EXAMPLE
 
 ```bash
@@ -81,7 +77,13 @@ sidebar:
 
 
 <a id="seealso"></a>
-
 ## SEE ALSO
-[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN Server.
-[sadm_requirements.sh](post_url 2019-03-21-sadm-requirements %})
+
+[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN Server.     
+[sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %}) - List/Install required SADMIN Tools packages  
+[sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) - Using SADMIN Shell script template   
+[sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN Python script template    
+[sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) - Using SADMIN shell menu template   
+[sadm_wrapper.sh]({% post_url 2018-02-11-sadm-wrapper %}) - Use to run your existing scripts & benefit of SADMIN tools  
+[sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN Shell Library Functions Demo   
+[sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) - SADMIN Python Library Functions Demo  

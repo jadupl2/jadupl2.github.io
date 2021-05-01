@@ -65,6 +65,8 @@ sidebar-manpage:
         url:    /templates/sadm-template-sh
       - title: "sadm_template.py"
         url:    /templates/sadm-template-py
+      - title: "sadm_template_menus.sh"
+        url:    /templates/sadm-template-menu
 
   - title: "Libraries"
     children:
