@@ -1,12 +1,18 @@
 ---
 layout: single
 title: Quick Start
-limit: 1
-paginate: false
 show_excerpts: false
 entries_layout: list
-author_profile: true
-toc:            true
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
+---
 ---
 
 So you just finish [installing SADMIN tools](/_pages/install) and you want to see what it can 
@@ -44,8 +50,9 @@ Running the template above, will show the kind of
 $SADMIN/bin/sadm_template.py   
 {% endhighlight %} 
 
-By looking at the [script output](/assets/img/cmdline/sadm_template_py_output_screen.png) you will notice that we get almost the same look, this is what we wanted, standardize the usage and the output. The Shell and the 
-Python library have almost the same functions and both react the same way.
+By looking at the [script output](/assets/img/cmdline/sadm_template_py_output_screen.png) you will 
+notice that we get almost the same look, this is what we wanted, standardize the usage and the 
+output. The Shell and the Python library have almost the same functions and both react the same way.
 {: .text-justify}
 
 
@@ -62,7 +69,7 @@ $ $SADMIN/usr/bin/newscript.sh
 
 
 ## Run existing script with the wrapper
-Use the [SADMIN wrapper](/_pages/man/sadm-wrapper) to run your existing script. 
+Use the [SADMIN wrapper]({% post_url 2018-02-11-sadm-wrapper %}) to run your existing script. 
 Afterward, look at the log it produced in "$SADMIN/log" and the history file in "$SADMIN/dat/rch". 
 You can also go to the script section on the web interface and see the same information. The web 
 interface is the central point to check your scripts logs and history file. If your script fail 
@@ -113,7 +120,7 @@ The library include all sorts of functions that will save you time when building
 the terminal.
 
 To have a complete list of functions available in the screen library, have a look at this 
-[page](/libraries/sadmlib-screen).
+[page]({% post_url 2021-04-10-sadmlib-screen-sh %}).
 To use use it in within your scripts, just add the command below.
 {% highlight bash %}
 source $SADMIN/bin/sadmlib_screen.sh 

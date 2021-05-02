@@ -37,7 +37,7 @@ sidebar:
 ## SYNOPSIS
 
 ```bash
-    {{ page.title }} [-v] [-h] [-d 0-9]  
+{{ page.title }} [-v] [-h] [-d 0-9]  
 ```
 
 
@@ -45,14 +45,17 @@ sidebar:
 
 ## DESCRIPTION
 
-First let's create a test script, with the editor of your choice, create the file $SADMIN/usr/bin/show_date.sh
+The SADMIN script wrapper is used to run your existing script and see the benefits of it. After you
+used it once, take a look at the log (in $SADMIN/log) and .rch ($SADMIN/dat/rch) files from the 
+command line or from the web interface. Let's see it in action, first let's create a test script, 
+with the editor of your choice, create the file $SADMIN/usr/bin/show_date.sh
+ {: .text-justify}
 
-{% highlight bash %}
+```bash
 /sadmin/usr/bin$ vi show_date.sh   
 #! /usr/bin/env sh  
 echo "Today is `date`"   
-{% endhighlight %}        
-
+```
 
 ## Run it using the SADMIN wrapper
 
@@ -119,5 +122,20 @@ holmes 2018.11.03 13:47:37 2018.11.03 13:47:37 00:00:00 show_date default 1 0
         
 
 
-Really simple don't you think ? 
-{: .notice--warning}
+{% include {{ site.section_options     }} %}
+
+{% include {{ site.section_environment }} %}
+
+{% include {{ site.section_exitcode    }} %}
+
+{% include {{ site.section_author      }} %}
+
+{% include {{ site.section_copyright   }} %}
+
+
+<a id="seealso"></a>
+## SEE ALSO
+
+[sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) - Using SADMIN Shell script template   
+[sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN Python script template    
+[sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) - Using SADMIN shell menu template   

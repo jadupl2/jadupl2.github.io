@@ -25,7 +25,9 @@ sidebar:
 
 
 ## Method 1 (Recommended)
-To always get the latest version of SADMIN, use the 'git pull' command. Your Database and then change you made to your configuration files in "$SADMIN/cfg" will not modified at all. This method will allow you to get the latest version of the SADMIN tools.
+To always get the latest version of SADMIN, use the 'git pull' command. Your Database and the
+ change you made to your configuration files in "$SADMIN/cfg" will not modified at all. This 
+ method will allow you to get the latest version of the SADMIN tools.
 {: .text-justify}
 
 ```bash
@@ -46,9 +48,12 @@ We have a dedicated section for the updater in our manual, take a look at it.
 {: .text-justify}
 
 
-### SADMIN Support  
-Should you ran into problem while installing or running the SADMIN tools, please run the 
-'sadm_support_request.sh', attach the resulting log to an email with a description of your 
-problem or question and sent it to [sadmlinux@gmail.com](mailto:sadmlinux@gmail.com). 
-We will get back to you as soon as possible.  
-{: .text-justify}
+{% include {{ site.section_author      }} %}
+
+{% include {{ site.section_copyright   }} %}
+
+
+<a id="seealso"></a>
+## SEE ALSO
+
+[SADMIN installation](/_pages/install.md) - SADMIN installation page.    

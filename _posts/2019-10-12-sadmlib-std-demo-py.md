@@ -1,149 +1,180 @@
 ---
 title:          sadmlib_std_demo.py
+desc:           Template for scripts documentation
+version:        3.10
+date:           2021-03-16
+updated:        2021-03-16 
+os:             Linux, Aix, MacOS
+tags:           [ libraries ]
+categories:     [ libraries ] 
+#
 layout:         single
-date_created:   2021-03-16
-date_updated:   2021-03-16 
-paginate:       false
-show_excerpts:  false
-entries_layout: list
-tags:               [ libraries ]
-categories:         [ libraries ] 
+search:         true
 author_profile: false
 toc:            false
 classes:        wide
-coll_name:      sadmlib_std_demo.py
-coll_desc:      Demonstrate SADM Python Library usage
-coll_cat:       "SADMIN Utilities Scripts" 
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
-NAME
+<font size="3">
+<div>$SADMIN/bin/{{ page.title }}</div>
+<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Run on {{ page.os }}</div>
+</font>
 
-sadmlib_std_demo.py   -   SADMIN standard Python library demonstrator, show global variables and functions you can use within your Python script, with examples,
+<a id="name"></a>
+## NAME
+**{{ page.title }}** - *{{ page.desc }}*   
+
+
+<a id="synopsis"></a>
+## SYNOPSIS
+
+```bash
+{{ page.title }} [ -d 0-9 ] [ -h ] [ -p ] [ -s ] [ -t ] [ -v ]
+```
+
+<a id="description"></a>
+## DESCRIPTION
+
+This is the script I use to test and debug the SADMIN Python library. When you run this script, it
+call every methods included in the library and it show you every global variables available to you.
+We suggest running this script and pipe the output to the 'less' command and see how variables and 
+functions works on your system.
+{: .text-justify}
+
+```bash
+$ sudo $SADMIN/bin/sadmlib_std_demo.py | less
+```
+
+
+<a id="examples"></a>
+## EXAMPLE
+
+Examples below may have different result values on your system and that's normal. For example, you 
+may have installed in '/opt/sadmin' instead of '/sadmin' like below. There is a PDF with the 
+output of this Python script, you can use it for reference purpose.
+{: .text-justify}
+
+
+### User variables that affect SADMIN shell library behavior
+You can set these variables in the SADMIN section included in your script
+ (see [python template]({% post_url 2021-03-16-sadm-template-py %}))
+```bash
+=======================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Var. that affect behavior    Description                          This System Result
+=======================================================================================
+[001] st.ver                 Get/Set Script Version Number       : 3.10 
+[002] st.pn                  Get script name                     : sadmlib_std_demo.py 
+[003] st.inst                Get script name without extension   : sadmlib_std_demo 
+[004] st.username            Get current user name               : root 
+[005] st.tpid                Get Current Process ID              : 24193 
+[006] st.multiple_exec       Get/Set Allow running multiple copy : Y 
+[007] st.use_rch             Get/Set Gen. entry in .rch file     : False 
+[008] st.log_type            Set Output to [S]creen [L]og [B]oth : B 
+[009] st.log_append          Get/Set Append Log or Create New One: False 
+[010] st.log_header          Get/Set Generate Header in log      : False 
+[011] st.log_footer          Get/Set Generate Footer in  log     : False 
+[012] st.exit_code           Get/Set Script Exit Return Code     : 0 
+```
+
+
+### Shell Library Modules/Functions available to your script
+```bash
+==========================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Calling Functions                  Description                           System Result 
+==========================================================================================
+[001] st.get_release()             SADMIN Release Number (XX.XX)       : 1.3.2 
+[002] st.get_ostype()              OS Type (Uppercase,LINUX,AIX,DARWIN): LINUX 
+[003] st.get_osversion()           Return O/S Version (Ex: 7.2, 6.5)   : 7.9.2009 
+[004] st.get_osmajorversion()      Return O/S Major Version (Ex 7, 6)  : 7 
+[005] st.get_osminorversion()      Return O/S Minor Version (Ex 2, 3)  : 9 
+[006] st.get_osname()              O/S Name (REDHAT,CENTOS,UBUNTU,...) : CENTOS 
+[007] st.get_oscodename()          O/S Project Code Name               : CORE 
+[008] st.get_kernel_version()      O/S Running Kernel Version          : 3.10.0-1160 
+[009] st.get_kernel_bitmode()      O/S Kernel Bit Mode (32 or 64)      : 64 
+[010] st.hostname                  Current Host Name                   : holmes 
+[011] st.get_host_ip()             Current Host IP Address             : 192.168.1.12 
+[012] st.get_domainname()          Current Host Domain Name            : maison.ca 
+[013] st.get_fqdn()                Fully Qualified Domain Host Name    : holmes.maison.ca 
+[014] st.get_epoch_time()          Get Current Epoch Time              : 1619967540 
+[015] st.epoch_to_date(1619967540) Convert epoch time to date          : 2021.05.02 10:59:00
+      WDATE=2021.05.02 10:59:00
+[016] st.date_to_epoch(WDATE)      Convert Date to epoch time          : 1619967540 
+      DATE1=2018.06.30 10:00:44
+      DATE2=2018.06.30 10:00:03
+[017] st.elapse_time(DATE1,DATE2)  Elapse Time between two timestamps  : 00:00:41 
+[018] st.get_packagetype()         Get package type (rpm,deb,aix,dmg)  : rpm 
+[019] st.get_arch()                Get system architecture             : x86_64 
+```
+
+
+### SADMIN Python specific methods  
+
+```bash
+==========================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+SADMIN PYTHON SPECIFIC FUNCTIONS     Description                           System Result
+==========================================================================================
+[001] st.dbsilent                    When DBerror, No ErrMsg (Just ErrNo): False 
+[002] st.usedb                       Script need (Open/Close) Database ? : True 
+[003] st.silentremove('file')        Silent File Del, No Err if not exist: None 
+[004] st.writelog(msg,'nonl'|'bold') Write Log (nonl=NoNewLine)          : None 
+```
+
+        
+
+### Overview of 'sadm_start' and 'sadm_stop' methods
+
+```bash
+====================================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Overview of st.start() & st.stop() function                                                                     
+====================================================================================================
+
+----------
+st = setup_sadmin()
+Example : st = setup_sadmin()    # Setup Var, Load Libr, Create instance, call st.start()
+----------
+    Setup User Var., Load Module, Create Instance, call st.start() and return instance object
+    It make sure the SADMIN Environment variable is set to proper dir.
+    The module 'setup_sadmin()', need to be called  when your script is starting.
+    What this function will do for us :
+        1) Make sure all directories & sub-directories exist and have proper permissions.
+        2) Make sure log file exist with proper permission (st.log_file)
+        3) Make sure Return Code History (.rch) exist and have the right permission
+        4) If PID file exist, show error message and abort.
+           Unless user allow more than one copy to run simultaneously (st.multiple_exec = 'Y')
+        5) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2)
+        6) Write HostName - Script name and version - O/S Name and version to the Log file (st.log_file)
+
+----------
+st.stop()
+Example : st.stop(st.exit_code)   # Close SADM Environment
+          sys.exit(st.exit_code)  # Exit To O/S
+----------
+    Accept one parameter - Either 0 (Successful) or non-zero (Error Encountered)
+    Please call this function just before your script end.
+    What this function do.
+        1) If Exit Code is not zero, change it to 1.
+        2) Get Actual Time and Calculate the Execution Time.
+        3) Writing the Script Footer in the Log (Script Return code, Execution Time, ...)
+        4) Update the RCH File (Start/End/Elapse Time and the Result Code)
+        5) Trim The RCH File Based on User choice in sadmin.cfg
+        6) Trim the Log based on user selection in sadmin.cfg
+        7) Delete the PID File of the script (st.pid_file)
+        8) Delete the User 3 TMP Files (st.tmp_file1, st.tmp_file2, st.tmp_file3)
  
-SYNOPSIS
-
-sadmlib_std_demo.py     [ -v -h -p -s -t  ]    [ -d   0-9  ]   
- 
-DESCRIPTION
-
-    Show with examples all global variables and functions/modules you can use within your Python script.
-    We suggest running this script and pipe the ouput to 'less' to see how variables and functions works on your system.
-        $ sudo $SADMIN/bin/sadmlib_std_demo.py | less
-    Examples below may have different result values on your system and that's normal.
-    For example, you may have installed in '/opt/sadmin' instead of '/sadmin' like below.
-    There is a PDF with the output of this Python script, you can use it for reference purpose.
+```
 
 
-    User Variables that affect SADMIN Shell Library behavior.
+### All variables content of the SADMIN configuration file are also accessible in your script.
 
-
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        User Var. that affect SADMIN behavior  Description                           This System Result             
-        ====================================================================================================
-        [001] st.ver                           Get/Set Script Version Number       : 3.6 
-        [002] st.pn                            Get script name                     : sadmlib_std_demo.py 
-        [003] st.inst                          Get script name without extension   : sadmlib_std_demo 
-        [004] st.username                      Get current user name               : root 
-        [005] st.tpid                          Get Current Process ID              : 3843 
-        [006] st.multiple_exec                 Get/Set Allow running multiple copy : Y 
-        [007] st.use_rch                       Get/Set Gen. entry in .rch file     : False 
-        [008] st.log_type                      Set Output to [S]creen [L]og [B]oth : B 
-        [009] st.log_append                    Get/Set Append Log or Create New One: False 
-        [010] st.log_header                    Get/Set Generate Header in log      : False 
-        [011] st.log_footer                    Get/Set Generate Footer in  log     : False 
-        [012] st.exit_code                     Get/Set Script Exit Return Code     : 0 
-        
-
-
-    SADMIN Shell Library Modules/Functions available to your script.
-
-
-        ====================================================================================================
-        sadmlib_std_demo.py v3.10 - Library v3.09
-        Calling Functions                      Description                           This System Result
-        ====================================================================================================
-        [001] st.get_release()                 SADMIN Release Number (XX.XX)       : 1.2.0
-        [002] st.get_ostype()                  OS Type (Uppercase,LINUX,AIX,DARWIN): LINUX
-        [003] st.get_osversion()               Return O/S Version (Ex: 7.2, 6.5)   : 7.7.1908
-        [004] st.get_osmajorversion()          Return O/S Major Version (Ex 7, 6)  : 7
-        [005] st.get_osminorversion()          Return O/S Minor Version (Ex 2, 3)  : 7
-        [006] st.get_osname()                  O/S Name (REDHAT,CENTOS,UBUNTU,...) : CENTOS
-        [007] st.get_oscodename()              O/S Project Code Name               : CORE
-        [008] st.get_kernel_version()          O/S Running Kernel Version          : 3.10.0-1062
-        [009] st.get_kernel_bitmode()          O/S Kernel Bit Mode (32 or 64)      : 64
-        [010] st.hostname                      Current Host Name                   : holmes
-        [011] st.get_host_ip()                 Current Host IP Address             : 192.168.1.12
-        [012] st.get_domainname()              Current Host Domain Name            : maison.ca
-        [013] st.get_fqdn()                    Fully Qualified Domain Host Name    : holmes.maison.ca
-        [014] st.get_epoch_time()              Get Current Epoch Time              : 1574605872
-        [015] st.epoch_to_date(1574605872)     Convert epoch time to date          : 2019.11.24 09:31:12
-            WDATE=2019.11.24 09:31:12
-        [016] st.date_to_epoch(WDATE)          Convert Date to epoch time          : 1574605872
-            DATE1=2018.06.30 10:00:44
-            DATE2=2018.06.30 10:00:03
-        [017] st.elapse_time(DATE1,DATE2)      Elapse Time between two timestamps  : 00:00:41
-        [018] st.get_packagetype()             Get package type (rpm,deb,aix,dmg)  : rpm
-        [019] st.get_arch()                    Get system architecture             : x86_64
-
-
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        SADMIN PYTHON SPECIFIC FUNCTIONS       Description                           This System Result             
-        ====================================================================================================
-        [001] st.dbsilent                      When DBerror, No ErrMsg (Just ErrNo): False 
-        [002] st.usedb                         Script need (Open/Close) Database ? : True 
-        [003] st.silentremove('file')          Silent File Del, No Err if not exist: None 
-        [004] st.writelog(msg,'nonl'|'bold')   Write Log (nonl=NoNewLine)          : None 
-        
-
-
-    Overview of SADMIN Library 'sadm_start' and 'sadm_stop' function.
-
-
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        Overview of st.start() & st.stop() function                                                                     
-        ====================================================================================================
-
-        ----------
-        st = setup_sadmin()
-        Example : st = setup_sadmin()    # Setup Var, Load Libr, Create instance, call st.start()
-        ----------
-            Setup User Var., Load Module, Create Instance, call st.start() and return instance object
-            It make sure the SADMIN Environment variable is set to proper dir.
-            The module 'setup_sadmin()', need to be called  when your script is starting.
-            What this function will do for us :
-                1) Make sure all directories & sub-directories exist and have proper permissions.
-                2) Make sure log file exist with proper permission (st.log_file)
-                3) Make sure Return Code History (.rch) exist and have the right permission
-                4) If PID file exist, show error message and abort.
-                Unless user allow more than one copy to run simultaneously (st.multiple_exec = 'Y')
-                5) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2)
-                6) Write HostName - Script name and version - O/S Name and version to the Log file (st.log_file)
-
-        ----------
-        st.stop()
-        Example : st.stop(st.exit_code)   # Close SADM Environment
-                sys.exit(st.exit_code)  # Exit To O/S
-        ----------
-            Accept one parameter - Either 0 (Successful) or non-zero (Error Encountered)
-            Please call this function just before your script end.
-            What this function do.
-                1) If Exit Code is not zero, change it to 1.
-                2) Get Actual Time and Calculate the Execution Time.
-                3) Writing the Script Footer in the Log (Script Return code, Execution Time, ...)
-                4) Update the RCH File (Start/End/Elapse Time and the Result Code)
-                5) Trim The RCH File Based on User choice in sadmin.cfg
-                6) Trim the Log based on user selection in sadmin.cfg
-                7) Delete the PID File of the script (st.pid_file)
-                8) Delete the User 3 TMP Files (st.tmp_file1, st.tmp_file2, st.tmp_file3)
-        
-
-
-    All variables content of the SADMIN configuration file are also accessible in your script.
-
-
+```bash
         ====================================================================================================
         sadmlib_std_demo.py v3.6 - Library v3.02
         SADMIN CONFIG FILE VARIABLES           Description                           This System Result             
@@ -197,12 +228,13 @@ DESCRIPTION
         [047] st.cfg_monthly_backup_date       Monthly Backup Date (1-28)          : 1 
         [048] st.cfg_yearly_backup_month       Yearly Backup Month (1-12)          : 12 
         [049] st.cfg_yearly_backup_date        Yearly Backup Date (1-31)           : 31 
-        
+```
 
 
-    There is also a set a variables that you can use in your script to access SADMIN Directories.
 
+### Set a variables that you can use in your script to access SADMIN Directories.
 
+```bash
         ====================================================================================================
         sadmlib_std_demo.py v3.6 - Library v3.02
         Client Directories Var. Avail.         Description                           This System Result             
@@ -241,12 +273,13 @@ DESCRIPTION
         [004] st.www_lib_dir                   SADMIN Web Site PHP Library Dir.    : /sadmin/www/lib 
         [005] st.www_tmp_dir                   SADMIN Web Temp Working Directory   : /sadmin/www/tmp 
         [006] st.www_perf_dir                  Web Performance Server Graph Dir.   : /sadmin/www/tmp/perf 
-        
+```
 
 
-    There is also a set a variables that you can use in your script to access SADMIN Files.
 
+### There is also a set a variables that you can use in your script to access SADMIN Files.
 
+```bash
         ====================================================================================================
         sadmlib_std_demo.py v3.6 - Library v3.02
         SADMIN FILES VARIABLES AVAIL.          Description                           This System Result             
@@ -272,12 +305,13 @@ DESCRIPTION
         [019] st.backup_list_init              Initial Backup List (Template)      : /sadmin/cfg/.backup_list.txt 
         [020] st.backup_exclude                Backup Exclude List File Name       : /sadmin/cfg/backup_exclude.txt 
         [021] st.backup_exclude_init           Initial Backup Exclude (Template)   : /sadmin/cfg/.backup_exclude.txt 
-        
+```
 
 
-    All these variables are filled automatically when you call the 'sadm_start' function.
 
+### All these variables are filled automatically when you call the 'sadm_start' function.
 
+```bash
         ====================================================================================================
         sadmlib_std_demo.py v3.6 - Library v3.02
         COMMAND PATH USE BY SADMIN STD. LIBR.  Description                           This System Result             
@@ -298,12 +332,14 @@ DESCRIPTION
         [014] st.ethtool                       Cmd. 'ethtool', Get System IP Info  : /sbin/ethtool 
         [015] st.ssh                           Cmd. 'ssh', SSH to SADMIN client    : /bin/ssh 
         [016] st.ssh_cmd                       Cmd. 'ssh', SSH to Connect to client: /bin/ssh -qnp 32                
-        
-
-    If variable content is blank, it means that the command is not available on the current system.
-    At the end we have a Database connection test.
+```
 
 
+### If variable content is blank, it means that the command is not available on the current system.
+At the end we have a Database connection test.
+
+
+```bash
         ====================================================================================================
         sadmlib_std_demo.py v3.6 - Library v3.02
         Database Information                   Description                           This System Result             
@@ -312,60 +348,25 @@ DESCRIPTION
         [002] st.usedb                         Script need (Open/Close) Database ? : True 
         Database connection succeeded
         Closing Database connection
-        
+```
 
 
- 
-OPTIONS
+{% include {{ site.section_options     }} %}
+| **-p** | Show database password on output.| 
+| **-s** | Show Storix Backup information.|
+| **-t** | Show TextBelt API Key |
 
--p
-    Show database password on output.
--s
-    Show Storix Backup information.
--t
-    Show TextBelt API Key
--d
-    Specify debug level (0-9).
-    Value of 0 indicate that no debug information is to be displayed.
--h
-    Display this help and exit.
--v
-    Output version information and exit.
+{% include {{ site.section_environment }} %}
+
+{% include {{ site.section_exitcode    }} %}
+
+{% include {{ site.section_author      }} %}
+
+{% include {{ site.section_copyright   }} %}
 
 
+<a id="seealso"></a>
+## SEE ALSO
 
-REQUIREMENTS
-
-    Environment variable 'SADMIN', specify the root directory of the SADMIN tools.
-    Define by setup script in /etc/profile.d/sadmin.sh and in /etc/environment .
-    SADMIN main configuration file, "$SADMIN/cfg/sadmin.cfg"
-    SADMIN Tools Shell Library, "$SADMIN/lib/sadmlib.sh".
-
-
- 
-EXIT STATUS
-[0]    An exit status of zero indicates success
-[1]    Failure is indicated by a nonzero value, typically ‘1’.
-
- 
-AUTHOR
-Jacques Duplessis (jacques.duplessis@sadmin.ca.).
-Any suggestions or bug report can be sent at http://www.sadmin.ca/support.php
-
- 
-COPYRIGHT
-Copyright © 2020 Free Software Foundation, Inc. License GPLv3+:
-    - GNU GPL version 3 or later http://gnu.org/licenses/gpl.html.
-This is free software, you are free to change and redistribute it.
-There is NO WARRANTY to the extent permitted by law.
-
- 
-SEE ALSO
- 
-SEE ALSO
-sadm_template.sh    - Using the SADMIN Shell Template (sadm_template.sh)
-sadm_template.py    - Using the SADMIN Python Template (sadm_template.py)
-sadm_template_menu.sh    - Using the SADMIN Shell Menu Building Template (sadm_template_menu.sh)
-sadm_wrapper.sh    - Use this wrapper to call your existing scripts and benefit of SADMIN tools.
-sadmlib_std_demo.sh    - Show all global variables and functions you can use within your shell script, with examples.
-sadmlib_std_demo.py    - Show all global variables and functions/modules you can use within your Python script, with examples. 
+[sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN Python script template    
+[sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN Shell Library Functions Demo   

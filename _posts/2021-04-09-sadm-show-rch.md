@@ -44,7 +44,11 @@ sidebar:
 
 ## DESCRIPTION
 
-Show the actual status of every scripts of all your systems. The information presented by this scripts, is collected from all your servers every 5 minutes by the "sadm_fetch_clients.sh" script. The running script (if any) are presented first, followed by the script(s) that ended with error and finally the script that ended with success, sorted by descending date and time. *This command can be executed only on the SADMIN server.*
+Show the actual status of every scripts of all your systems. The information presented by this 
+scripts, is collected from all your servers every 5 minutes by the "sadm_fetch_clients.sh" script. 
+The running script (if any) are presented first, followed by the script(s) that ended with error 
+and finally the script that ended with success, sorted by descending date and time. *This command 
+can be executed only on the SADMIN server.*
  {: .text-justify}
 
 
@@ -57,21 +61,26 @@ Show the actual status of every scripts of all your systems. The information pre
 
 
 Example of the RCH Summary Report for a specific server   
+
 ```# srch -s raspi6```   
 ![Show RCH for one server](/assets/img/man/sadm_show_rch-s.png){: .align-center}  
 
 
 Example to watch the RCH Summary Report first page in real time (Refresh every 60 seconds)  
+
 ```# srch -w```  
 ![Watch RCH in real time](/assets/img/man/sadm_show_rch-w.png){: .align-center}  
 
 
 View the RCH Summary Report without stopping at each page (nopage).  
+
 ```# srch -p```  
 ![List RCH without stopping at each page](/assets/img/man/sadm_show_rch-p.png){: .align-center}  
 
 
-Send a mail of the RCH Summary Report so to email address specify in $SADMIN/cfg/sadmin.cfg.  
+Send a mail of the RCH Summary Report so to 
+[email address specify in $SADMIN/cfg/sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %}#sadm_mail_addr).  
+
 ```# srch -m```  
 ![Mail Today and yesterday RCH Report](/assets/img/man/sadm_show_rch-m.png){: .align-center}  
 
@@ -96,7 +105,6 @@ Example of email sent
 
 
 <a id="seealso"></a>
+## SEE ALSO
 
-## SEE ALSO  
-[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN Server.
-
+[SADMIN installation](/_pages/install) - SADMIN installation page.    
