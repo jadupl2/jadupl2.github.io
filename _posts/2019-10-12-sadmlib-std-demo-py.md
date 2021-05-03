@@ -128,226 +128,235 @@ SADMIN PYTHON SPECIFIC FUNCTIONS     Description                           Syste
 
         
 
-### Overview of 'sadm_start' and 'sadm_stop' methods
+### Overview of setup_admin(), st.start() & st.stop() functions
+
+```bash
+==========================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Overview of setup_admin(), st.start() & st.stop() functions
+===========================================================================================
+
+Extract of SADMIN Section
+def setup_sadmin():
+    # Create SADMIN Tools Instance (Create Directories,Load sadmin.cfg,Assign Variables)
+    st = sadm.sadmtools()      
+    # Start SADMIN Tools - Initialize SADMIN Env. (Create dir.,Log,RCH, Open DB..)
+    st.start()                                  # Init. 
+
+- The function 'setup_sadmin()', need to be called  when your script is starting.
+    1) It make sure the SADMIN environment variable is set to the proper directory.
+    2) Setup global variables, load modules, create instance.
+    3) Load SADMIN configuration file ($SADMIN/cfg/sadmin.cfg).
+    4) Check Library requirements
+    5) Call the 'st.start()' function below.
+    6) And finally it return an object of the instance.
+
+- Function 'st.start()' (Included in the 'setup_sadmin()')
+  What this function does:
+    1) Make sure all directories & sub-directories exist and have proper permissions.
+    2) Make sure log file exist with proper permission (st.log_file)
+       Write the log header (if 'st.log_header = True').
+    3) Record the start Date/Time and Status Code 2(Running) to RCH file.
+    4) If PID file exist, show error message and abort.
+       Unless user allow more than one copy to run simultaneously (st.multiple_exec = 'Y').
+    5) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2).
+
+- Function 'st.stop()'
+  This function should be called near the end of your script.
+    Example : st.stop(st.exit_code)   # Close SADMIN Environment
+              sys.exit(st.exit_code)  # Exit To O/S
+  It accept one parameter - Either 0 (Successful) or non-zero (Error Encountered).
+  What this function does:
+    1) Get Actual Time and Calculate the Execution Time.
+    2) It check if the Exit Code is not zero, change it to 1.
+    3) If 'st.log_footer = True', write the log footer.
+    4) If 'st.use_rch = True', append (Start/End/Elapse Time ...) in RCH File.
+    5) Trim The RCH File according to user choice in sadmin.cfg (SADM_MAX_RCHLINE).
+    6) Trim the log according to user choice in sadmin.cfg (SADM_MAX_LOGLINE).
+    7) Delete the PID File of the script (st.pid_file).
+    8) Delete the user 3 TMP Files (st.tmp_file1, st.tmp_file2, st.tmp_file3).
+```
+
+
+### SADMIN configuration file variables available to you.
+
+```bash
+============================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+SADMIN CONFIG FILE VARIABLES         Description                           System Result
+============================================================================================
+[001] st.cfg_server                 SADMIN SERVER NAME (FQDN)           : holmes.maison.ca 
+[002] st.cfg_host_type              SADMIN [C]lient or [S]erver         : S 
+[003] st.cfg_mail_addr              SADMIN Administrator Default Email  : robin@batcave.com
+[004] st.cfg_alert_type             0=NoMail 1=OnError 3=OnSuccess 4=All: 1 
+[005] st.cfg_alert_group            Default Alert Group                 : default 
+[006] st.cfg_alert_repeat           Seconds to wait before repeat alert : 0 
+[007] st.cfg_textbelt_key           TextBelt.com API Key                :  
+[008] st.cfg_textbelt_url           TextBelt.com API URL      : https://textbelt.com/text 
+[009] st.cfg_cie_name               Your Company Name                   : Your Cie Name 
+[010] st.cfg_domain                 Server Creation Default Domain      : maison.ca 
+[011] st.cfg_user                   SADMIN User Name                    : sadmin 
+[012] st.cfg_group                  SADMIN Group Name                   : sadmin 
+[013] st.cfg_www_user               User that Run Apache Web Server     : apache 
+[014] st.cfg_www_group              Group that Run Apache Web Server    : apache 
+[015] st.cfg_dbname                 SADMIN Database Name                : sadmin 
+[016] st.cfg_dbhost                 SADMIN Database Host                : sadmin.maison.ca 
+[017] st.cfg_dbport                 SADMIN Database Host TCP Port       : 3306 
+[018] st.cfg_rw_dbuser              SADMIN Database Read/Write User     : sadmin 
+[019] st.cfg_rw_dbpwd               SADMIN Database Read/Write User Pwd :  
+[020] st.cfg_ro_dbuser              SADMIN Database Read Only User      : squery 
+[021] st.cfg_ro_dbpwd               SADMIN Database Read Only User Pwd  :  
+[022] st.cfg_rrdtool                RRDTOOL Binary Location             : /bin/rrdtool 
+[023] st.cfg_ssh_port               SSH Port to communicate with client : 32 
+[024] st.cfg_nmon_keepdays          Nb. of days to keep nmon perf. file : 40 
+[025] st.cfg_rch_keepdays           Nb. days to keep unmodified rch file: 40 
+[026] st.cfg_log_keepdays           Nb. days to keep unmodified log file: 40 
+[027] st.cfg_max_rchline            Trim rch file to this max. of lines : 35 
+[028] st.cfg_max_logline            Trim log to this maximum of lines   : 500 
+[029] st.cfg_network1               Network/Netmask 1 inv. IP/Name/Mac  : 192.168.1.0/24 
+[030] st.cfg_network2               Network/Netmask 2 inv. IP/Name/Mac  :  
+[031] st.cfg_network3               Network/Netmask 3 inv. IP/Name/Mac  :  
+[032] st.cfg_network4               Network/Netmask 4 inv. IP/Name/Mac  :  
+[033] st.cfg_network5               Network/Netmask 5 inv. IP/Name/Mac  :  
+[034] st.cfg_mksysb_nfs_server      AIX MKSYSB NFS Server IP or Name    : batnas.maison.ca 
+[035] st.cfg_mksysb_nfs_mount_point AIX MKSYSB NFS Mount Point          : /mksysb 
+[036] st.cfg_mksysb_backup_to_keep  AIX MKSYSB NFS Backup - Nb .to keep : 2 
+[037] st.cfg_rear_nfs_server        Rear NFS Server IP or Name          : batnas.maison.ca 
+[038] st.cfg_rear_nfs_mount_point   Rear NFS Mount Point                : /backup_rear 
+[039] st.cfg_rear_backup_to_keep    Rear NFS Backup - Nb. to keep       : 3 
+[040] st.cfg_backup_nfs_server      NFS Backup IP or Server Name        : batnas.maison.ca 
+[041] st.cfg_backup_nfs_mount_point NFS Backup Mount Point              : /backup_linux 
+[042] st.cfg_daily_backup_to_keep   Daily Backup to Keep                : 4 
+[043] st.cfg_weekly_backup_to_keep  Weekly Backup to Keep               : 3 
+[044] st.cfg_monthly_backup_to_keep Monthly Backup to Keep              : 3 
+[045] st.cfg_yearly_backup_to_keep  Yearly Backup to keep               : 2 
+[046] st.cfg_weekly_backup_day      Weekly Backup Day (1=Mon,7=Sun)     : 5 
+[047] st.cfg_monthly_backup_date    Monthly Backup Date (1-28)          : 1 
+[048] st.cfg_yearly_backup_month    Yearly Backup Month (1-12)          : 12 
+[049] st.cfg_yearly_backup_date     Yearly Backup Date (1-31)           : 31
+```
+
+
+
+### SADMIN Client directories variables available to you.
+In this example the SADMIN tools were installed in "/sadmin" directory.
+
+```bash
+===========================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Client Directories Var. Avail.   Description                           System Result 
+===========================================================================================
+[001] st.base_dir                SADMIN Root Directory               : /sadmin 
+[002] st.bin_dir                 SADMIN Scripts Directory            : /sadmin/bin 
+[003] st.tmp_dir                 SADMIN Temporary file(s) Directory  : /sadmin/tmp 
+[004] st.lib_dir                 SADMIN Shell & Python Library Dir.  : /sadmin/lib 
+[005] st.log_dir                 SADMIN Script Log Directory         : /sadmin/log 
+[006] st.cfg_dir                 SADMIN Configuration Directory      : /sadmin/cfg 
+[007] st.sys_dir                 Server Startup/Shutdown Script Dir. : /sadmin/sys 
+[008] st.doc_dir                 SADMIN Documentation Directory      : /sadmin/doc 
+[009] st.pkg_dir                 SADMIN Packages Directory           : /sadmin/pkg 
+[010] st.dat_dir                 Server Data Directory               : /sadmin/dat 
+[011] st.nmon_dir                Server NMON - Data Collected Dir.   : /sadmin/dat/nmon 
+[012] st.dr_dir                  Server Disaster Recovery Info Dir.  : /sadmin/dat/dr 
+[013] st.rch_dir                 Server Return Code History Dir.     : /sadmin/dat/rch 
+[014] st.net_dir                 Server Network Information Dir.     : /sadmin/dat/net 
+[015] st.rpt_dir                 SYStem MONitor Report Directory     : /sadmin/dat/rpt 
+[016] st.dbb_dir                 Database Backup Directory           : /sadmin/dat/dbb 
+[017] st.setup_dir               SADMIN Setup Directory.             : /sadmin/setup 
+[018] st.usr_dir                 User/System specific directory      : /sadmin/usr 
+[019] st.ubin_dir                User/System specific bin/script Dir.: /sadmin/usr/bin 
+[020] st.ulib_dir                User/System specific library Dir.   : /sadmin/usr/lib 
+[021] st.udoc_dir                User/System specific documentation  : /sadmin/usr/doc 
+[022] st.umon_dir                User/System specific SysMon Scripts : /sadmin/usr/mon 
+```
+
+### SADMIN Server directories variables available to you.
+In this example the SADMIN tools were installed in "/sadmin" directory.
+
+``` 
+=======================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Server Directories Var. Avail.   Description                           System Result 
+=======================================================================================
+[001] st.www_dir                 SADMIN Web Site Root Directory      : /sadmin/www 
+[002] st.www_doc_dir             SADMIN Web Site Root Directory      : /sadmin/www/doc 
+[003] st.www_dat_dir             SADMIN Web Site Systems Data Dir.   : /sadmin/www/dat 
+[004] st.www_lib_dir             SADMIN Web Site PHP Library Dir.    : /sadmin/www/lib 
+[005] st.www_tmp_dir             SADMIN Web Temp Working Directory   : /sadmin/www/tmp 
+[006] st.www_perf_dir            Web Performance Server Graph Dir.   : /sadmin/www/tmp/perf 
+```
+
+
+
+### SADMIN various files definitions
 
 ```bash
 ====================================================================================================
 sadmlib_std_demo.py v3.10 - Library v3.15
-Overview of st.start() & st.stop() function                                                                     
+SADMIN FILES VARIABLES      Description                          System Result    
 ====================================================================================================
-
-----------
-st = setup_sadmin()
-Example : st = setup_sadmin()    # Setup Var, Load Libr, Create instance, call st.start()
-----------
-    Setup User Var., Load Module, Create Instance, call st.start() and return instance object
-    It make sure the SADMIN Environment variable is set to proper dir.
-    The module 'setup_sadmin()', need to be called  when your script is starting.
-    What this function will do for us :
-        1) Make sure all directories & sub-directories exist and have proper permissions.
-        2) Make sure log file exist with proper permission (st.log_file)
-        3) Make sure Return Code History (.rch) exist and have the right permission
-        4) If PID file exist, show error message and abort.
-           Unless user allow more than one copy to run simultaneously (st.multiple_exec = 'Y')
-        5) Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2)
-        6) Write HostName - Script name and version - O/S Name and version to the Log file (st.log_file)
-
-----------
-st.stop()
-Example : st.stop(st.exit_code)   # Close SADM Environment
-          sys.exit(st.exit_code)  # Exit To O/S
-----------
-    Accept one parameter - Either 0 (Successful) or non-zero (Error Encountered)
-    Please call this function just before your script end.
-    What this function do.
-        1) If Exit Code is not zero, change it to 1.
-        2) Get Actual Time and Calculate the Execution Time.
-        3) Writing the Script Footer in the Log (Script Return code, Execution Time, ...)
-        4) Update the RCH File (Start/End/Elapse Time and the Result Code)
-        5) Trim The RCH File Based on User choice in sadmin.cfg
-        6) Trim the Log based on user selection in sadmin.cfg
-        7) Delete the PID File of the script (st.pid_file)
-        8) Delete the User 3 TMP Files (st.tmp_file1, st.tmp_file2, st.tmp_file3)
- 
+[01] st.pid_file            Current script PID file            : /sadmin/tmp/sadmlib_std_demo.pid 
+[02] st.cfg_file            SADMIN Configuration File          : /sadmin/cfg/sadmin.cfg 
+[03] st.cfg_hidden          SADMIN Initial Configuration File  : /sadmin/cfg/.sadmin.cfg 
+[04] st.alert_file          Alert Group Definition File Name   : /sadmin/cfg/alert_group.cfg 
+[05] st.alert_init          Alert Group Initial File (Template): /sadmin/cfg/.alert_group.cfg 
+[06] st.slack_file          Alert - Slack Channel File         : /sadmin/cfg/alert_slack.cfg 
+[07] st.slack_init          Alert - Slack Channel (Template)   : /sadmin/cfg/.alert_slack.cfg 
+[08] st.alert_hist          Alert - History File               : /sadmin/cfg/alert_history.cfg 
+[09] st.alert_hini          Alert - History Initial File       : /sadmin/cfg/.alert_history.cfg 
+[10] st.tmp_file1           User usable Temp Work File 1       : /sadmin/tmp/sadmlib_std_demo_1.3399 
+[11] st.tmp_file2           User usable Temp Work File 2       : /sadmin/tmp/sadmlib_std_demo_2.3399 
+[12] st.tmp_file3           User usable Temp Work File 3       : /sadmin/tmp/sadmlib_std_demo_3.3399 
+[13] st.log_file            Script Log File                    : /sadmin/log/holmes_sadmlib_std_demo.log 
+[14] st.rch_file            Script Return Code History File    : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch 
+[15] st.dbpass_file         SADMIN Database User Password File : /sadmin/cfg/.dbpass 
+[16] st.rpt_file            SYStem MONitor report file         : /sadmin/dat/rpt/holmes.rpt 
+[17] st.backup_list         Backup List File Name              : /sadmin/cfg/backup_list.txt 
+[18] st.backup_list_init    Initial Backup List (Template)     : /sadmin/cfg/.backup_list.txt 
+[19] st.backup_exclude      Backup Exclude List File Name      : /sadmin/cfg/backup_exclude.txt 
+[20] st.backup_exclude_init Initial Backup Exclude (Template)  : /sadmin/cfg/.backup_exclude.txt 
 ```
 
 
-### All variables content of the SADMIN configuration file are also accessible in your script.
+
+### Variables filled automatically when 'setup_sadmin()' function is called.
 
 ```bash
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        SADMIN CONFIG FILE VARIABLES           Description                           This System Result             
-        ====================================================================================================
-        [001] st.cfg_server                    SADMIN SERVER NAME (FQDN)           : holmes.maison.ca 
-        [002] st.cfg_host_type                 SADMIN [C]lient or [S]erver         : S 
-        [003] st.cfg_mail_addr                 SADMIN Administrator Default Email  : duplessis.jacques@gmail.com 
-        [004] st.cfg_alert_type                0=NoMail 1=OnError 3=OnSuccess 4=All: 1 
-        [005] st.cfg_alert_group               Default Alert Group                 : default 
-        [006] st.cfg_alert_repeat              Seconds to wait before repeat alert : 21600 
-        [007] st.cfg_textbelt_key              TextBelt.com API Key                :  
-        [008] st.cfg_textbelt_url              TextBelt.com API URL                : https://textbelt.com/text 
-        [009] st.cfg_cie_name                  Your Company Name                   : Your Cie Name 
-        [010] st.cfg_domain                    Server Creation Default Domain      : maison.ca 
-        [011] st.cfg_user                      SADMIN User Name                    : sadmin 
-        [012] st.cfg_group                     SADMIN Group Name                   : sadmin 
-        [013] st.cfg_www_user                  User that Run Apache Web Server     : apache 
-        [014] st.cfg_www_group                 Group that Run Apache Web Server    : apache 
-        [015] st.cfg_dbname                    SADMIN Database Name                : sadmin 
-        [016] st.cfg_dbhost                    SADMIN Database Host                : sadmin.maison.ca 
-        [017] st.cfg_dbport                    SADMIN Database Host TCP Port       : 3306 
-        [018] st.cfg_rw_dbuser                 SADMIN Database Read/Write User     : sadmin 
-        [019] st.cfg_rw_dbpwd                  SADMIN Database Read/Write User Pwd :  
-        [020] st.cfg_ro_dbuser                 SADMIN Database Read Only User      : squery 
-        [021] st.cfg_ro_dbpwd                  SADMIN Database Read Only User Pwd  :  
-        [022] st.cfg_rrdtool                   RRDTOOL Binary Location             : /bin/rrdtool 
-        [023] st.cfg_ssh_port                  SSH Port to communicate with client : 32 
-        [024] st.cfg_nmon_keepdays             Nb. of days to keep nmon perf. file : 40 
-        [025] st.cfg_rch_keepdays              Nb. days to keep unmodified rch file: 60 
-        [026] st.cfg_log_keepdays              Nb. days to keep unmodified log file: 60 
-        [027] st.cfg_max_rchline               Trim rch file to this max. of lines : 75 
-        [028] st.cfg_max_logline               Trim log to this maximum of lines   : 500 
-        [029] st.cfg_network1                  Network/Netmask 1 inv. IP/Name/Mac  : 192.168.1.0/24 
-        [030] st.cfg_network2                  Network/Netmask 2 inv. IP/Name/Mac  :  
-        [031] st.cfg_network3                  Network/Netmask 3 inv. IP/Name/Mac  :  
-        [032] st.cfg_network4                  Network/Netmask 4 inv. IP/Name/Mac  :  
-        [033] st.cfg_network5                  Network/Netmask 5 inv. IP/Name/Mac  :  
-        [034] st.cfg_mksysb_nfs_server         AIX MKSYSB NFS Server IP or Name    : batnfs.maison.ca 
-        [035] st.cfg_mksysb_nfs_mount_point    AIX MKSYSB NFS Mount Point          : /volume1/mksysb 
-        [036] st.cfg_mksysb_backup_to_keep     AIX MKSYSB NFS Backup - Nb .to keep : 2 
-        [037] st.cfg_rear_nfs_server           Rear NFS Server IP or Name          : batnas.maison.ca 
-        [038] st.cfg_rear_nfs_mount_point      Rear NFS Mount Point                : /volume1/Linux_DR 
-        [039] st.cfg_rear_backup_to_keep       Rear NFS Backup - Nb. to keep       : 3 
-        [040] st.cfg_backup_nfs_server         NFS Backup IP or Server Name        : batnas.maison.ca 
-        [041] st.cfg_backup_nfs_mount_point    NFS Backup Mount Point              : /volume1/backup_linux 
-        [042] st.cfg_daily_backup_to_keep      Daily Backup to Keep                : 4 
-        [043] st.cfg_weekly_backup_to_keep     Weekly Backup to Keep               : 4 
-        [044] st.cfg_monthly_backup_to_keep    Monthly Backup to Keep              : 4 
-        [045] st.cfg_yearly_backup_to_keep     Yearly Backup to keep               : 2 
-        [046] st.cfg_weekly_backup_day         Weekly Backup Day (1=Mon,7=Sun)     : 5 
-        [047] st.cfg_monthly_backup_date       Monthly Backup Date (1-28)          : 1 
-        [048] st.cfg_yearly_backup_month       Yearly Backup Month (1-12)          : 12 
-        [049] st.cfg_yearly_backup_date        Yearly Backup Date (1-31)           : 31 
+=====================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+COMMAND PATH USE BY SADMIN  Description                           System Result   
+=====================================================================================
+[001] st.lsb_release        Cmd. 'lsb_release', Get O/S Version : /bin/lsb_release 
+[002] st.dmidecode          Cmd. 'dmidecode', Get model & type  : /sbin/dmidecode 
+[003] st.bc                 Cmd. 'bc', Do some Math.            : /bin/bc 
+[004] st.fdisk              Cmd. 'fdisk', Get Partition Info    : /sbin/fdisk 
+[005] st.which              Cmd. 'which', Get Command location  : /bin/which 
+[006] st.perl               Cmd. 'perl', epoch time Calc.       : /bin/perl 
+[007] st.mail               Cmd. 'mail', Send SysAdmin Email    : /bin/mail 
+[008] st.mutt               Cmd. 'mutt', Used to Send Email     : /bin/mutt 
+[009] st.curl               Cmd. 'curl', To send alert to Slack : /bin/curl 
+[010] st.lscpu              Cmd. 'lscpu', Socket & thread info  : /bin/lscpu 
+[011] st.nmon               Cmd. 'nmon', Collect Perf Statistic : /bin/nmon 
+[012] st.parted             Cmd. 'parted', Get Disk Real Size   : /sbin/parted 
+[013] st.ethtool            Cmd. 'ethtool', Get System IP Info  : /sbin/ethtool 
+[014] st.ssh                Cmd. 'ssh', SSH to SADMIN client    : /bin/ssh 
+[015] st.ssh_cmd            Cmd. 'ssh', SSH to Connect to client: /bin/ssh -qnp 32  
 ```
 
 
-
-### Set a variables that you can use in your script to access SADMIN Directories.
-
-```bash
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        Client Directories Var. Avail.         Description                           This System Result             
-        ====================================================================================================
-        [001] st.base_dir                      SADMIN Root Directory               : /sadmin 
-        [002] st.bin_dir                       SADMIN Scripts Directory            : /sadmin/bin 
-        [003] st.tmp_dir                       SADMIN Temporary file(s) Directory  : /sadmin/tmp 
-        [004] st.lib_dir                       SADMIN Shell & Python Library Dir.  : /sadmin/lib 
-        [005] st.log_dir                       SADMIN Script Log Directory         : /sadmin/log 
-        [006] st.cfg_dir                       SADMIN Configuration Directory      : /sadmin/cfg 
-        [007] st.sys_dir                       Server Startup/Shutdown Script Dir. : /sadmin/sys 
-        [008] st.doc_dir                       SADMIN Documentation Directory      : /sadmin/doc 
-        [009] st.pkg_dir                       SADMIN Packages Directory           : /sadmin/pkg 
-        [010] st.dat_dir                       Server Data Directory               : /sadmin/dat 
-        [011] st.nmon_dir                      Server NMON - Data Collected Dir.   : /sadmin/dat/nmon 
-        [012] st.dr_dir                        Server Disaster Recovery Info Dir.  : /sadmin/dat/dr 
-        [013] st.rch_dir                       Server Return Code History Dir.     : /sadmin/dat/rch 
-        [014] st.net_dir                       Server Network Information Dir.     : /sadmin/dat/net 
-        [015] st.rpt_dir                       SYStem MONitor Report Directory     : /sadmin/dat/rpt 
-        [016] st.dbb_dir                       Database Backup Directory           : /sadmin/dat/dbb 
-        [017] st.setup_dir                     SADMIN Setup Directory.             : /sadmin/setup 
-        [018] st.usr_dir                       User/System specific directory      : /sadmin/usr 
-        [019] st.ubin_dir                      User/System specific bin/script Dir.: /sadmin/usr/bin 
-        [020] st.ulib_dir                      User/System specific library Dir.   : /sadmin/usr/lib 
-        [021] st.udoc_dir                      User/System specific documentation  : /sadmin/usr/doc 
-        [022] st.umon_dir                      User/System specific SysMon Scripts : /sadmin/usr/mon 
-
-
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        Server Directories Var. Avail.         Description                           This System Result             
-        ====================================================================================================
-        [001] st.www_dir                       SADMIN Web Site Root Directory      : /sadmin/www 
-        [002] st.www_doc_dir                   SADMIN Web Site Root Directory      : /sadmin/www/doc 
-        [003] st.www_dat_dir                   SADMIN Web Site Systems Data Dir.   : /sadmin/www/dat 
-        [004] st.www_lib_dir                   SADMIN Web Site PHP Library Dir.    : /sadmin/www/lib 
-        [005] st.www_tmp_dir                   SADMIN Web Temp Working Directory   : /sadmin/www/tmp 
-        [006] st.www_perf_dir                  Web Performance Server Graph Dir.   : /sadmin/www/tmp/perf 
-```
-
-
-
-### There is also a set a variables that you can use in your script to access SADMIN Files.
-
-```bash
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        SADMIN FILES VARIABLES AVAIL.          Description                           This System Result             
-        ====================================================================================================
-        [001] st.pid_file                      Current script PID file             : /sadmin/tmp/sadmlib_std_demo.pid 
-        [002] st.cfg_file                      SADMIN Configuration File           : /sadmin/cfg/sadmin.cfg 
-        [003] st.cfg_hidden                    SADMIN Initial Configuration File   : /sadmin/cfg/.sadmin.cfg 
-        [004] st.alert_file                    Alert Group Definition File Name    : /sadmin/cfg/alert_group.cfg 
-        [005] st.alert_init                    Alert Group Initial File (Template) : /sadmin/cfg/.alert_group.cfg 
-        [006] st.slack_file                    Alert - Slack Channel File          : /sadmin/cfg/alert_slack.cfg 
-        [007] st.slack_init                    Alert - Slack Channel (Template)    : /sadmin/cfg/.alert_slack.cfg 
-        [008] st.alert_hist                    Alert - History File                : /sadmin/cfg/alert_history.cfg 
-        [009] st.alert_hini                    Alert - History Initial File        : /sadmin/cfg/.alert_history.cfg 
-        [010] st.alert_seq                     Alert - Reference Counter           : /sadmin/cfg/alert_history.seq 
-        [011] st.tmp_file1                     User usable Temp Work File 1        : /sadmin/tmp/sadmlib_std_demo_1.3843 
-        [012] st.tmp_file2                     User usable Temp Work File 2        : /sadmin/tmp/sadmlib_std_demo_2.3843 
-        [013] st.tmp_file3                     User usable Temp Work File 3        : /sadmin/tmp/sadmlib_std_demo_3.3843 
-        [014] st.log_file                      Script Log File                     : /sadmin/log/holmes_sadmlib_std_demo.log 
-        [015] st.rch_file                      Script Return Code History File     : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch 
-        [016] st.dbpass_file                   SADMIN Database User Password File  : /sadmin/cfg/.dbpass 
-        [017] st.rpt_file                      SYStem MONitor report file          : /sadmin/dat/rpt/holmes.rpt 
-        [018] st.backup_list                   Backup List File Name               : /sadmin/cfg/backup_list.txt 
-        [019] st.backup_list_init              Initial Backup List (Template)      : /sadmin/cfg/.backup_list.txt 
-        [020] st.backup_exclude                Backup Exclude List File Name       : /sadmin/cfg/backup_exclude.txt 
-        [021] st.backup_exclude_init           Initial Backup Exclude (Template)   : /sadmin/cfg/.backup_exclude.txt 
-```
-
-
-
-### All these variables are filled automatically when you call the 'sadm_start' function.
-
-```bash
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        COMMAND PATH USE BY SADMIN STD. LIBR.  Description                           This System Result             
-        ====================================================================================================
-        [001] st.lsb_release                   Cmd. 'lsb_release', Get O/S Version : /bin/lsb_release 
-        [002] st.dmidecode                     Cmd. 'dmidecode', Get model & type  : /sbin/dmidecode 
-        [003] st.facter                        Cmd. 'facter', Get System Info      : /bin/facter 
-        [004] st.bc                            Cmd. 'bc', Do some Math.            : /bin/bc 
-        [005] st.fdisk                         Cmd. 'fdisk', Get Partition Info    : /sbin/fdisk 
-        [006] st.which                         Cmd. 'which', Get Command location  : /bin/which 
-        [007] st.perl                          Cmd. 'perl', epoch time Calc.       : /bin/perl 
-        [008] st.mail                          Cmd. 'mail', Send SysAdmin Email    : /bin/mail 
-        [009] st.mutt                          Cmd. 'mutt', Used to Send Email     : /bin/mutt 
-        [010] st.curl                          Cmd. 'curl', To send alert to Slack : /bin/curl 
-        [011] st.lscpu                         Cmd. 'lscpu', Socket & thread info  : /bin/lscpu 
-        [012] st.nmon                          Cmd. 'nmon', Collect Perf Statistic : /bin/nmon 
-        [013] st.parted                        Cmd. 'parted', Get Disk Real Size   : /sbin/parted 
-        [014] st.ethtool                       Cmd. 'ethtool', Get System IP Info  : /sbin/ethtool 
-        [015] st.ssh                           Cmd. 'ssh', SSH to SADMIN client    : /bin/ssh 
-        [016] st.ssh_cmd                       Cmd. 'ssh', SSH to Connect to client: /bin/ssh -qnp 32                
-```
-
-
-### If variable content is blank, it means that the command is not available on the current system.
+### SADMIN Database variables.
 At the end we have a Database connection test.
-
+If this script is run on the server, information about the database will also be printed.
 
 ```bash
-        ====================================================================================================
-        sadmlib_std_demo.py v3.6 - Library v3.02
-        Database Information                   Description                           This System Result             
-        ====================================================================================================
-        [001] st.dbsilent                      When DBerror, No ErrMsg (Just ErrNo): False 
-        [002] st.usedb                         Script need (Open/Close) Database ? : True 
-        Database connection succeeded
-        Closing Database connection
+==========================================================================================
+sadmlib_std_demo.py v3.10 - Library v3.15
+Database Information                   Description                           System Result
+==========================================================================================
+[001] st.dbsilent                      When DBerror, No ErrMsg (Just ErrNo): False 
+[002] st.usedb                         Script need (Open/Close) Database ? : True 
+Database connection succeeded
+
 ```
 
 

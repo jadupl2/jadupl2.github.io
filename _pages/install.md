@@ -1,15 +1,15 @@
 ---
 layout: single
 title: Installation Guide
-limit: 1
-paginate: false
-show_excerpts: false
-entries_layout: list
-author_profile: true
-tags:           sadm_daily_report script 
-categories:     manpage scripts 
+#
+layout:         single
+search:         true
+author_profile: false
 toc:            false
 classes:        wide
+sidebar:
+  title: "Documentation"
+  nav: sidebar-manpage
 ---
 
 ## SADMIN Ecosystem
@@ -18,7 +18,7 @@ classes:        wide
 directory name. The setup script will make sure that this environment variable is set properly and 
 that it's persistent after a reboot.
 
-  * The Setup script create "[/etc/profile.d/sadmin.sh](https://sadmin.ca/assets/img/files/etc_profile_d_sadmin_sh.png)" 
+  * To do so, the setup script create "[/etc/profile.d/sadmin.sh](https://sadmin.ca/assets/img/files/etc_profile_d_sadmin_sh.png)" 
 that's executed every time you login and to ease the use of the SADMIN tools, directories '$SADMIN/bin' 
 & $SADMIN/usr/bin are added to the PATH. It also modify the "[/etc/environment](https://sadmin.ca/assets/img/files/etc_environment.png)" 
 so it contain SADMIN install directory.
@@ -29,7 +29,7 @@ for the SADMIN server and 400Mb for each client.
 {: .text-justify}
 
 **IMPORTANT**  
-You need to have an internet access on the system you are installing the SADMIN tools.
+You need to have an internet access on the system when you are installing the SADMIN tools.
 Some of the [packages needed by SADMIN](https://sadmin.ca/_pages/requirements), may not be present 
 on your system and will need to be downloaded. On Redhat and CentOS the 
 "[EPEL repository](https://fedoraproject.org/wiki/EPEL)" is activated at installation time and 
@@ -89,6 +89,3 @@ sudo source /etc/profile.d/sadmin.sh
 ```
 This will make sure “SADMIN” environment variable is define.
 
-
-## Updating SADMIN Tools
-To update to the latest version of SADMIN, see our [Update SADMIN Tools page]( {% post_url 2021-03-14-sadm-update %} )

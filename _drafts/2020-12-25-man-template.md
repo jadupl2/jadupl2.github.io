@@ -42,13 +42,12 @@ sidebar:
 <a id="description"></a>
 ## DESCRIPTION
 
-<!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
-  - The running scripts are listed first, then the scripts that terminated with an error and 
-  finally all the scripts grouped by system. So it give you view of the statistics of each script 
-  (start time, end time, elapse time,...) of each systems sorted and grouped by name. When 
-  something look different than the normal, like the alert group used is different than the 
-  default group or the last execution date of a script is more than thirty days, it will be 
-  shown with a yellow background. 
+The running scripts are listed first, then the scripts that terminated with an error and 
+finally all the scripts grouped by system. So it give you view of the statistics of each script 
+(start time, end time, elapse time,...) of each systems sorted and grouped by name. When 
+something look different than the normal, like the alert group used is different than the 
+default group or the last execution date of a script is more than thirty days, it will be 
+shown with a yellow background. 
   {: .text-justify}
  
 ```bash
@@ -62,6 +61,7 @@ sidebar:
 ```bash
 # Example of script output
 ```
+<!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
 
 
 {% include {{ site.section_options     }} %}
