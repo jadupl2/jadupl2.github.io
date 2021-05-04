@@ -1,10 +1,10 @@
 ---
 title:          sadmlib_std_demo.py
-desc:           Template for scripts documentation
+desc:           SADMIN Python Library Module Demo
 version:        3.10
-date:           2021-03-16
-updated:        2021-03-16 
+updated:        2021-05-04 
 os:             Linux, Aix, MacOS
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ libraries ]
 categories:     [ libraries ] 
 #
@@ -14,15 +14,18 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 <font size="3">
 <div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Version v{{ page.version }} - 
+Posted {{ page.date | date: "%Y-%m-%d" }} - 
+Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
+
 
 <a id="name"></a>
 ## NAME

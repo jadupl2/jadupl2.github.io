@@ -2,9 +2,9 @@
 title:          Updating SADMIN Tools
 desc:           Update to latest version of SADMIN
 version:        2.2
-date:           2021-03-14
-updated:        2021-04-22
+updated:        2021-05-04
 os:             Linux, Aix, MacOS
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ utilities ] 
 categories:     [ utilities ] 
 #
@@ -14,12 +14,12 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 <font size="3">
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Posted {{ page.date | date: "%Y-%m-%d" }} - Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
 
@@ -41,7 +41,8 @@ bin/sadm_uninstall.sh | 16 +++++++++-------
 1 file changed, 9 insertions(+), 7 deletions(-)
 ```
 
-### Method 2  
+
+## Method 2  
 **Use SADMIN updater**  
 Update your system using the SADMIN updater (sadm_updater.sh).
 We have a dedicated section for the updater in our manual, take a look at it.

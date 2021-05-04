@@ -1,10 +1,10 @@
 ---
 title:          sadm_requirements.sh
-desc:           List/Install required SADMIN Tools packages
+desc:           List and install required SADMIN Tools packages
 version:        1.10
-date:           2019-03-21
-updated:        2021-04-22
+updated:        2021-05-04
 os:             Linux, Aix, MacOS
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ utilities ] 
 categories:     [ utilities ] 
 #
@@ -14,8 +14,8 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 
@@ -27,25 +27,29 @@ sidebar:
 
 
 <a id="name"></a>
-
 ## NAME
 **{{ page.title }}** - *{{ page.desc }}*   
 
 
-<a id="synopsis"></a>
 
+<a id="synopsis"></a>
 ## SYNOPSIS
 
 ```bash
 {{ page.title }} [-d 0-9] [-h] [-i] [-v]
 ```
+{% if page.type == "S" %}
+<font size="3">Can only be run on SADMIN Server.</font>
+{% endif %}
+
 
 
 <a id="description"></a>
 
 ## DESCRIPTION
 
-The script allow you to check if any SADMIN required packages are missing. Running the script with the option '-i', will install any missing package.
+The script allow you to check if any SADMIN required packages are missing. Running the script 
+with the option '-i', will install any missing package (not available on MacOS).
 
 
 

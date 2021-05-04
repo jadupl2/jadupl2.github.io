@@ -12,6 +12,8 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
+  - title: "Support"
+    url: /_pages/support/
   #- title: "Contact"
   #  url: /_pages/contact/
   # - title: "Sample Posts"

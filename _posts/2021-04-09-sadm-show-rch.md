@@ -1,26 +1,28 @@
 ---
-title:              sadm_show_rch.sh
-desc:               Show Result History files from all systems.
-version:            1.18 
-layout:             single
-date:               2021-04-09
-updated:            2021-04-09
-os:                 Linux, Aix
-tags:               [ command_line, tools, result_code_history(rch) ]
-categories:         [ command_line ] 
+title:          sadm_show_rch.sh
+desc:           Show Result History files (.rch) from all systems.
+version:        1.18 
+updated:        2021-05-05
+os:             Linux, Aix (Server only)
+type:           S  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
+tags:           [ command_line, tools, result_code_history(rch) ]
+categories:     [ command_line ] 
+#
+layout:         single
 search:         true
-author_profile:     false
-toc:                false
-classes:            wide
+author_profile: false
+toc:            false
+classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
-
 
 <font size="3">
 <div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Version v{{ page.version }} - 
+Posted {{ page.date | date: "%Y-%m-%d" }} - 
+Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
 
@@ -31,6 +33,8 @@ sidebar:
 **{{ page.title }}** - ***{{ page.desc }}***   
 *The alias command "**srch**" can be use instead of {{ page.title }}*
 
+
+
 <a id="synopsis"></a>
 
 ## SYNOPSIS
@@ -38,6 +42,10 @@ sidebar:
 ```bash
     {{ page.title }} [-v] [-h] [-d 0-9] [-s server-name] [-p] [-w] [-m]  
 ```
+{% if page.type == "S" %}
+<font size="3">Can only be run on SADMIN Server.</font>
+{% endif %}
+
 
 
 <a id="description"></a>

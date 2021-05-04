@@ -2,28 +2,30 @@
 title:          sadm_support_request.sh
 desc:           Create a file that will help us, when you submit a problem.
 version:        2.2
-date:           2021-01-01
-updated:        2021-04-22
-os:             Linux, Aix, MacOS
-sadm_author:    sadm/author.md
-sadm_copyright: sadm/copyright.md
-layout:         single
-search:         true
+updated:        2021-05_04
+os:             Linux, Aix, MacOS 
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ utilities ] 
 categories:     [ utilities ] 
+#
+layout:         single
+search:         true
 author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 <font size="3">
 <div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Version v{{ page.version }} - 
+Posted {{ page.date | date: "%Y-%m-%d" }} - 
+Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
+
 
 
 <a id="name"></a>
@@ -32,13 +34,15 @@ sidebar:
 {{ page.title }} -- {{ page.desc }}
 
 
-<a id="synopsis"></a>
-
+<a id="synopsis"></a>  
 ## SYNOPSIS
 
 ```bash
-    {{ page.title }} [-v] [-h] [-d 0-9]  
+{{ page.title }} [-v] [-h] [-d 0-9]  
 ```
+{% if page.type == "S" %}
+<font size="3">Can only be run on SADMIN Server.</font>
+{% endif %}
 
 
 
@@ -99,7 +103,7 @@ New log (/opt/sadmin/log/borg_sadm_support_request.log) created ($SADM_LOG_APPEN
 End of sadm_support_request.sh - Mon 26 Apr 2021 08:56:04 AM EDT
 ================================================================================
 
-Please send the file '/opt/sadmin/tmp/borg_sadm_support_request.tgz' to support@sadmin.ca.
+Please send the file '/opt/sadmin/tmp/borg_sadm_support_request.tgz' to sadmlinux@gmail.com.
 We will get back to you as soon as possible.
 ```
 

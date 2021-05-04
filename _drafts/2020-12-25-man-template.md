@@ -2,9 +2,9 @@
 title:          man_template.sh
 desc:           Template for scripts documentation
 version:        2.2
-date:           2021-01-01
 updated:        2021-04-22
 os:             Linux, Aix, MacOS
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ test ] 
 #categories:     [ web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 categories:     [ test ] 
@@ -15,13 +15,15 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 <font size="3">
 <div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Version v{{ page.version }} - 
+Posted {{ page.date | date: "%Y-%m-%d" }} - 
+Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
 
@@ -31,12 +33,17 @@ sidebar:
 **{{ page.title }}** - *{{ page.desc }}*   
 
 
+
 <a id="synopsis"></a>
 ## SYNOPSIS
 
 ```bash
 {{ page.title }} [-d 0-9] [-h] [-v]
 ```
+{% if page.type == "S" %}
+<font size="3">Can only be run on SADMIN Server.</font>
+{% endif %}
+
 
 
 <a id="description"></a>

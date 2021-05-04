@@ -2,9 +2,9 @@
 title:          sadmlib_std_demo.sh
 desc:           SADMIN Shell Library Functions Demo
 version:        2.2
-date:           2021-03-16
-updated:        2021-03-16
+updated:        2021-05-04
 os:             Linux, Aix, MacOS
+type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
 tags:           [ libraries ]
 categories:     [ libraries ] 
 #
@@ -14,13 +14,15 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 <font size="3">
 <div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
+<div>Version v{{ page.version }} - 
+Posted {{ page.date | date: "%Y-%m-%d" }} - 
+Updated {{ page.updated }}</div>
 <div>Run on {{ page.os }}</div>
 </font>
 
@@ -39,100 +41,104 @@ sidebar:
 
 
 <a id="description"></a>
-
 ## DESCRIPTION
 
-Show all Library global variables and functions examples, that you can use within your shell script. We suggest running this script and pipe the output to 'less' to see how variables and functions works on your system.   
-  {: .text-justify}  
+Show all Library global variables and functions examples, that you can use within your shell 
+script. We suggest running this script and pipe the output to 'less' to see how variables and 
+functions works on your system.   
+{: .text-justify}  
+
 ```$ sudo $SADMIN/bin/sadmlib_std_demo.sh | less```
 
 
 <a id="examples"></a>
 ## EXAMPLE
 
-Examples below have different values than on your system and that's normal. For example, you may have installed SADMIN in '/opt/sadmin' instead of '/sadmin' like below. There is a PDF with the output of this script, you can use it for reference purpose.
-  {: .text-justify}
+Examples below have different values than on your system and that's normal. For example, you 
+may have installed SADMIN in '/opt/sadmin' instead of '/sadmin' like below. There is a PDF with 
+the output of this script, you can use it for reference purpose.
+{: .text-justify}
 
 **User variables that affect SADMIN shell library behavior**
 ```bash  
-====================================================================================================
+==========================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-User Var. that affect SADMIN behavior  Description                           This System Result             
-====================================================================================================
-[001] $SADM_VER                        Script Version Number               : 3.13                           
-[002] $SADM_PN                         Script Name                         : sadmlib_std_demo.sh            
-[003] $SADM_INST                       Script Name Without Extension       : sadmlib_std_demo               
-[004] $SADM_USERNAME                   Current User Name                   : root                           
-[005] $SADM_TPID                       Current Process ID                  : 26992                          
-[006] $SADM_MULTIPLE_EXEC              Allow running multiple copy         : Y                              
-[007] $SADM_USE_RCH                    Gen. entry in .rch file             : N                              
-[008] $SADM_LOG_TYPE                   Set Output to [S]creen [L]og [B]oth : B                              
-[009] $SADM_LOG_APPEND                 Append Log or Create New One        : N                              
-[010] $SADM_LOG_HEADER                 Generate Header in log              : N                              
-[011] $SADM_LOG_FOOTER                 Generate or not Footer in log       : N                              
-[012] $SADM_EXIT_CODE                  Script Exit Return Code             : 0                        
-``` 
+Var. affecting SADMIN behavior  Description                           System Result 
+==========================================================================================
+[001] $SADM_VER                 Script Version Number               : 3.13               
+[002] $SADM_PN                  Script Name                         : sadmlib_std_demo.sh
+[003] $SADM_INST                Script Name Without Extension       : sadmlib_std_demo    
+[004] $SADM_USERNAME            Current User Name                   : root                
+[005] $SADM_TPID                Current Process ID                  : 26992              
+[006] $SADM_MULTIPLE_EXEC       Allow running multiple copy         : Y  
+[007] $SADM_USE_RCH             Gen. entry in .rch file             : N  
+[008] $SADM_LOG_TYPE            Set Output to [S]creen [L]og [B]oth : B  
+[009] $SADM_LOG_APPEND          Append Log or Create New One        : N  
+[010] $SADM_LOG_HEADER          Generate Header in log              : N  
+[011] $SADM_LOG_FOOTER          Generate or not Footer in log       : N 
+[012] $SADM_EXIT_CODE           Script Exit Return Code             : 
+```
 
 **SADMIN Shell Library functions available to your script**
 ```bash  
-====================================================================================================
+==========================================================================================
 sadmlib_std_demo.sh v3.16 - Library v3.20
-Calling Functions                      Description                           This System Result
-====================================================================================================
-[001] $(sadm_get_release)              SADMIN Release Number (XX.XX)       : 1.2.0
-[002] $(sadm_get_ostype)               OS Type (Uppercase,LINUX,AIX,DARWIN): LINUX
-[003] $(sadm_get_osversion)            Return O/S Version (Ex: 7.2, 6.5)   : 7.7.1908
-[004] $(sadm_get_osmajorversion)       Return O/S Major Version (Ex 7, 6)  : 7
-[005] $(sadm_get_osminorversion)       Return O/S Minor Version (Ex 2, 3)  : 7
-[006] $(sadm_get_osname)               O/S Name (REDHAT,CENTOS,UBUNTU,...) : CENTOS
-[007] $(sadm_get_oscodename)           O/S Project Code Name               : Core
-[008] $(sadm_get_kernel_version)       O/S Running Kernel Version          : 3.10.0-1062.4.1.el7.x86_64
-[009] $(sadm_get_kernel_bitmode)       O/S Kernel Bit Mode (32 or 64)      : 64
-[010] $(sadm_get_hostname)             Current Host Name                   : holmes
-[011] $(sadm_get_host_ip)              Current Host IP Address             : 192.168.1.12
-[012] $(sadm_get_domainname)           Current Host Domain Name            : maison.ca
-[013] $(sadm_get_fqdn)                 Fully Qualified Domain Host Name    : holmes.maison.ca
-[014] $(sadm_get_epoch_time)           Get Current Epoch Time              : 1574606133
-[015] $(sadm_epoch_to_date 1574606133) Convert epoch time to date          : 2019.11.24 09:35:33
+Calling Functions                      Description                           System Result
+==========================================================================================
+[01] $(sadm_get_release)              SADMIN Release Number (XX.XX)      : 1.2.0
+[02] $(sadm_get_ostype)               OS Type Uppercase(LINUX,AIX,DARWIN): LINUX
+[03] $(sadm_get_osversion)            Return O/S Version (Ex: 7.2, 6.5)  : 7.7.1908
+[04] $(sadm_get_osmajorversion)       Return O/S Major Version (Ex 7, 6) : 7
+[05] $(sadm_get_osminorversion)       Return O/S Minor Version (Ex 2, 3) : 7
+[06] $(sadm_get_osname)               O/S Name (REDHAT,CENTOS,UBUNTU,...): CENTOS
+[07] $(sadm_get_oscodename)           O/S Project Code Name              : Core
+[08] $(sadm_get_kernel_version)       O/S Running Kernel Version :3.10.0-1062.4.1.el7.x86_64
+[09] $(sadm_get_kernel_bitmode)       O/S Kernel Bit Mode (32 or 64)     : 64
+[10] $(sadm_get_hostname)             Current Host Name                  : holmes
+[11] $(sadm_get_host_ip)              Current Host IP Address            : 192.168.1.12
+[12] $(sadm_get_domainname)           Current Host Domain Name           : maison.ca
+[13] $(sadm_get_fqdn)                 Fully Qualified Domain Host Name   : holmes.maison.ca
+[14] $(sadm_get_epoch_time)           Get Current Epoch Time             : 1574606133
+[15] $(sadm_epoch_to_date 1574606133) Convert epoch time to date      : 2019.11.24 09:35:33
     WDATE='2019.11.24 09:35:33'
-[016] $(sadm_date_to_epoch "$WDATE")   Convert Date to epoch time          : 1574606133
+[16] $(sadm_date_to_epoch "$WDATE")   Convert Date to epoch time         : 1574606133
     DATE1='2016.01.30 10:00:44'
     DATE2='2016.01.30 10:00:03'
-[017] $(sadm_elapse "$DATE1" "$DATE2") Elapse Time between two timestamps  : 00:00:41
-[018] $(sadm_get_packagetype)          Get package type (rpm,deb,aix,dmg)  : rpm
+[17] $(sadm_elapse "$DATE1" "$DATE2") Elapse Time between two timestamps : 00:00:41
+[18] $(sadm_get_packagetype)          Get package type (rpm,deb,aix,dmg) : rpm
 ```
 
 ```bash  
-====================================================================================================
+==========================================================================================
 sadmlib_std_demo.sh v3.16 - Library v3.20
-SADMIN BASH SHELL SPECIFIC FUNCTIONS   Description                           This System Result
-====================================================================================================
-[001] $(sadm_server_type)              Host is Physical or Virtual (P/V)   : P
-[002] $(sadm_server_model)             Server model (Ex: HP ProLiant DL580): OptiPlex 7020
-[003] $(sadm_server_serial)            Server serial number (Ex: 4S7GYF1)  : BJSV942
-[004] $(sadm_server_memory)            Server total memory in MB (Ex: 3790): 7729
-[005] $(sadm_server_hardware_bitmode)  CPU Hardware capable of 32/64 bits  : 64
-[006] $(sadm_server_nb_logical_cpu)    Number of Logical CPU on server     : 4
-[007] $(sadm_server_nb_cpu)            Number of Physical CPU on server    : 1
-[008] $(sadm_server_arch)              System Architecture                 : x86_64
-[009] $(sadm_server_nb_socket)         Number of socket on server          : 1
-[010] $(sadm_server_core_per_socket)   Number of Core per Socket           : 4
-[011] $(sadm_server_thread_per_core)   Number of Thread per Core           : 1
-[012] $(sadm_server_cpu_speed)         Server CPU Speed in MHz             : 3500
-[013] $(sadm_server_disks)             Disks list(MB) (DISKNAME|SIZE,...)  : sda|512000,sdb|1024000
-[014] $(sadm_server_vg)                VG list(MB) (VGNAME|SIZE|USED|FREE) : rootvg|476426|449526|26900
-[015] $(sadm_server_ips)               Network IP(Name|IP|Netmask|MAC)     : em1|192.168.1.12|255.255.255.0|98:90:96:b7:64:aem1:1|192.168.1.20|255.255.255.0|98:90:96:b7:64:a2,em1:2|192.168.1.68|255.255.255.0|98:90:96:b7:64:a2,em1:3|192.168.1.13|255.25255.0|98:90:96:b7:64:a2,em1:4|192.168.1.6|255.255.255.0|98:90:96:b7:64:a2,em1:5|192.168.1.23|255.255.255.0|98:90:96:b7:64:a2,em1:192.168.1.126|255.255.255.0|98:90:96:b7:64:a2,em1:7|192.168.1.28|255.255.255.0|98:90:96:b7:64:a2,em1:8|192.168.1.43|255.255.255.98:90:96:b7:64:a2
-[016] sadm_toupper string              Return string uppercase             : STRING
-[017] sadm_tolower STRING              Return string lowercase             : string
+SADMIN BASH SHELL FUNCTIONS          Description                           System Result
+==========================================================================================
+[01] $(sadm_server_type)             Host is Physical or Virtual (P/V)   : P
+[02] $(sadm_server_model)            Server model (Ex: HP ProLiant DL580): OptiPlex 7020
+[03] $(sadm_server_serial)           Server serial number (Ex: 4S7GYF1)  : BJSV942
+[04] $(sadm_server_memory)           Server total memory in MB (Ex: 3790): 7729
+[05] $(sadm_server_hardware_bitmode) CPU Hardware capable of 32/64 bits  : 64
+[06] $(sadm_server_nb_logical_cpu)   Number of Logical CPU on server     : 4
+[07] $(sadm_server_nb_cpu)           Number of Physical CPU on server    : 1
+[08] $(sadm_server_arch)             System Architecture                 : x86_64
+[09] $(sadm_server_nb_socket)        Number of socket on server          : 1
+[10] $(sadm_server_core_per_socket)  Number of Core per Socket           : 4
+[11] $(sadm_server_thread_per_core)  Number of Thread per Core           : 1
+[12] $(sadm_server_cpu_speed)        Server CPU Speed in MHz             : 3500
+[13] $(sadm_server_disks)            Disks list(MB) (DISKNAME|SIZE,...)  : sda|512000,sdb|1024000
+[14] $(sadm_server_vg)               VG list(MB) (VGNAME|SIZE|USED|FREE) : rootvg|476426|449526|26900
+[15] $(sadm_server_ips)              Network IP(Name|IP|Netmask|MAC)     : em1|192.168.1.12|255.255.255.0|98:90:96:b7:64
+[16] sadm_toupper string             Return string uppercase             : STRING
+[17] sadm_tolower STRING             Return string lowercase             : string
 ```        
 
 **Main function of the Library, the 'sadm_start' and 'sadm_stop' functions**   
 
 ```bash
-====================================================================================================
+==================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-Overview of sadm_start and sadm_stop function                                                                     
-====================================================================================================
+Overview of sadm_start and sadm_stop function                                     
+==================================================================================
 sadm_start                                         # Init Env Dir & RC/Log File
 if [ $? -ne 0 ] ; then sadm_stop 1 ; exit 1 ;fi    # Exit if Problem
 main_process                                       # Main Process
@@ -141,12 +147,14 @@ sadm_stop $SADM_EXIT_CODE                          # Close SADM Tool & Upd RCH
 exit $SADM_EXIT_CODE                               # Exit With Global Err (0/1)
 ```
 
+---
+
 <a id="sadm_start"></a>
-### sadm_start
+### sadm_start()
 This function start and initialize sadm environment and accept no parameter. Make sure the SADMIN 
 environment variable is set to proper directory. Call this function when your script is starting.  
 
-**What this function do for us :**  
+**What sadm_start() function does**  
 1- Make sure all directories & sub-directories exist and have proper permissions.  
 2- Make sure log file exist with proper permission (/sadmin/log/holmes_sadmlib_std_demo.log).  
 3- Make sure Return Code History (.rch) exist and have the right permission.  
@@ -155,14 +163,15 @@ environment variable is set to proper directory. Call this function when your sc
 6- Add line in the [R]eturn [C]ode [H]istory file stating script is started (Code 2).  
 7- Write HostName, script name, O/S name and version to the Log file.  
 
+---
 
 <a id="sadm_stop"></a>
-### sadm_stop
+### sadm_stop()
 The 'sadm_stop' function accept one parameter. The parameter can be either 0 (Successfully) if the
 script terminated with success or with a non-zero (Error Encountered) if it terminated with error.
 Please call this function just before your script end.
 
-**What this function do**  
+**What sadm_stop() function does**  
 1- If Exit Code is not zero, change it to 1.  
 2- Get Actual Time and Calculate the Execution Time.  
 3- Writing the Script Footer in the Log (Script Return code, Execution Time, ...)  
@@ -174,9 +183,10 @@ Please call this function just before your script end.
 9- Delete the PID File of the script (SADM_PID_FILE)  
 10- Delete the User 3 TMP Files (SADM_TMP_FILE1, SADM_TMP_FILE2, SADM_TMP_FILE3)  
  
+---
 
 
-**All variables content of the SADMIN configuration file are also accessible in your script**
+**Variables loaded from the SADMIN configuration file**
 
 ```bash
 ====================================================================================================
@@ -235,104 +245,106 @@ SADMIN CONFIG FILE VARIABLES           Description                           Thi
 
 
 
-***There is also a set a variables that you can use in your script to access SADMIN Directories**
+***Variables set to various SADMIN directories**
 
 ```bash
-====================================================================================================
+=====================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-Client Directories Var. Avail.         Description                           This System Result             
-====================================================================================================
-[001] $SADM_BASE_DIR                   SADMIN Root Directory               : /sadmin                        
-[002] $SADM_BIN_DIR                    SADMIN Scripts Directory            : /sadmin/bin                    
-[003] $SADM_TMP_DIR                    SADMIN Temporary file(s) Directory  : /sadmin/tmp                    
-[004] $SADM_LIB_DIR                    SADMIN Shell & Python Library Dir.  : /sadmin/lib                    
-[005] $SADM_LOG_DIR                    SADMIN Script Log Directory         : /sadmin/log                    
-[006] $SADM_CFG_DIR                    SADMIN Configuration Directory      : /sadmin/cfg                    
-[007] $SADM_SYS_DIR                    Server Startup/Shutdown Script Dir. : /sadmin/sys                    
-[008] $SADM_DOC_DIR                    SADMIN Documentation Directory      : /sadmin/doc                    
-[009] $SADM_PKG_DIR                    SADMIN Packages Directory           : /sadmin/pkg                    
-[010] $SADM_DAT_DIR                    Server Data Directory               : /sadmin/dat                    
-[011] $SADM_NMON_DIR                   Server NMON - Data Collected Dir.   : /sadmin/dat/nmon               
-[012] $SADM_DR_DIR                     Server Disaster Recovery Info Dir.  : /sadmin/dat/dr                 
-[013] $SADM_RCH_DIR                    Server Return Code History Dir.     : /sadmin/dat/rch                
-[014] $SADM_NET_DIR                    Server Network Info Dir.            : /sadmin/dat/net                
-[015] $SADM_RPT_DIR                    SYStem MONitor Report Directory     : /sadmin/dat/rpt                
-[016] $SADM_DBB_DIR                    Database Backup Directory           : /sadmin/dat/dbb                
-[017] $SADM_SETUP_DIR                  SADMIN Installation/Update Dir.     : /sadmin/setup                  
-[018] $SADM_USR_DIR                    User/System specific directory      : /sadmin/usr                    
-[019] $SADM_UBIN_DIR                   User/System specific bin/script Dir.: /sadmin/usr/bin                
-[020] $SADM_ULIB_DIR                   User/System specific library Dir.   : /sadmin/usr/lib                
-[021] $SADM_UDOC_DIR                   User/System specific documentation  : /sadmin/usr/doc                
-[022] $SADM_UMON_DIR                   User/System specific SysMon Scripts : /sadmin/usr/mon 
+Client Directories Var.      Description                          This System Result 
+======================================================================================
+[01] $SADM_BASE_DIR          SADMIN Root Directory               : /sadmin           
+[02] $SADM_BIN_DIR           SADMIN Scripts Directory            : /sadmin/bin       
+[03] $SADM_TMP_DIR           SADMIN Temporary file(s) Directory  : /sadmin/tmp       
+[04] $SADM_LIB_DIR           SADMIN Shell & Python Library Dir.  : /sadmin/lib       
+[05] $SADM_LOG_DIR           SADMIN Script Log Directory         : /sadmin/log       
+[06] $SADM_CFG_DIR           SADMIN Configuration Directory      : /sadmin/cfg       
+[07] $SADM_SYS_DIR           Server Startup/Shutdown Script Dir. : /sadmin/sys       
+[08] $SADM_DOC_DIR           SADMIN Documentation Directory      : /sadmin/doc       
+[09] $SADM_PKG_DIR           SADMIN Packages Directory           : /sadmin/pkg       
+[10] $SADM_DAT_DIR           Server Data Directory               : /sadmin/dat       
+[11] $SADM_NMON_DIR          Server NMON - Data Collected Dir.   : /sadmin/dat/nmon  
+[12] $SADM_DR_DIR            Server Disaster Recovery Info Dir.  : /sadmin/dat/dr    
+[13] $SADM_RCH_DIR           Server Return Code History Dir.     : /sadmin/dat/rch   
+[14] $SADM_NET_DIR           Server Network Info Dir.            : /sadmin/dat/net   
+[15] $SADM_RPT_DIR           SYStem MONitor Report Directory     : /sadmin/dat/rpt   
+[16] $SADM_DBB_DIR           Database Backup Directory           : /sadmin/dat/dbb   
+[17] $SADM_SETUP_DIR         SADMIN Installation/Update Dir.     : /sadmin/setup     
+[18] $SADM_USR_DIR           User/System specific directory      : /sadmin/usr       
+[19] $SADM_UBIN_DIR          User/System specific bin/script Dir.: /sadmin/usr/bin   
+[20] $SADM_ULIB_DIR          User/System specific library Dir.   : /sadmin/usr/lib   
+[21] $SADM_UDOC_DIR          User/System specific documentation  : /sadmin/usr/doc   
+[22] $SADM_UMON_DIR          User/System specific SysMon Scripts : /sadmin/usr/mon 
+```
 
-====================================================================================================
+```
+========================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-Server Directories Var. Avail.         Description                           This System Result             
-====================================================================================================
-[001] $SADM_WWW_DIR                    SADMIN Web Site Root Directory      : /sadmin/www                    
-[002] $SADM_WWW_DOC_DIR                SADMIN Web Documentation Dir.       : /sadmin/www/doc                
-[003] $SADM_WWW_DAT_DIR                SADMIN Web Site Systems Data Dir.   : /sadmin/www/dat                
-[004] $SADM_WWW_LIB_DIR                SADMIN Web Site PHP Library Dir.    : /sadmin/www/lib                
-[005] $SADM_WWW_TMP_DIR                SADMIN Web Temp Working Directory   : /sadmin/www/tmp                
-[006] $SADM_WWW_PERF_DIR               SADMIN Web Performance Graph Dir.   : /sadmin/www/tmp/perf          
+Server Directories Var.      Description                           This System Result             
+========================================================================================
+[01] $SADM_WWW_DIR           SADMIN Web Site Root Directory      : /sadmin/www          
+[02] $SADM_WWW_DOC_DIR       SADMIN Web Documentation Dir.       : /sadmin/www/doc      
+[03] $SADM_WWW_DAT_DIR       SADMIN Web Site Systems Data Dir.   : /sadmin/www/dat      
+[04] $SADM_WWW_LIB_DIR       SADMIN Web Site PHP Library Dir.    : /sadmin/www/lib      
+[05] $SADM_WWW_TMP_DIR       SADMIN Web Temp Working Directory   : /sadmin/www/tmp      
+[06] $SADM_WWW_PERF_DIR      SADMIN Web Performance Graph Dir.   : /sadmin/www/tmp/perf
 ```
 
 
 
-**There is also a set a variables that you can use in your script to access SADMIN Files**
+**Set of variables that contains various file name use by SADMIN**
 
 ```bash
 ====================================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-SADMIN FILES VARIABLES AVAIL.          Description                           This System Result             
+SADMIN FILES VARIABLES AVAIL.   Description                           This System Result  
 ====================================================================================================
-[001] $SADM_PID_FILE                   Current script PID file             : /sadmin/tmp/sadmlib_std_demo.pid
-[002] $SADM_CFG_FILE                   SADMIN Configuration File           : /sadmin/cfg/sadmin.cfg         
-[003] $SADM_CFG_HIDDEN                 SADMIN Initial Configuration File   : /sadmin/cfg/.sadmin.cfg        
-[004] $SADM_ALERT_FILE                 SADMIN Alert Group File             : /sadmin/cfg/alert_group.cfg    
-[005] $SADM_ALERT_INIT                 SADMIN Initial Alert Group File     : /sadmin/cfg/.alert_group.cfg   
-[006] $SADM_SLACK_FILE                 SADMIN Slack Channel WebHook File   : /sadmin/cfg/alert_slack.cfg    
-[007] $SADM_SLACK_INIT                 SADMIN Initial Slack WebHook File   : /sadmin/cfg/.alert_slack.cfg   
-[008] $SADM_ALERT_HIST                 SADMIN Alert History File           : /sadmin/cfg/alert_history.txt  
-[009] $SADM_ALERT_HINI                 SADMIN Initial Alert History File   : /sadmin/cfg/.alert_history.txt 
-[010] $SADM_ALERT_SEQ                  SADMIN Alert Reference Number File  : /sadmin/cfg/alert_history.seq  
-[011] $SADM_TMP_FILE1                  User usable Temp Work File 1        : /sadmin/tmp/sadmlib_std_demo_1.26992
-[012] $SADM_TMP_FILE2                  User usable Temp Work File 2        : /sadmin/tmp/sadmlib_std_demo_2.26992
-[013] $SADM_TMP_FILE3                  User usable Temp Work File 3        : /sadmin/tmp/sadmlib_std_demo_3.26992
-[014] $SADM_LOG                        Script Log File                     : /sadmin/log/holmes_sadmlib_std_demo.log
-[015] $SADM_RCHLOG                     Script Return Code History File     : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch
-[016] $DBPASSFILE                      SADMIN Database User Password File  : /sadmin/cfg/.dbpass            
-[017] $SADM_RPT_FILE                   SYStem MONitor Report File          : /sadmin/dat/rpt/holmes.rpt     
-[018] $SADM_BACKUP_LIST                Backup List File Name               : /sadmin/cfg/backup_list.txt    
-[019] $SADM_BACKUP_LIST_INIT           Initial Backup List (Template)      : /sadmin/cfg/.backup_list.txt   
-[020] $SADM_BACKUP_EXCLUDE             Backup Exclude List File Name       : /sadmin/cfg/backup_exclude.txt 
-[021] $SADM_BACKUP_EXCLUDE_INIT        Initial Backup Exclude (Template)   : /sadmin/cfg/.backup_exclude.txt   
+[01] $SADM_PID_FILE             Current script PID file            : /sadmin/tmp/sadmlib_std_demo.pid
+[02] $SADM_CFG_FILE             SADMIN Configuration File          : /sadmin/cfg/sadmin.cfg         
+[03] $SADM_CFG_HIDDEN           SADMIN Initial Configuration File  : /sadmin/cfg/.sadmin.cfg        
+[04] $SADM_ALERT_FILE           SADMIN Alert Group File            : /sadmin/cfg/alert_group.cfg    
+[05] $SADM_ALERT_INIT           SADMIN Initial Alert Group File    : /sadmin/cfg/.alert_group.cfg   
+[06] $SADM_SLACK_FILE           SADMIN Slack Channel WebHook File  : /sadmin/cfg/alert_slack.cfg    
+[07] $SADM_SLACK_INIT           SADMIN Initial Slack WebHook File  : /sadmin/cfg/.alert_slack.cfg   
+[08] $SADM_ALERT_HIST           SADMIN Alert History File          : /sadmin/cfg/alert_history.txt  
+[09] $SADM_ALERT_HINI           SADMIN Initial Alert History File  : /sadmin/cfg/.alert_history.txt 
+[10] $SADM_ALERT_SEQ            SADMIN Alert Reference Number File : /sadmin/cfg/alert_history.seq  
+[11] $SADM_TMP_FILE1            User usable Temp Work File 1       : /sadmin/tmp/sadmlib_std_demo_1.26992
+[12] $SADM_TMP_FILE2            User usable Temp Work File 2       : /sadmin/tmp/sadmlib_std_demo_2.26992
+[13] $SADM_TMP_FILE3            User usable Temp Work File 3       : /sadmin/tmp/sadmlib_std_demo_3.26992
+[14] $SADM_LOG                  Script Log File                    : /sadmin/log/holmes_sadmlib_std_demo.log
+[15] $SADM_RCHLOG               Script Return Code History File    : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch
+[16] $DBPASSFILE                SADMIN Database User Password File : /sadmin/cfg/.dbpass            
+[17] $SADM_RPT_FILE             SYStem MONitor Report File         : /sadmin/dat/rpt/holmes.rpt     
+[18] $SADM_BACKUP_LIST          Backup List File Name              : /sadmin/cfg/backup_list.txt    
+[19] $SADM_BACKUP_LIST_INIT     Initial Backup List (Template)     : /sadmin/cfg/.backup_list.txt   
+[20] $SADM_BACKUP_EXCLUDE       Backup Exclude List File Name      : /sadmin/cfg/backup_exclude.txt 
+[21] $SADM_BACKUP_EXCLUDE_INIT  Initial Backup Exclude (Template)  : /sadmin/cfg/.backup_exclude.txt   
 ```
 
 
-**All these variables are filled automatically when you call the 'sadm_start' function**
+**Variables are set automatically when you call the 'sadm_start()' function**
 
 ```bash
-====================================================================================================
+=========================================================================================
 sadmlib_std_demo.sh v3.13 - Library v3.02
-COMMAND PATH USE BY SADMIN STD. LIBR.  Description                           This System Result             
-====================================================================================================
-[001] $SADM_LSB_RELEASE                Cmd. 'lsb_release', Get O/S Version : /bin/lsb_release               
-[002] $SADM_DMIDECODE                  Cmd. 'dmidecode', Get model & type  : /sbin/dmidecode                
-[003] $SADM_FACTER                     Cmd. 'facter', Get System Info      : /bin/facter                    
-[004] $SADM_BC                         Cmd. 'bc', Do some Math.            : /bin/bc                        
-[005] $SADM_FDISK                      Cmd. 'fdisk', Get Partition Info    : /sbin/fdisk                    
-[006] $SADM_WHICH                      Cmd. 'which', Get Command location  : /bin/which                     
-[007] $SADM_PERL                       Cmd. 'perl', epoch time Calc.       : /bin/perl                      
-[008] $SADM_MAIL                       Cmd. 'mail', Send SysAdmin Email    : /bin/mail                      
-[009] $SADM_MUTT                       Cmd. 'mutt', Used to Send Email     : /bin/mutt                      
-[010] $SADM_CURL                       Used to send alert to Slack         : /bin/curl                      
-[011] $SADM_LSCPU                      Cmd. 'lscpu', Socket & thread info  : /bin/lscpu                     
-[012] $SADM_NMON                       Cmd. 'nmon', Collect Perf Statistic : /bin/nmon                      
-[013] $SADM_PARTED                     Cmd. 'parted', Get Disk Real Size   : /sbin/parted                   
-[014] $SADM_ETHTOOL                    Cmd. 'ethtool', Get System IP Info  : /sbin/ethtool                  
-[015] $SADM_SSH                        Cmd. 'ssh', SSH to SADMIN client    : /bin/ssh                       
-[016] $SADM_SSH_CMD                    Cmd. 'ssh', SSH to Connect to client: /bin/ssh -qnp32                 
+COMMAND PATH                    Description                           This System Result
+=========================================================================================
+[001] $SADM_LSB_RELEASE         Cmd. 'lsb_release', Get O/S Version : /bin/lsb_release
+[002] $SADM_DMIDECODE           Cmd. 'dmidecode', Get model & type  : /sbin/dmidecode 
+[003] $SADM_FACTER              Cmd. 'facter', Get System Info      : /bin/facter     
+[004] $SADM_BC                  Cmd. 'bc', Do some Math.            : /bin/bc      
+[005] $SADM_FDISK               Cmd. 'fdisk', Get Partition Info    : /sbin/fdisk  
+[006] $SADM_WHICH               Cmd. 'which', Get Command location  : /bin/which   
+[007] $SADM_PERL                Cmd. 'perl', epoch time Calc.       : /bin/perl    
+[008] $SADM_MAIL                Cmd. 'mail', Send SysAdmin Email    : /bin/mail    
+[009] $SADM_MUTT                Cmd. 'mutt', Used to Send Email     : /bin/mutt    
+[010] $SADM_CURL                Used to send alert to Slack         : /bin/curl    
+[011] $SADM_LSCPU               Cmd. 'lscpu', Socket & thread info  : /bin/lscpu   
+[012] $SADM_NMON                Cmd. 'nmon', Collect Perf Statistic : /bin/nmon    
+[013] $SADM_PARTED              Cmd. 'parted', Get Disk Real Size   : /sbin/parted 
+[014] $SADM_ETHTOOL             Cmd. 'ethtool', Get System IP Info  : /sbin/ethtool
+[015] $SADM_SSH                 Cmd. 'ssh', SSH to SADMIN client    : /bin/ssh     
+[016] $SADM_SSH_CMD             Cmd. 'ssh', SSH to Connect to client: /bin/ssh -qnp32
 ```
 
 *If variable content is blank, it means that the command is not available on the current system.*    
