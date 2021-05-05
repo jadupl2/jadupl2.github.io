@@ -4,7 +4,7 @@ desc:           List and install required SADMIN Tools packages
 version:        1.10
 updated:        2021-05-04
 os:             Linux, Aix, MacOS
-type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ utilities ] 
 categories:     [ utilities ] 
 #
@@ -19,11 +19,8 @@ sidebar:
 ---
 
 
-<font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
-</font>
+{% include sadm/sadm_page_info.md %}
+
 
 
 <a id="name"></a>

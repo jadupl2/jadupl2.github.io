@@ -1,22 +1,26 @@
 ---
 title:              Using SADMIN Shell script template
-layout:             single
-date_created:       2021-03-16
-date_updated:       2021-03-16 
-limit:              1
-paginate:           false
-show_excerpts:      false
-entries_layout:     list
-author_profile:     true
+desc:               How-to use shell script template
+version:        2.2
+date_updated:       2021-05-05 
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:               [ templates ]
 categories:         [ templates ]
-toc:                false
-classes:            wide
 sadm_section_sh:    sadm/sadm_section_sh.md
 sadm_file_rch:      sadm/sadm_rch_file.md
-
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
+{% include sadm/sadm_page_info.md %}
 
 ## What's in the shell script template  
 The shell script template ($SADMIN/bin/sadm_template.sh) is ready to use. You can run it now, 

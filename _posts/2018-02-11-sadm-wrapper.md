@@ -2,9 +2,9 @@
 title:          sadm_wrapper.sh
 desc:           Wrapper to run your existing scripts and benefit of SADMIN tools.
 version:        1.6
-updated:        2021-03-12 
+updated:        2021-05-05 
 os:             Linux, Aix, MacOS
-type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ tools, wrapper ]
 categories:     [ utilities ]
 #
@@ -18,14 +18,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-<font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - 
-Posted {{ page.date | date: "%Y-%m-%d" }} - 
-Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
-</font>
-
+{% include sadm/sadm_page_info.md %}
 
 <a id="name"></a>
 ## NAME

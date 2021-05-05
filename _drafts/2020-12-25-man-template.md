@@ -4,7 +4,7 @@ desc:           Template for scripts documentation
 version:        2.2
 updated:        2021-04-22
 os:             Linux, Aix, MacOS
-type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
+type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ test ] 
 #categories:     [ web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 categories:     [ test ] 
@@ -19,14 +19,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-<font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - 
-Posted {{ page.date | date: "%Y-%m-%d" }} - 
-Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
-</font>
-
+{% include sadm/sadm_page_info.md %}
 
 <a id="name"></a>
 ## NAME

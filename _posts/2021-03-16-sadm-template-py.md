@@ -1,23 +1,27 @@
 ---
 title:                  Using SADMIN Python script template
-layout:                 single
-date_created:           2021-03-16
-date_updated:           2021-04-04 
-limit:                  1
-paginate:               false
-show_excerpts:          false
-entries_layout:         list
-author_profile:         true
+desc:           How-to use the Python script template
+version:        2.2
+updated:        2021-05-05
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:                   templates
 categories:             templates
-toc:                    false
-classes:                wide
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 sadm_header_footer:     sadm/log_header_footer.md
 sadm_file_rch:          sadm/sadm_rch_file.md
-coll_name: sadm_template.py
-coll_desc: SADM Python Script Template 
-coll_cat: "SADMIN Utilities Scripts" 
 ---
+
+
+{% include sadm/sadm_page_info.md %}
 
 ## What you need to know to use the SADMIN tools library
 The Python script template ($SADMIN/bin/sadm_template.py) is ready to use and it include everything 

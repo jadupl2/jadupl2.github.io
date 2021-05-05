@@ -18,14 +18,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-<font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - 
-Posted {{ page.date | date: "%Y-%m-%d" }} - 
-Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
-</font>
-
+{% include sadm/sadm_page_info.md %}
 
 <a id="name"></a>
 

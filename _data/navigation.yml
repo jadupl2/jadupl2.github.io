@@ -46,7 +46,7 @@ sidebar-manpage:
         
   - title: "System Monitor"
     children:
-      - title:  "Setup SMS notification"
+      - title:  "How-to Setup SMS notification"
         url:    /system_monitor/how-to-sms
 
   - title: "Server Scripts"

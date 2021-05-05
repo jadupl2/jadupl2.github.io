@@ -4,7 +4,7 @@ desc:           Create a file that will help us, when you submit a problem.
 version:        2.2
 updated:        2021-05_04
 os:             Linux, Aix, MacOS 
-type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ utilities ] 
 categories:     [ utilities ] 
 #
@@ -18,18 +18,9 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-<font size="3">
-<div>$SADMIN/bin/{{ page.title }}</div>
-<div>Version v{{ page.version }} - 
-Posted {{ page.date | date: "%Y-%m-%d" }} - 
-Updated {{ page.updated }}</div>
-<div>Run on {{ page.os }}</div>
-</font>
-
-
+{% include sadm/sadm_page_info.md %}
 
 <a id="name"></a>
-
 ## NAME
 {{ page.title }} -- {{ page.desc }}
 
