@@ -46,7 +46,9 @@ sidebar:
 ## DESCRIPTION
 
 The script allow you to check if any SADMIN required packages are missing. Running the script 
-with the option '-i', will install any missing package (not available on MacOS).
+with the option '-i', will install any missing package (not available on MacOS). You can view the 
+list of the packages requirements by the SADMIN client and server on this [page](/_pages/requirements).
+{: .text-justify}
 
 
 

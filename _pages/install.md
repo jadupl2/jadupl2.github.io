@@ -65,6 +65,12 @@ Install using the downloaded 'tgz' file from our [download page](/_pages/downloa
 ```
 
 ## The Setup script  
+Whether you are installing a SADMIN client or server, they both need “python3” and the “lsb_release” 
+command installed. So the first thing the setup script will do, is to verify that they are installed, 
+if there not the setup script will be installed them. If it’s not able to installed them, you will 
+be notified and the script will terminate.  
+{: .text-justify}
+
 The setup script will ask some questions regarding your environment. Your answers are store in 
 the [SADMIN configuration file]( {% post_url 2021-04-26-sadmin-cfg %}) ($SADMIN/cfg/sadmin.cfg). This 
 configuration file is used by the web interface and by the SADMIN tools scripts. The scripts you 

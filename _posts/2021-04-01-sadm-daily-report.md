@@ -1,34 +1,63 @@
 ---
 title:          sadm_daily_report.sh
 desc:           Produce and email daily reports
+version:        1.24
+updated:        2021-05-05
+os:             Linux, Aix, MacOS
+type:           S  # [D]oc [S]=Server only [C]=Client [B]oth
+tags:           [ report ] 
+categories:     [ system_monitor ] 
+#
 layout:         single
-date_created:   2021-04-01
-date_updated:   2009-04-02 
 search:         true
-tags:           [ server_scripts ] 
-categories:     [ server_scripts ] 
 author_profile: false
 toc:            false
+classes:        wide
 sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
 ---
 
-This script produce web reports of the last 24 hrs activities and email them to the sysadmin. 
-It run automatically early every morning from the SADMIN server crontab (/etc/cron.d/sadm_server), 
-but you can also be run it manually when desired. It can only be run on the SADMIN server.
+{% include sadm/sadm_page_info.md %}
 
-{% highlight bash %}
-$ sudo $SADMIN/bin/sadm_daily_report.sh [-v] [-h] [-b] [-r] [-s] [-d 0-9]  
-{% endhighlight %}
+<a id="name"></a>
+## NAME
+**{{ page.title }}** - *{{ page.desc }}*   
 
 
-## Description
-The script produce three reports, each of them is sent to the email(s) defined by the field '*SADM_MAIL_ADDR*' in the SADMIN configuration file ($SADMIN/cfg/sadmin.cfg). It can only be run on the SADMIN server (Not on a SADMIN client). The reports are also accessible via the web interface.
 
-If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMIN server (It should have been installed by the setup process), a PDF version of each report is also attached to the email.
+<a id="synopsis"></a>
+## SYNOPSIS
 
-If one of the three report is not desired, you can use the '-r', '-b' or the '-s' command line switch to disable the desired report (email). Note that only the actives systems will appear on these reports.  
+```bash
+{{ page.title }} [-b] [-d 0-9] [-h] [-r] [-s] [-v]
+```
+{% if page.type == "S" %}
+<font size="3">Can only be run on SADMIN Server.</font>
+{% endif %}
+
+
+<a id="description"></a>
+## DESCRIPTION
+
+The script produce three reports, each of them is sent to the email(s) defined by the field 
+'[SADM_MAIL_ADDR]({% post_url 2021-04-26-sadmin-cfg %}#sadm_mail_addr)' in the SADMIN configuration 
+file ($SADMIN/cfg/sadmin.cfg). It can only be run on the SADMIN server (Not on a SADMIN client). 
+The reports are also accessible via the web interface. It run automatically early every morning 
+from the SADMIN server crontab (/etc/cron.d/sadm_server), but you can also be run it manually 
+when desired. It can only be run on the SADMIN server.
+{: .text-justify}
+
+If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMIN server (It 
+should have been installed by the setup process), a PDF version of each report is also attached 
+to the email.
+{: .text-justify}
+
+If one of the three report is not desired, you can use the '-r', '-b' or the '-s' command line 
+switch to disable the desired report (email). Note that only the actives systems will appear on 
+these reports.  
+{: .text-justify}
+
 
 ### The scripts report:
 ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center}
@@ -113,44 +142,23 @@ End of sadm_daily_report.sh - Sun Jan 17 14:40:02 EST 2021
 ==========================================================================
 ```
 
-## OPTIONS
 
-| Options | Description                                |
-|:-------:|:------------------------------------------ |
-| **-d**  | Set Debug level from 0 to 9 (Default is 0) |
-| **-h**  | Display this help and exit.                |
-| **-v**  | Output version information and exit.       |
+{% include {{ site.section_options     }} %}
 | **-r**  | Don't produce the ReaR backup report       |
 | **-b**  | Don't produce the Daily backup report      |
 | **-s**  | Don't produce the Scripts report           |
 
+{% include {{ site.section_environment }} %}
 
-## REQUIREMENTS
-- Environment variable 'SADMIN' need to be defined, it specify the root directory of the SADMIN tools (normally /opt/sadmin).  
-  - It should be already done, the setup script have updated the /etc/profile.d/sadmin.sh and then /etc/environment files.  
-- The [SADMIN main configuration file](/doc/man/file_sadmin_cfg.php), is needed and it's loaded in memory at the beginning of every scripts.
-  - This file should already exist and contains your SADMIN configuration and preference setting.
-- SADMIN Tools shell library, "$SADMIN/lib/sadmlib.sh".  
+{% include {{ site.section_exitcode    }} %}
 
+{% include {{ site.section_author      }} %}
 
-## EXIT STATUS
-
-| Exit Code | Description                                           |
-|:-------:|:-------------------------------------------             |
-| 0       | An exit status of zero indicates success.               |  
-| 1       | Failure is indicated by a nonzero value, typically ‘1’. |  
+{% include {{ site.section_copyright   }} %}
 
 
-## AUTHOR
-[Jacques Duplessis](jacques.duplessis@sadmin.ca.)  
-Any suggestions or bug report can be submitted at the [support page](www.sadmin.ca/support.php)
-
-
-## COPYRIGHT
-Copyright © 2021 Free Software Foundation, Inc. License GPLv3+: [GNU GPL version 3 or later](http://gnu.org/licenses/gpl.html)  
-This is free software, you are free to change and redistribute it.   
-There is NO WARRANTY to the extent permitted by law.  
-
-
+<a id="seealso"></a>
 ## SEE ALSO
-The Daily Backup Script - [sadm_backup.sh](#)
+
+[sadm_wrapper.sh]({% post_url 2018-02-11-sadm-wrapper %}) - Use to run your existing scripts & benefit of SADMIN tools  
+

@@ -1,36 +1,41 @@
 ---
-layout: single
-title: SADMIN Requirements
-limit: 1
-paginate: false
-show_excerpts: false
-entries_layout: list
-author_profile: true
+title:          SADMIN Required Packages
+desc:           List of packages required by SADMIN
+version:        2.2
+updated:        2021-05-05
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           requirements 
 categories:     requirements
-toc:            true
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
-Whether you are installing a SADMIN client or server, they both need "python3" and the 
-"lsb_release" command installed. So the first thing the setup script will do, is to verify that 
-they are installed, if there not the setup script will be installed them. If it's not able 
-to installed them, you will be notified and the script will terminate. 
-{: .text-justify}
+{% include sadm/sadm_page_info.md %}  
 
-Below is a list of all the packages needed. If you want to see what packages will be installed by 
-the setup script before running it, you can run the command below. 
+<br>
+Below is a list of all the packages needed by the SADMIN client and server. If you want to see what 
+packages will be installed by the setup script before running it, you can run the command below. 
+
 ```bash
 $SADMIN/bin/sadm_requirements.sh   
 ```
 
-It will verify each package needed and will tell you which one will have to installed. For 
-more info on this script [view the man page of sadm-check-requirements.sh](/_pages/man/sadm-check-requirements)"
+It will verify each package needed and will tell you which one will have to installed. For more 
+info on this script [view the man page of sadm-requirements.sh]({% post_url 2019-03-21-sadm-requirements %})
 {: .text-justify}
 
 <br>
 
 <a name="clientreq"></a> 
-## SADMIN Client Installation
+## SADMIN client packages
 
 The SADMIN client will install these packages, if they are not installed.
 To verify if all the SADMIN requirements are met, you can run the script 'sadm_requirements.sh'.
@@ -60,7 +65,7 @@ It will give you a status of what package are already installed and the one that
    
 
 <a name="serverreq"></a> 
-## SADMIN Server Installation
+## SADMIN server packages
 
 
 The SADMIN server must meet all the client requirements (Server is also a client) and the packages below.

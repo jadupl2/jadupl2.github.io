@@ -1,16 +1,21 @@
 ---
-title:              License
-layout:             single
-date_created:       2021-03-16
-date_updated:       2021-03-16 
-limit:              1
-paginate:           false
-show_excerpts:      false
-entries_layout:     list
-author_profile:     true
-tags:               license
-categories:         license
-toc:                true
+title:          License
+desc:           Free Software Foundation, Inc. License GPLv3+
+version:        2.2
+updated:        2021-05-05
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
+tags:           [ general ] 
+categories:     [ general ] 
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 ### GNU GENERAL PUBLIC LICENSE
@@ -20,8 +25,8 @@ Version 3, 29 June 2007
 Copyright (C) 2007 Free Software Foundation, Inc.
 <https://fsf.org/>
 
-Everyone is permitted to copy and distribute verbatim copies of this
-license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies of this license document, but 
+changing it is not allowed.
 
 ### Preamble
 

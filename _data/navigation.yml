@@ -28,6 +28,17 @@ main:
 
 sidebar-manpage:
 
+  - title: "Install & Configuration"
+    children:
+      - title:  "Installing SADMIN"
+        url:    /_pages/install
+      - title:  "Quick start using SADMIN"
+        url:    /_pages/quickstart
+      - title:  "Main configuration file"
+        url:    /configuration_files/sadmin-cfg
+      - title:  "Packages required"
+        url:    /_pages/requirements
+
   - title: "Command Line Tools"
     children:
       - title:  "(srch) sadm_show_rch.sh"
@@ -82,9 +93,4 @@ sidebar-manpage:
         url:    /libraries/sadmlib-std-demo-py
       - title:  "sadmlib_screen.sh"
         url:    /libraries/sadmlib-screen-sh
-
-  - title: "Configuration files"
-    children:
-      - title:  "sadmin.cfg"
-        url:    /configuration_files/sadmin-cfg
 

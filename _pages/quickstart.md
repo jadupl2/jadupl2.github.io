@@ -1,8 +1,12 @@
 ---
-layout: single
-title: Quick Start
-show_excerpts: false
-entries_layout: list
+title:          Quick Start
+desc:           How-to use to templates and Libraries
+version:        2.2
+updated:        2021-05-05
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
+tags:           [ templates, installation ] 
+categories:     [ templates ] 
 #
 layout:         single
 search:         true
@@ -10,10 +14,12 @@ author_profile: false
 toc:            false
 classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
----
+
+{% include sadm/sadm_page_info.md %}  
+<br>
 
 So you just finish [installing SADMIN tools](/_pages/install) and you want to see what it can 
 bring to you. First you can take a look at the web interface at "http://yourserverIP" and you could
@@ -21,8 +27,8 @@ run the two demo scripts "[sadmlib_std_demo.sh](/libraries/sadmlib-std-demo-sh)"
 "[sadmlib_std_demo.py](/libraries/sadmlib-std-demo-py)". This will give you an idea of what
 functions you have access in our Library (sadmlib_std.sh and sadmlib_std.py) and how to use them.
 You can also run our [template shell script]({% post_url 2021-03-16-sadm-template-sh %}) and 
-[python template]({% post_url 2021-03-16-sadm-template-py %}), take a look at the code, they are a good starting 
-point to create your next shell or Python script.
+[python template]({% post_url 2021-03-16-sadm-template-py %}), take a look at the code, they 
+are a good starting point to create your next shell or Python script.
 {: .text-justify}
 
 

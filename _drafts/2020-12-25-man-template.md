@@ -48,7 +48,7 @@ finally all the scripts grouped by system. So it give you view of the statistics
 something look different than the normal, like the alert group used is different than the 
 default group or the last execution date of a script is more than thirty days, it will be 
 shown with a yellow background. 
-  {: .text-justify}
+{: .text-justify}
  
 ```bash
 # include script
