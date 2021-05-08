@@ -60,17 +60,17 @@ sidebar-manpage:
       - title:  "How-to Setup SMS notification"
         url:    /system_monitor/how-to-sms
 
-  - title: "Server Scripts"
+  - title: "Daily Server Scripts"
     children:
       - title:  "sadm_daily_report.sh"
         url:    /server_scripts/sadm-daily-report
       - title:  "sadm_fetch_client.sh"
         url:    /server_scripts/sadm-fetch-client
 
-  - title: "Client Scripts"
+  - title: "Daily Client Scripts"
     children:
       - title: "sadm_create_sysinfo.sh"
-        url:    /client_scripts/sadm-create-sysinfo
+        url:    /client-scripts/sadm-create-sysinfo
 
   - title: "Script Templates"
     children:
@@ -85,10 +85,12 @@ sidebar-manpage:
     children:
       - title:  "sadmlib_std.sh"
         url:    /libraries/sadmlib-std-sh
-      - title:  "sadmlib_std_demo.sh"
-        url:    /libraries/sadmlib-std-demo-sh
       - title:  "sadmlib_std.py"
         url:    /libraries/sadmlib-std-py
+      - title: "SADMIN Code Section"
+        url:    /libraries/sadmin-section
+      - title:  "sadmlib_std_demo.sh"
+        url:    /libraries/sadmlib-std-demo-sh
       - title:  "sadmlib_std_demo.py"
         url:    /libraries/sadmlib-std-demo-py
       - title:  "sadmlib_screen.sh"

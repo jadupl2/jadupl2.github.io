@@ -1,8 +1,9 @@
 <a name="sadmin_shell_section"></a>
 ```bash
 # ---------------------------------------------------------------------------------------
-# SADMIN section - Setup for Global Variables and import SADMIN Python module
-# To use SADMIN tools module, this section MUST be present near the top of your code.    
+# SADMIN CODE SECTION
+# Setup for Global Variables and load the SADMIN standard library.
+# To use SADMIN tools, this section MUST be present near the top of your code.    
 # ---------------------------------------------------------------------------------------
 
 # MAKE SURE THE ENVIRONMENT 'SADMIN' VARIABLE IS DEFINED, IF NOT EXIT SCRIPT WITH ERROR.
