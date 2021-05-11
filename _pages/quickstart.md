@@ -126,7 +126,7 @@ The library include all sorts of functions that will save you time when building
 the terminal.
 
 To have a complete list of functions available in the screen library, have a look at this 
-[page]({% post_url 2021-04-10-sadmlib-screen-sh %}).
+[page]({% post_url 2019-10-12-sadmlib-screen-sh %}).
 To use use it in within your scripts, just add the command below.
 {% highlight bash %}
 source $SADMIN/bin/sadmlib_screen.sh 

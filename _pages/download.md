@@ -1,11 +1,21 @@
 ---
-title: Latest Release
-layout: single
-show_excerpts: false
-entries_layout: list
-author_profile: true
----
-
+title:          Latest Release
+desc:           Download SADMIN page
+version:        1.3.2
+updated:        2021-05-05 
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
+tags:           [ download ]
+categories:     [ download ]
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
+sidebar:
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
 | :---| :--- | 
@@ -16,7 +26,18 @@ author_profile: true
 | SHA256 checksum   | [sadmin_1.3.3.tgz.sha256](https://github.com/jadupl2/sadmin/releases/download/1.3.2/sadmin_1.3.2.tgz.sha256)         | 
 | SHA512 checksum   | [sadmin_1.3.2.tgz.sha512](https://github.com/jadupl2/sadmin/releases/download/1.3.2/sadmin_1.3.2.tgz.sha512)         | 
 
+To verify data integrity of the SADMIN package, download a checksum file and run the appropriate 
+checksum command.
+```bash
+$ sha256sum --check sadmin_1.3.2.tgz.sha256
+sadmin_1.3.2.tgz: OK
+$ sha512sum --check sadmin_1.3.2.tgz.sha512
+sadmin_1.3.2.tgz: OK
+```
+
 <br>
+
+---
 
 ## Previous Release 
 
