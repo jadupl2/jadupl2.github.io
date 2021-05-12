@@ -29,9 +29,13 @@ the prompt.
 
 ![Menu template](/assets/img/sadm_template_menu.png){: .align-center}  
 
-## sadm_accept_choice() 
-The function accept one parameter and it's the number of item in the menu (maximum number to accept as a valid choice). Cursor is positioned on line 22, at the right of "Choice ?". Value entered MUST be numeric, unless you press "Q" or "q" to exit the menu. 
-If a valid number was entered it is returned to the caller. If user press the "Q' or "q" then a value of 99 is returned.
+
+<br>
+## sadm_accept_choice() {maxNumber}
+The function accept one parameter and it's the number of item in the menu (maximum number to 
+accept as a valid choice). Cursor is positioned on line 22, at the right of "Choice ?". Value 
+entered MUST be numeric, unless you press "Q" or "q" to exit the menu. If a valid number was 
+entered it is returned to the caller. If user press the "Q' or "q" then a value of 99 is returned.
 ```bash
 sadm_accept_choice $s_count
 choice=$?
@@ -41,21 +45,26 @@ if [ $choice -eq 99 ]
 fi    
 ```
 
-
-## sadm_accept_data() 
+<br>
+## sadm_accept_data() {line#} {col#} {length} {dataType} {default}
 This function is used to accept data input from the user (using the keyboard). The input data is 
-returned in the Global Variable $WDATA.
+returned in the Global Variable $WDATA. If data type is set to "N" then only numeric character is
+accepted. If more than "dataLength" characters the data is refused. If a default value is specified, 
+it will be displayed and the user can press [ENTER] to accept it.
+{: .text-justify} 
 
 This function need to receive 5 parameters :
 > Param #1 = Line number to accept data  
 > Param #2 = Cursor position on the line  
 > Param #3 = Number of Character to accept  
 > Param #4 = Type of data to accept (A=AlphaNumeric N=Numeric)  
-> Param #5 = Value of field just entered ("NULL"  = No Default)  
+> Param #5 = Default Value if user press [ENTER] ("" = No Default)  
 ```
 sadm_accept_data 04 41 25 A $RPM
 ```
 
+
+<br>
 ## sadm_ask_password()
 I used this function to generate a password, that I would give to my customer when they need to 
 used an item in the menu that would require sysadmin privilege and that it need assistance on the 
@@ -83,7 +92,8 @@ fi
 ![sadm_ask_password Example](/assets/img/sadmlib_screen/sadmlib_screen_sadm_ask_password.png){: .align-center}  
 
 
-## sadm_display_heading()
+<br>
+## sadm_display_heading() {heading title} {script_version}
 This function clear the screen and display the menu heading on line one and two of the screen. It 
 accept two parameters, the first one is the title you want to give to your menu and the second is 
 the version number that is displayed on the right of the second line.   
@@ -102,7 +112,8 @@ sadm_display_heading "Your Menu Heading Here" "$SADM_VER"
 
 
 
-## sadm_display_menu()       
+<br>
+## sadm_display_menu() {array_of_menu}   
 This function display the array of menu item in one or two columns depending on the size of array 
 received and accept the choice number selected (or Q|q to Quit). The array must not contain more 
 than 30 items. The menu is automatically formatted based on the number of items to displayed in 
@@ -147,19 +158,22 @@ while :                                                        # loop until Q|q 
 
 
 
-## sadm_display_message()   
-This function clear the screen starting on line 23 and then display the message received ($1) in 
-'bold' on line 23 position 1. This function always return a value of 0. 
+<br>
+## sadm_display_message() {message}  
+This function clear the screen starting on line 23 and then display the message received ($1) in 'bold' on line 23 position 1. This function always return a value of 0. The message will stay there until you remove it with the code below.
 {: .text-justify} 
 **Example:**  
 ```bash
 sadm_display_message "Processing have just started."   # Advise user
 ```
+```bash 
+sadm_writexy 23 01 "${CLREOS}")  # Clear to end of Screen from line 23 column 1 
+```
 
 
 
-
-## sadm_mess()              
+<br>
+## sadm_mess() {message}             
 I use this function, when I want to attract user attention or to display an error message. The
 function display the message received ($1) on line 22 position 1 and "Press [ENTER] to continue" 
 on line 23, it then wait for user to press [ENTER] to continue. When the user press [ENTER], then 
@@ -173,7 +187,8 @@ sadm_mess "Filesystem /sadminv2 doesn't exist"
 
 
 
-## sadm_messok()
+<br>
+## sadm_messok() {line#} {col#} {question}
 Use this function to ask the user a question and return to the caller when he respond by 
 'Y|y' or 'N|n'. You specify the line number ($1), the cursor position on the line ($2) and the 
 question to ask ($3). The question is displayed with " [y,n] ? " appended to it. If the user
@@ -194,7 +209,8 @@ fi
 
 
 
-## sadm_pager()  
+<br>
+## sadm_pager() {message} {filename} {pageLen}
 This function display file received ($2) on a page by page basis. The first parameter ($1) is the 
 title we want to appear on the heading line. The third parameter specify the number of lines we
 want to show per page. On line 22 there are options that allow you to move in the document, you can
@@ -213,7 +229,8 @@ sadm_pager "Display xrdp Package Information" "$SADM_TMP_FILE1" 17
 
 
 
-## sadm_print_status()  
+<br>
+## sadm_print_status() {ok|error|warning} {message}
 The function accept two parameters, the first one is the status and it should be "ok", "error" or 
 "warning" and the second parameters is the message you want to display at the right of the first. 
 Each of the status received will be shown in specific color and is placed between green bold 
@@ -235,14 +252,15 @@ show in magenta. Message are display followed by a new line (NL).
 
 
 
-## sadm_show_menuitem() 
+<br>
+## sadm_show_menuitem() {line#} {col#} {menuNo} {menuItem}
 Maybe I shouldn't have put this function here, because I don't see usability outside the library 
 context, but feel free to use it. In this library it is used to display each item on a menu.   
 Function accept 4 parameters :  
- 1 = LineNumber (1,24)    
- 2 = Column(1,80)    
- 3 = MenuItemNo   
- 4 = MenuItemDesc  
+ 1 = Line number (1,24)    
+ 2 = Column number (1,80)    
+ 3 = Menu Item number   
+ 4 = Menu Item description 
 {: .text-justify}   
 **Example:**    
 ```bash
@@ -253,7 +271,8 @@ sadm_show_menuitem $wline $wrow "$menu_no" "$menu_item"
 
 
 
-## sadm_writexy()   
+<br>
+## sadm_writexy() {line#} {col#} {message}  
 This function is use to display text message at the specified line and position on the screen. 
 As all the functions in this library, it is working under Linux, Aix and MacOS. This function is 
 by a majority of functions in this library. The first parameter is the line number, the second the
@@ -267,6 +286,7 @@ sadm_writexy 24 1 "message"
 
 
 
+<br>
 <a id="seealso"></a>
 ## SEE ALSO
 
