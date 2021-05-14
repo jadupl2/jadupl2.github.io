@@ -46,8 +46,16 @@ Installation must be executed by 'root' user or with 'sudo'. We recommend using 
 {: .text-justify}
 
 
-## Installation Method 1  
-Install using the github repository (Recommended)
+
+## Installation Method 1    
+
+**Install using the github repository (Recommended)**  
+The 'git' command is not installed by default on some distribution, you may have to install it.
+```bash
+    # apt update ; apt install git   (Ubuntu, Debian, Raspbian, ...)
+    # dnf -y install git             (Red Hat, CentOS, Fedora, ...)
+```
+Once 'git' command is installed, we can now proceed with the installation.  
 ```bash
     # cd /opt                                   # Change Dir. to /opt
     # git clone https://github.com/jadupl2/sadmin.git
@@ -67,21 +75,22 @@ Install using the downloaded 'tgz' file from our [download page](/_pages/downloa
 ## The Setup script  
 Whether you are installing a SADMIN client or server, they both need “python3” and the “lsb_release” 
 command installed. So the first thing the setup script will do, is to verify that they are installed, 
-if there not the setup script will be installed them. If it’s not able to installed them, you will 
+if there not, the setup script will be installed them. If it’s not able to installed them, you will 
 be notified and the script will terminate.  
 {: .text-justify}
 
 The setup script will ask some questions regarding your environment. Your answers are store in 
-the [SADMIN configuration file]( {% post_url 2021-04-26-sadmin-cfg %}) ($SADMIN/cfg/sadmin.cfg). This 
-configuration file is used by the web interface and by the SADMIN tools scripts. The scripts you 
-create will also use it and it add flexibility to your SADMIN environment. The configuration file 
-can be modified after running the setup script, if you need to.  
+the [SADMIN configuration file]({% post_url 2021-04-26-sadmin-cfg %}) ($SADMIN/cfg/sadmin.cfg). This 
+configuration file is used by the web interface and by all the SADMIN tools scripts. The scripts you 
+create will also use it and it will add flexibility to your SADMIN environment. The configuration 
+file can be modified after running the setup script, if you need to.  
 {: .text-justify}
 
 The setup script can be run more than once, so don't worry if you made a mistake, just run it again. 
-If there are missing packages, the setup program will install them for you. You will be asked what 
-type of installation you want, a 'SADMIN server' or a 'SADMIN client'. As an example, I have kept 
-the [setup log](/assets//pdf/setup_centos7.pdf) of an installation that were done on a CentOS 7 server.
+If there are missing packages ([see required packages](/_pages/requirements/#sadmin-client-packages)), 
+the setup program will install them for you. You will be asked what type of installation you want, 
+a 'SADMIN server' or a 'SADMIN client'. As an example, I have kept the 
+[setup log](/assets//pdf/setup_centos7.pdf) of an installation that were done on a CentOS 7 server.
 {: .text-justify}
 
 - If you are installing a 'SADMIN server':  
@@ -95,3 +104,8 @@ sudo source /etc/profile.d/sadmin.sh
 ```
 This will make sure “SADMIN” environment variable is define.
 
+The installation is now completed :
+- If you have installed a SADMIN server take a look at the web interface at http://`FQDN of your server`
+or http://sadmin or http://localhost (if you are on the server)..
+- If you have installed a client, you need to add your client via the web interface and setup the
+ssh keys for that client. See the instruction on [how-to add a client to SADMIN]({% post_url 2021-04-11-web-add-client %}).

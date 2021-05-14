@@ -1,33 +1,37 @@
 ---
-title:              web-add-client
-layout:             single
-date_created:       2021-04-09
-date_updated:       2021-04-09 
-show_excerpts:      false
-entries_layout:     list
-tags:               [ web_interface ]
-categories:         [ web_interface ] 
-author_profile:     false
-toc:                false
-classes:            wide
+title:          How-to add a SADMIN client
+desc:           How-to add a client via the web interface & setup ssh keys
+version:        2.1
+updated:        2021-05-13
+os:             Linux, Aix, MacOS
+type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
+tags:           [ how-to ] 
+categories:     [ how-to ] 
+#
+layout:         single
+search:         true
+author_profile: false
+toc:            false
+classes:        wide
 sidebar:
-  title: "Documentation"
-  nav: sidebar-manpage
+  title:        "Documentation"
+  nav:          sidebar-manpage
 ---
 
-Add a system (client) to SADMIN
-
-Steps to Add a system
-
-    Add the server with the web interface
-    Add the SADMIN root user public key to the new client
-
-Each of these steps are described below.
+{% include sadm/sadm_page_info.md %}
 
 
-Add the server with the web interface
+### Steps to Add a system
+- Add the server with the web interface  
+- Add the SADMIN root user public key to the new client  
 
-    To add a server to SADMIN inventory, click on "Server" in the "CRUD Operations" ([C]reate [R]ead [U]pdate [D]elete) section at the bottom left of the page.
+Each of these steps are described below.  
+
+
+### Add the server with the web interface  
+
+To add a server to SADMIN inventory, click on "Server" in the "CRUD Operations" 
+([C]reate [R]ead [U]pdate [D]elete) section at the bottom left of the page.
 
 
 

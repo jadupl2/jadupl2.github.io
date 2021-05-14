@@ -38,18 +38,18 @@ sidebar-manpage:
         url:    /configuration_files/sadmin-cfg
       - title:  "Packages required"
         url:    /_pages/requirements
+      - title:  "Updating SADMIN tools"
+        url:    /utilities/sadm-update
 
   - title: "Command Line Tools"
     children:
-      - title:  "(srch) sadm_show_rch.sh"
+      - title:  "srch (sadm_show_rch.sh)"
         url:    /command_line/sadm-show-rch
 
   - title: "Utilities"
     children:
       - title:  "sadm_requirements.sh"
         url:    /utilities/sadm-requirements
-      - title:  "Updating SADMIN tools"
-        url:    /utilities/sadm-update
       - title:  "sadm_wrapper.sh"
         url:    /utilities/sadm-wrapper
       - title:  "sadm_support_request.sh"

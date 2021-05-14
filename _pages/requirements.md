@@ -62,6 +62,7 @@ It will give you a status of what package are already installed and the one that
 | perl	            | Base	        | perl-base	    | Base |
 | perl-libwww-perl	| Base	        | libwww-perl	| Base |
 | util-linux	    | Base	        | util-linux	| Base |   
+| python3   	    | Base	        | util-linux	| Base |   
    
 
 <a name="serverreq"></a> 

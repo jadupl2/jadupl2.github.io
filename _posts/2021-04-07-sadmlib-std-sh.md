@@ -18,11 +18,6 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
-
-Under construction, will be here soon.
-
-
-
 ## SADMIN Standard library functions
 
 | Function Call |   Description |  Return value example | 
@@ -59,19 +54,19 @@ Under construction, will be here soon.
 | $(sadm_server_cpu_speed)                  | Server CPU Speed in MHz                               | 2093 |
 | $(sadm_server_disks)                      | Disks list(MB) (DISKNAME\|SIZE,...)                   | sda\|1024000 |
 | $(sadm_server_vg)                         | VG list(MB) (VGNAME\|SIZE\|USED\|FREE)                | rootvg\|476426\|466002\|10424 | 
-| $(sadm_server_ips)                        | Net Dev (Name\|IP\|Netmask\|MAC)                      | enp2s0\|192.168.1.8\|255.255.255.0\|c8:2a:14:3b:59:a1 |
+| $(sadm_server_ips)                        | Net Dev (Name\|IP\|Netmask\|MAC)                      | eth0\|192.168.1.8\|255.255.255.0\|c8:2a:14:3b:59:a1 |
 | $(sadm_tolower "Linux")                   | Return string in uppercase                            | LINUX |
 | $(sadm_tolower "LINUX")                   | Return string in lowercase                            | linux | 
 | $(sadm_capitalize "LINUX")                | Return 1st Char. in uppercase & rest in lower         | Linux |
 | sadm_ask "Are you sure"                   | Display Question, wait Y/y(return 1) N/n(return 0)    | 1 |
 | sadm_isnumeric 25                         | Return 0 if it is an integer else 1                   | 0 |
 | sadm_check_requirements()                 | Check/Set Path of require commands                    | 0 or 1 |
-| sadm_get_command_path "cmd"               | Get lsb_release cmd path                              | SADM_LSCPU=$(sadm_get_command_path "lscpu") |
+| sadm_get_command_path "cmd"               | Get lscpu cmd path (return blank if not found)        | wlscpu=$(sadm_get_command_path "lscpu") |
 | sadm_load_config_file                     | Load/Reload sadmin.cfg in Global Var.                 | Exit if fail |
-| sadm_show_version                         | Show Script Name,Ver.,Libr.Ver,OS Name/Ver,KernelVer  | Used for -v arg. |
+| sadm_show_version                         | Show Script Name,Ver.,Libr.Ver,OS Name/Ver,KernelVer  | Used for script -v arg. |
 | sadm_sleep 60 15                          | Sleep 60 seconds, update progress bar every 15 sec.   | 0...15...30...45...60 |
-| sadm_start                                | Init SADMIN Env. log, rch, tmpfile, pid               | Exit if fail |
-| sadm_stop 0                               | Stop 0=Success 1=Error (Close log,rch Del PID,tmp)    | 0 or 1 |
+| [sadm_start]({% post_url 2019-10-12-sadmlib-std-demo-sh %}#sadm_start) | Init SADMIN Env. log, rch, tmpfile, pid | Exit if fail |
+| [sadm_stop]({% post_url 2019-10-12-sadmlib-std-demo-sh %}#sadm_stop) 0 | Stop 0=Success 1=Error (Close log,rch Del PID,tmp) | 0 or 1 |
 | sadm_trimfile "$file" 125                 | Trim file ($1) to number of lines ($2)                | sadm_trimfile "test.log" 125 |
 | sadm_write "message"                      | Write message without LF in Log and Screen            | message  |
 | sadm_writelog "message"                   | Write message with LF in Log and Screen               | message\n  |

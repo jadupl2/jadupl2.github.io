@@ -1,7 +1,7 @@
 ---
 title:          sadmin.cfg
 desc:           SADMIN configuration file.
-version:        2.3
+version:        2.4
 date:           2021-04-26
 updated:        2021-04-26
 os:             Linux, Aix, MacOS
@@ -20,6 +20,13 @@ sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
 ---
+
+<font size="3">
+<div>$SADMIN/cfg/{{ page.title }} - Version v{{ page.version }}</div>  
+<div>Posted {{ page.date | date: "%Y-%m-%d" }} - Updated {{ page.updated }}</div>  
+<div>Supported on {{ page.os }}</div>  
+</font>  
+  
 
 ## Format of the SADMIN configuration file
 
@@ -151,33 +158,26 @@ SADM_TEXTBELT_URL = https://textbelt.com/text
 ## Number of seconds before repeating an alert (On same Day)
 ```bash
 #----------------------------------------------------------------------------
-# Default is 0 to have only one alert per day for the same event.
-#
-# Let's say one of your script failed and you asked to be notified for that
-# by setting the "SADM_ALERT_TYPE" variable to "1", or that the swap space 
-# on one of your system has reach the error threshold and you ask to be 
-# notified for that. 
-# The alerting system within the script 'sadm_fetch_client.sh' will trigger 
-# an alert. Normally, only ONE alert is sent. 
+# Default is 0 - Alerted once for the same alert.
 #
 # The "SADM_ALERT_REPEAT" variable is the number of seconds to wait before 
-# the same alert is sent again within the same day.
+# the same alert is sent again within the same day. This number can range 
+# from 0 to 85800 ((86400=24Hrs)-(600=10Min))=85800). For example, if you 
+# set this variable to 43200 seconds, it means that if event of the alert 
+# is not solve in the next 12hrs, an alert will be sent again after 12hrs
+# (43200 Sec.) and this will be the last one. Script alert older that 24Hrs 
+# are skipped and do not generate an alert.
 #
-# This number can range from 0 to 85800 ((86400=24Hrs)-(600=10Min))=85800).
-# For example, if you set this variable to 43200 seconds, it means that if 
-# event of the alert is not solve in the next 12hrs, an alert will be sent 
-# again after 12hrs (43200 Sec.) and this will be the last one.
-# Alert older that 24 Hrs are skipped and do not generate an alert.
-#
-# Note that if the problem is not solved the next day a new alert is sent
+# For System monitor Alert: 
+# If the problem is not solved the next day, a new alert is sent 
 # approximately at the same time the first one was.
 # If you don't want the alert to repeat the next day, you need to :
-#  - For sysmon alert, correct the problem or change the test line in 
-#    `hostname.smon` file.
-#  - For alert coming from script, correct the problem and re-run the script
-#    or change the Result Code to '0' on the last column of the last line in 
-#    the corresponding rch file.
-# 
+#  - Correct the problem or change the test line in `hostname.smon` file.
+#
+# For Script Alert:
+# To correct the problem, you need to re-run the script or change the 
+# Result Code to '0' in (RCH) on the last column of the last line in the 
+# corresponding rch file.
 #----------------------------------------------------------------------------
 SADM_ALERT_REPEAT = 0
 ```

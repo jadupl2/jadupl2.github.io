@@ -18,8 +18,46 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+## SADMIN Standard library functions
 
-Under construction, will be here soon.
+| Function Call |   Description |  Return value example |   
+| :---  | :--- | :---  |  
+| check_requirements()              | Check/Set Path of require cmd (False if some missing)   | True or False |
+| date_to_epoch(self,wd)            |       |       |
+| dbclose(self)         |       |       |
+| dbconnect(self)           |       |       |
+| elapse_time(self,wend,wstart)         |       |       |
+| epoch_to_date(self,wepoch)            |       |       |
+| get_arch(self)            |       |       |
+| get_domainname(self)          |       |       |
+| get_epoch_time(self)          |       |       |
+| get_fqdn(self)            |       |       |
+| get_host_ip(self)         |       |       |
+| get_hostname(self)          |       |       |
+| get_kernel_bitmode(self)          |       |       |
+| get_kernel_version(self)          |       |       |
+| get_oscodename(self)          |       |       |
+| get_osmajorversion(self)          |       |       |
+| get_osminorversion(self)          |       |       |
+| get_osname(self)          |       |       |
+| get_ostype(self)          |       |       |
+| get_osversion(self)           |       |       |
+| get_packagetype(self)         |       |       |
+| get_release(self)             |       |       |
+| get_serial(self)          |       |       |
+| __init__(self)            |       |       |
+| load_config_file(self,sadmcfg)            |       |       |
+| locate_command(self,cmd)          |       |       |
+| oscommand(self,command)           |       |       |
+| sendmail(server,port,user,pwd,sub,body)            |       |       |
+| show_version(self)            |       |       |
+| silentremove(self,filename)           |       |       |
+| start (self)          |       |       |
+| stop(self,return_code)            |       |       |
+| trimfile(self,fname, nlines=500)          |       |       |
+| writelog(self,sline,stype="normal")           |       |       |
+
+
 
 
 {% include {{ site.section_environment }} %}

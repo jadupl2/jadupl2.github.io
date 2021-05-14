@@ -23,6 +23,24 @@ sidebar:
 <div>Run on {{ page.os }}</div>
 </font>
 
+<br>
+
+**What directories and files will be update by the 'git pull' or 'tar'command'.**  
+
+| Directory             | Directory content     | Directory updated         |   
+| :---                  | :---                  | :---:                     |   
+| sadmin/usr            | Your scripts & data   | No (only usr/mon dir.)    | 
+| sadmin/dat            | System data files     | No                        |
+| sadmin/log            | Log files             | No                        | 
+| sadmin/tmp            | Temp files & PID files| No                        |
+| sadmin/bin            | SADMIN Tools Scripts  | Yes                       |   
+| sadmin/lib            | SADMIN Libraries      | Yes                       |   
+| sadmin/cfg            | SADMIN Config files   | No (only dot prefix files)|  
+| sadmin/doc            | SADMIN Documentation  | Yes                       |  
+| sadmin/pkg            | Packages we may need  | Yes                       |   
+| sadmin/setup          | Installation scripts  | Yes                       |  
+| sadmin/sys            | Start/Shutdown Scripts| No (only dot prefix files)|   
+| sadmin/www            | Web Interface Dir.    | Yes                       |   
 
 ## Method 1 (Recommended)
 To always get the latest version of SADMIN, use the 'git pull' command. Your Database and the
