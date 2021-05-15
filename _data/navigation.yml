@@ -30,15 +30,15 @@ sidebar-manpage:
 
   - title: "Install & Configuration"
     children:
-      - title:  "Installing SADMIN"
+      - title:  "Installation guide"
         url:    /_pages/install
-      - title:  "Quick start using SADMIN"
+      - title:  "Quick start"
         url:    /_pages/quickstart
       - title:  "Main configuration file"
         url:    /configuration_files/sadmin-cfg
       - title:  "Packages required"
         url:    /_pages/requirements
-      - title:  "Updating SADMIN tools"
+      - title:  "Updating SADMIN"
         url:    /utilities/sadm-update
 
   - title: "Command Line Tools"

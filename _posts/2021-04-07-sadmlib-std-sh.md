@@ -18,6 +18,10 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+
+{% include sadm/sadm_page_info.md %}
+
+
 ## SADMIN Standard library functions
 
 | Function Call |   Description |  Return value example | 

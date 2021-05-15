@@ -1,7 +1,7 @@
 ---
 title:          sadmlib_std.py
 desc:           SADMIN standard python library
-updated:        2021-05-09
+updated:        2021-05-15
 version:        3.15
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
@@ -17,6 +17,11 @@ sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
 ---
+
+
+
+{% include sadm/sadm_page_info.md %}
+
 
 ## SADMIN Standard library functions
 

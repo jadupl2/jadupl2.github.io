@@ -46,10 +46,11 @@ Installation must be executed by 'root' user or with 'sudo'. We recommend using 
 {: .text-justify}
 
 
-
+<a id="git-install"></a>
 ## Installation Method 1    
 
 **Install using the github repository (Recommended)**  
+
 The 'git' command is not installed by default on some distribution, you may have to install it.
 ```bash
     # apt update ; apt install git   (Ubuntu, Debian, Raspbian, ...)
