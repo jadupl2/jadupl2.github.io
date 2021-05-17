@@ -27,40 +27,39 @@ sidebar:
 
 | Function Call |   Description |  Return value example |   
 | :---  | :--- | :---  |  
-| check_requirements()              | Check/Set Path of require cmd (False if some missing)   | True or False |
-| date_to_epoch(self,wd)            |       |       |
-| dbclose(self)         |       |       |
-| dbconnect(self)           |       |       |
-| elapse_time(self,wend,wstart)         |       |       |
-| epoch_to_date(self,wepoch)            |       |       |
-| get_arch(self)            |       |       |
-| get_domainname(self)          |       |       |
-| get_epoch_time(self)          |       |       |
-| get_fqdn(self)            |       |       |
-| get_host_ip(self)         |       |       |
-| get_hostname(self)          |       |       |
-| get_kernel_bitmode(self)          |       |       |
-| get_kernel_version(self)          |       |       |
-| get_oscodename(self)          |       |       |
-| get_osmajorversion(self)          |       |       |
-| get_osminorversion(self)          |       |       |
-| get_osname(self)          |       |       |
-| get_ostype(self)          |       |       |
-| get_osversion(self)           |       |       |
-| get_packagetype(self)         |       |       |
-| get_release(self)             |       |       |
-| get_serial(self)          |       |       |
-| __init__(self)            |       |       |
-| load_config_file(self,sadmcfg)            |       |       |
-| locate_command(self,cmd)          |       |       |
-| oscommand(self,command)           |       |       |
-| sendmail(server,port,user,pwd,sub,body)            |       |       |
-| show_version(self)            |       |       |
-| silentremove(self,filename)           |       |       |
-| start (self)          |       |       |
-| stop(self,return_code)            |       |       |
-| trimfile(self,fname, nlines=500)          |       |       |
-| writelog(self,sline,stype="normal")           |       |       |
+| check_requirements()              | Check/Set path of require cmd (False if some missing)     | True or False |
+| date_to_epoch(epoch_time)         | Return date based on the Epoch time received              | YYYY.MM.DD HH:MM:SS|
+| dbclose()                         | Close SADMIN database (return (0)=Success (1)=Error)      | 0 |
+| dbconnect()                       | Connect to SADMIN database (return (0)=Success (1)=Error) | 0 |
+| elapse_time(end,start)            | Return elapse time between end (YYYY.MM.DD HH:MM:SS) & start | 10:20:40 |
+|                                   | End date MUST be greater than start date                  | |
+|                                   | Elapse time is return in a string format 'HH:MM:SS'       | |
+| epoch_to_date(wepoch)             | Return date as a string based on the epoch time received  | YYYY.MM.DD HH:MM:SS |
+| get_arch()                        | Get current system architecture                           | x86_64 |
+| get_domainname()                  | Return current host domain name                           | batcave.com |
+| get_epoch_time()                  | Return current epoch time as an integer                   | 1621263948 |
+| get_fqdn()                        | Return fully qualified domain dame of current system      | batserver.batcave.com |
+| get_host_ip()                     | Return to main IP address of current system               | 192.168.1.12 |
+| get_kernel_bitmode()              | Return kernel bit mode (32 or 64)                         | 64 |
+| get_kernel_version()              | Return kernel running version                             | 5.8.0-53-generic |
+| get_oscodename()                  | Return the O/S project code name                          | focal |
+| get_osmajorversion()              | Return the O/S distribution major version number          | 20 |
+| get_osminorversion()              | Return the O/S distribution minor version number          | 04 |
+| get_osname()                      | Return the O/S name in uppercase                          | UBUNTU |
+| get_ostype()                      | Return the O/S type (LINUX,AIX,DARWIN,...) in uppercase   | LINUX |
+| get_osversion()                   | Return the O/S distribution version number                | 20.04 |
+| get_packagetype())                | Return the O/S main package format (rpm,deb,lpp,dmg)      | deb |
+| get_release()                     | Return SADMIN release version number                      | 1.3.3 |
+| get_serial()                      | Return CPU serial number                                  | BJSV942 |
+| load_config_file(sadmin_file)     | Load SADMIN config file & set global variables accordingly| |
+| locate_command(cmd)               | Check command if available (Return cmd Path, or blank)    | |
+| oscommand(command)                | Execute o/s cmd received, return(returncode,stdout,stderr)| |
+| show_version()                    | Called when '-v --version' command line argument is used  | |
+| silentremove(filename)            | Remove file name received - no error msg - even if failed | |
+| start()                           | Make sure dir. exist, init log,rch,pid, chk multiple exec | abort if fail |
+| stop(return_code)                 | Write footer to log,rch, del pid, close db, trim log,rch  | |
+| trimfile(fname, nlines=500)       | Trim file received to number of lines specified(500 default) | 0 |
+| writelog(msg,stype="normal")      | Write message to log File, Screen or Both (st.log_type)   | |
 
 
 
