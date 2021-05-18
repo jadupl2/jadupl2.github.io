@@ -21,184 +21,231 @@ sidebar:
 {% include sadm/sadm_page_info.md %}
 
 
-### Steps to Add a system
+## Steps to add a SADMIN client
 - Add the server with the web interface  
 - Add the SADMIN root user public key to the new client  
 
 Each of these steps are described below.  
 
 
-### Add the server with the web interface  
-
-To add a server to SADMIN inventory, click on "Server" in the "CRUD Operations" 
+<a id="add_web_client"></a>
+## Add the server with the web interface  
+To add a client to SADMIN server inventory, _click on "Server"_ in the "CRUD Operations" 
 ([C]reate [R]ead [U]pdate [D]elete) section at the bottom left of the page.
 
+![Add SADMIN client](/assets/img/sadm_add_client/crud_operations.png){: .align-center}  
 
+You will be directed to a page that list all your actual SADMIN clients. With this view you can 
+"Create", "Read", "Update" and "Delete" client to the server database. To add a new server into 
+SADMIN inventory, _simply press the "Create" button_ at the top right of the page.
+{: .text-justify} 
 
-    You will be directed to a page that list all your actual SADMIN clients.
-    With this view you can "Update", "Delete" or "Create" servers.
-    To add a new server into SADMIN inventory, simply press the "Create" button at the top right of the page.
+![Press "Create" Button](/assets/img/sadm_add_client/create_button.png){: .align-center}  
 
+The page below will then appear and you need to enter the information concerning the SADMIN 
+client you want to add. You can come back later in "Update" mode to modify any of these 
+information. When all the information are entered, just _press the "Create" button_ at the button
+ of the screen.
+{: .text-justify} 
 
-
-    The page below will then appear and you need to enter the information concerning your server.
-    You can come back later in "Update" mode to modify any of these information.
-    When all the information is entered, just press the "Create" button at the button of the screen.
-
-
-
-
-Add the SADMIN 'root' user public key to the new client
-
-    Every day your new SADMIN client will produce performance data (via nmon), information that may be used for disaster recovery situation, monitoring reports, start scheduled O/S update, scripts results (log and rch files) that will inform you about the status of your systems.
-    To accomplish this, the SADMIN server need to have root access to client via ssh.
-    To automate the ssh access and to do it in a safely and secure manner we will use the ‘public-key authentication’.
-    So this automated access will be only be possible from the SADMIN server to the clients.
-    Any systems or users that tries to SSH to your SADMIN clients using the ‘root’ user, will get the ‘Permission denied’ message.
-    In this example, the SADMIN server hostname is ‘holmes.maison.ca’ and the SADMIN client is "raspi7.maison.ca”.
-    We will now automate the ssh login from ‘holmes.maison.ca’ to ‘raspi7.maison.ca’.
-
-    Trying ssh to client before changing anything
-        Before we change anything, let’s try to ssh to ‘raspi7’.
-        Since this is the first time we are trying to access 'raspi7' from ‘holmes.maison.ca’, it ask us a confirmation.
-        After answering ‘yes’, ‘raspi7’ server key is added to the user (root) known hosts file (/root/.ssh/known_hosts) on the SADMIN server.
-
-    As you can see, we can’t logon to the client using the ‘root’ user.
-
-    root@holmes~# ssh root@raspi7
-    The authenticity of host 'raspi7 (192.168.1.25)' can't be established.
-    ECDSA key fingerprint is SHA256:v1d0mK15pA9NtrhqbzFIu4boQoot99UxCi+aFcMs394.
-    ECDSA key fingerprint is MD5:99:4e:d6:3a:65:e1:bb:40:ec:ce:da:3b:52:63:ee:f1.
-    Are you sure you want to continue connecting (yes/no)? yes
-    Warning: Permanently added 'raspi7,192.168.1.25' (ECDSA) to the list of known hosts.
-    root@raspi7's password:
-    Permission denied, please try again.
-    root@raspi7's password:
-    Permission denied, please try again.
-    root@raspi7's password:
-    Permission denied (publickey,password).
-    root@holmes~#
+![Create client screen](/assets/img/sadm_add_client/create_client_screen.png){: .align-center}  
 
 
 
-    Does user 'root' already have a public and private key ?
-        On the SADMIN server ('holmes'), verify in the ‘root’ user HOME directory (/root), it should have a directory called ‘.ssh’.
-        The '.ssh' directory should contains a private key (id_rsa) and a public key (id_rsa.pub).
+## Add the SADMIN 'root' user public key to the new client
 
-        Your /root/.ssh directory should look a bit like this.
+Every day your new SADMIN client will produce performance data (via nmon), information that may 
+be used for disaster recovery situation, monitoring reports, start scheduled O/S update, scripts 
+results (log and rch files) that will inform you about the status of your systems. To do all those
+things, the SADMIN server need to have root access to client via ssh.   
+{: .text-justify} 
 
+To automate the ssh access and to do it in a safely and secure manner we will use the 
+‘public-key authentication’. So this automated access will be only be possible from the SADMIN 
+server to the clients. Any systems or users that tries to SSH to your SADMIN clients using the 
+‘root’ user, will get the ‘Permission denied’ message or use your standard authentication method.  
+{: .text-justify} 
 
-        root@holmes~# ls -l /root/.ssh
-        total 48
-        -rw-r-----  1 root root  1187 Oct  3  2017 authorized_keys
-        -rw-------  1 root root  1675 Feb 23  2016 id_rsa
-        -rw-r--r--  1 root root   403 Feb 23  2016 id_rsa.pub
-        -rw-r-----  1 root root 26291 Jul 17 09:27 known_hosts
-        root@holmes~#
-
-
-    You don't have ‘root’ private and public key (id_rsa and id_rsa.pub), run command below:
-        If you have these files (id_rsa and id_rsa.pub) then skip this step.
-        If you don’t, run the command below to generate the 'root' user private and public key.
-        When ask for a passphrase just press [ENTER] to have a blank password.
-
-
-        root@holmes~/.ssh# ssh-keygen -b 4096 -C "SADMIN server"
-        Generating public/private rsa key pair.
-        Enter file in which to save the key (/root/.ssh/id_rsa):
-        Enter passphrase (empty for no passphrase): [press ENTER]
-        Enter same passphrase again: [press ENTER]
-        Your identification has been saved in /root/.ssh/id_rsa.
-        Your public key has been saved in /root/.ssh/id_rsa.pub.
-        The key fingerprint is:
-        SHA256:3dd5vZTTv3i8Qa0osnOmp5d0wVKh3Dl2ZziNpvwp3To SADMIN server
-        The key's randomart image is:
-        +---[RSA 2048]----+
-        |           ..    |
-        |         . o.. + |
-        |          oo= * +|
-        |         ..+o= =*|
-        |        S ..+..**|
-        |          . .=o+=|
-        |        ...oo *oo|
-        |        .o*. .E+o|
-        |        +O   .o+.|
-        +----[SHA256]-----+
-         
-        root@holmes~/.ssh# ls -l id*
-        -rw------- 1 root root 1675 Jul 17 09:53 id_rsa
-        -rw-r--r-- 1 root root  395 Jul 17 09:53 id_rsa.pub
+In this example, the **SADMIN server name will be ‘borg.maison.ca’** and the **SADMIN client 
+"ubuntu2104.maison.ca”**. We assume that you have a running SSH service running on the client, 
+if you don't, you should install the SSH server on your client. We will demonstrate how to automate 
+the ssh login from ‘borg.maison.ca’ to ‘ubuntu2104.maison.ca’. 
+{: .text-justify} 
 
 
-    Copy the SADMIN server public key to clipboard client:
-        First on the SADMIN server do ;
-            Do a md5sum of the public key (Get a checksum of the file).
-            Do a 'ls' command of the public key (get size of the file).
-            Show the file content and copy the content to the clipboard
+### Step A - Change to do on the new client
+- First make a copy of your actual ssh server configuration file.   
+```cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak```
+
+- Check our current setting for "PermitRootLogin" option.
+```bash
+# grep -i PermitRootLogin /etc/ssh/sshd_config
+#PermitRootLogin prohibit-password
+# the setting of "PermitRootLogin without-password".
+```
+
+- The goal here is to *change "#PermitRootLogin prohibit-password" to "PermitRootLogin yes"*.
+    - **If the "PermitRootLogin" option is already set to "yes", proceed with step B.**  
+    - Enter the commands below to achieve this goal.  
+    - First let's _change the "prohibit-password" to "yes"_, to do that we use the 'sed' command.
+
+    ```bash
+    # sed -i -e 's/prohibit-password/yes/g' /etc/ssh/sshd_config
+
+    # grep -i PermitRootLogin /etc/ssh/sshd_config
+    #PermitRootLogin yes
+    # the setting of "PermitRootLogin without-password".
+    ```
+
+    After verifying with the same grep command use before, we can see that our change went well.
+
+    - Next we need to remove the '#' in front of the option and change "#PermitRootLogin" to 
+"PermitRootLogin".  
+
+    ```bash
+    # sed -i -e 's/#PermitRootLogin/PermitRootLogin/g' /etc/ssh/sshd_config
+
+    # grep -i PermitRootLogin /etc/ssh/sshd_config
+    PermitRootLogin yes
+    # the setting of "PermitRootLogin without-password".
+    ```
+ 
+- Now that change are done, we need to restart our sshd service on our client and check the status
+of it. As you can see below that our ssh service is now running with success.   
+    
+```bash     
+    # systemctl restart sshd   
+
+    # systemctl status sshd
+    ● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2021-05-18 10:10:24 EDT; 5s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 3498 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 3499 (sshd)
+      Tasks: 1 (limit: 2296)
+     Memory: 1.0M
+     CGroup: /system.slice/ssh.service
+             └─3499 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+May 18 10:10:24 ubuntu2104 systemd[1]: Stopping OpenBSD Secure Shell server...
+May 18 10:10:24 ubuntu2104 sshd[3499]: Server listening on 0.0.0.0 port 22.
+May 18 10:10:24 ubuntu2104 systemd[1]: ssh.service: Succeeded.
+May 18 10:10:24 ubuntu2104 sshd[3499]: Server listening on :: port 22.
+May 18 10:10:24 ubuntu2104 systemd[1]: Stopped OpenBSD Secure Shell server.
+May 18 10:10:24 ubuntu2104 systemd[1]: Starting OpenBSD Secure Shell server...
+May 18 10:10:24 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
+```
 
 
-        root@holmes~/.ssh # md5sum id_rsa.pub
-        9267667a0f04d523c7917885a4783b23  id_rsa.pub
 
-        root@holmes~/.ssh # ls -l id_rsa.pub
-        -rw-r--r-- 1 root root 403 Feb 23  2016 id_rsa.pub
+### Step B - Making connection with new client
+- Back on our server
 
-        root@holmes~/.ssh # cat id_rsa.pub
-        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/bD8HxYuE/uZfG5ih+xLclsSMg0E6hT3aE1W6ZpMdz5w0Fr2/k9z+QdWkrD
-        8xWphP3wjdWjmZg37vLcYDzHN3F3SeBUVF2CFi0/P0gDP8wFOvWCSQMuv4ifZfSYCx+kypySDOe6xoEvRmDz4o1MA3hu56R2m8
-        ZP7su1yFem3P6s1cG/QveUafUpTpnyubwsEoUrS9SVt18jLWfNCTgt2yICu8dJmIpNq7Yzxx8FxT+eW6ujWAhVCZ7+Clo71tdw
-        a83tCvpNrGMK6+lx4dfXjLQdD5z4+bq30CVJHQT8gaenoIzaRQ58bnDxhN4IHVOmDa7H2qLRQ1tdXqk1qCsq5t root@holmes.maison.ca
+```bash
+root@borg:~  # pwd
+/root
+root@borg:~  # ls -l .ssh
+total 16
+-rw------- 1 root root  801 May 27  2019 authorized_keys
+-rw------- 1 root root 3369 Jan 23 16:14 id_rsa
+-rw-r--r-- 1 root root  730 Jan 23 16:14 id_rsa.pub
+-rw-r--r-- 1 root root 1875 Mar 29 12:45 known_hosts
+
+root@borg:~  # ssh-copy-id -p22 -f -i /root/.ssh/id_rsa.pub ubuntu2104
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host 'ubuntu2104 (192.168.1.35)' can't be established.
+ECDSA key fingerprint is SHA256:Ir8iB+Rc3TGtk9y+RI/mx1UQFNb2pEKi+67XdQFE4zY.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+root@ubuntu2104's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh -p '22' 'ubuntu2104'"
+and check to make sure that only the key(s) you wanted were added.
+root@borg:~  # 
+```
+
+- Now we should be able to connect to our client with interaction. 
+- We can see that it is working well.
+
+```bash
+root@borg:~  # ssh ubuntu2104
+ssh: connect to host ubuntu2104 port 32: Connection refused
+root@borg:~  # ssh ubuntu2104
+Welcome to Ubuntu 21.04 (GNU/Linux 5.11.0-17-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+root@ubuntu2104:~# 
+```
+
+- We need to do the same using the FQDN of the user, so let's do that for **"ubuntu2104.maison.ca"**.  
+
+```bash
+root@borg:~  # ssh ubuntu2104.maison.ca
+The authenticity of host 'ubuntu2104.maison.ca (192.168.1.35)' can't be established.
+ECDSA key fingerprint is SHA256:Ir8iB+Rc3TGtk9y+RI/mx1UQFNb2pEKi+67XdQFE4zY.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ubuntu2104.maison.ca' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 21.04 (GNU/Linux 5.11.0-17-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Last login: Tue May 18 10:28:11 2021 from 192.168.1.38
+root@ubuntu2104:~# 
+```
+
+### Step C - Restore our client original ssh service
+
+- Back on our new client, let's restore our original sshd_config file from our backup
+```root@ubuntu2104:/etc/ssh# cp sshd_config.bak sshd_config```
+
+- Restart our SSH service with our original configuration.  
+
+```bash
+root@ubuntu2104:/etc/ssh# systemctl restart sshd
+root@ubuntu2104:/etc/ssh# systemctl status sshd
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2021-05-18 10:35:22 EDT; 6s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 4088 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 4089 (sshd)
+      Tasks: 1 (limit: 2296)
+     Memory: 1.0M
+     CGroup: /system.slice/ssh.service
+             └─4089 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+May 18 10:35:22 ubuntu2104 systemd[1]: Starting OpenBSD Secure Shell server...
+May 18 10:35:22 ubuntu2104 sshd[4089]: Server listening on 0.0.0.0 port 22.
+May 18 10:35:22 ubuntu2104 sshd[4089]: Server listening on :: port 22.
+May 18 10:35:22 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
+root@ubuntu2104:/etc/ssh# 
+```
 
 
-    Paste the SADMIN server public key into sadmin.pub file on the client:
-        Open your favorite editor and paste the content of the public key of 'holmes' to that new file (sadmin.pub).
-        Remember, you MUST not add anything to this file (no newline or carriage return), it must be identical to the one on 'holmes'.
-        Save the file and verify the size and the checksum MUST be identical has the one you had on 'holmes'.
-        If they are not identical the 'ssh' connection won' t work.
+## Step D - Testing our connection to the new client
+- Run the two commands below to confirm that our automated connection to 'ubuntu2104' work as 
+expected. As you can see, we where able to display the system date on 'ubuntu2104' without having 
+to enter a password (Success!).   
+- Important: We need to test with and without the domain name
 
+```bash
+root@borg:~  # ssh ubuntu2104 date
+Tue 18 May 2021 10:41:41 AM EDT
 
-        root@raspi7~/.ssh# vi sadmin.pub
-        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/bD8HxYuE/uZfG5ih+xLclsSMg0E6hT3aE1W6ZpMdz5w0
-        Fr2/k9z+QdWkrA8xWphP3wjdWjmZg37vLcYDzHN3F3SeBUVF2CFi0/P0gDP8wFOvWCSQMuv4ifZfSYCx+kyp
-        ySDOe6xoEvRmDz4o1MA3hu56R2m7ZP7su1yFem3P6s1cG/QveUafUpTpnyubwsEoUrS9SVt18jLWfNCTgt2y
-        ICu8dJmIpNq7Yzxx8FxT+eW6ujWAhVCZ7+Clo71tdao83tCvpNrGMK6+lx4dfXjLQdD5z4+bq30CVJHQT8ga
-        enoIzaRQ58bnDxhN4IHVOmDa7H2qLRQ1tdXqk1qCsq5t root@holmes.maison.ca
-        ~                                                                                   
-        ~                                                                                   
-        ~                                                                                   
-        ~                                                                                   
-        ~                                                                                   
-        "sadmin.pub" [New File]
+root@borg:~  # ssh ubuntu2104.maison.ca date
+Tue 18 May 2021 10:41:49 AM EDT
+root@borg:~  # 
+```
 
-        root@raspi7~/.ssh# ls -l sadmin.pub 
-        -rw-rw-r-- 1 root root 403 Oct  7 13:13 sadmin.pub
-
-        root@raspi7~/.ssh# md5sum sadmin.pub 
-        9267667a0f04d523c7917885a4783b23  sadmin.pub
-
-
-    Include SADMIN server public key into the 'authorized_keys' file
-        The last thing to do is to add our public key at the end of the 'authorized_keys' file.
-        Note, that the 'authorized_keys' file may not exist, before typing the command below.
-
-
-        root@raspi7~/.ssh# cat sadmin.pub >>authorized_keys
-
-
-    Testing our connection to the new client
-        Run the two commands below to confirm that our automated connection to 'raspi7' work as expected.
-        As you can see, we where able to display the system date on 'raspi7' without having to enter a password (Success!).
-        Important: We need to test with and without the domain name
-
-
-        root@holmes:~# ssh raspi7 date
-        Fri Aug 31 10:48:36 EDT 2018
-
-        root@holmes:~# ssh raspi7.maison.ca date
-        Fri Aug 31 10:48:39 EDT 2018
-
-
-    Our client is now configure to work with SADMIN.
+Our client is now configure to work with SADMIN.
 
 
 

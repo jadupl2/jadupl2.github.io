@@ -1,5 +1,5 @@
 ---
-title:          Updating SADMIN Tools
+title:          Updating SADMIN tools
 desc:           Update to latest version of SADMIN
 version:        2.2
 updated:        2021-05-04
