@@ -24,7 +24,7 @@ sidebar:
 
 ## NAME
 **{{ page.title }}** - ***{{ page.desc }}***   
-*The alias command "**srch**" can be use instead of {{ page.title }}*
+*The alias command "**srch**" can be use instead of sadm_show_rch.sh*
 
 
 
@@ -57,13 +57,15 @@ can be executed only on the SADMIN server.*
 
 ## EXAMPLE
 
-```# srch```  
+```# srch```   
+
 ![Show RCH Main Screen](/assets/img/man/sadm_show_rch.png){: .align-center}  
 
 
 Example of the RCH Summary Report for a specific server   
 
 ```# srch -s raspi6```   
+  
 ![Show RCH for one server](/assets/img/man/sadm_show_rch-s.png){: .align-center}  
 
 
