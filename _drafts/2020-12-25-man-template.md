@@ -19,7 +19,9 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+<a id="top_of_page"></a>
 {% include sadm/sadm_page_info.md %}
+
 
 <a id="name"></a>
 ## NAME
@@ -54,6 +56,9 @@ shown with a yellow background.
 # include script
 ```
 
+[Back To The Top](#top_of_page)
+
+
 
 <a id="examples"></a>
 ## EXAMPLE
@@ -62,6 +67,8 @@ shown with a yellow background.
 # Example of script output
 ```
 <!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
+
+[Back To The Top](#top_of_page)
 
 
 {% include {{ site.section_options     }} %}
@@ -81,13 +88,14 @@ shown with a yellow background.
 
 [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
 [sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %}) - List/install required SADMIN tools packages  
+[sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %}) -  Command line summary of alerts and failed scripts of all your servers.  
 [sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) - Using SADMIN shell script template   
 [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN python script template    
 [sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) - Using SADMIN shell menu template   
 [sadm_wrapper.sh]({% post_url 2018-02-11-sadm-wrapper %}) - Use to run your existing scripts & benefit of SADMIN tools  
-[sadmlib_std.sh ]({% post_url 2021-04-07-sadmlib-std-sh %}) - SADMIN standard shell library  
-[sadmlib_std.py ]({% post_url 2021-04-07-sadmlib-std-py %}) - SADMIN standard python library  
-[sadmlib_screen.sh ]({% post_url 2019-10-12-sadmlib-screen-sh %}) - SADMIN screen oriented library  
+[sadmlib_std.sh]({% post_url 2021-04-07-sadmlib-std-sh %}) - SADMIN standard shell library  
+[sadmlib_std.py]({% post_url 2021-04-07-sadmlib-std-py %}) - SADMIN standard python library  
+[sadmlib_screen.sh]({% post_url 2019-10-12-sadmlib-screen-sh %}) - SADMIN screen oriented library  
 [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN shell library functions demo   
 [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) - SADMIN python library functions demo  
 [SADMIN installation](/_pages/install) - SADMIN installation page.    

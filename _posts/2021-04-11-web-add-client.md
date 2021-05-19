@@ -20,16 +20,20 @@ sidebar:
 
 {% include sadm/sadm_page_info.md %}
 
-
+<a id="top_of_page"></a>
 ## Steps to add a SADMIN client
-- Add the server with the web interface  
-- Add the SADMIN root user public key to the new client  
+- [Add the server with the web interface](#step1)   
+- [Add the SADMIN root user public key to the new client](#step2)   
+    - [Change temporarily /etc/sshd_config on the new client](#step2a)   
+    - [Copy SADMIN server public key to our new client](#step2b)   
+    - [Restore our backup of sshd_config on new client](#step2c)    
+    - [Finalize our automated connection to the new client](#step2d)    
 
 Each of these steps are described below.  
 
 
-<a id="add_web_client"></a>
-## Add the server with the web interface  
+<a id="step1"></a>
+## (1) Add the server with the web interface  
 To add a client to SADMIN server inventory, _click on "Server"_ in the "CRUD Operations" 
 ([C]reate [R]ead [U]pdate [D]elete) section at the bottom left of the page.
 
@@ -50,9 +54,10 @@ information. When all the information are entered, just _press the "Create" butt
 
 ![Create client screen](/assets/img/sadm_add_client/create_client_screen.png){: .align-center}  
 
+[Back To The Top](#top_of_page)
 
-
-## Add the SADMIN 'root' user public key to the new client
+<a id="step2"></a>
+## (2) Add the SADMIN 'root' user public key to the new client
 
 Every day your new SADMIN client will produce performance data (via nmon), information that may 
 be used for disaster recovery situation, monitoring reports, start scheduled O/S update, scripts 
@@ -68,14 +73,20 @@ server to the clients. Any systems or users that tries to SSH to your SADMIN cli
 
 In this example, the **SADMIN server name will be ‘borg.maison.ca’** and the **SADMIN client 
 "ubuntu2104.maison.ca”**. We assume that you have a running SSH service running on the client, 
-if you don't, you should install the SSH server on your client. We will demonstrate how to automate 
-the ssh login from ‘borg.maison.ca’ to ‘ubuntu2104.maison.ca’. 
+if you don't, you should install the SSH server on your client. You also need the 'root' user 
+password of the SADMIN server and the new client that we want to add. We will demonstrate how to 
+automate the ssh login from ‘borg.maison.ca’ to ‘ubuntu2104.maison.ca’. 
 {: .text-justify} 
 
+[Back To The Top](#top_of_page)
 
-### Step A - Change to do on the new client
+
+
+<a id="step2a"></a>
+### Step 2A - Change temporarily /etc/sshd_config on the new client
 - First make a copy of your actual ssh server configuration file.   
-```cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak```
+```cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak```   
+We will need to restore this backup later, so please make this backup.
 
 - Check our current setting for "PermitRootLogin" option.
 ```bash
@@ -138,10 +149,18 @@ May 18 10:10:24 ubuntu2104 systemd[1]: Starting OpenBSD Secure Shell server...
 May 18 10:10:24 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
 ```
 
+[Back To The Top](#top_of_page)
 
 
-### Step B - Making connection with new client
-- Back on our server
+
+
+<a id="step2b"></a>
+### Step 2B - Copy SADMIN server public key to our new client
+- Back on the SADMIN server.
+- We need to append the SADMIN server root user public key (/root/.ssh//id_rsa.pub) to 
+"$HOME/.ssh/authorized_keys" file on our new client. We will do that, using the "ssh-copy-id". 
+Follow the instructions below to do so.
+
 
 ```bash
 root@borg:~  # pwd
@@ -200,7 +219,13 @@ Last login: Tue May 18 10:28:11 2021 from 192.168.1.38
 root@ubuntu2104:~# 
 ```
 
-### Step C - Restore our client original ssh service
+[Back To The Top](#top_of_page)
+
+
+
+
+<a id="step2c"></a>
+### Step 2C - Restore our backup of sshd_config on new client
 
 - Back on our new client, let's restore our original sshd_config file from our backup
 ```root@ubuntu2104:/etc/ssh# cp sshd_config.bak sshd_config```
@@ -229,12 +254,21 @@ May 18 10:35:22 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
 root@ubuntu2104:/etc/ssh# 
 ```
 
+[Back To The Top](#top_of_page)
 
-## Step D - Testing our connection to the new client
-- Run the two commands below to confirm that our automated connection to 'ubuntu2104' work as 
-expected. As you can see, we where able to display the system date on 'ubuntu2104' without having 
-to enter a password (Success!).   
-- Important: We need to test with and without the domain name
+
+
+
+<a id="step2d"></a>
+## Step 2D - Finalize our automated connection to the new client
+- We need to run the two commands below to finalize our automated connection to 'ubuntu2104'. As 
+you can see, we where able to display the system date on 'ubuntu2104' without having to enter a 
+password (Success!).   
+
+**Important:   
+We need to finalize the automated connection with and without the domain name for SADMIN to work 
+as expected.**
+{: .notice--warning}
 
 ```bash
 root@borg:~  # ssh ubuntu2104 date
@@ -244,6 +278,8 @@ root@borg:~  # ssh ubuntu2104.maison.ca date
 Tue 18 May 2021 10:41:49 AM EDT
 root@borg:~  # 
 ```
+
+[Back To The Top](#top_of_page)
 
 Our client is now configure to work with SADMIN.
 

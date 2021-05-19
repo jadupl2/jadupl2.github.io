@@ -45,7 +45,9 @@ sidebar-manpage:
     children:
       - title:  "srch (sadm_show_rch.sh)"
         url:    /command_line/sadm-show-rch
-
+      - title:  "sview (sadm_sysmon_tui.pl)"
+        url:    /command_line/sadm-sysmon-tui
+        
   - title: "Utilities"
     children:
       - title:  "sadm_requirements.sh"
@@ -55,11 +57,13 @@ sidebar-manpage:
       - title:  "sadm_support_request.sh"
         url:    /utilities/sadm-support-request
         
-  - title: "System Monitor"
+  - title: "How-to"
     children:
-      - title:  "How-to Setup SMS notification"
-        url:    /system_monitor/how-to-sms
-
+      - title:  "How-to setup SMS notification"
+        url:    /how-to/how-to-sms
+      - title:  "How-to add a SADMIN client"
+        url:    /how-to/web-add-client
+        
   - title: "Daily Server Scripts"
     children:
       - title:  "sadm_daily_report.sh"

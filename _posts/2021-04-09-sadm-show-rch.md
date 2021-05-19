@@ -1,5 +1,5 @@
 ---
-title:          sadm_show_rch.sh
+title:          srch (sadm_show_rch.sh)
 desc:           Show Result History files (.rch) from all systems.
 version:        1.18 
 updated:        2021-05-05
