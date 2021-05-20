@@ -56,7 +56,7 @@ shown with a yellow background.
 # include script
 ```
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 
@@ -68,7 +68,7 @@ shown with a yellow background.
 ```
 <!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 {% include {{ site.section_options     }} %}
@@ -98,4 +98,8 @@ shown with a yellow background.
 [sadmlib_screen.sh]({% post_url 2019-10-12-sadmlib-screen-sh %}) - SADMIN screen oriented library  
 [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN shell library functions demo   
 [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) - SADMIN python library functions demo  
-[SADMIN installation](/_pages/install) - SADMIN installation page.    
+[SADMIN installation](/_pages/install) - SADMIN installation page  
+[How-to Add a client]({% post_url 2021-04-11-web-add-client %}) - How-to add a client to SADMIN inventory
+[How-to Remove a client]({% post_url 2021-05-19-how-to-remove-a-client %}) - How-to remove a client from SADMIN inventory
+
+

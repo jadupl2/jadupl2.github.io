@@ -54,7 +54,7 @@ information. When all the information are entered, just _press the "Create" butt
 
 ![Create client screen](/assets/img/sadm_add_client/create_client_screen.png){: .align-center}  
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 <a id="step2"></a>
 ## (2) Add the SADMIN 'root' user public key to the new client
@@ -78,7 +78,7 @@ password of the SADMIN server and the new client that we want to add. We will de
 automate the ssh login from ‘borg.maison.ca’ to ‘ubuntu2104.maison.ca’. 
 {: .text-justify} 
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 
@@ -149,7 +149,7 @@ May 18 10:10:24 ubuntu2104 systemd[1]: Starting OpenBSD Secure Shell server...
 May 18 10:10:24 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
 ```
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 
@@ -219,7 +219,7 @@ Last login: Tue May 18 10:28:11 2021 from 192.168.1.38
 root@ubuntu2104:~# 
 ```
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 
@@ -254,7 +254,7 @@ May 18 10:35:22 ubuntu2104 systemd[1]: Started OpenBSD Secure Shell server.
 root@ubuntu2104:/etc/ssh# 
 ```
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 
 
@@ -279,9 +279,17 @@ Tue 18 May 2021 10:41:49 AM EDT
 root@borg:~  # 
 ```
 
-[Back To The Top](#top_of_page)
+[Back to the top](#top_of_page)
 
 Our client is now configure to work with SADMIN.
 
 
+{% include {{ site.section_author      }} %}
 
+{% include {{ site.section_copyright   }} %}
+
+
+<a id="seealso"></a>
+## SEE ALSO
+
+[How-to Remove a client]({% post_url 2021-05-19-how-to-remove-a-client %}) - How-to remove a client from SADMIN inventory

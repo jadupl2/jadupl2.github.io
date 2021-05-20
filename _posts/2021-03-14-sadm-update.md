@@ -1,6 +1,7 @@
 ---
-title:          Updating SADMIN tools
-desc:           Update to latest version of SADMIN
+#title:          Updating SADMIN tools
+title:          How-to update SADMIN
+desc:           How-to update to latest version of SADMIN
 version:        2.2
 updated:        2021-05-04
 os:             Linux, Aix, MacOS

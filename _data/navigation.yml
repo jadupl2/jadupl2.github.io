@@ -38,8 +38,6 @@ sidebar-manpage:
         url:    /configuration_files/sadmin-cfg
       - title:  "Packages required"
         url:    /_pages/requirements
-      - title:  "Updating SADMIN"
-        url:    /utilities/sadm-update
 
   - title: "Command Line Tools"
     children:
@@ -63,6 +61,10 @@ sidebar-manpage:
         url:    /how-to/how-to-sms
       - title:  "How-to add a SADMIN client"
         url:    /how-to/web-add-client
+      - title:  "How-to remove a SADMIN client"
+        url:    /how-to/how-to-remove-a-client
+      - title:  "How-to update SADMIN"
+        url:    /utilities/sadm-update
         
   - title: "Daily Server Scripts"
     children:
