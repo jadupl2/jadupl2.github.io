@@ -38,6 +38,8 @@ sidebar-manpage:
         url:    /configuration_files/sadmin-cfg
       - title:  "Packages required"
         url:    /_pages/requirements
+      - title:  "Uninstall SADMIN"
+        url:    /utilities/sadm-uninstall
 
   - title: "Command Line Tools"
     children:
@@ -48,12 +50,16 @@ sidebar-manpage:
         
   - title: "Utilities"
     children:
+      - title:  "sadm_push_sadmin.sh"
+        url:    /utilities/sadm-push-sadmin
       - title:  "sadm_requirements.sh"
         url:    /utilities/sadm-requirements
-      - title:  "sadm_wrapper.sh"
-        url:    /utilities/sadm-wrapper
+      - title:  "sadm_service_ctrl.sh"
+        url:    /utilities/sadm-service-ctrl
       - title:  "sadm_support_request.sh"
         url:    /utilities/sadm-support-request
+      - title:  "sadm_wrapper.sh"
+        url:    /utilities/sadm-wrapper
         
   - title: "How-to"
     children:
@@ -66,12 +72,12 @@ sidebar-manpage:
       - title:  "How-to update SADMIN"
         url:    /utilities/sadm-update
         
-  - title: "Daily Server Scripts"
+  - title: "System Monitor"
     children:
       - title:  "sadm_daily_report.sh"
-        url:    /server_scripts/sadm-daily-report
+        url:    /system_monitor/sadm-daily-report
       - title:  "sadm_fetch_client.sh"
-        url:    /server_scripts/sadm-fetch-client
+        url:    /system_monitor/sadm-fetch-client
 
   - title: "Daily Client Scripts"
     children:

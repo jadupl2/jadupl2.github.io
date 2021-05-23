@@ -5,8 +5,8 @@ version:        3.25
 updated:        2021-05-05
 os:             Linux
 type:           S  # [D]oc [S]=Server only [C]=Client [B]oth
-tags:           [ server_scripts ] 
-categories:     [ server_scripts ] 
+tags:           [ system_monitor ] 
+categories:     [ system_monitor ] 
 #
 layout:         single
 search:         true

@@ -1,5 +1,4 @@
 ---
-#title:          Updating SADMIN tools
 title:          How-to update SADMIN
 desc:           How-to update to latest version of SADMIN
 version:        2.2
@@ -27,8 +26,7 @@ sidebar:
 
 <br>
 **What directories and files will be updated (both method) ?**  
-The SADMIN Database and the change you made to your configuration files in “$SADMIN/cfg” will 
-not modified at all.
+SADMIN database and change you made to your configuration files in “$SADMIN/cfg” won't be modified at all.
 
 | Directory             | Directory content     | Directory updated         |   
 | :---                  | :---                  | :---:                     |   
@@ -44,23 +42,6 @@ not modified at all.
 | sadmin/pkg            | Packages we may need  | Yes                       |   
 | sadmin/setup          | Installation scripts  | Yes                       |  
 | sadmin/www            | Web Interface Directories    | Yes                       |   
-
-
-
-## Advantage & Disadvantage of each method
-
-**Method 1**
-- To use this method you must have install SADMIN with [method 1 (git clone)](/_pages/install/#git-install).  
-- You always have the latest version (Updated frequently).   
-- Bug fixes and new features are available sooner.   
-- File deletion or rename in $SADMIN are apply to your system instantly.   
-
-**Method 2**   
-- You get the latest stable release (Updated less frequently)  
-- Can be used to install previous release.  
-- File deletion or rename in $SADMIN are done via the housekeeping scripts.  
-- Easiest method to update.  
-  
 
 
 
@@ -202,4 +183,5 @@ There you go, simple enough ? Enjoy !
 <a id="seealso"></a>
 ## SEE ALSO
 
+[sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %}) - Push SADMIN version to one or all actives clients. 
 [SADMIN installation](/_pages/install.md) - SADMIN installation page.    

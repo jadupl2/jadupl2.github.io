@@ -4,7 +4,7 @@ desc:           Collect hardware & software information about the system
 version:        3.21 
 updated:        2021-05-08
 os:             Linux, Aix, MacOS
-type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ client-scripts, web_interface ] 
 categories:     [ client-scripts ] 
 #
@@ -41,21 +41,58 @@ sidebar:
 <a id="description"></a>
 ## DESCRIPTION
 
-When you run this script, no question is asked and files in the disaster recovery directory are updated. This script is part of the 'Client Sunset script' 
-(${SADMIN}/bin/sadm_client_sunset.sh). The 'Client Sunset script' is scheduled to run daily from the client crontab (/etc/cron.d/sadm_client). You can also run it manually whenever you want.
+When you run this script, no question is asked and information collected are stores in the disaster 
+recovery directory ($SADMIN/dat/dr). This script is part of the 'client sunset script' 
+(${SADMIN}/bin/sadm_client_sunset.sh). The 'client sunset script' is scheduled to run daily from 
+the client crontab (/etc/cron.d/sadm_client). You can also run it manually whenever you want to 
+update files in the disaster recovery information directory.
 {: .text-justify}
 
 
 <a id="examples"></a>
 ## EXAMPLE
 
-![sadm_create_sysinfo.png](/assets/img/sadm_create_sysinfo_script.png){: .align-center}
+```bash
+root@holmes:~ # sadm_create_sysinfo.sh 
+================================================================================
+Sat May 22 10:51:25 EDT 2021 - sadm_create_sysinfo.sh V3.23 - SADM Lib. V3.70
+Server Name: holmes.maison.ca - Type: LINUX
+CENTOS 7.9.2009 Kernel 3.10.0-1160.25.1.el7.x86_64
+==================================================
+ 
+Verifying command availability ...
+Creating /sadmin/dat/dr/holmes_diskinfo.txt ...
+Creating /sadmin/dat/dr/holmes_lvm.txt ...
+Creating /sadmin/dat/dr/holmes_network.txt ...
+Creating /sadmin/dat/dr/holmes_system.txt ...
+Creating /sadmin/dat/dr/holmes_lshw.html ...
+Creating /sadmin/dat/dr/holmes_sysinfo.txt ...
+Getting last O/S Update date from /sadmin/dat/rch/holmes_sadm_osupdate.rch ...
 
-Information in the Disaster Recovery directory, will be useful in case of complete system rebuild. Files in this directory ($SADMIN/dat/dr) are updated daily.
+==================================================
+Script exit code is 0 (Success) and execution time is 00:00:24
+History ($SADMIN/dat/rch/holmes_sadm_create_sysinfo.rch) trim to 35 lines.
+Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
+Script succeeded, no alert will be send to 'default' alert group.
+New log (/sadmin/log/holmes_sadm_create_sysinfo.log) created ($SADM_LOG_APPEND='N').
+End of sadm_create_sysinfo.sh - Sat May 22 10:51:45 EDT 2021
+================================================================================
+```
+
+
+Information in the Disaster Recovery directory, will be useful in case of complete system rebuild. 
+Files in this directory ($SADMIN/dat/dr) are updated daily.
 
 ![sadm_create_sysinfo_files.png](/assets/img/sadm_create_sysinfo_files.png){: .align-center}
 
-To view information generated from this script, choose the server to want and click on the buttons on the top of the page..
+To view information generated from this script from the web interface, choose "Systems" options 
+from the heading line.
+![sadm_create_sysinfo_system.png](/assets/img/sadm_create_sysinfo_system.png){: .align-center}
+
+Then choose the server you want to view the information by clicking on it's name.
+![sadm_create_sysinfo_choose_system.png](/assets/img/sadm_create_sysinfo_choose_system.png){: .align-center}
+
+The server main information screen will be shown like below.
 ![sadm_create_sysinfo_web_buttons.png](/assets/img/sadm_create_sysinfo_web_buttons.png){: .align-center}
 
 This is an example of what you would get by pressing the 'Server Summary' button.
@@ -66,7 +103,6 @@ This is an example of what you would get by pressing the 'Server Summary' button
  
 
 {% include {{ site.section_options     }} %}
-| **-i** | Example | 
 
 {% include {{ site.section_environment }} %}
 

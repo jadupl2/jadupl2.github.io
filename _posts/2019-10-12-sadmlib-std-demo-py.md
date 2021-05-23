@@ -4,7 +4,7 @@ desc:           SADMIN Python Library Module Demo
 version:        3.10
 updated:        2021-05-04 
 os:             Linux, Aix, MacOS
-type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ]
 categories:     [ libraries ] 
 #

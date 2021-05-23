@@ -1,6 +1,6 @@
 ---
 title:          sadm_daily_report.sh
-desc:           Produce and email daily reports
+desc:           Produce and email monitoring daily reports
 version:        1.24
 updated:        2021-05-05
 os:             Linux, Aix, MacOS

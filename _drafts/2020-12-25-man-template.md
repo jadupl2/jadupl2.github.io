@@ -36,8 +36,12 @@ sidebar:
 {{ page.title }} [-d 0-9] [-h] [-v]
 ```
 {% if page.type == "S" %}
-<font size="3">Can only be run on SADMIN Server.</font>
+<font size="3"><strong>Can only be run on SADMIN Server.</strong></font>
 {% endif %}
+{% if page.type == "B" %}
+<font size="3"><strong>Can be executed on a client and on the SADMIN Server.</strong></font>
+{% endif %}
+
 
 
 
@@ -72,7 +76,7 @@ shown with a yellow background.
 
 
 {% include {{ site.section_options     }} %}
-| **-i** | Example | 
+| **-i** | option -i | 
 
 {% include {{ site.section_environment }} %}
 
@@ -89,6 +93,7 @@ shown with a yellow background.
 [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
 [sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %}) - List/install required SADMIN tools packages  
 [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %}) -  Command line summary of alerts and failed scripts of all your servers.  
+[sadm_daily_report]({% post_url 2021-04-01-sadm-daily-report %}) - Produce and email monitoring daily reports
 [sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) - Using SADMIN shell script template   
 [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN python script template    
 [sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) - Using SADMIN shell menu template   
@@ -99,7 +104,11 @@ shown with a yellow background.
 [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN shell library functions demo   
 [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) - SADMIN python library functions demo  
 [SADMIN installation](/_pages/install) - SADMIN installation page  
-[How-to Add a client]({% post_url 2021-04-11-web-add-client %}) - How-to add a client to SADMIN inventory
-[How-to Remove a client]({% post_url 2021-05-19-how-to-remove-a-client %}) - How-to remove a client from SADMIN inventory
-
+[How-to Add a client]({% post_url 2021-04-11-web-add-client %}) - How-to add a client to SADMIN inventory  
+[How-to Remove a client]({% post_url 2021-05-19-how-to-remove-a-client %}) - How-to remove a client from SADMIN inventory  
+[sadm_uninstall.sh]({% post_url 2021-05-21-sadm-uninstall %}) - Uninstall the SADMIN tools  
+[sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %}) - Push SADMIN version to one or all actives clients  
+[sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %}) - Collect hardware & software information about the system  
+[How-to update SADMIN]({% post_url 2021-03-14-sadm-update %}) - How-to update to latest version of SADMIN   
+[sadm_service_ctrl.sh]({% post_url 2021-05-23-sadm-service-ctrl %}) - Enable, Disable and get status of system startup and shutdown script  
 
