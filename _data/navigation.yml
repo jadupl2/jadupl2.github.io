@@ -70,7 +70,7 @@ sidebar-manpage:
       - title:  "How-to remove a SADMIN client"
         url:    /how-to/how-to-remove-a-client
       - title:  "How-to update SADMIN"
-        url:    /utilities/sadm-update
+        url:    /how-to/sadm-update
         
   - title: "System Monitor"
     children:

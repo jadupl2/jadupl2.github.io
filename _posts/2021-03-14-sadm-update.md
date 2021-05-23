@@ -5,8 +5,8 @@ version:        2.2
 updated:        2021-05-04
 os:             Linux, Aix, MacOS
 type:           B  # [S]=Run on Server only, [C]=Client Only, [B]=Run on Both
-tags:           [ utilities ] 
-categories:     [ utilities ] 
+tags:           [ how-to ] 
+categories:     [ how-to ] 
 #
 layout:         single
 search:         true
