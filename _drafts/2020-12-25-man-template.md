@@ -6,7 +6,7 @@ updated:        2021-04-22
 os:             Linux, Aix, MacOS
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ test ] 
-#categories:     [ web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
+#categories:     [ how-to, web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 categories:     [ test ] 
 #
 layout:         single
