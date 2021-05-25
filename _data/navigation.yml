@@ -60,7 +60,14 @@ sidebar-manpage:
         url:    /utilities/sadm-support-request
       - title:  "sadm_wrapper.sh"
         url:    /utilities/sadm-wrapper
-        
+
+  - title: "Backup"
+    children:
+      - title:  "sadm_backup.sh"
+        url:    /backup/sadm-backup
+
+
+
   - title: "How-to"
     children:
       - title:  "How-to setup SMS notification"

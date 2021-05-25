@@ -22,7 +22,7 @@ sidebar:
 ---
 
 <font size="3">
-<div>$SADMIN/cfg/{{ page.title }} - Version v{{ page.version }}</div>  
+<div>$SADMIN/cfg/{{ page.title }} - v{{ page.version }}</div>  
 <div>Posted {{ page.date | date: "%Y-%m-%d" }} - Updated {{ page.updated }}</div>  
 <div>Supported on {{ page.os }}</div>  
 </font>  

@@ -6,7 +6,7 @@ updated:        2021-04-22
 os:             Linux, Aix, MacOS
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ test ] 
-#categories:     [ how-to, web_interface, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
+#categories:     [ how-to, web_interface, backup, configuration_files, system_monitor, server_scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 categories:     [ test ] 
 #
 layout:         single
@@ -111,4 +111,6 @@ shown with a yellow background.
 [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %}) - Collect hardware & software information about the system  
 [How-to update SADMIN]({% post_url 2021-03-14-sadm-update %}) - How-to update to latest version of SADMIN   
 [sadm_service_ctrl.sh]({% post_url 2021-05-23-sadm-service-ctrl %}) - Enable, Disable and get status of system startup and shutdown script  
+[sadm_backup.sh]({% post_url 2021-05-24-sadm-backup %}) - Backup based on the content of the backup list & exclude file  
+[sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %}) - SADMIN main configuration file  
 
