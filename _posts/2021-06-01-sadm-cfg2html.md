@@ -1,13 +1,12 @@
 ---
-title:          man_template.sh
-desc:           Template for scripts documentation
-version:        2.2
-updated:        2021-04-22
-os:             Linux, Aix, MacOS
-type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
-categories:     [ test ] 
-#categories:     [ how-to, web_interface, backup, configuration-files, system_monitor, server-scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
-tags:           [ test ] 
+title:          cfg2html.sh
+desc:           Get System information and creates a HTML web page of it
+version:        3.6
+updated:        2021-06-03
+os:             Linux, Aix
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
+categories:     [ client-scripts ] 
+tags:           [ client-scripts ] 
 #
 layout:         single
 search:         true
@@ -49,13 +48,32 @@ sidebar:
 
 <a id="description"></a>
 ## DESCRIPTION
-
-
+This script is use to generate a system information web page that is accessible via the SADMIN
+web interface. To generate this web page, we use 
+the open source project "[cfg2html](https://www.cfg2html.com/)". 
+The HTML page produced, include the collection of Cron and At, 
+installed Hardware, installed Software, Filesystems, Dump- and Swap-configuration, LVM, 
+Network Settings, Kernel, System enhancements and Applications, Subsystems. As of now, this script 
+doesn't support MacOS operating system.
 {: .text-justify}
  
+ 
+**Files produced by the script** 
 ```bash
-# include script
+root@raspi8:~  # cd $SADMIN/dat/dr
+root@raspi8:/opt/sadmin/dat/dr  # ls -l cfg2html*
+-rw-rw-r-- 1 sadmin sadmin   2846 Jun  3 14:54 cfg2html_raspi8.err
+-rw-rw-r-- 1 sadmin sadmin 752477 Jun  3 14:54 cfg2html_raspi8.html
+-rw-rw-r-- 1 sadmin sadmin      0 Jun  3 14:54 cfg2html_raspi8.partitions.save
+-rw-rw-r-- 1 sadmin sadmin 724874 Jun  3 14:54 cfg2html_raspi8.txt
+root@raspi8:/opt/sadmin/dat/dr  # 
 ```
+
+**To view cfg2html page, choose the server you want and click on "cfg2html" button**
+![sadm_cfg2html_button](/assets/img/sadm_cfg2html/sadm_cfg2html_viewing.png){: .align-center}
+
+Here is an [example of report](/assets/img/sadm_cfg2html/man_sadm_cfg2html_example.html) that was generated for a raspberry pi.
+
 
 [Back to the top](#top_of_page)
 
@@ -65,15 +83,31 @@ sidebar:
 ## EXAMPLE
 
 ```bash
-# Example of script output
+# sadm_cfg2html.sh 
+================================================================================
+Thu Jun  3 14:54:22 EDT 2021 - sadm_cfg2html.sh V3.6 - SADM Lib. V3.70
+Server Name: raspi8.maison.ca - Type: LINUX
+RASPBIAN 10 Kernel 5.10.17-v7l+
+==================================================
+ 
+cfg2html-linux version 2.94-2014/05/07 // Linux 5.10.17-v7l+ armv7l
+Running : /usr/bin/cfg2html -H -o /opt/sadmin/dat/dr.
+Return code of the command is 0.
+
+==================================================
+Script exit code is 0 (Success) and execution time is 00:00:59
+History (/opt/sadmin/dat/rch/raspi8_sadm_cfg2html.rch) trim to 35 lines.
+Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
+Script succeeded, no alert will be send to 'default' alert group.
+New log (/opt/sadmin/log/raspi8_sadm_cfg2html.log) created ($SADM_LOG_APPEND='N').
+End of sadm_cfg2html.sh - Thu Jun  3 14:54:54 EDT 2021
+================================================================================
 ```
-<!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
 
 [Back to the top](#top_of_page)
 
 
 {% include {{ site.section_options     }} %}
-| **-i** | option -i | 
 
 {% include {{ site.section_environment }} %}
 
@@ -120,5 +154,5 @@ sidebar:
 [sadm_client_housekeeping.sh]({% post_url 2021-05-29-sadm-client-housekeeping %}) - Purge old log,rch,nmon files and check $SADMIN permission   
 [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %}) - Collect hardware & software information about the system   
 [System Information File]({% post_url 2021-05-30-sysinfo-file %}) - Documentation about the system information file  
-[sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) - Save system filesystems information in order to recreate them from scratch.  
-[sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) - Get System information and creates a HTML web page of it.  
+[sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) - Save system filesystems information in order to recreate them from scratch.
+[sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) - Get System information and creates a HTML web page of it.

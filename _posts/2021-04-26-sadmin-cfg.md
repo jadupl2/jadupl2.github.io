@@ -2,7 +2,6 @@
 title:          sadmin.cfg
 desc:           SADMIN configuration file.
 version:        2.4
-date:           2021-04-26
 updated:        2021-04-26
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
@@ -357,7 +356,7 @@ SADM_MAX_RCHLINE = 35
 
 
 <a id="sadm_nmon_keepdays"></a>
-## Performance Monitor retention period
+## Performance monitor files (*.nmon) retention period
 ```bash
 #----------------------------------------------------------------------------
 # SADM_NMON_KEEPDAYS is the number of days we want to keep a nmon file in
@@ -389,7 +388,7 @@ SADM_NMON_KEEPDAYS = 40
 
 
 <a id="sadm_rch_keepdays"></a>
-## RCH (Result Code History) files retention period
+## Result Code History files (*.rch) retention period
 Define how many days to keep an unmodified RCH file.
 
 ```bash
@@ -415,7 +414,7 @@ SADM_RCH_KEEPDAYS = 40
 
 
 <a id="sadm_log_keepdays"></a>
-## Log files retention period
+## Log files (*.log) retention period
 Define how many days to keep an unmodified log.
 
 ```bash

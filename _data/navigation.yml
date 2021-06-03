@@ -88,8 +88,33 @@ sidebar-manpage:
 
   - title: "Daily Client Scripts"
     children:
+      - title: "sadm_client_sunset.sh"
+        url:    /client-scripts/sadm-client-sunset
+      - title: "sadm_client_housekeeping.sh"
+        url:    /client-scripts/sadm-client-housekeeping
+      - title: "sadm-dr-savefs.sh"
+        url:    /client-scripts/sadm-dr-savefs
       - title: "sadm_create_sysinfo.sh"
         url:    /client-scripts/sadm-create-sysinfo
+      - title: "sadm_cfg2html.sh"
+        url:    /client-scripts/sadm-cfg2html
+
+  - title: "Daily Server Scripts"
+    children:
+      - title: "sadm_server_sunrise.sh"
+        url:    /server-scripts/sadm-server-sunrise
+      - title: "sadm_server_housekeeping.sh"
+        url:    /server-scripts/sadm-server-housekeeping
+      - title: "sadm_daily_farm_fetch.sh"
+        url:    /server-scripts/sadm-daily-farm-fetch
+      - title: "sadm_database_update.py"
+        url:    /server-scripts/sadm-database-update
+      - title: "sadm_nmon_rrd_update.sh"
+        url:    /server-scripts/sadm-nmon-rrd-update
+      - title: "sadm_subnet-lookup.py"
+        url:    /server-scripts/sadm-subnet-lookup
+      - title: "sadm_backupdb.sh"
+        url:    /server-scripts/sadm-backupdb
 
   - title: "Script Templates"
     children:
@@ -106,7 +131,7 @@ sidebar-manpage:
         url:    /libraries/sadmlib-std-sh
       - title:  "sadmlib_std.py"
         url:    /libraries/sadmlib-std-py
-      - title: "SADMIN Code Section"
+      - title: "SADMIN code section"
         url:    /libraries/sadmin-section
       - title:  "sadmlib_std_demo.sh"
         url:    /libraries/sadmlib-std-demo-sh

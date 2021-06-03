@@ -1,7 +1,7 @@
 <a name="sadmin_shell_section"></a>
 ```bash
 # ---------------------------------------------------------------------------------------
-# SADMIN CODE SECTION
+# SADMIN CODE SECTION 1.50
 # Setup for Global Variables and load the SADMIN standard library.
 # To use SADMIN tools, this section MUST be present near the top of your code.    
 # ---------------------------------------------------------------------------------------

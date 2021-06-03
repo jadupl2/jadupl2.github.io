@@ -2,7 +2,7 @@
 
 ```python
 # ---------------------------------------------------------------------------------------
-# SADMIN CODE SECTION
+# SADMIN CODE SECTION 1.49
 # Setup for Global Variables and import SADMIN Python module
 # To use SADMIN tools, this section MUST be present near the top of your code.    
 # ---------------------------------------------------------------------------------------
@@ -29,6 +29,7 @@ def setup_sadmin():
 
     # CHANGE THESE VARIABLES TO YOUR NEEDS - They influence execution of SADMIN standard library.    
     st.ver              = "2.1"                 # Current Script Version
+    st.pdesc            = "Type short description v%s" % st.ver  # Short description of script
     st.log_type         = 'B'                   # Output goes to [S]creen to [L]ogFile or [B]oth
     st.log_append       = False                 # Append Existing Log(True) or Create New One(False)
     st.log_header       = True                  # Show/Generate Header in script log (.log)

@@ -1,8 +1,8 @@
 ---
 title:          SADMIN Section of script
 desc:           SADMIN code section to include in your script.
-version:        2.2
-updated:        2021-05-07
+version:        1.50
+updated:        2021-05-
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
@@ -21,30 +21,26 @@ sidebar:
 {% include sadm/sadm_page_info.md %}
 
 
-<a id="description"></a>
-## DESCRIPTION
+<a id="description_shell"></a>
+## Code section for Shell script
 
-The running scripts are listed first, then the scripts that terminated with an error and 
-finally all the scripts grouped by system. So it give you view of the statistics of each script 
-(start time, end time, elapse time,...) of each systems sorted and grouped by name. When 
-something look different than the normal, like the alert group used is different than the 
-default group or the last execution date of a script is more than thirty days, it will be 
-shown with a yellow background. 
+The code below MUST appear in the beginning of every shell scripts using the SADMIN tools. You must
+also call at the beginning of your script the '[sadm_start()]({% post_url 2019-10-12-sadmlib-std-demo-sh %}/#sadm_start)' 
+function and the '[sadm_stop()]({% post_url 2019-10-12-sadmlib-std-demo-sh %}/#sadm_stop)' function
+at the end of your script before it finish.
 {: .text-justify}
 
 {% include sadm/sadm_section_sh.md %}
 
 
 
-<a id="description"></a>
-## DESCRIPTION
+<a id="description_python"></a>
+## Code section for Python script
 
-The running scripts are listed first, then the scripts that terminated with an error and 
-finally all the scripts grouped by system. So it give you view of the statistics of each script 
-(start time, end time, elapse time,...) of each systems sorted and grouped by name. When 
-something look different than the normal, like the alert group used is different than the 
-default group or the last execution date of a script is more than thirty days, it will be 
-shown with a yellow background. 
+The code below MUST appear in the beginning of every Python scripts using the SADMIN tools. You must
+also call at the beginning of your script the '[setup_sadmin()]({% post_url 2019-10-12-sadmlib-std-demo-py %}/#start_stop_module)'
+function. This function include the call to the 'st.start()', so you don't have to worry about 
+calling it. But before the end of your script you MUST call the 'st.close(exitcode)'.
 {: .text-justify}
 
 {% include sadm/sadm_section_py.md %}

@@ -2,7 +2,7 @@
 title:          sadm_create_sysinfo.sh
 desc:           Collect hardware & software information about the system
 version:        3.21 
-updated:        2021-05-08
+updated:        2021-06-03
 os:             Linux, Aix, MacOS
 type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ client-scripts, web_interface ] 
@@ -41,11 +41,13 @@ sidebar:
 <a id="description"></a>
 ## DESCRIPTION
 
-When you run this script, no question is asked and information collected are stores in the disaster 
-recovery directory ($SADMIN/dat/dr). This script is part of the 'client sunset script' 
-(${SADMIN}/bin/sadm_client_sunset.sh). The 'client sunset script' is scheduled to run daily from 
-the client crontab (/etc/cron.d/sadm_client). You can also run it manually whenever you want to 
-update files in the disaster recovery information directory.
+This script is use to collect different software and hardware about the system you are running it 
+and record this information in the [System Information File]({% post_url 2021-05-30-sysinfo-file %}). 
+When you run this script, no question is asked and information 
+collected are stores in the disaster recovery directory ($SADMIN/dat/dr). This script is part of 
+the 'client sunset script' (${SADMIN}/bin/sadm_client_sunset.sh). The 'client sunset script' is 
+scheduled to run daily from the client crontab (/etc/cron.d/sadm_client). You can also run it 
+manually whenever you want to update files in the disaster recovery information directory.
 {: .text-justify}
 
 
