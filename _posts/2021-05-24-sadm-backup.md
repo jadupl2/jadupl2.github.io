@@ -76,34 +76,43 @@ list text area.
 
 ### The Backup List
 The directories and files you specify in the "Backup List (Files & Dir.)" text-area are written
-to a file called the "backup list" ($SADMIN/cfg/.backup_list.txt). If the backup list file is not 
-present when the script is started, the default backup list file ($SADMIN/cfg/.backup_list.txt) 
+to a file called the "backup list" ($SADMIN/cfg/backup_list.txt). If the backup list file is not 
+present when the script is started, a default backup list file ($SADMIN/cfg/.backup_list.txt) 
 is use as a starting backup list. Specify the full path for each directories and files you want 
 to backup. For every directory (or file) specified in the backup list, a backup file will be 
-produced. For example, if you specify '/home' and '/etc' in the backup list, two backup files 
-will be produced, one file the 'home' directory and one for the 'etc' directory (See directory 
-structure below).   
+produced along with a log of the backup. For example, if you specify '/home' and '/etc' in the 
+backup list, four backup files will be produced, one file the 'home' directory and one for the 'etc' 
+directory and each of them will have a log (See directory structure below). The log can be viewed
+in case of error or if you are not sure of what is in the backup file.
 When you modify the backup list for a system it is written locally to a temporary file 
 "$SADMIN/www/dat/HOSTNAME/cfg/backup_list.tmp" and it's transferred to the proper system the next
 time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
-change could take up to 5 minutes to get to the proper system.
+change could not take up to 5 minutes to get to the proper system.
 {: .text-justify}
 ![Daily Backup List](/assets/img/sadm_backup/sadm_backup_backup_list.png){: .align-center}
 
-Directories and files specified in the backup list and that cannot be found during backup execution 
-are skipped and identified as such in the log file and are not consider as an error. This give you 
-the flexibility to use the same backup_list.txt file across multiple servers.  
+Directories and files specified in the backup list that cannot be found during backup execution 
+are skipped and identified as such in the log file and are not consider as an error, but as warning. 
+This give you the flexibility to use the same backup_list.txt file across multiple servers.  
 {: .text-justify}
 ![Backup Dir Not Found](/assets/img/sadm_backup/sadm_backup_notfound.png){: .align-center}
 
 ### The Exclude List
 The directories and files you specify in the "Exclude List" text-area are written to a file called 
-the backup exclude file ($SADMIN/cfg/backup_exclude.txt) and are ignored by the backup. If the 
+the backup exclude file ($SADMIN/cfg/backup_exclude.txt) and are excluded from the backup. If the 
 backup exclude file is not present when the script is started, the default exclude file 
-($SADMIN/cfg/.backup_exclude.txt) is use as the exclude list. Please note that before issuing the
-"tar" command, the script do a "cd" in the directory to backup. So the backup content can be 
-restore in a directory of your choice. So when specifying a file or a directory remember to 
-include "./" in front of it (except for file extension like *.iso).   
+($SADMIN/cfg/.backup_exclude.txt) is use as the exclude list. Notice, that lines from file are read 
+verbatim. One of the frequent errors is leaving some extra whitespace after a file name, which is 
+difficult to catch using text editors. However, empty lines are OK. Trailing slashes at the end of 
+excluded folders will cause tar to not exclude those folders at all.
+{: .text-justify}
+
+**Please note:** 
+Before starting the backup (tar command), the script do a "cd /" to be positioned
+at the root of the system. The directory or file specified are prefixed by './', so the backup 
+content can be restore in a directory of your choice. 
+ {: .notice--info} 
+ 
 When you modify the backup exclude list for a system it is written to a local temporary file 
 "$SADMIN/www/dat/HOSTNAME/cfg/backup_exclude.tmp" and it's transferred to the proper system the next
 time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
@@ -280,7 +289,6 @@ After a couple of months, the backup directories structure should look similar t
 ```
 
 [Back to the top](#top_of_page)
-
 
 {% include {{ site.section_options     }} %}
 | **-n** | Do NOT compress backup | 

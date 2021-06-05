@@ -121,4 +121,5 @@ sidebar:
 [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %}) - Collect hardware & software information about the system   
 [System Information File]({% post_url 2021-05-30-sysinfo-file %}) - Documentation about the system information file  
 [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) - Save system filesystems information in order to recreate them from scratch.  
+[sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}) - Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems  
 [sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) - Get System information and creates a HTML web page of it.  

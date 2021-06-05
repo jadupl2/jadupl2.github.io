@@ -60,6 +60,8 @@ sidebar-manpage:
         url:    /utilities/sadm-support-request
       - title:  "sadm_wrapper.sh"
         url:    /utilities/sadm-wrapper
+      - title: "sadm-dr-recreatefs.sh"
+        url:    /utilities/sadm-dr-recreatefs 
 
   - title: "Backup"
     children:
