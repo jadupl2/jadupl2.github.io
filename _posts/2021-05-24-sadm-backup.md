@@ -89,7 +89,24 @@ When you modify the backup list for a system it is written locally to a temporar
 time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
 change could not take up to 5 minutes to get to the proper system.
 {: .text-justify}
-![Daily Backup List](/assets/img/sadm_backup/sadm_backup_backup_list.png){: .align-center}
+
+**Example of a backup list**
+
+```bash
+# v1.5 Initial Backup List - template
+# Notes: Socket Files are automatically excluded
+# One file or directory per line
+# -----------------------------------------------
+#
+$SADMIN
+/home 
+/etc 
+/root
+/var
+```
+
+
+<!-- ![Daily Backup List](/assets/img/sadm_backup/sadm_backup_backup_list.png){: .align-center}  -->
 
 Directories and files specified in the backup list that cannot be found during backup execution 
 are skipped and identified as such in the log file and are not consider as an error, but as warning. 
@@ -118,7 +135,30 @@ When you modify the backup exclude list for a system it is written to a local te
 time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
 change could take up to 5 minutes to get to the proper system.
 {: .text-justify}
-![Backup Exclude List](/assets/img/sadm_backup/sadm_backup_exclude.png){: .align-center}
+
+**Example of an exclude list**
+```bash
+# V1.6 Initial Exclude List 
+# Files extensions to exclude
+*.iso 
+*.pyc
+
+# Files to exclude
+sysmon.lock 
+
+# Directories to exclude
+__pycache__
+
+# Exclude content of these directories
+*/tmp/*
+*/Trash/*
+*/Downloads/*
+*/tmp/*
+*/Trash/*
+#
+```
+
+<!-- ![Backup Exclude List](/assets/img/sadm_backup/sadm_backup_exclude.png){: .align-center}  -->
 
 
 ### Backup preservation policies 
