@@ -122,4 +122,6 @@ sidebar:
 [System Information File]({% post_url 2021-05-30-sysinfo-file %}) - Documentation about the system information file  
 [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) - Save system filesystems information in order to recreate them from scratch.  
 [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}) - Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems  
-[sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) - Get System information and creates a HTML web page of it.  
+[sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) - Get System information and creates a HTML web page of it  
+[sadm_osupdate.sh]({% post_url 2021-06-05-sadm-osupdate %}) - Perform Operating System update on the current server  
+[sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %}) - Run the O/S update to selected remote system   
