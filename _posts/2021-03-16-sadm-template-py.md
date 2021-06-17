@@ -1,12 +1,12 @@
 ---
-title:                  Using SADMIN Python script template
+title:          Using SADMIN Python script template
 desc:           How-to use the Python script template
 version:        2.2
 updated:        2021-05-05
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
-tags:                   templates
-categories:             templates
+tags:           templates
+categories:     templates
 #
 layout:         single
 search:         true

@@ -22,6 +22,9 @@ sidebar:
 
 {% include sadm/sadm_page_info.md %}
 
+<br>
+See the python template [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) and [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) to give you a good idea of how to use this library and see how 
+it can help you.
 
 ## SADMIN Standard library functions
 
@@ -76,12 +79,7 @@ sidebar:
 <a id="seealso"></a>
 ## SEE ALSO
 
-[sadmlib_std.sh ]({% post_url 2021-04-07-sadmlib-std-sh %}) - SADMIN standard shell library  
-[sadmlib_screen.sh ]({% post_url 2019-10-12-sadmlib-screen-sh %}) - SADMIN screen oriented library  
-[sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) - Using SADMIN Shell script template   
 [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) - Using SADMIN Python script template    
-[sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) - Using SADMIN shell menu template   
-[sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %}) - SADMIN Shell Library Functions Demo   
 [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) - SADMIN Python Library Functions Demo  
 
 

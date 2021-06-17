@@ -4,14 +4,16 @@ main:
     url: /
   - title: "Download"
     url: /_pages/download/
-  - title: "Install"
-    url: /_pages/install/
-  - title: "Quick-Start"
-    url: /_pages/quickstart/
+  - title: "Documentation"
+    url: /_pages/documentation/
+#  - title: "Install"
+#    url: /_pages/install/
+#  - title: "Quick-Start"
+#    url: /_pages/quickstart/
   - title: "Categories"
     url: /categories/
-  - title: "Tags"
-    url: /tags/
+#  - title: "Tags"
+#    url: /tags/
   - title: "Support"
     url: /_pages/support/
   #- title: "Contact"
@@ -45,8 +47,6 @@ sidebar-manpage:
     children:
       - title:  "srch (sadm_show_rch.sh)"
         url:    /command_line/sadm-show-rch
-      - title:  "sview (sadm_sysmon_tui.pl)"
-        url:    /command_line/sadm-sysmon-tui
         
   - title: "Utilities"
     children:
@@ -89,6 +89,12 @@ sidebar-manpage:
         
   - title: "System Monitor"
     children:
+      - title:  "System Monitor"
+        url:    /system_monitor/sadm-sysmon
+      - title:  "System Monitor config file"
+        url:    /system_monitor/sadm-sysmon-config
+      - title:  "sview (sadm_sysmon_tui.pl)"
+        url:    /system_monitor/sadm-sysmon-tui
       - title:  "sadm_daily_report.sh"
         url:    /system_monitor/sadm-daily-report
       - title:  "sadm_fetch_client.sh"

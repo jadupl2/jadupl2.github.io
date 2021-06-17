@@ -156,33 +156,58 @@ week. (No restriction based on day).</dd>
 **Example of screen output when running the script on a Ubuntu system**  
 
 ```bash
-root@ubuntu2004:~  # sadm_osupdate.sh
+root@borg:~  # sadm_osupdate.sh
 ================================================================================
-Sun 06 Jun 2021 07:33:09 PM EDT - sadm_osupdate.sh V3.26 - SADM Lib. V3.70
-Server Name: ubuntu2004.maison.ca - Type: LINUX
-UBUNTU 20.04 Kernel 5.8.0-55-generic
+Thu 10 Jun 2021 07:49:28 AM EDT - sadm_osupdate.sh V3.26 - SADM Lib. V3.70
+Server Name: borg.maison.ca - Type: LINUX
+UBUNTU 20.04 Kernel 5.8.0-53-generic
 ==================================================
-
+ 
 Verifying update availability for UBUNTU v20.04
 Start with a clean of APT cache, running 'apt-get clean'
 [ OK ] APT cache is now cleaned.
-
+ 
 Update the APT package repository cache with 'apt-get update'
 [ OK ] The cache have been updated.
-
-
+ 
+ 
 Retrieving list of upgradable packages.
 Running 'apt list --upgradable'.
-[ OK ] No Update available.
+There are 16 update available.
+Packages that will be updated.
+     1	fsearch-trunk/focal 20210608+r1277.492daf6~ubuntu20.04.1 amd64 [upgradable from: 20210606+r1268.dace34c~ubuntu20.04.1]
+     2	gnome-control-center-data/focal-updates,focal-updates 1:3.36.5-0ubuntu2 all [upgradable from: 1:3.36.5-0ubuntu1]
+     3	gnome-control-center-faces/focal-updates,focal-updates 1:3.36.5-0ubuntu2 all [upgradable from: 1:3.36.5-0ubuntu1]
+     4	gnome-control-center/focal-updates 1:3.36.5-0ubuntu2 amd64 [upgradable from: 1:3.36.5-0ubuntu1]
+     5	gnome-shell-common/focal-updates,focal-updates 3.36.9-0ubuntu0.20.04.1 all [upgradable from: 3.36.7-0ubuntu0.20.04.1]
+     6	gnome-shell-extension-prefs/focal-updates 3.36.9-0ubuntu0.20.04.1 amd64 [upgradable from: 3.36.7-0ubuntu0.20.04.1]
+     7	gnome-shell/focal-updates 3.36.9-0ubuntu0.20.04.1 amd64 [upgradable from: 3.36.7-0ubuntu0.20.04.1]
+     8	google-chrome-stable/stable 91.0.4472.101-1 amd64 [upgradable from: 91.0.4472.77-1]
+     9	keepassxc/focal 2.6.5-1ppa1~focal1 amd64 [upgradable from: 2.6.4-1ppa1~focal1]
+    10	libxnvctrl0/focal-updates 460.73.01-0ubuntu0.20.04.1 amd64 [upgradable from: 460.39-0ubuntu0.20.04.1]
+    11	linux-firmware/focal-updates,focal-updates 1.187.14 all [upgradable from: 1.187.12]
+    12	qbittorrent/focal 1:4.3.5.99~202106080759-7366-33e090cfc~ubuntu20.04.1 amd64 [upgradable from: 1:4.3.5.99~202105022253-7365-063844ed4~ubuntu20.04.1]
+    13	signal-desktop/xenial 5.4.1 amd64 [upgradable from: 5.4.0]
+    14	skypeforlinux/stable 8.73.0.92 amd64 [upgradable from: 8.72.0.94]
+    15	update-notifier-common/focal-updates,focal-updates 3.192.30.8 all [upgradable from: 3.192.30.7]
+    16	update-notifier/focal-updates 3.192.30.8 amd64 [upgradable from: 3.192.30.7]
+ 
+Starting UBUNTU update process ...
+Updating O/S, running 'export DEBIAN_FRONTEND=noninteractive ; apt-get -y dist-upgrade'
+[OK] Update done with success, return code is 0.
 
+Remove orphaned packages, running 'apt-get autoremove'.
+
+Check if there are update that are kept back ...
+System Updated with Success.
 
 ==================================================
-Script exit code is 0 (Success) and execution time is 00:00:22
-History (/opt/sadmin/dat/rch/ubuntu2004_sadm_osupdate.rch) trim to 35 lines. 
+Script exit code is 0 (Success) and execution time is 00:02:48
+History (/opt/sadmin/dat/rch/borg_sadm_osupdate.rch) trim to 35 lines ($SADM_MAX_RCLINE=35).
 Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
 Script succeeded, no alert will be send to 'default' alert group.
-New log (/opt/sadmin/log/ubuntu2004_sadm_osupdate.log) created ($SADM_LOG_APPEND='N').
-End of sadm_osupdate.sh - Sun 06 Jun 2021 07:33:23 PM EDT
+New log (/opt/sadmin/log/borg_sadm_osupdate.log) created ($SADM_LOG_APPEND='N').
+End of sadm_osupdate.sh - Thu 10 Jun 2021 07:52:10 AM EDT
 ================================================================================
 ```
 
@@ -222,8 +247,7 @@ End of sadm_osupdate.sh - Sun Jun  6 19:43:13 EDT 2021
 
 
 {% include {{ site.section_options     }} %}
-| **-r** | Reboot server after update, if update applied |
-| | & if 'Reboot after O/S Update' field is set to "Yes" | 
+| **-r** | Reboot server after update (If update applied) |
 
 {% include {{ site.section_environment }} %}
 

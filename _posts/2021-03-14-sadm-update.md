@@ -45,6 +45,8 @@ SADMIN database and change you made to your configuration files in “$SADMIN/cf
 
 
 
+<a id="method1"></a>
+
 <br>
 ## Method 1 - Using "git pull" (Recommended)
 To use this update method, you MUST have used the ["git clone" method (method 1)](/_pages/install/#git-install) 
@@ -132,6 +134,9 @@ now up to date.
 
 
 <br>
+
+<a id="method2"></a>
+
 ## Method 2 - Extract from a "tar" file 
 This is the easiest way to update the SADMIN tools to the a specific version. It can also be used to
 restore SADMIN tools to a previous version, if ever ran into a problem. To update is just three 
