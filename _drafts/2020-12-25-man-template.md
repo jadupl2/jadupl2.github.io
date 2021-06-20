@@ -3,11 +3,7 @@ title:          man_template.sh
 desc:           Template for scripts documentation
 version:        2.2
 summary: |         
-    Ths is the SADMIN System Monitor (SysMon) configuration file. It MUST reside in "$SADMIN/cfg" 
-    directory and MUST be named `hostname.smon`. Blank line and line that start with a "#" 
-    (Comments) are ignored. Each lines in the [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) 
-    is read and process one by one. Blank line and line that start with a "#" (Comments) are ignored. 
-    After evaluating a line, the result is recorded in column 2.
+    Page under construction, should be completed soon, come back ;ater.
     {: .text-justify}
 updated:        2021-04-22
 os:             Linux, Aix, MacOS
@@ -96,7 +92,7 @@ sidebar:
 | Link to ...| Description |  
 | :--- | :--- |  
 | [sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %})               | List/install required SADMIN tools packages  
-| [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %})                   |  Command line summary of alerts and failed scripts of all your servers.  
+| [sview]({% post_url 2021-05-18-sadm-sysmon-tui %})                   |  Command line summary of alerts and failed scripts of all your servers.  
 | [sadm_daily_report]({% post_url 2021-04-01-sadm-daily-report %})                  | Produce and email monitoring daily reports
 | [sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %})                    | Using SADMIN shell script template   
 | [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %})                    | Using SADMIN python script template    
@@ -134,8 +130,9 @@ sidebar:
 | [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %})       | Run the O/S update to selected remote system   
 | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})                           | Client system monitor   
 | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
-| [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file   
-| [sdf]({% post_url 2021-06-13-sadm-df %})                                          | sadmin version of the 'df' command |
-| [sadm]({% post_url 2021-06-14-sadm-ui %}) | System Administration Tools Menu | 
-| [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})|   Create image backup of the system to a NFS server | 
+| [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file     
+| [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})|   Create image backup of the system to a NFS server |  
+| [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})|   Allow you run SysMon and see the report file |   
+| [sdf]({% post_url 2021-06-13-sadm-df %})                                          | sadmin version of the 'df' command |  
+| [sadm]({% post_url 2021-06-14-sadm-ui %}) | System Administration Tools Menu |   
 

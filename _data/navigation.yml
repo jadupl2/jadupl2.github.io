@@ -47,6 +47,16 @@ sidebar-manpage:
     children:
       - title:  "srch (sadm_show_rch.sh)"
         url:    /command_line/sadm-show-rch
+      - title:  "sdf (sadm_df.sh)"
+        url:    /command_line/sadm-df
+      - title:  "sview (sadm_sysmon_tui.pl)"
+        url:    /command_line/sadm-sysmon-tui
+      - title:  "smon (sadm_sysmon_cli.pl)"
+        url:    /command_line/sadm-sysmon-cli
+      - title:  "sadm (sadm_ui.sh)"
+        url:    /command_line/sadm-ui
+      
+
         
   - title: "Utilities"
     children:

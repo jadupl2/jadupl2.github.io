@@ -5,8 +5,8 @@ version:        2.0
 updated:        2021-05-19
 os:             Linux, Aix, MacOS
 type:           S  # [D]oc [S]=Server only [C]=Client [B]oth
-tags:           [ system_monitor ] 
-categories:     [ system_monitor ] 
+tags:           [ command_line ] 
+categories:     [ command_line ] 
 #
 layout:         single
 search:         true

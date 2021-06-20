@@ -7,7 +7,7 @@ categories:     [ test ]
 layout:         single
 search:         true
 author_profile: false
-toc:            false
+toc:            true
 classes:        wide
 sidebar:
   title: "Documentation"
@@ -15,7 +15,7 @@ sidebar:
 ---
 
 
-## SADMIN installation related
+## SADMIN environment 
 
 | Link to ...                                                                       | Script | Description  
 | :---                                                                              | :---   | :---
@@ -24,6 +24,7 @@ sidebar:
 | [List/Install SADMIN requirements]({% post_url 2019-03-21-sadm-requirements %})   | [sadm_requirements.sh]({% post_url 2021-05-21-sadm-uninstall %})  | View/Install packages required by SADMIN
 | [How-to update client(s)]({% post_url 2021-05-22-sadm-push-sadmin %})                 | [sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %})   | Push SADMIN version to one or all actives clients  
 | [How-to update SADMIN server]({% post_url 2021-03-14-sadm-update %})                     | Method [1]({% post_url 2021-03-14-sadm-update %}#method1) or [2]({% post_url 2021-03-14-sadm-update %}#method2)         | How-to update to latest version of SADMIN   
+| [Support request](/utilities/sadm-support-request) | [sadm_support_request.sh](/utilities/sadm-support-request) | Submit an enhancement or a support request
 
 
 ## The Web Interface
@@ -36,15 +37,15 @@ sidebar:
 | [How-to schedule a ReaR Image backup]({% post_url 2021-06-12-sadm-rear-backup %}#rear_schedule) | Schedule ReaR backup via theweb interface |
 
 
-## Utilities
+## Command line utilities
 
 | Link to ...                                                                       | Script | Description  
 | :---                                                                              | :---   | :---
-| [SADMIN version of 'df' command]({% post_url 2021-06-13-sadm-df %}) | [sdf (sadm_df.sh)]({% post_url 2021-06-13-sadm-df %})  | Customize version of 'df' command
-| [View status of all scripts & monitors](/command_line/sadm-show-rch) | [srch (sadm_show_rch.sh)](/command_line/sadm-show-rch) | Show Result History files (.rch) from all systems|
-| [SysMon viewer (cmdline)]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
-| [Support request](/utilities/sadm-support-request) | [sadm_support_request.sh](/utilities/sadm-support-request) | Submit an enhancement or a support request
-| [SysAdmin Menu](/utilities/sadm-ui) | [sadm (sadm_ui.sh)](/utilities/sadm-ui) | System Administration Menu | 
+| [sdf]({% post_url 2021-06-13-sadm-df %}) | [sdf (sadm_df.sh)]({% post_url 2021-06-13-sadm-df %})  | Customize version of 'df' command
+| [srch](/command_line/sadm-show-rch) | [srch (sadm_show_rch.sh)](/command_line/sadm-show-rch) | Show Result History files (.rch) from all systems|
+| [sview]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
+| [sadm](/utilities/sadm-ui) | [sadm (sadm_ui.sh)](/utilities/sadm-ui) | System Administration Menu | 
+| [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})| [smon (sadm_sysmon_cli.sh)]({% post_url 2021-06-15-sadm-sysmon-cli %}) | Run SysMon and view the report file and script(s) error(s)|   
 
 
 
@@ -79,7 +80,8 @@ sidebar:
 ## System Monitor related information
 
 | Link to ...                                                               | Script | Description  
-| :---                                                                      | :---   | :--- |   
+| :---                                                                      | :---   | :--- |  
+| [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})| [smon (sadm_sysmon_cli.sh)]({% post_url 2021-06-15-sadm-sysmon-cli %}) | Allow you run SysMon and see the report file|  
 | [SADMIN System Monitor]({% post_url 2021-06-10-sadm-sysmon %})            | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})| SADMIN System Monitor (SysMon) |
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) | [$SADMIN/cfg/${HOSTNAME}.smon]({% post_url 2021-06-11-sadm-sysmon-config %}) | System Monitor configuration file |
 | [SysMon viewer (cmdline)]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |

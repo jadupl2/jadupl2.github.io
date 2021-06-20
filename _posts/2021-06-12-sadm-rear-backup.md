@@ -76,18 +76,18 @@ The variable "$HOSTNAME" will be replace by the hostname at execution time, alon
 ![ReaR Config File](/assets/img/sadm_rear_backup/sadm_rear_site_conf.png){: .align-center}
 
 <a id="rear_schedule"></a>
-### Scheduling a ReaR Backup 
+### Scheduling a ReaR backup 
 
 You can run the ReaR backup just by typing 'sadm_rear_backup.sh' at the command line. It is 
-recommanded to use the web interface and scheduled the ReaR backup to run automatically on a 
+recommended to use the web interface and scheduled the ReaR backup to run automatically on a 
 regular basis. To schedule a ReaR image backup using the SADMIN web interface, click on 
 “ReaR Backup” in the heading portion of the web interface. 
 {: .text-justify}
 
-![ReaR Heading Link](/assets/img/sadm_rear_backup/sadm_rear_heading.png){: .align-center}
+![ReaR heading link](/assets/img/sadm_rear_backup/sadm_rear_heading.png){: .align-center}
 
 Then click on the server name you want to schedule.
-![ReaR Choose server](/assets/img/sadm_rear_backup/sadm_rear_server.png){: .align-center}
+![ReaR choose server](/assets/img/sadm_rear_backup/sadm_rear_server.png){: .align-center}
 
 - To activate the ReaR backup via the web interface, you must 'Activate ReaR Backup' and remember that the status of the system must be active.  
 - The chosen schedule will get propagated in the '/etc/cron.d/sadm_rear_backup' cron file shortly after that (at the next run of '[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})'.  
