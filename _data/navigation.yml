@@ -55,7 +55,6 @@ sidebar-manpage:
         url:    /command_line/sadm-sysmon-cli
       - title:  "sadm (sadm_ui.sh)"
         url:    /command_line/sadm-ui
-      
 
         
   - title: "Utilities"
@@ -86,8 +85,6 @@ sidebar-manpage:
 
   - title: "How-to"
     children:
-      - title:  "How-to setup SMS notification"
-        url:    /how-to/how-to-sms
       - title:  "How-to add a SADMIN client"
         url:    /how-to/web-add-client
       - title:  "How-to remove a SADMIN client"
@@ -109,6 +106,15 @@ sidebar-manpage:
         url:    /system_monitor/sadm-daily-report
       - title:  "sadm_fetch_client.sh"
         url:    /system_monitor/sadm-fetch-client
+      - title:  "How-to setup SMS notification"
+        url:    /how-to/how-to-sms
+      - title:  "How-to create a Slack workspace"
+        url:    /system_monitor/sadm-create-slack-workspace
+      - title:  "How-to create Slack channel and App."
+        url:    /system_monitor/sadm-create-slack-channel-and-slack-app 
+      - title:  "How-to use SADMIN alerting system"
+        url:    /system_monitor/how-to-use-sadmin-alert
+
 
   - title: "Daily Client Scripts"
     children:

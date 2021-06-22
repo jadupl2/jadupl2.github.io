@@ -86,8 +86,10 @@ sidebar:
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) | [$SADMIN/cfg/${HOSTNAME}.smon]({% post_url 2021-06-11-sadm-sysmon-config %}) | System Monitor configuration file |
 | [SysMon viewer (cmdline)]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
 | [Pull log,rpt ans rch from clients]({% post_url 2021-03-16-sadm-fetch-client %}) | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | Pull .rch/.log/.rpt from actives clients  
-| [How-to setup SMS notification](/how-to/how-to-sms) | | How-to use SMS/Texto alerting system 
-
+| [How-to setup SMS notification](/how-to/how-to-sms) | How-to | How-to use SMS/Texto alerting system 
+| [How-to create a Slack workspace]({% post_url 2021-06-16-sadm-create-slack-workspace %}) | How-to | Creating a Slack Workspace
+| [How-to create Slack channel and App.]({% post_url 2021-06-17-sadm-create-slack-channel-and-slack-app %}) | How-to | Configure Slack Channel|
+| [How-to use SADMIN alerting system]({% post_url 2021-06-18-how-to-use-sadmin-alert %}) | How-to |Understanding SADMIN alerting system |  
 
 
 ## Backup scripts

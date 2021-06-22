@@ -3,7 +3,7 @@ title:          man_template.sh
 desc:           Template for scripts documentation
 version:        2.2
 summary: |         
-    Page under construction, should be completed soon, come back ;ater.
+    Page under construction, should be completed soon, come back later.
     {: .text-justify}
 updated:        2021-04-22
 os:             Linux, Aix, MacOS
@@ -135,4 +135,9 @@ sidebar:
 | [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})|   Allow you run SysMon and see the report file |   
 | [sdf]({% post_url 2021-06-13-sadm-df %})                                          | sadmin version of the 'df' command |  
 | [sadm]({% post_url 2021-06-14-sadm-ui %}) | System Administration Tools Menu |   
+| [How-to create a Slack workspace]({% post_url 2021-06-16-sadm-create-slack-workspace %}) | | Create a Slack Workspace |  
+| [How-to create Slack channel and App.]({% post_url 2021-06-17-sadm-create-slack-channel-and-slack-app %}) | Configure SADMIN to use Slack|  
+| [How-to use SADMIN alerting system]({% post_url 2021-06-18-how-to-use-sadmin-alert %}) | Understanding SADMIN alerting system |  
+
+
 
