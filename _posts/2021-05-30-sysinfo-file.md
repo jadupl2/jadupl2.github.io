@@ -2,6 +2,13 @@
 title:          hostname_sysinfo.txt
 desc:           System information file
 version:        3.24
+summary: |         
+  The **system information file ($SADMIN/dat/dr/$hostname_sysinfo.txt)** have two purposes :
+  - It's used as an input file to the '[sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})' 
+    script to keep the server information up to date in the SADMIN database.
+  - It also can be use in case of a disaster recovery to rebuild the server, along with all the other 
+    files included in the disaster recovery directory ($SADMIN/dat/dr).
+    {: .text-justify}
 updated:        2021-06-02
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
@@ -20,22 +27,13 @@ sidebar:
   nav:          sidebar-manpage
 ---
 <a id="top_of_page"></a>
-
+{{ page.summary }} 
 
 
 <a id="name"></a>
 ## NAME
-**{{ page.title }}**  
-*{{ page.desc }}*   
-
-
-
-<a id="synopsis"></a>
-## SYNOPSIS
-
-```bash
-{{ page.title }} [-d 0-9] [-h] [-v]
-```
+**{{ page.title }}** - *{{ page.desc }}*   
+$SADMIN/dat/dr/$hostname_sysinfo.txt 
 
 {% include sadm/sadm_page_info.md %}
 {% if page.type == "S" %}
@@ -51,15 +49,6 @@ sidebar:
 <a id="description"></a>
 ## DESCRIPTION
 
-The system information file ($SADMIN/dat/dr/$hostname_sysinfo.txt) have two purposes :
-- It's used as an input file to the '[sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})' 
-script to keep the server information up to date in the SADMIN database.
-- It also can be use in case of a disaster recovery to rebuild the server, along with all the other 
-files included in the disaster recovery directory ($SADMIN/dat/dr).
-
-
-
-**Producing the 'hostname_sysinfo.txt' file**  
 This text file is generated automatically every night on all clients by '[sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})', 
 which is part of the "[sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})" script. 
 The information contained in it, is used to update the server inventory information within the 
@@ -69,14 +58,14 @@ execute '[sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})
 without problem.
 {: .text-justify}
 
-
 **Use the 'hostname_sysinfo.txt' file to update database**  
-The script '[sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})' read this 'sysinfo file' and update the appropriate server 
+The script '[sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})' read this 'sysinfo file' and update the appropriate server information in the SADMIN database.
 information in the database. This update take place automatically early every morning on the SADMIN 
 server. This script is executed as part of the '[sadm_server-sunrise.sh]({% post_url 2021-05-26-sadm-server-sunrise %})' script. You can also 
 execute '[sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})' whenever you want, without problem.
-
 {: .text-justify}
+
+
 
 <a id="examples"></a>
 ## EXAMPLE
@@ -127,7 +116,7 @@ SADM_REAR_VERSION                     = 2.6
 ## SEE ALSO
 
 [sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %}) - SADMIN main configuration file   
-[sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %}) - Clients end of day housekeeping and producing system information files  
+[sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %}) - Clients housekeeping and producing system information files  
 [sadm_server-sunrise.sh]({% post_url 2021-05-26-sadm-server-sunrise %}) - Collect & process data produced by all actives clients  
 [sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %}) - Take data collected from clients and update database    
 [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %}) - Collect hardware & software information about the system  

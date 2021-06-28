@@ -74,14 +74,31 @@ sidebar:
 | [SADMIN configuration file]({% post_url 2021-04-26-sadmin-cfg %})| [$SADMIN/cfg/sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %})                                | SADMIN main configuration file   
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) | [$SADMIN/cfg/${HOSTNAME}.smon]({% post_url 2021-06-11-sadm-sysmon-config %}) | System Monitor configuration file |
 | [System information file]({% post_url 2021-05-30-sysinfo-file %})| [$SADMIN/dat/dr/$hostname_sysinfo.txt)]({% post_url 2021-05-30-sysinfo-file %}) | Hardware/Software info about system file  
+| [Alert Group File]({% post_url 2021-06-19-alert-group-cfg %})| [$SADMIN/cfg/alert_group.cfg)]({% post_url 2021-06-19-alert-group-cfg %}) | Alert group definition file |
+| [Slack configuration file]({% post_url 2021-06-22-alert-slack-cfg %})| [$SADMIN/cfg/alert_slack.cfg)]({% post_url 2021-06-22-alert-slack-cfg %}) | Slack group webhook definition file |
+
+
+
+## Important SADMIN files
+
+Main configuration file ([$SADMIN/cfg/sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %}))  
+System monitor configuration file ([$SADMIN/cfg/hostname.smon]({% post_url 2021-06-11-sadm-sysmon-config %}))  
+Alert group definition file ([$SADMIN/cfg/alert_group.cfg)]({% post_url 2021-06-19-alert-group-cfg %}))  
+Slack webhook definition file ([$SADMIN/cfg/alert_slack.cfg)]({% post_url 2021-06-22-alert-slack-cfg %}))  
+System information file ([$SADMIN/dat/dr/$hostname_sysinfo.txt)]({% post_url 2021-05-30-sysinfo-file %}))
+
+
 
 
 
 ## System Monitor related information
 
+View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sadm_view_sysmon.png) or on the command line using [sview](/assets/img/sadm_sysmon/sadm_sysmon_tui.png).
+
 | Link to ...                                                               | Script | Description  
 | :---                                                                      | :---   | :--- |  
 | [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})| [smon (sadm_sysmon_cli.sh)]({% post_url 2021-06-15-sadm-sysmon-cli %}) | Allow you run SysMon and see the report file|  
+| [sview]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
 | [SADMIN System Monitor]({% post_url 2021-06-10-sadm-sysmon %})            | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})| SADMIN System Monitor (SysMon) |
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) | [$SADMIN/cfg/${HOSTNAME}.smon]({% post_url 2021-06-11-sadm-sysmon-config %}) | System Monitor configuration file |
 | [SysMon viewer (cmdline)]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |

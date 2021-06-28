@@ -3,15 +3,11 @@ title:          sadm_sysmon.pl
 desc:           Perform selected monitoring test defined in SysMon configuration file
 summary: |         
     The SADMIN System Monitor (SysMon) is executed at regular interval from the SADMIN client 
-    crontab (/etc/cron.d/sadm_client). When the script begin it try to open is configuration file, 
-    name "$SADMIN/cfg/${HOSTNAME}.smon", so for a host named "server1" it would try to open the file 
-    "$SADMIN/cfg/server1.smon". If the file exist, it's loaded in memory and processing begin. 
-    If the file doesn't exist, it copy the template named "$SADMIN/cfg/.template.smon" to 
-    "$SADMIN/cfg/server1.smon" and execution begin. If the sysmon template file can't be found, 
-    then script execution is aborted after the user is advise with an error message.
+    crontab (/etc/cron.d/sadm_client). It monitor everything specified in the configuration
+    file and generate a new SysMon report file ($SADMIN/data/rpt/hostname.rpt).
     {: .text-justify}
 version:        2.43
-updated:        2021-06-10
+updated:        2021-06-25
 os:             Linux, Aix, MacOS
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 categories:     [ system_monitor ] 
@@ -42,7 +38,7 @@ sidebar:
 ## SYNOPSIS
 
 ```bash
-{{ page.title }} [-d 0-9] [-h] [-v]
+# {{ page.title }} 
 ```
 {% include sadm/sadm_page_info.md %}
 {% if page.type == "S" %}
@@ -60,76 +56,58 @@ sidebar:
 
 {{ page.summary }} 
 
-
-**File format**
-- Blank lines and lines that begin with a "#" are ignored by the System Monitor.
-- Each time the system monitor run, the last line of the configuration file is updated. We can see 
-the System Monitor version number, the server name, the last boot date, the current date and finally 
-the time it took to process all the requested tests.  
-Before the System Monitor exit, it write what we call a report file, which contain any error or 
-warning detected while processing each line. This SysMon report file is named "hostname.rpt" and 
-is created in the "$SADMIN/dat/rpt" directory. This file will then get transferred to the SADMIN 
-server by the [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) for analysis and 
-trigger an alert if needed.
-
-SysMon automatically detect new filesystem on the system and add them to the [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) and can check a filesystem usage and . By default,it will set 
-the "Warning" usage level to 85% and the "Error" at 90%. If the file system usage is greater or 
-equal to 85% and less than 90% it will shows up in the System Monitor web page as a "Warning". 
-If the usage is equal or greater than 90%, it will appear an an "Error" is the System Monitor 
-web page and an alert is generated. In the example below, I have change the warning threshold from 
-85% to 80% in the fourth column to raise a warning.
-
-```
-FS/wsadmin   82 >=  80  90 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
-```
-If a line in the [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) begin
-with "FS", this indicate that this line is used to test the filesystem usage. In the example above
-we are evaluating the "/wsadmin" filesystem usage. It is currently using 82% and we've set the
-warning level at 80% and the error level at 90%. Since we are above the warning level (and below the
-error level), this have trigger an warning alert. 
-
-![Sysmon Warning on Web](/assets/img/sadm_sysmon/sadm_sysmon_filesystem_warning.png){: .align-center} 
-
-The warning will always appear on the system monitor web page, like the example below. 
-
-![Sysmon Warning on Web](/assets/img/sadm_sysmon/sadm_sysmon_warning_email.png){: .align-center} 
-
-  
-Example of the last line :
-
-```perl
-#SYSMON 2.43 holmes - LastBoot 2021-05-28 07:16:27 - Sat Jun 12 10:47:03 2021 - Execution Time 1.00 seconds
-```
-
-<br>
 **Summary of what step the System Monitor go through when it is started**
 
-- First it check if the System Monitor lock file exist (${SADMIN}/sysmon.lock).
+- First it check if the System Monitor lock file exist ($SADMIN/sysmon.lock).
     - If it doesn't, it's created and we proceed with the next step.  
     - If it already exist, SysMon check when it was created. If it was more than 30 minutes ago it 
 is recreated and execution continue. If it was created less than 30 minutes, a warning message is 
-issued and the monitor execution is stop.  
+issued and the monitor execution is stop. 
 - Next the [SADMIN configuration file]({% post_url 2021-04-26-sadmin-cfg %}) is read (get company 
 name and email address of sysadmin).  
-- The [System Monitor configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) is then loaded in memory.   
-- The 'df' command is run and the result is loaded in memory to determine later on, if there are new filesystem.  
-- An empty System Monitor Report File is created (${SADMIN}/dat/rpt/${HOSTNAME}.rpt).  
-- The 'df' array is scan and every filesystem not already in the actual System Monitor configuration 
-file are added to it.  
-- Now each line of SysMon configuration are tested and updated in memory.  
-  - If an error or a warning if found it's written to the Sysmon Report File (${HOSTNAME}.rpt).
-- Last step is the unload the updated SysMon array into the new configuration file and the lock 
-file is removed.   
-
-<dl>
-<dt><b>Activate O/S Update Schedule</b></dt>
-<dd>If you don't want to schedule an operating system update, make sure the field "Activate O/S Update Schedule" 
-is set to "No". This is the default when you create a new server is "No". </dd>
-<dd>If you want to schedule an automatic operating system update set this field to "Yes".</dd>
-</dl>
-
-
+- Then it try to open the configuration file ("$SADMIN/cfg/${HOSTNAME}.smon").
+  - If the file exist, then the [System Monitor configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) is loaded in memory and processing begin. 
+  - If the file doesn't exist, it copy the 
+template named "$SADMIN/cfg/.template.smon" to "$SADMIN/cfg/${HOSTNAME}.smon" and processing begin. 
+  - If the sysmon template file can't be found, then execution is aborted after the user is 
+advise with an error message. 
+- The 'df' command is run and the result is store in memory. Any filesystem that is not in SysMon 
+configuration is added with 'Warning' threshold set to 85% and 'Error' at 90%.
+- An empty System Monitor report file is created (${SADMIN}/dat/rpt/${HOSTNAME}.rpt).  
+- Now each line of SysMon configuration are tested and update the SysMon array in memory.  
+  - Error or Warning found are written to the [System Monitor report file]({% post_url 2021-06-20-sysmon-report-file %}).
+- Last step is to unload the updated SysMon array into the SysMon configuration file and to remove 
+the lock file ($SADMIN/sysmon.lock).
+  
+Before the System Monitor exit, it write what we call a report file, which contain any error or 
+warning detected while processing each line. This [System Monitor report file]({% post_url 2021-06-20-sysmon-report-file %}) is named "hostname.rpt" and it
+is created in the "$SADMIN/dat/rpt" directory. This file will then get transferred to the SADMIN 
+server by the [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) for analysis and 
+trigger an alert if needed.
 {: .text-justify}
+
+Each test performed by Sysmon represent a line in the configuration file, for more information see
+the [SysMon configuration file page]({% post_url 2021-06-11-sadm-sysmon-config %}).
+
+<br>
+**Here is a list of all the type of test that Sysmon can perform:**
+
+- Verify the [system multipath state]({% post_url 2021-06-11-sadm-sysmon-config %}#multipath)
+- Check the system [load average]({% post_url 2021-06-11-sadm-sysmon-config %}#loadaverage) and 
+  notify if warning or error threshold is sustained of certain period of time. It return system 
+  load average of the past 5 minutes, using 'uptime' (Linux,Aix,MacOS). Actual value is returned 
+  in column 2 of the line.
+- Can check the [CPU usage]({% post_url 2021-06-11-sadm-sysmon-config %}#cpuusage) and notify if warning or error threshold is sustained of certain period of time.
+- Can check the Swap space utilization and alert if warning or error threshold is reached.
+- Can check filesystem usage and alert if warning or error threshold is reached.
+- Can [ping an IP or a hostname]({% post_url 2021-06-11-sadm-sysmon-config %}#pingtest) and issue 
+an alert if doesn't respond after 3 attempts. To execute a ping test, the column one must begin with 
+‘ping_’ follow by the tcp/ip address or the hostname you would like to ping, 
+[see an example]({% post_url 2021-06-11-sadm-sysmon-config %}#pingtest).
+- Can check if a particular service is running and advise you if it isn't, it can even restart it if you want.
+- Can check if a deamon of your choice is running
+- Can check if we have an http response of a particular web site.
+- Can run you own script and advise you if it terminate with a non zero exit code.
  
 [Back to the top](#top_of_page)
 
@@ -224,10 +202,6 @@ Deleting SYStem MONitor lock file /sadmin/sysmon.lock
 
 [Back to the top](#top_of_page)
 
-
-{% include {{ site.section_options     }} %}
-| **-i** | option -i | 
-
 {% include {{ site.section_environment }} %}
 
 {% include {{ site.section_exitcode    }} %}
@@ -247,4 +221,5 @@ Deleting SYStem MONitor lock file /sadmin/sysmon.lock
 | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file   
 | [sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %})                                | SADMIN main configuration file   
+| [System Monitor report file]({% post_url 2021-06-20-sysmon-report-file %})        | Output file generated by System Monitor |   
 

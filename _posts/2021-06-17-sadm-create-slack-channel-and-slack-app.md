@@ -58,7 +58,7 @@ Click on the '+' to create a channel.
 
 
 
-### Create a Slack App.
+### Create a Slack App
 
 We will now need to create an 'App' and associate it to a 'Webhook'.
 The first step is to select the channel we just created and then click on 'Add App'at the botton of the screen. 

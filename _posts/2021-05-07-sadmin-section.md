@@ -2,7 +2,7 @@
 title:          SADMIN Section of script
 desc:           SADMIN code section to include in your script.
 version:        1.50
-updated:        2021-05-
+updated:        2021-05-07
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
@@ -44,7 +44,6 @@ calling it. But before the end of your script you MUST call the 'st.close(exitco
 {: .text-justify}
 
 {% include sadm/sadm_section_py.md %}
-
 
 {% include {{ site.section_environment }} %}
 

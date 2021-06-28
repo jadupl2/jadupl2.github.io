@@ -116,28 +116,29 @@ sidebar:
 | [sadm_server_housekeeping.sh]({% post_url 2021-05-27-sadm-server-housekeeping %}) | Enforce security SADMIN Web interface & crontab files
 | [sadm_daily_farm_fetch.sh]({% post_url 2021-05-28-sadm-daily-farm-fetch %})       | Collect Hardware/Software/Performance data from actives servers   
 | [sadm_database_update.py]({% post_url 2021-05-29-sadm-database-update %})         | Take data collected from clients and update database    
+| [sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})             | Clients end of day housekeeping |   
 | [sadm_nmon_rrd_update.sh]({% post_url 2021-05-29-sadm-nmon-rrd-update %})         | Daily performance database update   
-| [sadm_subnet-lookup.py]({% post_url 2021-05-29-sadm-subnet-lookup %})             | Scan network selected subnet & store info in database  
-| [sadm_backupdb.sh]({% post_url 2021-05-26-sadm-backupdb %})                       | Backup one or all MySQL/MariaDB databases on the system  
-| [sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})             | Clients end of day housekeeping and producing system information files  
+| [sadm_subnet-lookup.py]({% post_url 2021-05-29-sadm-subnet-lookup %})             | Scan network selected subnet & store info in database |  
+| [sadm_backupdb.sh]({% post_url 2021-05-26-sadm-backupdb %})                       | Backup one or all MySQL/MariaDB databases on the system |  
 | [sadm_client_housekeeping.sh]({% post_url 2021-05-29-sadm-client-housekeeping %}) | Purge old log,rch,nmon files and check $SADMIN permission   
-| [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})           | Collect hardware & software information about the system   
-| [System Information File]({% post_url 2021-05-30-sysinfo-file %})                 | Documentation about the system information file  
-| [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %})                     | Save system filesystems information in order to recreate them from scratch.  
-| [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %})             | Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems  
-| [sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %})                       | Get System information and creates a HTML web page of it  
-| [sadm_osupdate.sh]({% post_url 2021-06-05-sadm-osupdate %})                       | Perform Operating System update on the current server  
+| [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})           | Collect hardware & software information about the system |   
+| [System Information File]({% post_url 2021-05-30-sysinfo-file %})                 | Documentation about the system information file |  
+| [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %})                     | Save system filesystems information in order to recreate them from scratch |  
+| [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %})             | Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems |  
+| [sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %})                       | Get System information and creates a HTML web page of it |  
+| [sadm_osupdate.sh]({% post_url 2021-06-05-sadm-osupdate %})                       | Perform Operating System update on the current server |  
 | [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %})       | Run the O/S update to selected remote system   
 | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})                           | Client system monitor   
 | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file     
-| [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})|   Create image backup of the system to a NFS server |  
-| [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})|   Allow you run SysMon and see the report file |   
+| [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})                 | Create image backup of the system to a NFS server |  
+| [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})                                 | Allow you run SysMon and see the report file |   
 | [sdf]({% post_url 2021-06-13-sadm-df %})                                          | sadmin version of the 'df' command |  
-| [sadm]({% post_url 2021-06-14-sadm-ui %}) | System Administration Tools Menu |   
-| [How-to create a Slack workspace]({% post_url 2021-06-16-sadm-create-slack-workspace %}) | | Create a Slack Workspace |  
+| [sadm]({% post_url 2021-06-14-sadm-ui %})                                         | System Administration Tools Menu |   
+| [How-to create a Slack workspace]({% post_url 2021-06-16-sadm-create-slack-workspace %})  | Create a Slack Workspace |  
 | [How-to create Slack channel and App.]({% post_url 2021-06-17-sadm-create-slack-channel-and-slack-app %}) | Configure SADMIN to use Slack|  
-| [How-to use SADMIN alerting system]({% post_url 2021-06-18-how-to-use-sadmin-alert %}) | Understanding SADMIN alerting system |  
-
-
+| [How-to use SADMIN alerting system]({% post_url 2021-06-18-how-to-use-sadmin-alert %})    | Understanding SADMIN alerting system |  
+| [Alert Group File]({% post_url 2021-06-19-alert-group-cfg %})                     | Alert group definition file |   
+| [Slack channel file]({% post_url 2021-06-22-alert-slack-cfg %})                   | Slack channel definition file |  
+| [System Monitor report file]({% post_url 2021-06-20-sysmon-report-file %})                 | Output file generated by System Monitor |   
 
