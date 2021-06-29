@@ -48,6 +48,10 @@ sidebar:
 This script is use to create backups (tar or tgz) of directories and files you specify on the web
 interface. 
 
+
+<a id="backup_schedule"></a>
+## Create a backup schedule
+
 To access the "Daily backup schedule" web page, click on "Daily Backup" in the located in the 
 heading portion of the web site. You will then be presented with a list of your systems, just click
 on a server name and you'll be redirected to "Daily backup schedule" page of the system.
