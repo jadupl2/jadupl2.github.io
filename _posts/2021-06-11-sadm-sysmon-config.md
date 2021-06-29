@@ -4,8 +4,8 @@ desc:           System Monitor configuration file.
 version:        3.0
 summary: |         
     This is the SADMIN System Monitor (SysMon) configuration file. It MUST reside in "$SADMIN/cfg" 
-    directory and MUST be named `hostname.smon`. Don't worry SADMIN setup script have all done that 
-    for you. Blank line and line that start with a "#" (comment) are ignored. 
+    directory and MUST be name "$(hostname -s).smon". Don't worry SADMIN setup script have all 
+    done that for you. Blank line and line that start with a "#" (comment) are ignored. 
     {: .text-justify}
 updated:        2021-06-11
 os:             Linux, Aix, MacOS
@@ -36,13 +36,12 @@ sidebar:
 
 ### General background of Sysmon configuration file
 
-- The file MUST reside in ${SADMIN}/cfg (filename `hostname`.smon).
-- It is read when the SADMIN System Monitor start (sadm_sysmon.pl).
-- New Filesystem are added automatically to this file.
-- Sysmon is run every 5 minutes from the sadm_server crontab (/etc/cron.d/sadm_server)
+- The configuration is loaded in memory when the [SADMIN System Monitor]({% post_url 2021-06-10-sadm-sysmon %}) start.
+- If new filesystem are detected by SysMon they are added automatically to this file.
+- Sysmon is run every 5 minutes from the [sadm_server crontab]({% post_url 2021-06-25-etc-crond-sadm-server %}).
 - Each lines in the SysMon configuration file is evaluated and process one by one. 
 - After evaluating a line, the result is recorded in column 2.
-- Before exiting SysMon write the updated version of the file.
+- Before exiting SysMon write the updated version of the Sysmon configuration file.
 - Each time the system monitor run, the last line of the configuration file is updated. We can see 
 the System Monitor version number, the server name, the last boot date, the current date and finally 
 the time it took to process all the requested tests. 
@@ -50,13 +49,19 @@ the time it took to process all the requested tests.
 #SYSMON 2.43 holmes, Boot 2021-05-28 07:16:27, Sat Jun 12 10:47:03 2021, Run 1.00 sec
 ``` 
 - Before the System Monitor exit, it write what we call a report file, which contain any error or 
-warning detected while processing each line. This SysMon report file is named "hostname.rpt" and it
-is created in the "$SADMIN/dat/rpt" directory. This file will then get transferred to the SADMIN 
+warning detected while processing each line. This SysMon report file is named "$(hostname -s).rpt" 
+and it's created in the "$SADMIN/dat/rpt" directory. This file will then get transferred to the SADMIN 
 server by the [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) for analysis and 
 trigger an alert if needed.
+```bash
+# cat $SADMIN/dat/rpt/holmes.rpt 
+Warning;holmes;2021.06.29;10:47;linux;FILESYSTEM;Filesystem /wsadmin at 82% >= 80%;default;default
+```
 {: .text-justify}
 
-### Format of the file
+
+
+### Format of the Sysmon configuration file
 
 - Comments lines must always begin with a "#" (Column 1)
 - Column are delimited by space(s) and/or tabulation.
@@ -64,15 +69,22 @@ trigger an alert if needed.
 - At execution each line is evaluated based on the test requested in the first column
 - Column 1 dictate the kind of test that will performed on that line.
 
-![Sysmon configuration file format example](/assets/img/sadm_sysmon/sadm_sysmon_config_ref.png){: .align-center}
+**Here is a diagram that explain each column of the Sysmon configuration file**
+
+[![Sysmon configuration file format example](/assets/img/sadm_sysmon/sadm_sysmon_config_ref.png)](/assets/img/sadm_sysmon/sadm_sysmon_config_ref.png){: .align-center}
 
 
 
 
 ### Conditions for a line to be evaluated
 
+You may not want to perform a test every time the system monitor run. For example, you may not want
+to test the CPU utilization on the weekend, because you know you will be running some batch job and
+it will take more CPU and this is normal. Or just disable it on Saturday between 1am and 7am, this
+is the kind of conditions we will take a look below.   
 Before a line is evaluated it must meet certain conditions specified by certain column on that same
 line. All the conditions below must be met before a line is evaluated.
+{: .text-justify}
 
 - **Line Active or Inactive (Column G)**    
 When this column is set to 'Y' (Active), then the line met the first condition to get evaluated 
@@ -93,31 +105,40 @@ example, let's say you only want to evaluate a line only between 7am and 9pm, yo
 - **Particular day to evaluate (Column 9 to F)**   
 Each of these columns represent a day of the week. Column 9 represent Sunday, 'A' Monday, 
 'B' Tuesday, 'C' Wednesday, 'D' Thursday, 'E' Friday and finally 'F' Saturday. By default, all of 
-these columns contain a 'Y' meaning that he line is evaluated every day of the week. If you want to
-disable line evaluation on Saturday and Sunday, you would put 'N' in column '9' and 'F'.
+these columns contain a 'Y' meaning that he line is evaluated every day of the week. For example, 
+if you want to disable line evaluation on Saturday and Sunday, you would put 'N' in column '9' and 'F'.
 {: .text-justify}
 
 
 - **Last event date (Col H) & time (Col I) vs Minimum duration/Run Counter (Col 6)**   
-When Sysmon monitor the CPU usage level for example, you don't want to be alerted every time the 
-CPU reach the warning or error level. This is where column 6 come in handy, you specify in column 6
-the continuous number of minutes the CPU must exceed the warning or error level, before being 
-alerted. For example if you put '060' in column 6 then the alert would be generated only when the 
-CPU usage exceed the warning or error level for more than 60 minutes. To be able to do that, Sysmon
-need know when was the date and time of the first alert, this is recorded in column 'H' and 'I'.
-Every time the CPU level is under the warning and error level, column 'H' and 'I' are set back to
-zero. The same logic apply to 'Load average' and the 'Swap Space'.    
-For Service (service_) and Filesystem (FS) lines, column 6 it represented the number of time the 
-service was restarted or the filesystem increased was attempted in the last 24 Hours. You don't 
-need to change this field, it's taken care of automatically (Unless you want to reset it to 0 and 
-provoke a service restart or a filesystem increase within the 24 hrs). Every time a service is 
-restarted column 6 is increase by one. Service can't be restarted more than 2 times every 24 hours,
-same thing for the filesystem increase, only two filesystems increase per 24 hours can be done 
-(each 10% increase). Again when the service is restarted, or fileystem get lower than warning 
-and error level then col 6, column 'H' and 'I get reset to 0. To be able to do that, Sysmon
-need know when was the date and time of the first alert, this is recorded in column 'H' and 'I'.
+    - When Sysmon monitor the CPU usage level for example, you don't want to be alerted every time the 
+CPU reach the warning or error level. For example, you want to be alerted, if the CPU utilization 
+is above the 'Error' level for more than 30 minutes. This is when column 6 come in handy, you 
+specify in column 6 the continuous number of minutes the CPU must exceed the warning or error 
+level, before being alerted. For example if you put '060' in column 6 then the alert would be 
+generated only when the CPU usage exceed the warning or error level for more than 60 minutes. 
+To be able to do that, Sysmon need know when was the date and time of the first alert, this is 
+recorded in column 'H' and 'I'. Every time the CPU level is under the warning and error level, 
+column 'H' and 'I' are set back to zero. *The same logic apply to 'Load average' and the 'Swap Space'*.    
+
+    - For Service (service_), custom script execution and filesystem (FS) lines, column 6 represent 
+the number of time the service was restarted or the filesystem increased was attempted in the 
+last 24 Hours. You don't need to change this field, it's taken care of automatically (Unless you 
+want to reset it to 0 and provoke a service restart or a filesystem increase within the 24 hrs). 
+Every time a service is restarted column 6 is increase by one. Service can't be restarted 
+automatically more than 2 times every 24 hours, same thing for the filesystem increase, only two 
+filesystems increase per 24 hours can be done (each 10% increase). Again when the service is 
+restarted, or fileystem get lower than warning and error level then col 6, column 'H' and 'I get 
+reset to 0. To be able to do that, Sysmon need know when was the date and time of the first alert, 
+this is recorded in column 'H' and 'I'.
 {: .text-justify}
 
+
+
+```
+service_cron,crond               1  <  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 20180820 1520 default default srestart.sh
+service_postfix                  1  <  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 20180820 1520 default default
+```
 [Back to the top](#top_of_page)
 
 
@@ -246,16 +267,16 @@ root@holmes:/sadmin/cfg # cat holmes.smon
 
 
 <a id="runningscript"></a>
-### Running you own script
+### Running you own script (Column L)
 
-L    Script Name   
-Never use by sysmon if the column is blank or contain '-'.
-When the line is evaluated and it turn out to be in error, if you put a
-script name it will be executed (You may want to correct the error with it).
-Script MUST reside in $SADMIN/usr/mon directory and be executable.
-The script will produce a log in that same directory, with the same name as 
-your script.
-File filesystem increase, the name of the script MUST be 'sadm_fs_incr.sh'.
+- Column 'L' is never use by sysmon if the column is blank or contain '-'.
+- When the line is evaluated and it turn out to be in error, if you put a script name it will be 
+- executed (You may want to correct the error with it).
+- Script MUST reside in $SADMIN/usr/mon directory and be executable.
+- The script will produce a log in that same directory, with the same name as your script.
+- For filesystem increase, the name of the script MUST be 'sadm_fs_incr.sh'.
+- To restart a service if it is down, the name of the script MUST be 'srestart.sh'.
+
 
 ```bash
 # ----- Run specific scripts, check return code and issue a warning or error based on threshold
@@ -340,6 +361,20 @@ swap_space                       3  >  85  90 000 0000 0000 Y Y Y Y Y Y Y Y 2018
 -     - If the script was executed in the last 24Hrs and if the RunCounter is greater 
 -       than 1, the script is not executed, since it already ran twice in the last 
 -       24 hours.
+
+**Example, for testing if a service is running**
+- Restart a service or not
+  - If you don't want to restart a service if it dies, don't put the service restart service script
+ "srestart.sh" at the end of the line (like postfix line). If you do want to restart a service, then
+ put "srestart.sh" at the end of the line. Remember that this script is located in the monitor script
+ directory "$SADMIN/usr/mon".
+- Service may not have the same name on all distributions
+  - On RedHat, Fedora, CentOS the cron service is called "crond", on Ubuntu, Debian, Raspbian it is
+called "cron". So to deal with that, SysMon allow you to specify the two names separated by comma,
+and it will test both of them and as long one these service is up, it will consider it as ok. If
+none of them is up and the "srestart.sh" is specified, it will try to restart both of them (but only
+one of them will obviously work).
+{: .text-justify}
 
 ```bash
 #
