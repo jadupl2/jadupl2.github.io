@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Home"
-    url: /
+#  - title: "Home"
+#    url: /
   - title: "Download"
     url: /_pages/download/
   - title: "Documentation"
@@ -32,11 +32,11 @@ sidebar-manpage:
 
   - title: "Download SADMIN"
     url:    /_pages/download
-  - title: "Install, Uninstall, Update"
+  - title: "Install ,Uninstall, Update"
     url:    /_pages/documentation/#install
-  - title: "Using the web interface"
+  - title: "Using Web interface"
     url:    /_pages/documentation/#web_interface
-  - title: "Command line utilities"
+  - title: "Command line tools"
     url:    /_pages/documentation/#command_line
   - title: "Writing your own scripts"
     url:    /_pages/documentation/#writing_scripts
