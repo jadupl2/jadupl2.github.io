@@ -6,8 +6,8 @@ summary: |
     This script is automatically run from the client crontab every 45 minute. It check if the 
     performance collector 'nmon' is running, it it isn't it will start it.
     {: .text-justify}
-updated:        2021-04-22
-os:             Linux, Aix, MacOS
+updated:        2021-06-30
+os:             Linux, Aix
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 categories:     [ test ] 
 #categories:     [ how-to, web_interface, backup, configuration-files, system_monitor, server-scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
@@ -113,10 +113,6 @@ End of sadm_nmon_watcher.sh - Tue 29 Jun 2021 10:35:11 AM EDT
 
 | Link to ...| Description |  
 | :--- | :--- |  
-| [sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %})               | List/install required SADMIN tools packages  
-| [SADMIN installation](/_pages/install)                                            | SADMIN installation page  
-| [How-to Add a client]({% post_url 2021-04-11-web-add-client %})                   | How-to add a client to SADMIN inventory  
-| [How-to Remove a client]({% post_url 2021-05-19-how-to-remove-a-client %})        | How-to remove a client from SADMIN inventory  
 | [sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %})                                | SADMIN main configuration file   
 | [sadm_nmon_rrd_update.sh]({% post_url 2021-05-29-sadm-nmon-rrd-update %})         | Daily performance database update   
 | [sadm_server crontab]({% post_url 2021-06-25-etc-crond-sadm-server %})            | It execute everything that keep SADMIN running smoothly |   

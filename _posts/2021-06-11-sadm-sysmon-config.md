@@ -75,7 +75,7 @@ Warning;holmes;2021.06.29;10:47;linux;FILESYSTEM;Filesystem /wsadmin at 82% >= 8
 
 
 
-
+<a id="sysmon_conditions"></a>
 ### Conditions for a line to be evaluated
 
 You may not want to perform a test every time the system monitor run. For example, you may not want
@@ -142,7 +142,7 @@ service_postfix                  1  <  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 2018
 [Back to the top](#top_of_page)
 
 
-
+<a id="sysmon_warning_group"></a>
 ### Warning alert group
 Column 'J' represent the Warning Alert Group to advise when a warning need to be issue. Group MUST 
 be defined in the Alert Group File ($SADMIN/cfg/alert_group.cfg). When new filesystem line are 

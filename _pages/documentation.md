@@ -60,7 +60,7 @@ sidebar:
 | [sdf]({% post_url 2021-06-13-sadm-df %})           | [sadm_df.sh]({% post_url 2021-06-13-sadm-df %})  | Customize version of 'df' command
 | [srch](/command_line/sadm-show-rch)                | [sadm_show_rch.sh](/command_line/sadm-show-rch) | Show Result History files (.rch) from all systems|
 | [sview]({% post_url 2021-05-18-sadm-sysmon-tui %}) | [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
-| [sadm](/utilities/sadm-ui)                         | [sadm_ui.sh](/utilities/sadm-ui) | System Administration Menu | 
+| [sadm](/command_line/sadm-ui)                         | [sadm_ui.sh](/command_line/sadm-ui) | System Administration Menu | 
 | [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})  | [sadm_sysmon_cli.sh]({% post_url 2021-06-15-sadm-sysmon-cli %}) | Run SysMon and view the report file and script(s) error(s)|   
 | [Startup/Shutdown script]({% post_url 2021-05-23-sadm-service-ctrl %})       | [sadm_service_ctrl.sh]({% post_url 2021-05-23-sadm-service-ctrl %}) | Enable, disable system startup/shutdown script|  
 

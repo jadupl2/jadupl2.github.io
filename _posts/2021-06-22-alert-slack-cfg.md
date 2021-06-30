@@ -25,7 +25,6 @@ sidebar:
  
 ```bash
 # SADMIN Slack Channel file
-# --------------------------------------------------------------------
 # This file associate a SADMIN Slack Channel Name with a Slack WebHook.
 #
 # This file define each channel name that can be used in the 
