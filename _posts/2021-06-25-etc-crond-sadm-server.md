@@ -22,7 +22,10 @@ sidebar:
 ---
 <a id="top_of_page"></a>
 {{ page.summary }} 
- 
+
+<br>
+**The four entries in SADMIN server crontab**
+
 - [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}), that rsync all .rch/.log/.rpt from actives clients to SADMIN server.  
 - [sadm_server_sunrise.sh]({% post_url 2021-05-26-sadm-server-sunrise %}), that collect & process data produced by all actives clients.   
 - [sadm_daily_report]({% post_url 2021-04-01-sadm-daily-report %}), that produce and email monitoring daily reports.   
@@ -31,12 +34,9 @@ sidebar:
 
 ```bash
 # SADMIN Server Crontab File 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/sadmin/bin:/opt/sadmin/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 SADMIN=/opt/sadmin
 # 
-# 
-# Min, Hrs, Date, Mth, Day, User, Script
-# 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
 # 
 # Rsync all *.rch,*.log,*.rpt files from all actives clients.
 */5 * * * * sadmin sudo ${SADMIN}/bin/sadm_fetch_clients.sh >/dev/null 2>&1
