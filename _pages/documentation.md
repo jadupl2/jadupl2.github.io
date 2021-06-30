@@ -7,7 +7,7 @@ categories:     [ test ]
 layout:         single
 search:         true
 author_profile: false
-toc:            true
+toc:            false
 classes:        wide
 sidebar:
   title: "Documentation"
@@ -15,29 +15,38 @@ sidebar:
 ---
 
 
-## SADMIN environment 
+
+
+<a id="install"></a>
+## Install, Uninstall and Update SADMIN
 
 | Name ...                                                                       | Script | Description  
 | :---                                                                              | :---   | :---
 | [How-to install SADMIN](/_pages/install)                                          | [setup.sh/sadm_setup.py](/_pages/install)         | SADMIN installation page  
 | [How-to uninstall SADMIN]({% post_url 2021-05-21-sadm-uninstall %})               | [sadm_uninstall.sh]({% post_url 2021-05-21-sadm-uninstall %})     | Uninstall procedure page 
 | [List/Install SADMIN requirements]({% post_url 2019-03-21-sadm-requirements %})   | [sadm_requirements.sh]({% post_url 2021-05-21-sadm-uninstall %})  | View/Install packages required by SADMIN
-| [How-to update client(s)]({% post_url 2021-05-22-sadm-push-sadmin %})                 | [sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %})   | Push SADMIN version to one or all actives clients  
-| [How-to update SADMIN server]({% post_url 2021-03-14-sadm-update %})                     | Method [1]({% post_url 2021-03-14-sadm-update %}#method1) or [2]({% post_url 2021-03-14-sadm-update %}#method2)         | How-to update to latest version of SADMIN   
-| [Support request](/utilities/sadm-support-request) | [sadm_support_request.sh](/utilities/sadm-support-request) | Submit an enhancement or a support request
+| [How-to update client(s)]({% post_url 2021-05-22-sadm-push-sadmin %}) | [sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %}) | Push SADMIN version to one or all actives clients  
+| [How-to update SADMIN server]({% post_url 2021-03-14-sadm-update %}) | Method [1]({% post_url 2021-03-14-sadm-update %}#method1) or [2]({% post_url 2021-03-14-sadm-update %}#method2) | How-to update to latest version of SADMIN|      
+| [Directories structure](/assets/img/sadmin_directory_structure.png) | Image | SADMIN Full directories structure |  
+| [Support request](/utilities/sadm-support-request) | [sadm_support_request.sh](/utilities/sadm-support-request) | Submit an enhancement or a support request |  
+
+ 
 
 
-## The Web Interface
+<a id="web_interface"></a>
+## Using the web interface
 
-| Name ...                                                                 | Description |  
-| :---                                                                        | :--- |  
-| [How-to add a client]({% post_url 2021-04-11-web-add-client %})             | How-to add a client to SADMIN inventory | 
-| [How-to remove a client]({% post_url 2021-05-19-how-to-remove-a-client %})  | How-to remove a client from SADMIN inventory |
-| [How-to schedule O/S update](/utilities/sadm-osupdate/#schedule_osupdate)   | Schedule O/S update with Web Interface |
-| [How-to schedule a ReaR Image backup]({% post_url 2021-06-12-sadm-rear-backup %}#rear_schedule) | Schedule ReaR backup via theweb interface |
-| [How-to create a daily backup]({% post_url 2021-05-24-sadm-backup %}#backup_schedule) | Daily backup what you need with custom retention  
+| Name ...                                                                                          | Description |  
+| :---                                                                                              | :--- |  
+| [How-to add a client]({% post_url 2021-04-11-web-add-client %})                                   | How-to add a client to SADMIN inventory | 
+| [How-to remove a client]({% post_url 2021-05-19-how-to-remove-a-client %})                        | How-to remove a client from SADMIN inventory |
+| [How-to schedule O/S update](/utilities/sadm-osupdate/#schedule_osupdate)                         | Schedule O/S update with Web Interface |
+| [How-to schedule a ReaR Image backup]({% post_url 2021-06-12-sadm-rear-backup %}#rear_schedule)   | Schedule ReaR backup via theweb interface |
+| [How-to create a daily backup]({% post_url 2021-05-24-sadm-backup %}#backup_schedule)             | Daily backup what you need with custom retention |  
 
 
+
+<a id="command_line"></a>
 ## Command line utilities
 
 | Name ...                                                                       | Script | Description  
@@ -47,27 +56,29 @@ sidebar:
 | [sview]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | System monitor viewer from command line |
 | [sadm](/utilities/sadm-ui) | [sadm (sadm_ui.sh)](/utilities/sadm-ui) | System Administration Menu | 
 | [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})| [smon (sadm_sysmon_cli.sh)]({% post_url 2021-06-15-sadm-sysmon-cli %}) | Run SysMon and view the report file and script(s) error(s)|   
+| [Control Startup/Shutdown script]({% post_url 2021-05-23-sadm-service-ctrl %})       | [sadm_service_ctrl.sh]({% post_url 2021-05-23-sadm-service-ctrl %}) | Enable, disable system startup/shutdown script|  
 
 
 
+<a id="writing_scripts"></a>
 ## Writing your own scripts   
 
-| Name ...                                                                       | Script | Description  
+| Name ...                                                                          | Script | Description  
 | :---                                                                              | :---   | :--- |  
 | [Quick-Intro](/_pages/quickstart)                                                 | Templates/Wrapper | Introduction to template & wrapper |
 | [How-to use the shell script template]({% post_url 2021-03-16-sadm-template-sh %})| [sadm_template.sh]({% post_url 2021-03-16-sadm-template-sh %}) | Using SADMIN shell script template   
 | [How-to use the python template]({% post_url 2021-03-16-sadm-template-py %})      | [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) | Using SADMIN python script template    
 | [How-to use the menu template]({% post_url 2021-04-30-sadm-template-menu %})      | [sadm_template_menu.sh]({% post_url 2021-04-30-sadm-template-menu %}) | Using SADMIN shell menu template   
 | [How-to use the script wrapper]({% post_url 2018-02-11-sadm-wrapper %})           | [sadm_wrapper.sh]({% post_url 2018-02-11-sadm-wrapper %})     | Use the wrapper to run your existing scripts  
-| [SADMIN Shell Library Doc.]({% post_url 2021-04-07-sadmlib-std-sh %})                        | [sadmlib_std.sh]({% post_url 2021-04-07-sadmlib-std-sh %}) | SADMIN standard shell library  
-| [SADMIN Shell Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-sh %})              | [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %})  | SADMIN Shell library demonstrator   
-| [SADMIN Python Library Doc.]({% post_url 2021-04-07-sadmlib-std-py %})                        | [sadmlib_std.py]({% post_url 2021-04-07-sadmlib-std-py %})  | SADMIN standard python library  
-| [SADMIN Python Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-py %})              | [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %})  | SADMIN Python library demonstrator
+| [SADMIN Shell Library Doc.]({% post_url 2021-04-07-sadmlib-std-sh %})             | [sadmlib_std.sh]({% post_url 2021-04-07-sadmlib-std-sh %}) | SADMIN standard shell library  
+| [SADMIN Shell Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-sh %})        | [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %})  | SADMIN Shell library demonstrator   
+| [SADMIN Python Library Doc.]({% post_url 2021-04-07-sadmlib-std-py %})            | [sadmlib_std.py]({% post_url 2021-04-07-sadmlib-std-py %})  | SADMIN standard python library  
+| [SADMIN Python Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-py %})       | [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %})  | SADMIN Python library demonstrator
 | [ Library Code Section](/libraries/sadmin-section) | | Minimal code for using SADMIN library |
-| [SADMIN Menu Builder Library]({% post_url 2019-10-12-sadmlib-screen-sh %})                  | [sadmlib_screen.sh]({% post_url 2019-10-12-sadmlib-screen-sh %})   | Library use to build shell menu   
+| [SADMIN Menu Builder Library]({% post_url 2019-10-12-sadmlib-screen-sh %})        | [sadmlib_screen.sh]({% post_url 2019-10-12-sadmlib-screen-sh %})   | Library use to build shell menu   
 
 
-
+<a id="config_files"></a>
 ## Configuration files
 
 | Name | Location | Description |  
@@ -81,7 +92,10 @@ sidebar:
 | [sadm_client crontab]({% post_url 2021-06-25-etc-crond-sadm-client %})  | [/etc/crontab.d/sadm_client]({% post_url 2021-06-25-etc-crond-sadm-client %})            | Collect perf. & system information, run system monitor and housekeeping |   
 
 
-## System Monitor related information
+
+
+<a id="sysmon"></a>
+## System Monitor
 
 View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sadm_view_sysmon.png) or on the command line using [sview](/assets/img/sadm_sysmon/sadm_sysmon_tui.png).
 
@@ -99,29 +113,24 @@ View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sa
 | [How-to use SADMIN alerting system]({% post_url 2021-06-18-how-to-use-sadmin-alert %}) | How-to |Understanding SADMIN alerting system |  
 
 
-## Backup scripts
+
+
+
+<a id="backup"></a>
+## Backups
 
 | Name ...                                                               | Script | Description  
 | :---                                                                      | :---   | :--- |   
 | [Daily backup script]({% post_url 2021-05-24-sadm-backup %})              | [sadm_backup.sh]({% post_url 2021-05-24-sadm-backup %})   | Backup based on the content of the backup list & exclude file  
-| [Save filesystem metadata]({% post_url 2021-06-02-sadm-dr-savefs %}) | [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) | Save filesystems metadata (use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}))
-| [Recreate filesystems]({% post_url 2021-06-04-sadm-dr-recreatefs %})     | [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %})  | Recreate filesystem using data produced by '[sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %})'
-| [Backup SADMIN database]({% post_url 2021-05-26-sadm-backupdb %}) | [sadm_backupdb.sh]({% post_url 2021-05-26-sadm-backupdb %})                       | Backup one or all MySQL/MariaDB databases 
-| [Backup image of a system]({% post_url 2021-06-12-sadm-rear-backup %})| [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})|  Create image backup of the system to a NFS server | 
+| [Save filesystem metadata]({% post_url 2021-06-02-sadm-dr-savefs %})      | [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) | Save filesystems metadata (use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}))
+| [Recreate filesystems]({% post_url 2021-06-04-sadm-dr-recreatefs %})      | [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %})  | Recreate filesystem using data produced by '[sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %})'
+| [Backup SADMIN database]({% post_url 2021-05-26-sadm-backupdb %})         | [sadm_backupdb.sh]({% post_url 2021-05-26-sadm-backupdb %})                       | Backup one or all MySQL/MariaDB databases 
+| [Backup image of a system]({% post_url 2021-06-12-sadm-rear-backup %})    | [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})|  Create image backup of the system to a NFS server | 
 
 
 
 
-## Run your own script when system start and when it shutdown
-
-| Name ...                                                               | Script | Description  
-| :---                                                                      | :---   | :--- |   
-| [Control Startup/Shutdown script]({% post_url 2021-05-23-sadm-service-ctrl %})       | [sadm_service_ctrl.sh]({% post_url 2021-05-23-sadm-service-ctrl %}) | Enable, disable system startup/shutdown script  
-
-
-
-
-
+<a id="osupdate"></a>
 ## O/S Update Tools
 
 | Name ...                                                               | Script | Description  
@@ -132,23 +141,8 @@ View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sa
 
 
 
-
-
-## SADMIN Client - Daily end of day scripts
-
-| Name ...                                                               | Script | Description  
-| :---                                                                      | :---   | :--- |   
-| **[Daily end of day script]({% post_url 2021-05-31-sadm-client-sunset %})**    | [sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})          | Main script that run the 4 scripts below|   
-| [1. Client housekeeping]({% post_url 2021-05-29-sadm-client-housekeeping %})| [sadm_client_housekeeping.sh]({% post_url 2021-05-29-sadm-client-housekeeping %}) | Purge old log,rch,nmon files and check $SADMIN permission   
-| [2. Create sysinfo file]({% post_url 2021-04-22-sadm-create-sysinfo %}) | [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})           | Collect hardware & software information about the system   
-| [3. Save filesystem metadata]({% post_url 2021-06-02-sadm-dr-savefs %}) | [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) | Save filesystems metadata (use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}))
-| [4. Produce Sysinfo HTML]({% post_url 2021-06-01-sadm-cfg2html %}) | [sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) | Get System information and creates a HTML web page of it  
-
-
-
-
-
-## SADMIN Server - Daily start of day scripts
+<a id="daily_server"></a>
+## Server daily start of day scripts
 
 
 | Name ...                                                               | Script | Description  
@@ -164,9 +158,15 @@ View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sa
 
 
 
+<a id="daily_client"></a>
+## Client daily end of day scripts
 
+| Name ...                                                               | Script | Description  
+| :---                                                                      | :---   | :--- |   
+| **[Daily end of day script]({% post_url 2021-05-31-sadm-client-sunset %})**    | [sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})          | Main script that run the 4 scripts below|   
+| [1. Client housekeeping]({% post_url 2021-05-29-sadm-client-housekeeping %})| [sadm_client_housekeeping.sh]({% post_url 2021-05-29-sadm-client-housekeeping %}) | Purge old log,rch,nmon files and check $SADMIN permission   
+| [2. Create sysinfo file]({% post_url 2021-04-22-sadm-create-sysinfo %}) | [sadm_create_sysinfo.sh]({% post_url 2021-04-22-sadm-create-sysinfo %})           | Collect hardware & software information about the system   
+| [3. Save filesystem metadata]({% post_url 2021-06-02-sadm-dr-savefs %}) | [sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %}) | Save filesystems metadata (use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}))
+| [4. Produce Sysinfo HTML]({% post_url 2021-06-01-sadm-cfg2html %}) | [sadm_cfg2html.sh]({% post_url 2021-06-01-sadm-cfg2html %}) | Get System information and creates a HTML web page of it  
 
-## SADMIN Directory structure
-
-![SADMIN Directories Structure](/assets/img/sadmin_directory_structure.png){: .align-center} 
 

@@ -30,143 +30,171 @@ main:
 
 sidebar-manpage:
 
-  - title: "Install & Configuration"
-    children:
-      - title:  "Installation guide"
-        url:    /_pages/install
-      - title:  "Quick start"
-        url:    /_pages/quickstart
-      - title:  "Main configuration file"
-        url:    /configuration_files/sadmin-cfg
-      - title:  "Packages required"
-        url:    /_pages/requirements
-      - title:  "Uninstall SADMIN"
-        url:    /utilities/sadm-uninstall
-
-  - title: "Command Line Tools"
-    children:
-      - title:  "srch (sadm_show_rch.sh)"
-        url:    /command_line/sadm-show-rch
-      - title:  "sdf (sadm_df.sh)"
-        url:    /command_line/sadm-df
-      - title:  "sview (sadm_sysmon_tui.pl)"
-        url:    /command_line/sadm-sysmon-tui
-      - title:  "smon (sadm_sysmon_cli.pl)"
-        url:    /command_line/sadm-sysmon-cli
-      - title:  "sadm (sadm_ui.sh)"
-        url:    /command_line/sadm-ui
-
-        
-  - title: "Utilities"
-    children:
-      - title:  "sadm_osupdate.sh"
-        url:    /utilities/sadm-osupdate
-      - title:  "sadm_osupdate_starter.sh"
-        url:    /utilities/sadm-osupdate-starter
-      - title:  "sadm_push_sadmin.sh"
-        url:    /utilities/sadm-push-sadmin
-      - title:  "sadm_requirements.sh"
-        url:    /utilities/sadm-requirements
-      - title:  "sadm_service_ctrl.sh"
-        url:    /utilities/sadm-service-ctrl
-      - title:  "sadm_support_request.sh"
-        url:    /utilities/sadm-support-request
-      - title:  "sadm_wrapper.sh"
-        url:    /utilities/sadm-wrapper
-      - title: "sadm-dr-recreatefs.sh"
-        url:    /utilities/sadm-dr-recreatefs 
-
-  - title: "Backup"
-    children:
-      - title:  "sadm_backup.sh"
-        url:    /backup/sadm-backup
-
-
-
-  - title: "How-to"
-    children:
-      - title:  "How-to add a SADMIN client"
-        url:    /how-to/web-add-client
-      - title:  "How-to remove a SADMIN client"
-        url:    /how-to/how-to-remove-a-client
-      - title:  "How-to schedule O/S update"
-        url:    /utilities/sadm-osupdate/#schedule_osupdate        
-      - title:  "How-to update SADMIN"
-        url:    /how-to/sadm-update
-        
+  - title: "Download SADMIN"
+    url:    /_pages/download
+  - title: "Install, Uninstall, Update"
+    url:    /_pages/documentation/#install
+  - title: "Using the web interface"
+    url:    /_pages/documentation/#web_interface
+  - title: "Command line utilities"
+    url:    /_pages/documentation/#command_line
+  - title: "Writing your own scripts"
+    url:    /_pages/documentation/#writing_scripts
+  - title: "Configuration files"
+    url:    /_pages/documentation/#config_files
   - title: "System Monitor"
-    children:
-      - title:  "System Monitor"
-        url:    /system_monitor/sadm-sysmon
-      - title:  "System Monitor config file"
-        url:    /system_monitor/sadm-sysmon-config
-      - title:  "sview (sadm_sysmon_tui.pl)"
-        url:    /system_monitor/sadm-sysmon-tui
-      - title:  "sadm_daily_report.sh"
-        url:    /system_monitor/sadm-daily-report
-      - title:  "sadm_fetch_client.sh"
-        url:    /system_monitor/sadm-fetch-client
-      - title:  "How-to setup SMS notification"
-        url:    /how-to/how-to-sms
-      - title:  "How-to create a Slack workspace"
-        url:    /system_monitor/sadm-create-slack-workspace
-      - title:  "How-to create Slack channel and App."
-        url:    /system_monitor/sadm-create-slack-channel-and-slack-app 
-      - title:  "How-to use SADMIN alerting system"
-        url:    /system_monitor/how-to-use-sadmin-alert
+    url:    /_pages/documentation/#sysmon
+  - title: "Backup"
+    url:    /_pages/documentation/#backup
+  - title: "O/S Update Tools"
+    url:    /_pages/documentation/#osupdate
+  - title: "Client end of day scripts"
+    url:    /_pages/documentation/#daily_client
+  - title: "Server  start of day scripts"
+    url:    /_pages/documentation/#daily_server
+    
 
 
-  - title: "Daily Client Scripts"
-    children:
-      - title: "sadm_client_sunset.sh"
-        url:    /client-scripts/sadm-client-sunset
-      - title: "sadm_client_housekeeping.sh"
-        url:    /client-scripts/sadm-client-housekeeping
-      - title: "sadm-dr-savefs.sh"
-        url:    /client-scripts/sadm-dr-savefs
-      - title: "sadm_create_sysinfo.sh"
-        url:    /client-scripts/sadm-create-sysinfo
-      - title: "sadm_cfg2html.sh"
-        url:    /client-scripts/sadm-cfg2html
 
-  - title: "Daily Server Scripts"
-    children:
-      - title: "sadm_server_sunrise.sh"
-        url:    /server-scripts/sadm-server-sunrise
-      - title: "sadm_server_housekeeping.sh"
-        url:    /server-scripts/sadm-server-housekeeping
-      - title: "sadm_daily_farm_fetch.sh"
-        url:    /server-scripts/sadm-daily-farm-fetch
-      - title: "sadm_database_update.py"
-        url:    /server-scripts/sadm-database-update
-      - title: "sadm_nmon_rrd_update.sh"
-        url:    /server-scripts/sadm-nmon-rrd-update
-      - title: "sadm_subnet-lookup.py"
-        url:    /server-scripts/sadm-subnet-lookup
-      - title: "sadm_backupdb.sh"
-        url:    /server-scripts/sadm-backupdb
 
-  - title: "Script Templates"
-    children:
-      - title:  "sadm_template.sh"
-        url:    /templates/sadm-template-sh
-      - title: "sadm_template.py"
-        url:    /templates/sadm-template-py
-      - title: "sadm_template_menus.sh"
-        url:    /templates/sadm-template-menu
 
-  - title: "Libraries"
-    children:
-      - title:  "sadmlib_std.sh"
-        url:    /libraries/sadmlib-std-sh
-      - title:  "sadmlib_std.py"
-        url:    /libraries/sadmlib-std-py
-      - title: "SADMIN code section"
-        url:    /libraries/sadmin-section
-      - title:  "sadmlib_std_demo.sh"
-        url:    /libraries/sadmlib-std-demo-sh
-      - title:  "sadmlib_std_demo.py"
-        url:    /libraries/sadmlib-std-demo-py
-      - title:  "sadmlib_screen.sh"
-        url:    /libraries/sadmlib-screen-sh
-
+#  - title: "Install & Configuration"
+#    children:
+#      - title:  "Installation guide"
+#        url:    /_pages/install
+#      - title:  "Quick start"
+#        url:    /_pages/quickstart
+#      - title:  "Main configuration file"
+#        url:    /configuration_files/sadmin-cfg
+#      - title:  "Packages required"
+#        url:    /_pages/requirements
+#      - title:  "Uninstall SADMIN"
+#        url:    /utilities/sadm-uninstall
+#
+#  - title: "Command Line Tools"
+#    children:
+#      - title:  "srch (sadm_show_rch.sh)"
+#        url:    /command_line/sadm-show-rch
+#      - title:  "sdf (sadm_df.sh)"
+#        url:    /command_line/sadm-df
+#      - title:  "sview (sadm_sysmon_tui.pl)"
+#        url:    /command_line/sadm-sysmon-tui
+#      - title:  "smon (sadm_sysmon_cli.pl)"
+#        url:    /command_line/sadm-sysmon-cli
+#      - title:  "sadm (sadm_ui.sh)"
+#        url:    /command_line/sadm-ui
+#
+#        
+#  - title: "Utilities"
+#    children:
+#      - title:  "sadm_osupdate.sh"
+#        url:    /utilities/sadm-osupdate
+#      - title:  "sadm_osupdate_starter.sh"
+#        url:    /utilities/sadm-osupdate-starter
+#      - title:  "sadm_push_sadmin.sh"
+#        url:    /utilities/sadm-push-sadmin
+#      - title:  "sadm_requirements.sh"
+#        url:    /utilities/sadm-requirements
+#      - title:  "sadm_service_ctrl.sh"
+#        url:    /utilities/sadm-service-ctrl
+#      - title:  "sadm_support_request.sh"
+#        url:    /utilities/sadm-support-request
+#      - title:  "sadm_wrapper.sh"
+#        url:    /utilities/sadm-wrapper
+#      - title: "sadm-dr-recreatefs.sh"
+#        url:    /utilities/sadm-dr-recreatefs 
+#
+#  - title: "Backup"
+#    children:
+#      - title:  "sadm_backup.sh"
+#        url:    /backup/sadm-backup
+#
+#
+#
+#  - title: "How-to"
+#    children:
+#      - title:  "How-to add a SADMIN client"
+#        url:    /how-to/web-add-client
+#      - title:  "How-to remove a SADMIN client"
+#        url:    /how-to/how-to-remove-a-client
+#      - title:  "How-to schedule O/S update"
+#        url:    /utilities/sadm-osupdate/#schedule_osupdate        
+#      - title:  "How-to update SADMIN"
+#        url:    /how-to/sadm-update
+#        
+#  - title: "System Monitor"
+#    children:
+#      - title:  "System Monitor"
+#        url:    /system_monitor/sadm-sysmon
+#      - title:  "System Monitor config file"
+#        url:    /system_monitor/sadm-sysmon-config
+#      - title:  "sview (sadm_sysmon_tui.pl)"
+#        url:    /system_monitor/sadm-sysmon-tui
+#      - title:  "sadm_daily_report.sh"
+#        url:    /system_monitor/sadm-daily-report
+#      - title:  "sadm_fetch_client.sh"
+#        url:    /system_monitor/sadm-fetch-client
+#      - title:  "How-to setup SMS notification"
+#        url:    /how-to/how-to-sms
+#      - title:  "How-to create a Slack workspace"
+#        url:    /system_monitor/sadm-create-slack-workspace
+#      - title:  "How-to create Slack channel and App."
+#        url:    /system_monitor/sadm-create-slack-channel-and-slack-app 
+#      - title:  "How-to use SADMIN alerting system"
+#        url:    /system_monitor/how-to-use-sadmin-alert
+#
+#
+#  - title: "Daily Client Scripts"
+#    children:
+#      - title: "sadm_client_sunset.sh"
+#        url:    /client-scripts/sadm-client-sunset
+#      - title: "sadm_client_housekeeping.sh"
+#        url:    /client-scripts/sadm-client-housekeeping
+#      - title: "sadm-dr-savefs.sh"
+#        url:    /client-scripts/sadm-dr-savefs
+#      - title: "sadm_create_sysinfo.sh"
+#        url:    /client-scripts/sadm-create-sysinfo
+#      - title: "sadm_cfg2html.sh"
+#        url:    /client-scripts/sadm-cfg2html
+#
+#  - title: "Daily Server Scripts"
+#    children:
+#      - title: "sadm_server_sunrise.sh"
+#        url:    /server-scripts/sadm-server-sunrise
+#      - title: "sadm_server_housekeeping.sh"
+#        url:    /server-scripts/sadm-server-housekeeping
+#      - title: "sadm_daily_farm_fetch.sh"
+#        url:    /server-scripts/sadm-daily-farm-fetch
+#      - title: "sadm_database_update.py"
+#        url:    /server-scripts/sadm-database-update
+#      - title: "sadm_nmon_rrd_update.sh"
+#        url:    /server-scripts/sadm-nmon-rrd-update
+#      - title: "sadm_subnet-lookup.py"
+#        url:    /server-scripts/sadm-subnet-lookup
+#      - title: "sadm_backupdb.sh"
+#        url:    /server-scripts/sadm-backupdb
+#
+#  - title: "Script Templates"
+#    children:
+#      - title:  "sadm_template.sh"
+#        url:    /templates/sadm-template-sh
+#      - title: "sadm_template.py"
+#        url:    /templates/sadm-template-py
+#      - title: "sadm_template_menus.sh"
+#        url:    /templates/sadm-template-menu
+#
+#  - title: "Libraries"
+#    children:
+#      - title:  "sadmlib_std.sh"
+#        url:    /libraries/sadmlib-std-sh
+#      - title:  "sadmlib_std.py"
+#        url:    /libraries/sadmlib-std-py
+#      - title: "SADMIN code section"
+#        url:    /libraries/sadmin-section
+#      - title:  "sadmlib_std_demo.sh"
+#        url:    /libraries/sadmlib-std-demo-sh
+#      - title:  "sadmlib_std_demo.py"
+#        url:    /libraries/sadmlib-std-demo-py
+#      - title:  "sadmlib_screen.sh"
+#        url:    /libraries/sadmlib-screen-sh
+#
