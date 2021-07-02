@@ -2,11 +2,20 @@
 title:          sadm_dr_savefs.sh
 desc:           Save system filesystems information in order to recreate them from scratch
 version:        2.8
-updated:        2021-06-02
+summary:        | 
+                This script save filesystem information in order to recreate them from scratch in a disaster 
+                recovery situation. This script is part of 
+                the '[sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})' script. 
+                The 'client sunset script' is scheduled to run daily from the client crontab (/etc/cron.d/sadm_client).
+                The output file is use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}) 
+                to recreate all the system filesystem. This script is supported on Aix and Linux.
+                Although it run on MacOS, it doesn't produce anything (No lvm on MacOS).
+                {: .text-justify}
+updated:        2021-06-30
 os:             Linux
 type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
-categories:     [ client-scripts ] 
-tags:           [ client-scripts ] 
+categories:     [ backup ] 
+tags:           [ backup ] 
 #
 layout:         single
 search:         true
@@ -18,6 +27,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 <a id="top_of_page"></a>
+{{ page.summary }} 
 
 
 <a id="name"></a>
@@ -48,14 +58,7 @@ sidebar:
 <a id="description"></a>
 ## DESCRIPTION
 
-This script save filesystem information in order to recreate them from scratch in a disaster 
-recovery situation. This script is part of 
-the '[sadm_client_sunset.sh]({% post_url 2021-05-31-sadm-client-sunset %})' script. 
-The 'client sunset script' is scheduled to run daily from the client crontab (/etc/cron.d/sadm_client).
-The output file is use by [sadm_dr_recreatefs.sh]({% post_url 2021-06-04-sadm-dr-recreatefs %}) 
-to recreate all the system filesystem. This script is supported on Aix and Linux.
-Although it run on MacOS, it doesn't produce anything (No lvm on MacOS).
-{: .text-justify}
+{{ page.summary }} 
 
 
 ### On Linux :

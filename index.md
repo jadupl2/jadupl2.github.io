@@ -27,7 +27,7 @@ notification via email, SMS or the Slack application.
 SADMIN can surely help you improve and standardize the administration of your server farm.
 {: .text-justify}
 
-![monitor](/assets/img/index_monitor.png "SADMIN monitor page")
+![monitor](/assets/img/sadm_sysmon/sadm_view_sysmon.png "SADMIN monitor page")
 
 ## Monitor your scripts from just one place
 * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.

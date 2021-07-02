@@ -154,6 +154,7 @@ added the default group used for Warning/Error is the one defined sadmin configu
 
 
 
+<a id="sysmon_error_group"></a>
 ### Error alert group
 Column 'K' represent the Error Alert Group to advise when a error need to be issue. Group MUST 
 be defined in the Alert Group File ($SADMIN/cfg/alert_group.cfg). When new filesystem line are 
@@ -266,7 +267,7 @@ root@holmes:/sadmin/cfg # cat holmes.smon
 
 
 
-<a id="runningscript"></a>
+<a id="script"></a>
 ### Running you own script (Column L)
 
 - Column 'L' is never use by sysmon if the column is blank or contain '-'.
@@ -322,6 +323,10 @@ cpu_level                        1 >=  85  95 240 0700 2100 Y Y Y Y Y Y Y Y 0000
 
 
 
+
+
+<br>
+<a id="swapspace"></a>
 ### Check Swap Space utilization
 
 ```bash
@@ -333,15 +338,29 @@ swap_space                       3  >  85  90 000 0000 0000 Y Y Y Y Y Y Y Y 2018
 
 
 
+<br>
+<a id="http"></a>
+### Web site monitoring
+
+- Main condition to do test if a web site respond to an http request, the line MUST begin with "http_".
+- Test the web site respond (1=Up 0=NoResponse)
+  - Example : http_sysinfo.maison.ca
+
+
+
+
+
+<br>
+<a id="service"></a>
 ### Service Monitoring
-                
-- Return 1 if the service is active and 0 if it's not.
-- Service name follow the identifier prefix 'service_'.
-- They can be one or multiple service name specified.
+
+**Thing to remember**
+- The service name MUST be prefix by the string 'service_'.
+- A "1" is returned if the service is active and a "0" if isn't.
+- They can be one or multiple service name specified (separated by comma).
 - Example, Redhat use 'crond' service name, Ubuntu use 'cron'. 
 - To test if the cron daemon is running on both system you specify multiple services.
 - Example : service_crond,cron
-- When specifying multiple service name, separate them by a comma ','. 
 - If one of them is active then 1 is returned.
 - If service is down, you can run one of your script to bring it up or used the 
 - one that come with SADMIN ($SADMIN/usr/mon/srestart.sh).
@@ -403,75 +422,109 @@ service_at,atd                   1  <  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 2018
 
 
 
-
+<br>
+<a id="daemon"></a>
 ### Daemon running
+
+- Line MUST  begin with "daemon_", followed by the process name (found in a "ps -ef").
+- The function search to the specify "name" is present in the process list (ps) of the system. The 
+search is case sensitive.
+- This test only search for the string following the "daemon_" literal in the process list and 
+return the number of time it was found. If it's not found then a "0" is returned, like the code 
+below that search for the "gitea" process.  
+
+```bash
+$ ps -ef | grep gitea | grep -v grep 
+git        501     1  4 Jun25 ?        07:10:09 /home/git/gitea/gitea web
+$ count=$(ps -ef | grep gitea | grep -v grep | wc -l)
+$ echo $count
+1
+```
+
+So here if the "gitea" process counted is "0", then it's lower (< col 3) than "1" (col 5) then the
+script "gitea.sh" would be executed. 
+- Important to remember that after each execution of the script the execution counter (Col 6) is 
+incremented by 1 and that each time the process is found in the process list it is set back to "0". 
+- It would be not be reasonable to try to restart the process over and over each time System 
+Monitor run. So once it as tried to restart it two times, it won't try to restart it again for the 
+next 24 hours and an alert is generated. How does System Monitor achieve that you would ask, well 
+each time the script is run the date and time of the execution is recorded in column "H" and "I". 
+So when the third tries to run the script, the System Monitor calculate the time since the last 
+execution and if it's greater than 24 hours, then counter (col 6) is set to one, column "H" and "I" 
+set to current date and time, and execution of the script is started.
+{: .text-justify}
 
 ```bash
 #
 # ----- Monitor Daemon or Process Running 
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-#daemon_mydaemon                 1  <  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 20180820 1520 default default -
+# ID COLUMN 1  2  3  4  5   6  7    8   9 A B C D E F G     H     I      J       K    L
+daemon_gitea   1  < 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 20180820 1520 default default -
+or to restart it with your own script (sgitea.sh)
+daemon_gitea   1  < 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 20180820 1520 default default gitea.sh
 ```
+
+If you decide to execute a script if the System Monitor can find "gitea" in the process list (like
+above), your script MUST be place it the directory "$SADMIN/usr/mon". You make a copy of the template
+available to you "stemplate.sh"  and create the associated error message file you want to show the
+user when your script failed to restart the process. 
+{: .text-justify}
+
+```bash
+$ cd $SADMIN/usr/mon
+$ cp stemplate.sh gitea.sh 
+$ echo "Couldn't restart gitea process (gitea.sh)." > gitea.txt
+$ vi gitea.sh 
+$ chmod +x gitea.sh
+```
+
+
+
 [Back to the top](#top_of_page)
 
 
 
+
+<br>
 <a id="multipath"></a>
 ### Multipath test
 
-Again if the minimum requirements are met then multipath state evaluation is done, if not we proceed 
-with the next line of Sysmon configuration file.
-SysMon check each path of the multipath and if one one them is not active or ready,
-A value of 1 is returned if everything is ok or 0 when an error is detected. 
-Line will only be evaluated if the command 'multipathd' is present on system.
-    if ( $OSNAME eq "aix" )  {return ;}                                 # Multipath Oonly on Linux
-    if ( $SYSMON_DEBUG >= 5) {print "\n\nChecking Multipath ...";}      # Show User what were doing
-    if ( $CMD_MPATHD eq "" ) {                                          # If multipathd is not host
-        print "Status of Multipath skipped - Command multipathd not present on system";
-    }
+- Again if the [minimum conditions](#sysmon_conditions) are met, then multipath state is evaluated. 
+If not we proceed with the next line of Sysmon configuration file.
+- Multipath line are only evaluated on Linux.
+- Line will only be evaluated if the command 'multipathd' is present on system.
+- SysMon check each path of the multipath 
+  - If all multipath are active or ready then a "1" is returned (place in column 2).
+  - If one one them is not "active" or "ready", a value of 0 is returned.
 
-    # Get output of multipathd and analyse it
-    open(FPATH, "echo 'show paths' | $CMD_MPATHD -k 2>/dev/null| grep -vEi 'cciss|multipath' | ")
-        or die "Can't execute $CMD_MPATHD \n";
-
-    $SADM_RECORD->{SADM_CURVAL} = 1 ;                                   # Default Status is OK=1
-    $INUSE = 0 ;                                                        # Multipath Not in Use=0
-    while ($line = <FPATH>) {                                           # Read multipathd output
-        @ligne = split ' ',$line;                                       # Split Line into Array
-        ($mhcli,$mdev,$mmajor,$mdum1,$mstatus,$mdum2,$mdum3) = @ligne;  # Split Array in fields
-        print "\nMultipath Status = $mstatus";                          # Show User current Status
-        if ($mstatus ne "[active][ready]") {                            # Current Status != Active
-            $SADM_RECORD->{SADM_CURVAL} = 0;                            # Current Status to Error=0
-            print "Multipath Error Detected" ;                          # Signal that Error Detected
-        }
-        $INUSE = 1;                                                     # Multipath is in use Flag
-    }
-    close FPATH ;                                                       # Close multipathd output
-    if ($INUSE == 0){ $mstatus = "not in use"; }                        # Set Status to 'not is use'
-
-    # Set Parameter of Current Evaluation, ready to be evaluated.
-    $CVAL = $SADM_RECORD->{SADM_CURVAL} ;                               # Current Value
-    $WVAL = $SADM_RECORD->{SADM_WARVAL} ;                               # Warning Threshold Value
-    $EVAL = $SADM_RECORD->{SADM_ERRVAL} ;                               # Error Threshold Value
-    $TEST = $SADM_RECORD->{SADM_TEST}   ;                               # Test Operator (=,<=,!=,..)
-    $MOD  = "linux"                     ;                               # Module Category
-    $SMOD = "MUTIPATH"                  ;                               # Sub-Module Category
-    $STAT = $mstatus                    ;                               # Current Status Returned
-    if ($SYSMON_DEBUG >= 5) {                                           # Debug Level at least 5
-        printf "\nMultipath status is %s - Code = (%d) (1=ok 0=Error)",$STAT,$CVAL; # Show User
-    }
-    check_for_error($CVAL,$WVAL,$EVAL,$TEST,$MOD,$SMOD,$STAT);          # Go Evaluate Error/Alert
-}   
 ```bash
-#
 # ----- Check Linux Multipath Status (0=Error 1=All path(s) are Online/Ready)
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-check_multipath                  1 !=  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
+# ID COLUMN 1    2  3   4   5  6    7    8  9 A B C D E F G     H      I     J      K    L
+check_multipath  0 !=  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 warngrp errgrp -
 ```
+
+In the example above, the multipath test returned a problem ("0" in column 2), since "0" is
+not equal (!=) to "1" (Column 5) then an error is generated (Remember that when column 4 or 5 is 
+"0" they are ignored). The alert will sent to the error group "errgrp" specify in column
+"K". This error group got to be part of the [Alert Group File]({% post_url 2021-06-19-alert-group-cfg %}) 
+($SADMIN/cfg/alert_group.cfg).
+{: .text-justify}
+
+Example on the command use to verify that multipath are all active/ready :
+
+```bash
+# echo 'show paths' | multipathd -k | grep -vi multipath
+   0:0:0:0 sda 8:0   1   [active][ready] XX........ 4/20
+   0:0:0:1 sdb 8:16  1   [active][ready] XX........ 4/20
+   1:0:0:0 sdc 8:32  1   [active][ready] XXXX...... 8/20
+   1:0:0:1 sdd 8:48  1   [active][ready] XXXX...... 8/20
+```
+
 [Back to the top](#top_of_page)
 
 
 
+
+<br>
 <a id="pingtest"></a>
 ### Ping test (Line that begin with 'ping_')
 
@@ -533,6 +586,9 @@ column and that it will not be evaluated.
 
 
 
+
+<br>
+<a id="filesystem"></a>
 ### Filesystem monitoring (Line beginning with 'FS')
 
 SysMon automatically detect new filesystem on the system and add them to the [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) and can check a filesystem usage and . By default,it will set 
@@ -567,11 +623,12 @@ The warning will always appear on the system monitor web page, like the example 
 
 ```bash
 # ----- Filesystem Monitoring
-# Can increase it by 10%, two times within 24hours maximum, if script "sadm_fs_incr.sh" in Column L.
-# FS/example                    23 >=  25  90 001 0000 0000 Y Y Y Y Y Y Y Y 20180615 0824 default default sadm_fs_incr.sh
-#---------------------------------------------------------------------------------------------------
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-#---------------------------------------------------------------------------------------------------
+# Can increase it by 10%, two times within 24hours maximum, if script 
+# "sadm_fs_incr.sh" in Column L.
+# FS/usr 23 >= 25 90 001 0000 0000 Y Y Y Y Y Y Y Y 20180615 0824 wargrp errgrp sadm_fs_incr.sh
+#----------------------------------------------------------------------------------------
+# ID COLUMN 1  2  3   4   5  6   7    8   9 A B C D E F G     H     I     J       K     L
+#----------------------------------------------------------------------------------------
 #
 #SADMSTAT 2.5 holmes - Sat Feb  4 09:56:10 2017 - Execution Time 5.00 seconds
 FS/           39 >=  85  90 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -

@@ -2,11 +2,21 @@
 title:          sadm_dr_recreatefs.sh
 desc:           Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems
 version:        2.3
-updated:        2021-06-04
+summary:        |
+                I use to work at a company where we use lvm a lot (Logical Volume Manager), every disk added to a system
+                was assigned a lvm partition. It was easy to add new disks to an existing (or new) volume
+                group. We would then enlarge the filesystems that needed space and we were done. We could all do that
+                online without downtime or disruption. If you are using the LVM in a similar fashion then this 
+                utility could be interesting for you. If you've lost completely your server content, then with script
+                you would be able to recreate all the filesystems that you had before the crash with the right 
+                size, permission and ownership (owner/group), ready to begin the restore of your data. If this 
+                seem interesting for you read on. 
+                {: .text-justify}
+updated:        2021-06-30
 os:             Linux, Aix
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
-categories:     [ utilities ] 
-tags:           [ utilities ] 
+categories:     [ backup ] 
+tags:           [ backup ] 
 #
 layout:         single
 search:         true
@@ -18,7 +28,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 <a id="top_of_page"></a>
-
+{{ page.summary }} 
 
 
 <a id="name"></a>
@@ -51,15 +61,8 @@ sidebar:
 
 **Linux - Recreating the filesystems and populate /etc/inittab**  
 
-I use to work at a company where we use lvm a lot (Logical Volume Manager), every disk added to a system
-was assigned a lvm partition. It was easy to add new disks to an existing (or new) volume
-group. We would then enlarge the filesystems that needed space and we were done. We could all do that
-online without downtime or disruption. If you are using the LVM in a similar fashion then this 
-utility could be interesting for you. If you've lost completely your server content, then with script
-you would be able to recreate all the filesystems that you had before the crash with the right 
-size, permission and ownership (owner/group), ready to begin the restore of your data. If this 
-seem interesting for you read on. 
-{: .text-justify}
+{{ page.summary }} 
+
 
 - Every day the '[sadm_dr_savefs.sh]({% post_url 2021-06-02-sadm-dr-savefs %})' script run and generate 
 one output file name "$SADMIN/dat/dr/[hostname]_fs_save_info.dat".  

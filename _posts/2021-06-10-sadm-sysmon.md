@@ -92,22 +92,18 @@ the [SysMon configuration file page]({% post_url 2021-06-11-sadm-sysmon-config %
 <br>
 **Here is a list of all the type of test that Sysmon can perform:**
 
-- Verify the [system multipath state]({% post_url 2021-06-11-sadm-sysmon-config %}#multipath)
-- Check the system [load average]({% post_url 2021-06-11-sadm-sysmon-config %}#loadaverage) and 
-  notify if warning or error threshold is sustained of certain period of time. It return system 
-  load average of the past 5 minutes, using 'uptime' (Linux,Aix,MacOS). Actual value is returned 
-  in column 2 of the line.
-- Can check the [CPU usage]({% post_url 2021-06-11-sadm-sysmon-config %}#cpuusage) and notify if warning or error threshold is sustained of certain period of time.
-- Can check the Swap space utilization and alert if warning or error threshold is reached.
-- Can check filesystem usage and alert if warning or error threshold is reached.
-- Can [ping an IP or a hostname]({% post_url 2021-06-11-sadm-sysmon-config %}#pingtest) and issue 
-an alert if doesn't respond after 3 attempts. To execute a ping test, the column one must begin with 
-‘ping_’ follow by the tcp/ip address or the hostname you would like to ping, 
-[see an example]({% post_url 2021-06-11-sadm-sysmon-config %}#pingtest).
-- Can check if a particular service is running and advise you if it isn't, it can even restart it if you want.
-- Can check if a deamon of your choice is running
-- Can check if we have an http response of a particular web site.
-- Can run you own script and advise you if it terminate with a non zero exit code.
+- Verify the **[system multipath state]({% post_url 2021-06-11-sadm-sysmon-config %}#multipath)**
+- Check the system **[load average]({% post_url 2021-06-11-sadm-sysmon-config %}#loadaverage)** and 
+  notify you, if warning or error threshold is sustained of certain period of time. 
+- Monitor **[CPU usage]({% post_url 2021-06-11-sadm-sysmon-config %}#cpuusage)** and notify you if warning or error threshold is sustained of certain period of time.
+- Verify **[Swap space utilization]({% post_url 2021-06-11-sadm-sysmon-config %}#swapspace)** and alert if warning or error threshold is exceeded.
+- Monitor **[filesystem usage]({% post_url 2021-06-11-sadm-sysmon-config %}#filesystem)** and alert if warning or error threshold is reached.
+- Can **[ping an IP or a hostname]({% post_url 2021-06-11-sadm-sysmon-config %}#pingtest)** and issue 
+an alert if doesn't respond after 3 attempts.
+- Verify that a particular **[service]({% post_url 2021-06-11-sadm-sysmon-config %}#service)** is running and advise you if it isn't, it can even restart it if you want.
+- Can check if a **[deamon]({% post_url 2021-06-11-sadm-sysmon-config %}#daemon)** of your choice is running
+- Can check if we have an **[http response]({% post_url 2021-06-11-sadm-sysmon-config %}#http)** of a particular web site.
+- Can run **[your own script]({% post_url 2021-06-11-sadm-sysmon-config %}#script)** and advise you if it terminate with a non zero exit code.
  
 [Back to the top](#top_of_page)
 
@@ -115,6 +111,14 @@ an alert if doesn't respond after 3 attempts. To execute a ping test, the column
 
 <a id="examples"></a>
 ## EXAMPLE
+
+- You can manually run the System Monitor by entering the command "sadm_sysmon.pl". You can also run 
+it by entering the command "[smon](/assets/img/sadm_sysmon_cli/sadm_sysmon_cli_output_2.png)" that will run the system monitor and show you the content of the 
+sysmon report file and finally a list of the script(s) that terminated with error on current system. 
+- Remember that you can always view the current of all your systems scripts and problems 
+(Error/Warning) at the [system monitor web page](/assets/img/sadm_sysmon/sadm_view_sysmon.png) or 
+on the command line by using the "[sview](assets/img/sadm_sysmon/sadm_sysmon_tui.png)" command.
+
 
 ```bash
 # sadm_sysmon.pl

@@ -30,6 +30,8 @@ main:
 
 sidebar-manpage:
 
+  - title: "Home Page"
+    url:    /index
   - title: "Download SADMIN"
     url:    /_pages/download
   - title: "Install ,Uninstall, Update"
