@@ -312,13 +312,40 @@ load_average                     0  >  20  35 120 0700 2100 Y Y Y Y Y Y Y Y 0000
 <a id="cpuusage"></a>
 ### Check CPU usage
 
-- Return cpu usage using 'vmstat' command (Linux/Aix) and 'iostat' on MacOS. 
-- The 'usr' added to the 'sys' value is returned in column 2 of the line.
+- You can be alerted if the usage percentage of your CPU reach a certain threshold for a certain number  
+of minutes, specified in column 6. 
+- Every time a "cpu_level" line is process by the System Monitor, it used the "vmstat" (iostat 
+on MacOS) command to get a snapshot of the cpu utilization (user + system). The resultant value is
+then compare with the warning and error threshold specified respectively in column 4 and 5. 
+- If the value is under the warning and error level, then the event starting date ('YYYYMMDD') 
+and time ('HHMM') (Column H' and 'I') is set to zeroes ( 00000000 0000').
+- If the value is over or equal, depending of the test you have put in column 3, then two things 
+can happen.
+  - If the event starting date and time *(Column H' and 'I') are all zeroes*, then this is the 
+first time the cpu usage exceed the warning or error level. Then the System Monitor set the event 
+starting date and time are set to the current date and time of the system and processing continue to
+the next line. 
+  - If the event starting date and time *(Column H' and 'I') are not all zeroes*, then this is not
+the first time the cpu usage exceed the warning or error level. Then the System Monitor calculate 
+the number of minutes since the event start date and time. 
+    - If the number of minutes is less the number of minutes specify on column 6, then processing 
+continue with the next line.
+    - If the number of minutes is greater or equal (test in column 3) than the warning or error 
+threshold value, then the warning (Column J) or error group (Column K) will get alerted and then 
+the event starting date and time (Column H' and 'I') is set to zeroes ( 00000000 0000').
+{: .text-justify}
+
 
 ```bash
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-cpu_level                        1 >=  85  95 240 0700 2100 Y Y Y Y Y Y Y Y 00000000 0000 default default -
+# ID COLUMN 1  2  3    4   5  6   7    8   9 A B C D E F G     H     I     J      K    L
+cpu_level      80 >=  85  95 120 0700 2100 Y Y Y Y Y Y Y Y 20210601 1445 wargrp errgrp -
 ```
+
+In the example above, the current cpu usage is 80%, the warning threshold is set to 85% and error
+at 95%. If the percentage of utilization is greater or equal than one of these value for more than 
+"120" minutes (column 6), then the warning group "wargrp" or the "errgrp" will get alerted.
+{: .text-justify}
+
 [Back to the top](#top_of_page)
 
 

@@ -56,6 +56,7 @@ sidebar:
 
 {{ page.summary }} 
 
+<br>
 **Summary of what step the System Monitor go through when it is started**
 
 - First it check if the System Monitor lock file exist ($SADMIN/sysmon.lock).
