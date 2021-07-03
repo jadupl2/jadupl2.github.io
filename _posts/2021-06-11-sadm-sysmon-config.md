@@ -168,123 +168,122 @@ added the default group used for Warning/Error is the one defined sadmin configu
 
 
 
-```bash
-root@holmes:/sadmin/cfg # cat holmes.smon
-#----------------------------------------------------------------------------------------
-# SADMIN SYStem MONitor configuration file (3.0)
-#  - The file MUST reside in ${SADMIN}/cfg (filename `hostname`.smon).
-#  - It is read when the SADMIN System Monitor start (sadm_sysmon.pl).
-#  - Before exiting SysMon write the updated version of this file.
-#  - Updated value (or resulting status) is recorded in the second column of each line
-#  - New Filesystem are added automatically to this file when detected.
-#  - Sysmon is run every 5 minutes from the sadm_server crontab (/etc/cron.d/sadm_server)
-#  - Comments lines must always begin with a "#" (Column 1)
-#  - Column are delimited by space(s) and/or tabulation.
-#  - At execution each line is evaluated based on the test requested in the first column
-#----------------------------------------------------------------------------------------
-# Col   Name            Description
-#----------------------------------------------------------------------------------------
-#  1    IDENTIFIER      This name specify the test we want to run.
-#                       These are the one presently supported :
-#
-#       'script:yourscript.sh'  
-#               If you wish to run a custom script to you wrote, this is the one. 
-#               Place the word 'script:' in column 1, followed by the name of your script. 
-#               Be sure that your script exit with a return code of 0 or 1, so you can test it. 
-#               Script execution time must be as short as possible, cause it will run each time 
-#               the System Monitor is run.
-
-
-#       swap_space
-#               Return the percentage of the Swap/Paging Space used.
-#               On Linux we use 'free | grep -i swap', on Aix 'lsps -a' and on MacOS 
-#               'sysctl vm.swapusage'. Actual value is returned in column 2 of the line.
-#       daemon_ 
-#               The function search to the specify "name" is present in the process list (ps) of 
-#               the system. The search is case sensitive.
-#               Example: "daemon_batcode"   
-#                   - Will return 0 if 'batcode' is not in the process list.
-#                   - Will return a value greater than zero, if it appear in the process list.
-#                     If it appear four times, it will return 4.
-#
-#       check_multipath
-#               SysMon check each path of the multipath and if one one them is not active or ready,
-#               A value of 1 is returned if everything is ok or 0 when an error is detected. 
-#               Line will only be evaluated if the command 'multipathd' is present on system.
-#                       
-#       http_   
-#               Test the web site respond (1=Up 0=NoResponse)
-#               Example : http_sysinfo.maison.ca
-#
-#       ping_
-#               Every time Sysmon is run is will ping the name or the IP your have specified after 
-#               the prefix 'ping_'.
-#               Example : ping_www.google.com
-#               This will ping the 'www.google.com' web site and return a 0 is it ping, if not a 1.
-#
-
-#
-#---------------------------------------------------------------------------------------------------
-# Col   Name            Description
-#  2    VALUE RETURNED  It's the value returned that is in conjunction with what is asked in col 1.
-#                       For 'FS' it is the percentage used, for 'ping_' it will be a 0 or a 1, 
-#                       for 'service_' it return 1 if the service is active and 0 if it's not.
-#---------------------------------------------------------------------------------------------------
-#  3    Operator        This dictate what operator will be used to compare the actual value (Col 2)
-#       =,!=,<,>,=>,=<  with the 'Warning' (Col 4) and the 'Error' (Col 5).
-#---------------------------------------------------------------------------------------------------
-#  4    Warning Level   This value is compare against the value returned using the operator in 
-#                       column 3. If it's True then a Warning is raise
-#                       When you leave this value at 0, then the Warning threshold is not evaluated.
-#---------------------------------------------------------------------------------------------------
-#  5    Error Level     This value is compare against the value returned using the operator in 
-#                       column 3. If it's True then an error is raise.
-#                       When you leave this value at 0, then the Error threshold is not evaluated.
-#---------------------------------------------------------------------------------------------------
-#  6    Duration Min/   This field have a double usage :
-#       RunCounter          - For load_average, cpu_level and swap_space it's the number of minutes
-#                             that the value returned must exceed the Warning or Error before a 
-#                             Warning or an Error is raised.
-#                             Example : You set the warning threshold of the 'cpu_level' line at 80%
-#                                       but you don't want to trigger an error if the CPU Level 
-#                                       exceed 80% for only 2 minutes. So you may want to set this
-#                                       column to 120 so an error would be trigger only when the cpu
-#                                       level exceed 80% for at least 120 continuous minutes. If you
-#                                       leave it 0, is sysmon is run at the cpu_level exceed 80% an
-#                                       error will be trigger immediately.
-#                           - For Service (service_) and Filesystem (FS) lines it represented the
-#                             number of time the service was restarted or the filesystem was
-#                             increase in the last 24 Hours. You don't need to change this field,
-#                             it's taken care of automatically (Unless you want to reset it to 0 and
-#                             provoke a service restart or a filesystem increase within the 24 hrs).
-#---------------------------------------------------------------------------------------------------
-
-
-#---------------------------------------------------------------------------------------------------
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-#---------------------------------------------------------------------------------------------------
-```
-
-
-
 <a id="script"></a>
-### Running you own script (Column L)
+### Running script within SysMon
 
-- Column 'L' is never use by sysmon if the column is blank or contain '-'.
-- When the line is evaluated and it turn out to be in error, if you put a script name it will be 
-- executed (You may want to correct the error with it).
-- Script MUST reside in $SADMIN/usr/mon directory and be executable.
+The System Monitor may noy have the feature you may need. But wait, it can ran a script of your own 
+and the result (exit code) be evaluated by SysMon, you can even get alerted if you want when you 
+script exit with a non zero code.
+
+- Line MUST begin with "script:" and followed by the script name.
+- The script MUST reside in $SADMIN/usr/mon directory and be executable.
 - The script will produce a log in that same directory, with the same name as your script.
-- For filesystem increase, the name of the script MUST be 'sadm_fs_incr.sh'.
-- To restart a service if it is down, the name of the script MUST be 'srestart.sh'.
+- Try to get the script execution time as low as possible, remember SysMon run every 5 minutes.
+- The script exit code must be '0' when it finish with success and '1' when it fail.
+- By default, unless you create it within your script, the error message returned to the user should
+be defined in the same directory of your script and have the same name of your script, but with a 
+"txt" extension. So if your script name is "stemplate.sh", the error message file would be named 
+"stemplate.txt".
 
+
+**The sample script template**
+To demonstrate how to use the "script:" line, we will use the script below, that is supplied and 
+that is present in "$SADMIN/usr/mon" directory.
 
 ```bash
-# ----- Run specific scripts, check return code and issue a warning or error based on threshold
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-#script:stemplate.sh       1  =  00  01 000 0000 0000 Y Y Y Y Y Y Y Y 20180911 1520 default default -
+[/sadmin/usr/mon]: ./stemplate.sh
+--------------------------------------------------------------------------------
+Starting script stemplate.sh on holmes Sat Jul  3 10:30:01 EDT 2021
+Test if file /tmp/sysmon.tmp exist ...
+File /tmp/sysmon.tmp doesn't exist
+Return code : 1
+End of script stemplate.sh on holmes Sat Jul  3 10:30:01 EDT 2021
+--------------------------------------------------------------------------------
+
+[/sadmin/usr/mon]: touch /tmp/sysmon.tmp
+[/sadmin/usr/mon]: ./stemplate.sh
+ 
+--------------------------------------------------------------------------------
+Starting script stemplate.sh on holmes Sat Jul  3 10:30:18 EDT 2021
+Test if file /tmp/sysmon.tmp exist ...
+File /tmp/sysmon.tmp exist
+Return code : 0
+End of script stemplate.sh on holmes Sat Jul  3 10:30:18 EDT 2021
+--------------------------------------------------------------------------------
+```
+
+Let's say we have a line like the one below and we run the System Monitor
+```bash
+# Run specific scripts, check return code and issue a warning or error based on threshold
+# ID - COLUMN 1      2  3   4  5  6    7   8   9 A B C D E F G     H     I     J     K     L
+script:stemplate.sh  1  =  00 01 000 0000 0000 Y Y Y Y Y Y Y Y 20180911 1520 wargrp default -
 #
 ```
+
+As part of the output, you will get a message like this on the screen, when the file "/tmp/sysmon.tmp" 
+exist.
+```bash
+# sadm_sysmon.pl
+...
+Execution of script /sadmin/usr/mon/stemplate.sh is requested
+Running script /sadmin/usr/mon/stemplate.sh ... 
+Return code is 0
+...
+```
+
+If we remove the file "/tmp/sysmon.tmp" and we run SysMon again, this time we get an error.
+```bash
+[/sadmin/usr/mon]: rm -f /tmp/sysmon.tmp
+[/sadmin/usr/mon]: sadm_sysmon.pl
+...
+
+Execution of script /sadmin/usr/mon/stemplate.sh is requested
+Running script /sadmin/usr/mon/stemplate.sh ... 
+Return code is 1
+Using message in /sadmin/usr/mon/stemplate.txt for rpt file
+...
+```
+
+**SysMon generated report file** 
+```bash
+# cat $SADMIN/dat/rpt/holmes.rpt
+Error;holmes;2021.07.03;11:25;SCRIPT;stemplate;File /tmp/sysmon.tmp doesn't exist - Running stemplate.sh.;default;default
+#
+```
+
+**Script error text message file**   
+```bash
+/sadmin/usr/mon # cat stemplate.txt
+File /tmp/sysmon.tmp doesn't exist - Running stemplate.sh.
+```
+
+**What user will see on the web interface**   
+![SysMon Script Report Example](/assets/img/sadm_sysmon/sadm_sysmon_script.png){: .align-center}
+
+
+**Email Alert Received**   
+Because my error group (column K) was 'default' and it was assign to email in (alert_group.cfg) I
+received the email below
+![SysMon Script Report Example](/assets/img/sadm_sysmon/sadm_sysmon_script_mail.png){: .align-center}
+
+
+**You can always check the log of your script execution**
+```bash
+[/sadmin/usr/mon]: cat stemplate.log
+ 
+--------------------------------------------------------------------------------
+Starting script stemplate.sh on holmes Sat Jul  3 10:52:02 EDT 2021
+
+Test if file /tmp/sysmon.tmp exist ...
+File /tmp/sysmon.tmp doesn't exist
+Return code : 1
+ 
+End of script stemplate.sh on holmes Sat Jul  3 10:52:02 EDT 2021
+--------------------------------------------------------------------------------
+[/sadmin/usr/mon]: 
+```
+
+
 [Back to the top](#top_of_page)
 
 
