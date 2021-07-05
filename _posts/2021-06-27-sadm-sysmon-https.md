@@ -45,14 +45,16 @@ to check the site responsiveness.
 - Test web site responsiveness (0=OK 1=NoResponse)
 
 In the example below, the web site "http://coco.coco" didn't respond (1 in column 2) and the one
-web site did respond to request.
+web site did respond to request. When a web site don't respond to the request, then an alert is 
+issue to the "Error" alert group, since the error is activated by the '1' in column 5 (Error 
+Threshold). Remember, when we have a '00' in column 4 (Warning threshold) or 5 (Error threshold) the
+value (column 2) is not tested against it. 
 {: .text-justify}
 
 ```bash
 #
 # Test web site responsiveness (0=OK 1=NoResponse)
 # ID COLUMN 1       2 3  4  5  6   7    8   9 A B C D E F G     H     I     J       K     L
-http_coco.coco      1 = 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
 https_sadmin.ca     0 = 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
 https_linternux.com 0 = 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
 https_site.com:3001 0 = 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 default default -
@@ -63,7 +65,7 @@ https_site.com:3001 0 = 00 01 000 0000 0000 Y Y Y Y Y Y Y Y 00000000 0000 defaul
 <br>
 **Example of SysMon output**  
 
-In the example two out of three web sites did response and one that didn't (http://coco.coco).
+In the example two out of three web sites did response and one that didn't (http://coco.coco). 
 
 ```bash
 # sadm_sysmon.pl
