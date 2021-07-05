@@ -22,6 +22,7 @@ sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
 ---
+
 <a id="top_of_page"></a>
 
 {% include sadm/sadm_page_info.md %}
@@ -31,13 +32,15 @@ sidebar:
 {% if page.type == "B" %}
 <font size="3"><strong>Can be executed on a client and on the SADMIN Server.</strong></font>
 {% endif %}
-<br>
-{{ page.summary }} 
+
 
 ### General background of Sysmon configuration file
 
+- The System Monitor (SysMon) configuration file MUST reside in "$SADMIN/cfg" directory and MUST be 
+name "$(hostname -s).smon". Don't worry SADMIN setup script have all done that for you. Blank line 
+and line that start with a "#" (comment) are ignored.  
 - The configuration is loaded in memory when the [SADMIN System Monitor]({% post_url 2021-06-10-sadm-sysmon %}) start.
-- If new filesystem are detected by SysMon they are added automatically to this file.
+- If new filesystem are detected by SysMon they are added automatically to this file.  
 - Sysmon is run every 5 minutes from the [sadm_server crontab]({% post_url 2021-06-25-etc-crond-sadm-server %}).
 - Each lines in the SysMon configuration file is evaluated and process one by one. 
 - After evaluating a line, the result is recorded in column 2.
@@ -105,7 +108,7 @@ example, let's say you only want to evaluate a line only between 7am and 9pm, yo
 - **Particular day to evaluate (Column 9 to F)**   
 Each of these columns represent a day of the week. Column 9 represent Sunday, 'A' Monday, 
 'B' Tuesday, 'C' Wednesday, 'D' Thursday, 'E' Friday and finally 'F' Saturday. By default, all of 
-these columns contain a 'Y' meaning that he line is evaluated every day of the week. For example, 
+these columns contain a 'Y' meaning that the line is evaluated every day of the week. For example, 
 if you want to disable line evaluation on Saturday and Sunday, you would put 'N' in column '9' and 'F'.
 {: .text-justify}
 
@@ -167,122 +170,12 @@ added the default group used for Warning/Error is the one defined sadmin configu
 
 
 
-
+<br>
 <a id="script"></a>
 ### Running script within SysMon
 
-The System Monitor may noy have the feature you may need. But wait, it can ran a script of your own 
-and the result (exit code) be evaluated by SysMon, you can even get alerted if you want when you 
-script exit with a non zero code.
-
-- Line MUST begin with "script:" and followed by the script name.
-- The script MUST reside in $SADMIN/usr/mon directory and be executable.
-- The script will produce a log in that same directory, with the same name as your script.
-- Try to get the script execution time as low as possible, remember SysMon run every 5 minutes.
-- The script exit code must be '0' when it finish with success and '1' when it fail.
-- By default, unless you create it within your script, the error message returned to the user should
-be defined in the same directory of your script and have the same name of your script, but with a 
-"txt" extension. So if your script name is "stemplate.sh", the error message file would be named 
-"stemplate.txt".
-
-
-**The sample script template**
-To demonstrate how to use the "script:" line, we will use the script below, that is supplied and 
-that is present in "$SADMIN/usr/mon" directory.
-
-```bash
-[/sadmin/usr/mon]: ./stemplate.sh
---------------------------------------------------------------------------------
-Starting script stemplate.sh on holmes Sat Jul  3 10:30:01 EDT 2021
-Test if file /tmp/sysmon.tmp exist ...
-File /tmp/sysmon.tmp doesn't exist
-Return code : 1
-End of script stemplate.sh on holmes Sat Jul  3 10:30:01 EDT 2021
---------------------------------------------------------------------------------
-
-[/sadmin/usr/mon]: touch /tmp/sysmon.tmp
-[/sadmin/usr/mon]: ./stemplate.sh
- 
---------------------------------------------------------------------------------
-Starting script stemplate.sh on holmes Sat Jul  3 10:30:18 EDT 2021
-Test if file /tmp/sysmon.tmp exist ...
-File /tmp/sysmon.tmp exist
-Return code : 0
-End of script stemplate.sh on holmes Sat Jul  3 10:30:18 EDT 2021
---------------------------------------------------------------------------------
-```
-
-Let's say we have a line like the one below and we run the System Monitor
-```bash
-# Run specific scripts, check return code and issue a warning or error based on threshold
-# ID - COLUMN 1      2  3   4  5  6    7   8   9 A B C D E F G     H     I     J     K     L
-script:stemplate.sh  1  =  00 01 000 0000 0000 Y Y Y Y Y Y Y Y 20180911 1520 wargrp default -
-#
-```
-
-As part of the output, you will get a message like this on the screen, when the file "/tmp/sysmon.tmp" 
-exist.
-```bash
-# sadm_sysmon.pl
-...
-Execution of script /sadmin/usr/mon/stemplate.sh is requested
-Running script /sadmin/usr/mon/stemplate.sh ... 
-Return code is 0
-...
-```
-
-If we remove the file "/tmp/sysmon.tmp" and we run SysMon again, this time we get an error.
-```bash
-[/sadmin/usr/mon]: rm -f /tmp/sysmon.tmp
-[/sadmin/usr/mon]: sadm_sysmon.pl
-...
-
-Execution of script /sadmin/usr/mon/stemplate.sh is requested
-Running script /sadmin/usr/mon/stemplate.sh ... 
-Return code is 1
-Using message in /sadmin/usr/mon/stemplate.txt for rpt file
-...
-```
-
-**SysMon generated report file** 
-```bash
-# cat $SADMIN/dat/rpt/holmes.rpt
-Error;holmes;2021.07.03;11:25;SCRIPT;stemplate;File /tmp/sysmon.tmp doesn't exist - Running stemplate.sh.;default;default
-#
-```
-
-**Script error text message file**   
-```bash
-/sadmin/usr/mon # cat stemplate.txt
-File /tmp/sysmon.tmp doesn't exist - Running stemplate.sh.
-```
-
-**What user will see on the web interface**   
-![SysMon Script Report Example](/assets/img/sadm_sysmon/sadm_sysmon_script.png){: .align-center}
-
-
-**Email Alert Received**   
-Because my error group (column K) was 'default' and it was assign to email in (alert_group.cfg) I
-received the email below
-![SysMon Script Report Example](/assets/img/sadm_sysmon/sadm_sysmon_script_mail.png){: .align-center}
-
-
-**You can always check the log of your script execution**
-```bash
-[/sadmin/usr/mon]: cat stemplate.log
- 
---------------------------------------------------------------------------------
-Starting script stemplate.sh on holmes Sat Jul  3 10:52:02 EDT 2021
-
-Test if file /tmp/sysmon.tmp exist ...
-File /tmp/sysmon.tmp doesn't exist
-Return code : 1
- 
-End of script stemplate.sh on holmes Sat Jul  3 10:52:02 EDT 2021
---------------------------------------------------------------------------------
-[/sadmin/usr/mon]: 
-```
-
+See the page on 
+[how to make the System Monitor run your own script]({% post_url 2021-06-26-sadm-sysmon-script %}).
 
 [Back to the top](#top_of_page)
 
@@ -291,17 +184,10 @@ End of script stemplate.sh on holmes Sat Jul  3 10:52:02 EDT 2021
 
 <br>
 <a id="loadaverage"></a>
-### Load average
+### Monitoring the system load average
 
-- Return system load average of the past 5 minutes, using 'uptime' (Linux,Aix,MacOS).  
-- Actual value is returned in column 2 of the line.  
-  
-```bash
-#
-# ----- Aix/Linux/MacOS CPU Load, Server Load Average and Swap Space usage Monitoring
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-load_average                     0  >  20  35 120 0700 2100 Y Y Y Y Y Y Y Y 00000000 0000 default default -
-```
+We dedicated a page on [How-to monitor the system average]({% post_url 2021-06-26-sadm-sysmon-load-average %}) with the System Monitor.   
+
 [Back to the top](#top_of_page)
 
 
@@ -309,41 +195,8 @@ load_average                     0  >  20  35 120 0700 2100 Y Y Y Y Y Y Y Y 0000
 
 <br>
 <a id="cpuusage"></a>
-### Check CPU usage
-
-- You can be alerted if the usage percentage of your CPU reach a certain threshold for a certain number  
-of minutes, specified in column 6. 
-- Every time a "cpu_level" line is process by the System Monitor, it used the "vmstat" (iostat 
-on MacOS) command to get a snapshot of the cpu utilization (user + system). The resultant value is
-then compare with the warning and error threshold specified respectively in column 4 and 5. 
-- If the value is under the warning and error level, then the event starting date ('YYYYMMDD') 
-and time ('HHMM') (Column H' and 'I') is set to zeroes ( 00000000 0000').
-- If the value is over or equal, depending of the test you have put in column 3, then two things 
-can happen.
-  - If the event starting date and time *(Column H' and 'I') are all zeroes*, then this is the 
-first time the cpu usage exceed the warning or error level. Then the System Monitor set the event 
-starting date and time are set to the current date and time of the system and processing continue to
-the next line. 
-  - If the event starting date and time *(Column H' and 'I') are not all zeroes*, then this is not
-the first time the cpu usage exceed the warning or error level. Then the System Monitor calculate 
-the number of minutes since the event start date and time. 
-    - If the number of minutes is less the number of minutes specify on column 6, then processing 
-continue with the next line.
-    - If the number of minutes is greater or equal (test in column 3) than the warning or error 
-threshold value, then the warning (Column J) or error group (Column K) will get alerted and then 
-the event starting date and time (Column H' and 'I') is set to zeroes ( 00000000 0000').
-{: .text-justify}
-
-
-```bash
-# ID COLUMN 1  2  3    4   5  6   7    8   9 A B C D E F G     H     I     J      K    L
-cpu_level      80 >=  85  95 120 0700 2100 Y Y Y Y Y Y Y Y 20210601 1445 wargrp errgrp -
-```
-
-In the example above, the current cpu usage is 80%, the warning threshold is set to 85% and error
-at 95%. If the percentage of utilization is greater or equal than one of these value for more than 
-"120" minutes (column 6), then the warning group "wargrp" or the "errgrp" will get alerted.
-{: .text-justify}
+### Monitoring the CPU utilization
+See the dedicated page on ["How-to monitor cpu utilization page"]({% post_url 2021-06-26-sadm-sysmon-cpu-usage %})
 
 [Back to the top](#top_of_page)
 
@@ -355,10 +208,8 @@ at 95%. If the percentage of utilization is greater or equal than one of these v
 <a id="swapspace"></a>
 ### Check Swap Space utilization
 
-```bash
-# IDENTIFIER - COLUMN 1          2  3   4   5   6  7    8   9 A B C D E F G     H     I   J    K   L
-swap_space                       3  >  85  90 000 0000 0000 Y Y Y Y Y Y Y Y 20180911 1520 default default -
-```
+We have create a page on ["Monitoring system swap space"]({% post_url 2021-07-01-sadm-sysmon-swapspace %})
+
 [Back to the top](#top_of_page)
 
 
@@ -366,12 +217,11 @@ swap_space                       3  >  85  90 000 0000 0000 Y Y Y Y Y Y Y Y 2018
 
 <br>
 <a id="http"></a>
-### Web site monitoring
+### Verify Web site responsiveness
 
-- Main condition to do test if a web site respond to an http request, the line MUST begin with "http_".
-- Test the web site respond (1=Up 0=NoResponse)
-  - Example : http_sysinfo.maison.ca
+We have create a page on ["Verifying Web site responsiveness"]({% post_url 2021-06-27-sadm-sysmon-https %})
 
+[Back to the top](#top_of_page)
 
 
 
