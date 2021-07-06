@@ -171,124 +171,30 @@ added the default group used for Warning/Error is the one defined sadmin configu
 [Back to the top](#top_of_page)
 
 
-
-
 <br>
-<a id="script"></a>
-### Running script within SysMon
+<a id="sysmon_modules"></a>
+### Monitoring modules available
 
-See the page on 
-[how to make the System Monitor run your own script]({% post_url 2021-06-26-sadm-sysmon-script %}).
-
-[Back to the top](#top_of_page)
-
-
-
-
-<br>
-<a id="loadaverage"></a>
-### Monitoring the system load average
-
-We dedicated a page on [How-to monitor the system average]({% post_url 2021-06-26-sadm-sysmon-load-average %}) with the System Monitor.   
+- [Monitoring the system load average]({% post_url 2021-06-26-sadm-sysmon-load-average %}).  
+- [Monitoring the CPU utilization]({% post_url 2021-06-26-sadm-sysmon-cpu-usage %}).  
+- [Monitoring system swap space]({% post_url 2021-07-01-sadm-sysmon-swapspace %}).  
+- [Verifying Web site responsiveness]({% post_url 2021-06-27-sadm-sysmon-https %}).  
+- [Monitoring Services]({% post_url 2021-06-26-sadm-sysmon-service %}).  
+- [Verifying if a daemon (process) is running]({% post_url 2021-06-26-sadm-sysmon-daemon %}).
+- [Filesystem monitoring]({% post_url 2021-06-26-sadm-sysmon-filesystem %}).  
+- [Monitoring Multipath]({% post_url 2021-06-26-sadm-sysmon-multipath %}).  
+- [Monitor the ping response to a system]({% post_url 2021-06-26-sadm-sysmon-ping %}). 
+- [Running script within SysMon]({% post_url 2021-06-26-sadm-sysmon-script %}).  
 
 [Back to the top](#top_of_page)
-
-
-
-
-<br>
-<a id="cpuusage"></a>
-### Monitoring the CPU utilization
-See the dedicated page on ["How-to monitor cpu utilization page"]({% post_url 2021-06-26-sadm-sysmon-cpu-usage %})
-
-[Back to the top](#top_of_page)
-
-
-
-
-
-<br>
-<a id="swapspace"></a>
-### Check Swap Space utilization
-
-We have create a page on ["Monitoring system swap space"]({% post_url 2021-07-01-sadm-sysmon-swapspace %})
-
-[Back to the top](#top_of_page)
-
-
-
-
-<br>
-<a id="http"></a>
-### Verify Web site responsiveness
-
-We have create a page on ["Verifying Web site responsiveness"]({% post_url 2021-06-27-sadm-sysmon-https %})
-
-[Back to the top](#top_of_page)
-
-
-
-
-<br>
-<a id="service"></a>
-### Service Monitoring
-
-We have create a page on ["Monitoring Services"]({% post_url 2021-06-26-sadm-sysmon-service %})
-
-[Back to the top](#top_of_page)
-
-
-<br>
-<a id="daemon"></a>
-### Daemon running
-
-We have create a page on ["Verifying if a daemon (process) is running"]({% post_url 2021-06-26-sadm-sysmon-daemon %})
-
-[Back to the top](#top_of_page)
-
-
-
-<a id="filesystem"></a>
-### Filesystem monitoring (Line beginning with 'FS')
-
-See the [Filesystem monitoring page (Line beginning with 'FS')]({% post_url 2021-06-26-sadm-sysmon-filesystem %})
-
-[Back to the top](#top_of_page)
-
-
-
-<br>
-<a id="multipath"></a>
-### Multipath test
-
-See the [Monitoring Multipath page]({% post_url 2021-06-26-sadm-sysmon-multipath %})
-
-
-[Back to the top](#top_of_page)
-
-
-
-
-
-
-<br>
-<a id="pingtest"></a>
-### Ping test (Line that begin with 'ping_')
-
-See the [Monitor the ping response to a system]({% post_url 2021-06-26-sadm-sysmon-ping %})
-
-[Back to the top](#top_of_page)
-
-
-
 
 
 
 <a id="seealso"></a>
 ## See also
 
-| Link to ...| Description |  
-| :--- | :--- |  
+| Link to ...   | Description |  
+| :---          | :--- |  
 | [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %})                   |  Command line summary of alerts and failed scripts of all your servers.  
 | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})                           | Client system monitor   
 | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  

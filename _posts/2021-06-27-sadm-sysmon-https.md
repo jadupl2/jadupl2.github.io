@@ -35,14 +35,15 @@ sidebar:
 <a id="http_https"></a>
 ### Verify Web site responsiveness
 
-With the System Monitor you can verify if a web site is responsive or not to an 'http' or a 'https'
+- With the System Monitor you can verify if a web site is responsive or not to an 'http' or a 'https'
 request. To monitor if a web site is reponsive to a 'http' or 'https' request, you must insert a 
 line in SysMon configuration file ($SADMIN/cfg/`hostname-s`.smon) like the one below. The line MUST 
 begin with the string "http_" or "https_". The System monitor is using the "curl http(s):sitename -I"
 to check the site responsiveness.
+- As always column two represent the result of the test, so we will have a '0' if we can connect to 
+the web site and a '1' if we can't.
 {: .text-justify}
 
-- Test web site responsiveness (0=OK 1=NoResponse)
 
 In the example below, the web site "http://coco.coco" didn't respond (1 in column 2) and the one
 web site did respond to request. When a web site don't respond to the request, then an alert is 
