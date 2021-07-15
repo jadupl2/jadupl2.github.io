@@ -59,7 +59,7 @@ sidebar:
 | $(sadm_server_disks)                      | Disks list(MB) (DISKNAME\|SIZE,...)                   | sda\|1024000 |
 | $(sadm_server_vg)                         | VG list(MB) (VGNAME\|SIZE\|USED\|FREE)                | rootvg\|476426\|466002\|10424 | 
 | $(sadm_server_ips)                        | Net Dev (Name\|IP\|Netmask\|MAC)                      | eth0\|192.168.1.8\|255.255.255.0\|c8:2a:14:3b:59:a1 |
-| $(sadm_tolower "Linux")                   | Return string in uppercase                            | LINUX |
+| $(sadm_toupper "Linux")                   | Return string in uppercase                            | LINUX |
 | $(sadm_tolower "LINUX")                   | Return string in lowercase                            | linux | 
 | $(sadm_capitalize "LINUX")                | Return 1st Char. in uppercase & rest in lower         | Linux |
 | sadm_ask "Are you sure"                   | Display Question, wait Y/y(return 1) N/n(return 0)    | 1 |
