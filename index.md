@@ -8,7 +8,6 @@ entries_layout: list
 author_profile: true
 classes:        wide
 toc:            false
-
 ---
 
 <a name="top_of_page"></a> 
