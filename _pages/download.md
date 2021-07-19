@@ -18,6 +18,7 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+| Release | Version | 
 | :---| :--- | 
 | Version           | 1.3.2 | 
 | Release date      | 2021-04-30 | 
@@ -39,6 +40,7 @@ sadmin_1.3.2.tgz: OK
 
 ## Previous Release 
 
+| Release | Version | 
 | :---| :--- | 
 | Version           | 1.3.1 | 
 | Release date      | 2021-02-06 | 
