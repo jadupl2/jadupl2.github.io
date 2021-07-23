@@ -51,6 +51,9 @@ sadmin_1.3.4a.tgz: OK
 | SHA256 checksum | [sadmin_1.3.4.tgz.sha256](https://github.com/jadupl2/sadmin/releases/download/1.3.4/sadmin_1.3.4.tgz.sha256)|
 | SHA512 checksum | [sadmin_1.3.4.tgz.sha512](https://github.com/jadupl2/sadmin/releases/download/1.3.4/sadmin_1.3.4.tgz.sha512)|
 
+<br>
+
+---
 
 | Release | Version | 
 | :---| :--- | 
