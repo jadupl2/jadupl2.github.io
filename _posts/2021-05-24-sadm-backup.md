@@ -16,6 +16,7 @@ classes:        wide
 sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
+permalink: /sadm-backup/
 ---
 
 <a id="top_of_page"></a>
