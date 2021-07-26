@@ -58,7 +58,7 @@ Remember that every SADMIN script produce a 'log' and an 'rch' file, that you ca
 {: .text-justify}
 
 Every schedule for operating system update are contained in a dedicated crontab file 
-(/etc/cron.d/sadm_osupdate). This crontab is updated if necessary every 5 minutes by the "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) script. You will notice that the [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %}) script is responsible to run the O/S update on the selected 
+(/etc/cron.d/sadm_osupdate). This crontab is updated if necessary every 5 minutes by the "[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}) script. You will notice that the [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %}) script is responsible to run the O/S update on the selected 
 remote system.
 {: .text-justify}
 

@@ -139,6 +139,6 @@ End of sadm_osupdate_starter.sh - Mon Jun  7 12:46:04 EDT 2021
 <a id="seealso"></a>
 ## SEE ALSO
 
-[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
+[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
 [sadm_osupdate.sh]({% post_url 2021-06-05-sadm-osupdate %}) - Perform Operating System update on the current server  
 [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %}) - Run the O/S update to selected remote system   

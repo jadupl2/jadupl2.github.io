@@ -90,7 +90,7 @@ Then click on the server name you want to schedule.
 ![ReaR choose server](/assets/img/sadm_rear_backup/sadm_rear_server.png){: .align-center}
 
 - To activate the ReaR backup via the web interface, you must 'Activate ReaR Backup' and remember that the status of the system must be active.  
-- The chosen schedule will get propagated in the '/etc/cron.d/sadm_rear_backup' cron file shortly after that (at the next run of '[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})'.  
+- The chosen schedule will get propagated in the '/etc/cron.d/sadm_rear_backup' cron file shortly after that (at the next run of '[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})'.  
 - Unless you want to exclude some filesystem, volume group you can leave the text box like it is.
 
 ![ReaR Web Interface](/assets/img/sadm_rear_backup/sadm_rear_backup_web.png){: .align-center}

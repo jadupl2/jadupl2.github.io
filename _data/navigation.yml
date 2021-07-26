@@ -134,7 +134,7 @@ sidebar-manpage:
 #        url:    /system_monitor/sadm-sysmon-tui
 #      - title:  "sadm_daily_report.sh"
 #        url:    /system_monitor/sadm-daily-report
-#      - title:  "sadm_fetch_client.sh"
+#      - title:  "sadm_fetch_clients.sh"
 #        url:    /system_monitor/sadm-fetch-client
 #      - title:  "How-to setup SMS notification"
 #        url:    /how-to/how-to-sms

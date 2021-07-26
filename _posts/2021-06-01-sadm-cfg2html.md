@@ -121,7 +121,7 @@ End of sadm_cfg2html.sh - Thu Jun  3 14:54:54 EDT 2021
 <a id="seealso"></a>
 ## SEE ALSO
 
-[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
+[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
 [sadm_requirements.sh]({% post_url 2019-03-21-sadm-requirements %}) - List/install required SADMIN tools packages  
 [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %}) -  Command line summary of alerts and failed scripts of all your servers.  
 [sadm_daily_report]({% post_url 2021-04-01-sadm-daily-report %}) - Produce and email monitoring daily reports

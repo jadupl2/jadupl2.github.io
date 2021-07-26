@@ -125,7 +125,7 @@ View all your servers alerts from the [web interface](/assets/img/sadm_sysmon/sa
 | [sview]({% post_url 2021-05-18-sadm-sysmon-tui %})      | [sview (sadm_sysmon_tui.pl)]({% post_url 2021-05-18-sadm-sysmon-tui %}) | Command line SysMon viewer |
 | [System Monitor]({% post_url 2021-06-10-sadm-sysmon %})            | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})| SADMIN System Monitor (SysMon) |
 | [System Monitor config. file]({% post_url 2021-06-11-sadm-sysmon-config %}) | [$SADMIN/cfg/${HOSTNAME}.smon]({% post_url 2021-06-11-sadm-sysmon-config %}) | System Monitor configuration file |
-| [Pull log,rpt ans rch from clients]({% post_url 2021-03-16-sadm-fetch-client %}) | [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | Pull .rch/.log/.rpt from clients  
+| [Pull log,rpt ans rch from clients]({% post_url 2021-03-16-sadm-fetch-clients %}) | [sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})               | Pull .rch/.log/.rpt from clients  
 | [How-to setup SMS notification](/how-to/how-to-sms) | How-to | How-to use SMS alerting system 
 | [How-to create a Slack workspace]({% post_url 2021-06-16-sadm-create-slack-workspace %}) | How-to | Creating a Slack Workspace
 | [How-to create Slack channel]({% post_url 2021-06-17-sadm-create-slack-channel-and-slack-app %}) | How-to | Configure Slack Channel & App.|

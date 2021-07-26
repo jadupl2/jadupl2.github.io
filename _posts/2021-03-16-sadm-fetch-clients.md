@@ -1,8 +1,9 @@
 ---
-title:          sadm_fetch_client.sh
+title:          sadm_fetch_clients.sh
+permalink:      /sadm-fetch-clients/
 desc:           Collect latest scripts results and monitoring status
 version:        3.25
-updated:        2021-05-05
+updated:        2021-07-26
 os:             Linux
 type:           S  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ system_monitor ] 

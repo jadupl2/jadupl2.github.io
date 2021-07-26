@@ -70,7 +70,7 @@ are created in the SADMIN data directory '**$SADMIN/dat/rch**'.
 
 The SADMIN server collect every history files created or modified on every clients at regular 
 interval (every 5min via a cron job in /etc/cron.d/sadm_server). It is one of the responsibility 
-of script '[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})' to transfer any history changed 
+of script '[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})' to transfer any history changed 
 to the SADMIN server. Information included in this file will be visible from the Web interface 
 and from the command line on the SADMIN server. It is also be used to trigger an alert, if you
 requested it.

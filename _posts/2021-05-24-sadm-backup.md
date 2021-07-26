@@ -1,8 +1,9 @@
 ---
 title:          sadm_backup.sh
-desc:           Backup based on the content of the backup list & exclude file
+permalink:      /sadm-backup/
+desc:           Daily backup based on the content of the backup list & exclude file
 version:        3.29
-updated:        2021-05-24
+updated:        2021-07-26
 os:             Linux
 type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ backup ] 
@@ -16,7 +17,6 @@ classes:        wide
 sidebar:
   title:        "Documentation"
   nav:          sidebar-manpage
-permalink: /sadm-backup/
 ---
 
 <a id="top_of_page"></a>
@@ -91,7 +91,7 @@ directory and each of them will have a log (See directory structure below). The 
 in case of error or if you are not sure of what is in the backup file.
 When you modify the backup list for a system it is written locally to a temporary file 
 "$SADMIN/www/dat/HOSTNAME/cfg/backup_list.tmp" and it's transferred to the proper system the next
-time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
+time "[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})" script is run, so your 
 change could not take up to 5 minutes to get to the proper system.
 {: .text-justify}
 
@@ -137,7 +137,7 @@ content can be restore in a directory of your choice.
  
 When you modify the backup exclude list for a system it is written to a local temporary file 
 "$SADMIN/www/dat/HOSTNAME/cfg/backup_exclude.tmp" and it's transferred to the proper system the next
-time "[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})" script is run, so your 
+time "[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})" script is run, so your 
 change could take up to 5 minutes to get to the proper system.
 {: .text-justify}
 
@@ -350,4 +350,4 @@ After a couple of months, the backup directories structure should look similar t
 <a id="seealso"></a>
 ## SEE ALSO
 [sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %}) - SADMIN main configuration file  
-[sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  
+[sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}) - rsync all .rch/.log/.rpt from actives clients to the SADMIN server.  

@@ -54,7 +54,7 @@ the time it took to process all the requested tests.
 - Before the System Monitor exit, it write what we call a report file, which contain any error or 
 warning detected while processing each line. This SysMon report file is named "$(hostname -s).rpt" 
 and it's created in the "$SADMIN/dat/rpt" directory. This file will then get transferred to the SADMIN 
-server by the [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}) for analysis and 
+server by the [sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}) for analysis and 
 trigger an alert if needed.
 ```bash
 # cat $SADMIN/dat/rpt/holmes.rpt 
@@ -197,7 +197,7 @@ added the default group used for Warning/Error is the one defined sadmin configu
 | :---          | :--- |  
 | [sadm_sysmon_tui.pl]({% post_url 2021-05-18-sadm-sysmon-tui %})                   |  Command line summary of alerts and failed scripts of all your servers.  
 | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})                           | Client system monitor   
-| [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
+| [sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file   
 | [sadmin.cfg]({% post_url 2021-04-26-sadmin-cfg %})                                | SADMIN main configuration file   
 

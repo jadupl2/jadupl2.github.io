@@ -199,7 +199,7 @@ name will be '*holmes_helloWorld.log*'.
 
 The SADMIN server collect every log files created or modified on every clients at regular 
 interval (every 5min via a cron job in /etc/cron.d/sadm_server). It is one of the responsibility 
-of script '[sadm_fetch_client.sh](/_pages/man/sadm_fetch_client)' to transfer any '*.log' changed 
+of script '[sadm_fetch_clients.sh](/_pages/man/sadm_fetch_client)' to transfer any '*.log' changed 
 to the SADMIN server. Information included in this file will be visible from the Web interface 
 and from the command line on the SADMIN server. 
 {: .text-justify}

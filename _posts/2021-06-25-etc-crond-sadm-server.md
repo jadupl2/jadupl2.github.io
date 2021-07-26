@@ -26,7 +26,7 @@ sidebar:
 <br>
 **The four entries in SADMIN server crontab**
 
-- [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %}), that rsync all .rch/.log/.rpt from actives clients to SADMIN server.  
+- [sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %}), that rsync all .rch/.log/.rpt from actives clients to SADMIN server.  
 - [sadm_server_sunrise.sh]({% post_url 2021-05-26-sadm-server-sunrise %}), that collect & process data produced by all actives clients.   
 - [sadm_daily_report]({% post_url 2021-04-01-sadm-daily-report %}), that produce and email monitoring daily reports.   
 - [sadm_push_sadmin.sh]({% post_url 2021-05-22-sadm-push-sadmin %}), that push SADMIN version to one or all actives clients (optional).

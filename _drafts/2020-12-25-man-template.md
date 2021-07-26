@@ -129,7 +129,7 @@ sidebar:
 | [sadm_osupdate.sh]({% post_url 2021-06-05-sadm-osupdate %})                       | Perform Operating System update on the current server |  
 | [sadm_osupdate_starter.sh]({% post_url 2021-06-06-sadm-osupdate-starter %})       | Run the O/S update to selected remote system   
 | [sadm_sysmon.pl]({% post_url 2021-06-10-sadm-sysmon %})                           | Client system monitor   
-| [sadm_fetch_client.sh]({% post_url 2021-03-16-sadm-fetch-client %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
+| [sadm_fetch_clients.sh]({% post_url 2021-03-16-sadm-fetch-clients %})               | rsync all .rch/.log/.rpt from actives clients to the SADMIN server  
 | [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %})         | Client System Monitor configuration file     
 | [sadm_rear_backup.sh]({% post_url 2021-06-12-sadm-rear-backup %})                 | Create image backup of the system to a NFS server |  
 | [smon]({% post_url 2021-06-15-sadm-sysmon-cli %})                                 | Allow you run SysMon and see the report file |   
