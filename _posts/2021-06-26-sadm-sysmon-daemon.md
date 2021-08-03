@@ -1,5 +1,6 @@
 ---
 title:          Monitoring daemon (process)
+permalink:      /sysmon-daemon/
 desc:           How-to monitor daemon (process) on a system with SysMon
 version:        2.44
 summary: |         

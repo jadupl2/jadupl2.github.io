@@ -1,5 +1,6 @@
 ---
 title:          sadm_support_request.sh
+permalink:      /sadm-support-request/
 desc:           Create a file that will help us, when you submit a problem.
 version:        2.2
 updated:        2021-05_04

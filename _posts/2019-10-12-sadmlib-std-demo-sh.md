@@ -1,5 +1,6 @@
 ---
 title:          sadmlib_std_demo.sh
+permalink:      /sadmlib-std-sh-demo/
 desc:           SADMIN Shell Library Functions Demo
 version:        2.2
 updated:        2021-05-04

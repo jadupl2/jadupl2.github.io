@@ -1,5 +1,6 @@
 ---
 title:          sadm_wrapper.sh
+permalink:      /sadm-wrapper/
 desc:           Wrapper to run your existing scripts and benefit of SADMIN tools.
 version:        1.6
 updated:        2021-05-05 

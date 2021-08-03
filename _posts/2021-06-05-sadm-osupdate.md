@@ -1,5 +1,6 @@
 ---
 title:          sadm_osupdate.sh
+permalink:      /sadm-osupdate/
 desc:           Perform operating system update of current server
 version:        3.26
 updated:        2021-06-05

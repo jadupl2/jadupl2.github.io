@@ -1,5 +1,6 @@
 ---
 title:          sadm_server_sunrise.sh
+permalink:      /sadm-server-sunrise/
 desc:           Collect & process data produced by all actives clients
 version:        2.8
 updated:        2021-06-03

@@ -1,5 +1,6 @@
 ---
 title:          Using SADMIN Python script template
+permalink:      /sadm-template-py/
 desc:           How-to use the Python script template
 version:        2.2
 updated:        2021-05-05

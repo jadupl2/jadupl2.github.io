@@ -1,5 +1,6 @@
 ---
 title:          sadmlib_std_demo.py
+permalink:      /sadmlib-std-py-demo/
 desc:           SADMIN Python Library Module Demo
 version:        3.10
 updated:        2021-05-04 

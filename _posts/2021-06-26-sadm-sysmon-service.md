@@ -1,5 +1,6 @@
 ---
 title:          Monitoring Services
+permalink:      /sysmon-service/
 desc:           How-to monitor services with SysMon
 version:        2.44
 summary: |         

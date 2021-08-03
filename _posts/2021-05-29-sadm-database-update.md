@@ -1,5 +1,6 @@
 ---
 title:          sadm_database_update.py
+permalink:      /sadm-database-update/
 desc:           Take system information collected files from clients and update database
 version:        3.13
 updated:        2021-06-03

@@ -1,5 +1,6 @@
 ---
 title:          sadm_daily_report.sh
+permalink:      /sadm-daily-report/
 desc:           Produce and email monitoring daily reports
 version:        1.24
 updated:        2021-05-05

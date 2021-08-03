@@ -1,5 +1,6 @@
 ---
 title:          sadm_server crontab
+permalink:      /sadm-server-crontab/
 desc:           SADMIN server crontab file (/etc/cron.d/sadm_server)
 version:        2.2
 summary: |         

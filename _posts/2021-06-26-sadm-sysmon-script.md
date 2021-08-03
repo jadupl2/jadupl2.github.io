@@ -1,5 +1,6 @@
 ---
 title:          Running script within SysMon
+permalink:      /sysmon-script/
 desc:           Running script within the System Monitor.
 version:        2.44
 summary: |         

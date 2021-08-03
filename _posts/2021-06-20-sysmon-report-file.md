@@ -1,5 +1,6 @@
 ---
 title:          hostname.rpt
+permalink:      /hostname-rpt/
 desc:           SADMIN System Monitor report file
 version:        2.2
 summary: |         

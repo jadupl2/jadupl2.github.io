@@ -1,5 +1,6 @@
 ---
-title:          cfg2html.sh
+title:          sadm_cfg2html.sh
+permalink:      /sadm-cfg2html/
 desc:           Get System information and creates a HTML web page of it
 version:        3.6
 updated:        2021-06-03

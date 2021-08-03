@@ -1,5 +1,6 @@
 ---
 title:          sadm_rear_backup.sh
+permalink:      /sadm-rear-backup/
 desc:           Perform a Rear image backup to a NFS server, ready for a disaster recovery
 version:        2.28
 summary: |         

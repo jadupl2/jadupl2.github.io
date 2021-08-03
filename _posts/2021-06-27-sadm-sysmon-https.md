@@ -1,5 +1,6 @@
 ---
 title:          Verify Web site responsiveness
+permalink:      /sysmon-https/
 desc:           How-to monitor Web site responsiveness
 version:        2.45
 summary: |         

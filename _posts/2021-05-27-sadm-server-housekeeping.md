@@ -1,5 +1,6 @@
 ---
 title:          sadm_server_housekeeping.sh
+permalink:      /sadm-server-housekeeping/
 desc:           Enforce security SADMIN Web interface & crontab files
 version:        1.48
 updated:        2021-05-27

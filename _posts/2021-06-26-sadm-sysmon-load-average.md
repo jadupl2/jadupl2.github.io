@@ -1,5 +1,6 @@
 ---
 title:          Monitoring system load average
+permalink:      /sysmon-load-average/
 desc:           How-to monitor the load average with SysMon
 version:        2.44
 summary: |         

@@ -1,5 +1,6 @@
 ---
 title:          sadmlib_std.sh
+permalink:      /sadmlib-std-sh/
 desc:           SADMIN standard shell library
 updated:        2021-05-09
 version:        3.69

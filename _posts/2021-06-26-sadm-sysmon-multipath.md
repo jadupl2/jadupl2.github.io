@@ -1,5 +1,6 @@
 ---
 title:          Monitoring Multipath
+permalink:      /sysmon-multipath/
 desc:           How-to monitor Multipath with SysMon
 version:        2.44
 summary: |         

@@ -1,5 +1,6 @@
 ---
 title:          sadm_dr_recreatefs.sh
+permalink:      /sadm-dr-recreatefs/
 desc:           Used metadata saved by 'sadm_dr_savefs.sh' to recreate host filesystems
 version:        2.3
 summary:        |

@@ -1,5 +1,6 @@
 ---
 title:          sview (sadm_sysmon_tui.pl)
+permalink:      /sadm-sysmon-tui/
 desc:           System monitor viewer from command line
 version:        2.0
 updated:        2021-05-19

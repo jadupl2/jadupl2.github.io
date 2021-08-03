@@ -1,5 +1,6 @@
 ---
 title:          sadmlib_screen.sh
+permalink:      /sadmlib-screen/
 desc:           SADMIN screen oriented library
 version:        2.2
 updated:        2021-05-09

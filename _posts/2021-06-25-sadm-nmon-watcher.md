@@ -1,5 +1,6 @@
 ---
 title:          sadm_nmon_watcher.sh
+permalink:      /sadm-nmon-watcher/
 desc:           Check if performance collector (nmon) is running, if it is not start it.
 version:        2.7
 summary: |         

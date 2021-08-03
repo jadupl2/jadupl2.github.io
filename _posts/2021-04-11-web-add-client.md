@@ -1,5 +1,6 @@
 ---
 title:          How-to add a SADMIN client
+permalink:      /sadm-add-client/
 desc:           How-to add a client via the web interface & setup ssh keys
 version:        2.1
 updated:        2021-05-13

@@ -1,6 +1,6 @@
 ---
 title:          sadm_backup.sh
-permalink:      /sadm-backup/
+permalink:      /sadm-backup/ 
 desc:           Daily backup based on the content of the backup list & exclude file
 version:        3.29
 updated:        2021-07-26

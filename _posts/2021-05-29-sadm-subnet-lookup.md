@@ -1,5 +1,6 @@
 ---
 title:          sadm_subnet_lookup.py 
+permalink:      /sadm-subnet-lookup/
 desc:           Scan selected network subnet and store results in database
 version:        3.4
 updated:        2021-05-31

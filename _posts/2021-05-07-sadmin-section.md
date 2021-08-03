@@ -1,5 +1,6 @@
 ---
 title:          SADMIN Section of script
+permalink:      /sadm-section/
 desc:           SADMIN code section to include in your script.
 version:        1.50
 updated:        2021-05-07

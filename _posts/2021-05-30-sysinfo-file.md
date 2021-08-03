@@ -1,5 +1,6 @@
 ---
 title:          hostname_sysinfo.txt
+permalink:      /hostname-sysinfo/
 desc:           System information file
 version:        3.24
 summary: |         

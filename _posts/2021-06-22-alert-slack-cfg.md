@@ -1,5 +1,6 @@
 ---
 title:          alert_slack.cfg
+permalink:      /alert-slack-cfg/
 desc:           SADMIN Slack alert group definition file
 version:        2.2
 summary: |         

@@ -1,5 +1,6 @@
 ---
 title:          sadm_client-housekeeping.sh
+permalink:      /sadm-client-housekeeping/
 desc:           Purge old log,rch,nmon files and check $SADMIN permission
 version:        1.48
 updated:        2021-05-29

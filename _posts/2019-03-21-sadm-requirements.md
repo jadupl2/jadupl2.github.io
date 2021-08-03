@@ -1,5 +1,6 @@
 ---
 title:          sadm_requirements.sh
+permalink:      /sadm-requirements/
 desc:           List and install required SADMIN Tools packages
 version:        1.10
 updated:        2021-05-04

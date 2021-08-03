@@ -1,8 +1,9 @@
 ---
-title:              Using SADMIN Shell script template
-desc:               How-to use shell script template
+title:          Using SADMIN Shell script template
+permalink:      /sadm-template-sh/
+desc:           How-to use shell script template
 version:        2.2
-date_updated:       2021-05-05 
+date_updated:   2021-05-05 
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:               [ templates ]

@@ -1,5 +1,6 @@
 ---
 title:          SysMon configuration file 'hostname'.smon
+permalink:      /sadm-sysmon-smon/
 desc:           System Monitor configuration file. 
 version:        3.0
 summary: |         

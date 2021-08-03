@@ -1,5 +1,6 @@
 ---
 title:          Filesystem monitoring 
+permalink:      /sysmon-filesystem/
 desc:           How-to monitor filesystem usage with SysMon
 version:        2.44
 summary: |         

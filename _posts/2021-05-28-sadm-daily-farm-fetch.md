@@ -1,5 +1,6 @@
 ---
 title:          sadm_daily_farm_fetch.sh
+permalink:      /sadm-daily-farm-fetch/
 desc:           Collect Hardware/Software/Performance data from actives servers
 version:        2.2
 updated:        2021-05-28

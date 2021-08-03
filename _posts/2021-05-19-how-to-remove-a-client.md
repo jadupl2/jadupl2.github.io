@@ -1,5 +1,6 @@
 ---
 title:          How-to remove a client
+permalink:      /sadm-remove-client/
 desc:           How-to remove a client using the web interface
 version:        2.4
 updated:        2021-05-19

@@ -1,5 +1,6 @@
 ---
 title:          sadmin.cfg
+permalink:      /sadmin-cfg/
 desc:           SADMIN configuration file.
 version:        2.4
 updated:        2021-04-26

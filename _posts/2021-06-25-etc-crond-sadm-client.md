@@ -1,5 +1,6 @@
 ---
 title:          sadm_client crontab
+permalink:      /sadm-client-crontab/
 desc:           SADMIN client crontab file (/etc/cron.d/sadm_client)
 version:        2.2
 summary: |         

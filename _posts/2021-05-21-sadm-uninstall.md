@@ -1,5 +1,6 @@
 ---
 title:          sadm_uninstall.sh
+permalink:      /sadm-uninstall/
 desc:           Uninstall the SADMIN tools.
 version:        1.9
 updated:        2021-05-21

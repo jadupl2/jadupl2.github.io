@@ -1,5 +1,6 @@
 ---
 title:          sadm_backupdb.sh
+permalink:      /sadm-backupdb/
 desc:           Backup one or all MySQL/MariaDB Databases present on the system
 version:        3.29
 updated:        2021-05-26

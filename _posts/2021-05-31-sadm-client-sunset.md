@@ -1,5 +1,6 @@
 ---
 title:          sadm_client_sunset.sh
+permalink:      /sadm-client-sunset/
 desc:           Clients end of day housekeeping and producing system information files
 version:        2.10
 updated:        2021-06-03

@@ -1,5 +1,6 @@
 ---
 title:          sadm_osupdate_starter.sh
+permalink:      /sadm-osupdate-starter/
 desc:           Run the O/S update to selected remote system
 version:        4.5
 updated:        2021-06-06

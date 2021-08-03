@@ -1,5 +1,6 @@
 ---
 title:          alert_group.cfg
+permalink:      /alert-group-cfg/
 desc:           SADMIN alert group definition file
 version:        2.2
 summary: |         

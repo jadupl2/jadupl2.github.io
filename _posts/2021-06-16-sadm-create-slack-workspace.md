@@ -1,5 +1,6 @@
 ---
 title:          How-to create a Slack workspace
+permalink:      /how-to-create-slack-workspace/
 desc:           Create a Slack Workspace
 version:        1.2
 summary: |         

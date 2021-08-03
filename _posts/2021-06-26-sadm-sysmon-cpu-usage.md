@@ -1,5 +1,6 @@
 ---
 title:          Monitoring system cpu utilization
+permalink:      /sysmon-cpu-utilization/
 desc:           How-to monitor the cpu utilization with SysMon
 version:        2.44
 summary: |         

@@ -1,5 +1,6 @@
 ---
 title:          sadm_create_sysinfo.sh
+permalink:      /sadm-create-sysinfo/
 desc:           Collect hardware & software information about the system
 version:        3.21 
 updated:        2021-06-03

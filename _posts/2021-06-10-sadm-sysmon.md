@@ -1,5 +1,6 @@
 ---
 title:          sadm_sysmon.pl
+permalink:      /sadm-sysmon/
 desc:           Perform selected monitoring test defined in SysMon configuration file
 summary: |         
     The SADMIN System Monitor (SysMon) is executed at regular interval from the SADMIN client 

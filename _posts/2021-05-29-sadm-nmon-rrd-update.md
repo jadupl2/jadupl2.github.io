@@ -1,5 +1,6 @@
 ---
 title:          sadm_nmon_rrd_update.sh
+permalink:      /sadm-nmon-rrd-update/
 desc:           Daily update of the performance database (.rrd)
 version:        2.2
 updated:        2021-05-30

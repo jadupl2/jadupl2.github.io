@@ -4,7 +4,7 @@ permalink:      /sadm-fetch-clients/
 desc:           Collect latest scripts results and monitoring status
 version:        3.25
 updated:        2021-07-26
-os:             Linux
+os:             Linux 
 type:           S  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ system_monitor ] 
 categories:     [ system_monitor ] 

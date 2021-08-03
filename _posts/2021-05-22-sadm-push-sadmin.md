@@ -1,5 +1,6 @@
 ---
 title:          sadm_push_sadmin.sh
+permalink:      /sadm-push-sadmin/
 desc:           Push SADMIN version to one or all actives clients.
 version:        2.2
 updated:        2021-05-22

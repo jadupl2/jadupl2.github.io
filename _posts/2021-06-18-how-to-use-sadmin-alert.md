@@ -1,5 +1,6 @@
 ---
 title:          How-to use SADMIN alerting system
+permalink:      /how-to-use-sadmin-alert/
 desc:           Using SADMIN alerting system
 version:        2.2
 summary: |         

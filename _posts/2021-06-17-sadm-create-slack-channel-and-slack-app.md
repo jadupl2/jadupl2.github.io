@@ -1,5 +1,6 @@
 ---
 title:          How-to create Slack channel and Slack App.
+permalink:      /sadm-create-slack-channel/
 desc:           Creating Slack channel and Slack App.
 version:        2.2
 summary: |         

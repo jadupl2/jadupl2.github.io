@@ -1,5 +1,6 @@
 ---
 title:          sadmlib_std.py
+permalink:      /sadmlib-std-py/
 desc:           SADMIN standard python library
 updated:        2021-05-15
 version:        3.15

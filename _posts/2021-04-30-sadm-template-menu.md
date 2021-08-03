@@ -1,5 +1,6 @@
 ---
 title:          sadm_template_menu.sh
+permalink:      /sadm-template-menu/
 desc:           Using SADMIN shell menu template
 version:        1.5
 updated:        2021-04-32

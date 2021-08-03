@@ -1,5 +1,6 @@
 ---
 title:          smon (sadm_sysmon_cli.sh)
+permalink:      /sadm-sysmon-cli/
 desc:           Allow you run SysMon and see the report file
 version:        2.3
 summary: |         

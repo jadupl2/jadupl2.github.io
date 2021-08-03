@@ -1,5 +1,6 @@
 ---
 title:          sadm_service_ctrl.sh
+permalink:      /sadm-service-ctrl/
 desc:           Enable, disable & get status of system startup and shutdown script
 version:        2.10
 updated:        2021-05-23

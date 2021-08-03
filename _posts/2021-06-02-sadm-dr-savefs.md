@@ -1,5 +1,6 @@
 ---
 title:          sadm_dr_savefs.sh
+permalink:      /sadm-dr-savefs/
 desc:           Save system filesystems information in order to recreate them from scratch
 version:        2.8
 summary:        | 

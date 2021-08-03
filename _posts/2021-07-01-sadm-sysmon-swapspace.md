@@ -1,5 +1,6 @@
 ---
 title:          Monitoring system swap space
+permalink:      /sysmon-swapspace/
 desc:           How-to monitor system swap space with SysMon
 version:        2.44
 summary: |         

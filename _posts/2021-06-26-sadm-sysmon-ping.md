@@ -1,5 +1,6 @@
 ---
 title:          Ping system test
+permalink:      /sysmon-ping/
 desc:           How-to monitor respond to a ping test
 version:        2.44
 summary: |         
