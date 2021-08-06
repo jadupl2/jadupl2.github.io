@@ -43,7 +43,7 @@ If the usage is equal or greater than 90%, it will appear an an "Error" is the S
 web page and an alert is generated. In the example below, I have change the warning threshold from 
 85% to 80% in the fourth column to raise a warning.
 
-Every time Sysmon is run the server smon configuration file is loaded in memory,
+Every time Sysmon is run the system [SysMon configuration file]({% post_url 2021-06-11-sadm-sysmon-config %}) is loaded in memory,
 updated in memory during execution and then unloaded to disk when terminated.
 So SysMon is able to know when a new filesystem is created on the system and it is
 added automatically to his configuration file. 
