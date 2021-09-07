@@ -17,16 +17,16 @@ toc:            false
 
 [**Latest version v{{ page.version }} - Updated {{ page.updated }}**](_pages/download)
 
-If you're a Unix system administrator who is taking care of multiple servers, you probably 
+If you're a Unix system administrator who's taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable and under control. SADMIN can 
-help you by centralizing your scripts logs in one place, by viewing their results in one place and
+help you by centralizing your scripts logs, viewing their results in one place and
 you can even can be notified if something goes wrong. With SADMIN you can be notified, when a 
 script fail or just to let you know that your script ran with success. You can received 
 notification via email, SMS or the Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
 {: .text-justify}
 
-![monitor](/assets/img/sadm_sysmon/sadm_view_sysmon.png "SADMIN monitor page")
+[![monitor](/assets/img/sadm_sysmon/sadm_view_sysmon.png)](/assets/img/sadm_sysmon/sadm_view_sysmon.png)
 
 ## Monitor your scripts from just one place
 * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
@@ -51,7 +51,7 @@ templates to create new scripts and benefit of SADMIN tools.
 * Access all this information from a [web interface](/assets/img/webui/main_screen.png) or from the command line.
 * View your systems farm [subnet utilization](/assets/img/webui/view_subnet.png) and see what IP are free to use.  
 
-![SubnetInfo](/assets/img/webui/view_subnet.png "SADMIN Subnet Information")
+[![SubnetInfo](/assets/img/webui/view_subnet.png)](/assets/img/webui/view_subnet.png "SADMIN Subnet Information")
 
 
 
