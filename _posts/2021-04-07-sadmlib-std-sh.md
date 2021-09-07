@@ -27,9 +27,9 @@ sidebar:
 
 | Function Call |   Description |  Return value example | 
 | :---  | :--- | :---  |
-| sadm_create_lockfile "hostname"           | Create a system lock file for the received system name| 0=OK 1=Error |
-| sadm_is_system_lock  "hostname"           | Check if system lock file exist for received system name| =Not Lock 1=Lock |
-| sadm_remove_lockfile "hostname"           | Remove the lock file for the received system name     | 0=OK 1=Error |
+| sadm_create_lockfile "hostname"           | Suspend monitoring of the received system name        | 0=Lock, 1=Can't Lock |
+| sadm_is_system_lock  "hostname"           | Check if system name received is currently lock       | 0=Not Lock, 1=Lock |
+| sadm_remove_lockfile "hostname"           | Resume monitoring of the received system name         | 0=Unlock, 1=Can't Unlock |
 | $(sadm_get_release)                       | Return SADMIN Release Number                          | 1.2.9 |
 | $(sadm_get_ostype)                        | Return OS type in uppercase (LINUX,AIX,DARWIN)        |  LINUX |
 | $(sadm_get_osversion)                     | Return O/S version (Ex: 7.2, 6.5)                     | 7.9.2009 |
