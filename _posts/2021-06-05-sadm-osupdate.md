@@ -2,12 +2,11 @@
 title:          sadm_osupdate.sh
 permalink:      /sadm-osupdate/
 desc:           Perform operating system update of current server
-version:        3.26
-updated:        2021-06-05
+version:        3.27
+updated:        2021-09-07
 os:             Linux
-type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 categories:     [ utilities ] 
-#categories:     [ how-to, web_interface, backup, configuration-files, system_monitor, server-scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 tags:           [ utilities ] 
 #
 layout:         single

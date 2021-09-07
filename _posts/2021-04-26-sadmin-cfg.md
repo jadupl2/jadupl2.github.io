@@ -2,8 +2,8 @@
 title:          sadmin.cfg
 permalink:      /sadmin-cfg/
 desc:           SADMIN configuration file.
-version:        2.4
-updated:        2021-04-26
+version:        2.6
+updated:        2021-09-07
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 layout:         single
@@ -529,4 +529,18 @@ SADM_NETWORK3 =
 SADM_NETWORK4 =
 SADM_NETWORK5 =
 ```
+
+
+<a id="sadm_monitor_update_interval"></a>
+## Control refresh rate of the monitor web page
+
+```bash
+#----------------------------------------------------------------------------
+# Specify here the number of seconds the SADMIN Monitor web Page is refresh.
+# Default is 60 seconds, so the monitor page will refresh every 60 seconds.
+# You can change it to a value of your choice, from 60 to 120 is recommended.
+#----------------------------------------------------------------------------
+SADM_MONITOR_UPDATE_INTERVAL = 60
+```
+
 

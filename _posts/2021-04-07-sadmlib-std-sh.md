@@ -2,8 +2,8 @@
 title:          sadmlib_std.sh
 permalink:      /sadmlib-std-sh/
 desc:           SADMIN standard shell library
-updated:        2021-05-09
-version:        3.69
+updated:        2021-09-07
+version:        3.74
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
@@ -27,6 +27,9 @@ sidebar:
 
 | Function Call |   Description |  Return value example | 
 | :---  | :--- | :---  |
+| sadm_create_lockfile "hostname"           | Create a system lock file for the received system name| 0=OK 1=Error |
+| sadm_is_system_lock  "hostname"           | Check if system lock file exist for received system name| =Not Lock 1=Lock |
+| sadm_remove_lockfile "hostname"           | Remove the lock file for the received system name     | 0=OK 1=Error |
 | $(sadm_get_release)                       | Return SADMIN Release Number                          | 1.2.9 |
 | $(sadm_get_ostype)                        | Return OS type in uppercase (LINUX,AIX,DARWIN)        |  LINUX |
 | $(sadm_get_osversion)                     | Return O/S version (Ex: 7.2, 6.5)                     | 7.9.2009 |
@@ -65,7 +68,7 @@ sidebar:
 | $(sadm_capitalize "LINUX")                | Return 1st Char. in uppercase & rest in lower         | Linux |
 | sadm_ask "Are you sure"                   | Display Question, wait Y/y(return 1) N/n(return 0)    | 1 |
 | sadm_isnumeric 25                         | Return 0 if it is an integer else 1                   | 0 |
-| sadm_check_requirements()                 | Check/Set Path of require commands                    | 0 or 1 |
+| sadm_check_requirements()                 | Check/Set Path of require commands                    | 0=OK or 1=Error |
 | sadm_get_command_path "cmd"               | Get lscpu cmd path (return blank if not found)        | wlscpu=$(sadm_get_command_path "lscpu") |
 | sadm_load_config_file                     | Load/Reload sadmin.cfg in Global Var.                 | Exit if fail |
 | sadm_show_version                         | Show Script Name,Ver.,Libr.Ver,OS Name/Ver,KernelVer  | Used for script -v arg. |
