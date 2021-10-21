@@ -299,8 +299,8 @@ SADMIN FILES VARIABLES      Description                          System Result
 [05] st.alert_init          Alert Group Initial File (Template): /sadmin/cfg/.alert_group.cfg 
 [06] st.slack_file          Alert - Slack Channel File         : /sadmin/cfg/alert_slack.cfg 
 [07] st.slack_init          Alert - Slack Channel (Template)   : /sadmin/cfg/.alert_slack.cfg 
-[08] st.alert_hist          Alert - History File               : /sadmin/cfg/alert_history.cfg 
-[09] st.alert_hini          Alert - History Initial File       : /sadmin/cfg/.alert_history.cfg 
+[08] st.alert_hist          Alert - History File               : /sadmin/cfg/alert_history.txt 
+[09] st.alert_hini          Alert - History Initial File       : /sadmin/cfg/.alert_history.txt
 [10] st.tmp_file1           User usable Temp Work File 1       : /sadmin/tmp/sadmlib_std_demo_1.3399 
 [11] st.tmp_file2           User usable Temp Work File 2       : /sadmin/tmp/sadmlib_std_demo_2.3399 
 [12] st.tmp_file3           User usable Temp Work File 3       : /sadmin/tmp/sadmlib_std_demo_3.3399 
