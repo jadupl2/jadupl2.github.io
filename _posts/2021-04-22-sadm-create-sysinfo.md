@@ -2,8 +2,8 @@
 title:          sadm_create_sysinfo.sh
 permalink:      /sadm-create-sysinfo/
 desc:           Collect hardware & software information about the system
-version:        3.21 
-updated:        2021-06-03
+version:        3.33
+updated:        2022-07-28
 os:             Linux, Aix, MacOS
 type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ client-scripts, web_interface ] 
@@ -58,27 +58,29 @@ manually whenever you want to update files in the disaster recovery information 
 ```bash
 root@holmes:~ # sadm_create_sysinfo.sh 
 ================================================================================
-Sat May 22 10:51:25 EDT 2021 - sadm_create_sysinfo.sh V3.23 - SADM Lib. V3.70
-Server Name: holmes.maison.ca - Type: LINUX
-CENTOS 7.9.2009 Kernel 3.10.0-1160.25.1.el7.x86_64
+Thu 28 Jul 2022 13:06:42 - sadm_create_sysinfo.sh v3.33 - Library v4.03
+Desc: Collect hardware & software info of system
+Host: sherlock.maison.ca - User: root - Arch: x86_64 - SADMIN: /opt/sadmin
+Almalinux Linux release 9.0 - Kernel 5.14.0-70.17.1.el9_0.x86_64
 ==================================================
  
 Verifying command availability ...
-Creating /sadmin/dat/dr/holmes_diskinfo.txt ...
-Creating /sadmin/dat/dr/holmes_lvm.txt ...
-Creating /sadmin/dat/dr/holmes_network.txt ...
-Creating /sadmin/dat/dr/holmes_system.txt ...
-Creating /sadmin/dat/dr/holmes_lshw.html ...
-Creating /sadmin/dat/dr/holmes_sysinfo.txt ...
-Getting last O/S Update date from /sadmin/dat/rch/holmes_sadm_osupdate.rch ...
+Creating /opt/sadmin/dat/dr/sherlock_diskinfo.txt ...
+Creating /opt/sadmin/dat/dr/sherlock_lvm.txt ...
+Creating /opt/sadmin/dat/dr/sherlock_network.txt ...
+Creating /opt/sadmin/dat/dr/sherlock_system.txt ...
+Creating /opt/sadmin/dat/dr/sherlock_lshw.html ...
+Creating /opt/sadmin/dat/dr/sherlock_sysinfo.txt ...
+Getting last O/S Update date from /opt/sadmin/dat/rch/sherlock_sadm_osupdate.rch ...
+2022.07.24 02:22:14 - Success ...
 
 ==================================================
-Script exit code is 0 (Success) and execution time is 00:00:24
-History ($SADMIN/dat/rch/holmes_sadm_create_sysinfo.rch) trim to 35 lines.
-Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
-Script succeeded, no alert will be send to 'default' alert group.
-New log (/sadmin/log/holmes_sadm_create_sysinfo.log) created ($SADM_LOG_APPEND='N').
-End of sadm_create_sysinfo.sh - Sat May 22 10:51:45 EDT 2021
+Script exit code is 0 (Success) and execution time is 00:00:15
+History file '$SADMIN/dat/rch/sherlock_sadm_create_sysinfo.rch' trim to 35 lines.
+Script is set to send an alert only when it terminate with error.
+Script succeeded, no alert will be send ($SADM_ALERT_TYPE=1).
+New log created '$SADMIN/log/sherlock_sadm_create_sysinfo.log'.
+End of sadm_create_sysinfo.sh - Thu 28 Jul 2022 01:06:52 PM EDT
 ================================================================================
 ```
 

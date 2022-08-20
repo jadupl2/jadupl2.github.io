@@ -1,9 +1,9 @@
 ---
 title:          sadm_cfg2html.sh
 permalink:      /sadm-cfg2html/
-desc:           Get System information and creates a HTML web page of it
-version:        3.6
-updated:        2021-06-03
+desc:           Get system configuration information and create a HTML web pages with it.
+version:        3.9
+updated:        2022-07-28
 os:             Linux, Aix
 type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 categories:     [ client-scripts ] 
@@ -86,22 +86,23 @@ Here is an [example of report](/assets/img/sadm_cfg2html/man_sadm_cfg2html_examp
 ```bash
 # sadm_cfg2html.sh 
 ================================================================================
-Thu Jun  3 14:54:22 EDT 2021 - sadm_cfg2html.sh V3.6 - SADM Lib. V3.70
-Server Name: raspi8.maison.ca - Type: LINUX
-RASPBIAN 10 Kernel 5.10.17-v7l+
+Thu 28 Jul 2022 12:52:08 - sadm_cfg2html.sh v3.10 - Library v4.03
+Desc: SADMIN template shell script
+Host: sherlock.maison.ca - User: root - Arch: x86_64 - SADMIN: /opt/sadmin
+Almalinux Linux release 9.0 - Kernel 5.14.0-70.17.1.el9_0.x86_64
 ==================================================
  
-cfg2html-linux version 2.94-2014/05/07 // Linux 5.10.17-v7l+ armv7l
-Running : /usr/bin/cfg2html -H -o /opt/sadmin/dat/dr.
+cfg2html-linux version 2.99-2015/04/06 // Linux 5.14.0-70.17.1.el9_0.x86_64 x86_64
+Running : /usr/bin/cfg2html -H -o /opt/sadmin/dat/dr
 Return code of the command is 0.
 
 ==================================================
-Script exit code is 0 (Success) and execution time is 00:00:59
-History (/opt/sadmin/dat/rch/raspi8_sadm_cfg2html.rch) trim to 35 lines.
-Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
-Script succeeded, no alert will be send to 'default' alert group.
-New log (/opt/sadmin/log/raspi8_sadm_cfg2html.log) created ($SADM_LOG_APPEND='N').
-End of sadm_cfg2html.sh - Thu Jun  3 14:54:54 EDT 2021
+Script exit code is 0 (Success) and execution time is 00:00:32
+History file '$SADMIN/dat/rch/sherlock_sadm_cfg2html.rch' trim to 35 lines.
+Script is set to send an alert only when it terminate with error.
+Script succeeded, no alert will be send ($SADM_ALERT_TYPE=1).
+New log created '$SADMIN/log/sherlock_sadm_cfg2html.log'.
+End of sadm_cfg2html.sh - Thu 28 Jul 2022 12:52:35 PM EDT
 ================================================================================
 ```
 

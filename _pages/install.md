@@ -73,6 +73,7 @@ Install using the downloaded 'tgz' file from our [download page](/_pages/downloa
     # /opt/sadmin/setup/setup.sh                # Run setup script
 ```
 
+<a id="setup"></a>
 ## The Setup script  
 Whether you are installing a SADMIN client or server, they both need “python3” and the “lsb_release” 
 command installed. So the first thing the setup script will do, is to verify that they are installed, 

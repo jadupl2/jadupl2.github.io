@@ -2,8 +2,8 @@
 title:          sadmin.cfg
 permalink:      /sadmin-cfg/
 desc:           SADMIN configuration file.
-version:        2.6
-updated:        2021-09-07
+version:        2.7
+updated:        2022-07-28
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 layout:         single
@@ -85,6 +85,29 @@ SADM_CIE_NAME = Your Cie Name
 SADM_MAIL_ADDR = batman@batcave.com,robin@batcave.com
 ```
 
+
+<a id="sadm_smtp"></a>
+## Your SMTP configuration information
+```bash
+#----------------------------------------------------------------------------
+# This is where you specify your smtp server name, port and user on internet.
+# If you are using gmail, then you can use the setting below if you setup an
+# application password on Google site. 
+#
+# The SADMIN setup script will configure Postfix configuration file (main.cf)
+# and the passwords files (sasl_passwd and sasl_passwd.db) in /etc/postfix 
+# for you. Password file ($SADMIN/cfg/.gmpw) permission are restricted to 
+# SADMIN designated user (SADM_USER defined in this file). 
+#
+# As of 30 may 2022, Google will no longer accept connection from less 
+# secure application (https://support.mozilla.org/gu-IN/questions/1369886).
+# You need to define a secure application password, for more info visit 
+# this page (https://support.google.com/accounts/answer/185833#app-passwords)
+#----------------------------------------------------------------------------
+SADM_SMTP_SERVER = smtp.gmail.com
+SADM_SMTP_PORT   = 587
+SADM_SMTP_SENDER = youremail@gmail.com
+```
 
 
 <a id="sadm_alert_type"></a>

@@ -1,9 +1,9 @@
 ---
 title:          sadm_client-housekeeping.sh
 permalink:      /sadm-client-housekeeping/
-desc:           Purge old log,rch,nmon files and check $SADMIN permission
-version:        1.48
-updated:        2021-05-29
+desc:           Set $SADMIN owner/group/permission, prune old log & rch files,check sadmin account.
+version:        2.06
+updated:        2022-07-28
 os:             Linux, Aix, MacOS
 type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ client-scripts ] 
@@ -77,56 +77,55 @@ of the SADMIN tools.
 ```bash
 root@holmes:~ # sadm_client_housekeeping.sh 
 ================================================================================
-Sat May 29 11:13:41 EDT 2021 - sadm_client_housekeeping.sh V1.48 - SADM Lib. V3.70
-Server Name: holmes.maison.ca - Type: LINUX
-CENTOS 7.9.2009 Kernel 3.10.0-1160.25.1.el7.x86_64
+Thu 28 Jul 2022 13:00:24 - sadm_client_housekeeping.sh v2.06 - Library v4.03
+Desc: Set $SADMIN owner/group/permission, prune old log,rch files ,check sadmin account.
+Host: sherlock.maison.ca - User: root - Arch: x86_64 - SADMIN: /opt/sadmin
+Almalinux Linux release 9.0 - Kernel 5.14.0-70.17.1.el9_0.x86_64
 ==================================================
  
 SADMIN Client Directories Housekeeping.
-  - chmod 0775 /sadmin [ OK ]
-  - chown sadmin:sadmin /sadmin [ OK ]
-  - chmod 0775 /sadmin/bin [ OK ]
-  - chown sadmin:sadmin /sadmin/bin [ OK ]
-  - chmod 0775 /sadmin/cfg [ OK ]
-  - chown sadmin:sadmin /sadmin/cfg [ OK ]
-  - chmod 0775 /sadmin/dat [ OK ]
-  - chown sadmin:sadmin /sadmin/dat [ OK ]
-  - chmod 0775 /sadmin/doc [ OK ]
-  - chown sadmin:sadmin /sadmin/doc [ OK ]
-  - chmod 0775 /sadmin/lib [ OK ]
-  - chown sadmin:sadmin /sadmin/lib [ OK ]
-  - chmod 0775 /sadmin/log [ OK ]
-  - chown sadmin:sadmin /sadmin/log [ OK ]
-  - chmod 775 /sadmin/pkg [ OK ]
-  - chown sadmin:sadmin /sadmin/pkg [ OK ]
-  - chmod 775 /sadmin/setup [ OK ]
-  - chown sadmin:sadmin /sadmin/setup [ OK ]
-  - chmod 0775 /sadmin/sys [ OK ]
-  - chown sadmin:sadmin /sadmin/sys [ OK ]
-  - chmod 1777 /sadmin/tmp [ OK ]
-  - chown sadmin:sadmin /sadmin/tmp [ OK ]
-  - chmod 0775 /sadmin/usr [ OK ]
-  - chown sadmin:sadmin /sadmin/usr [ OK ]
-  - chmod 0775 /sadmin/usr/bin [ OK ]
-  - chown sadmin:sadmin /sadmin/usr/bin [ OK ]
-  - chmod 0775 /sadmin/usr/lib [ OK ]
-  - chown sadmin:sadmin /sadmin/usr/lib [ OK ]
-  - chmod 0775 /sadmin/usr/doc [ OK ]
-  - chown sadmin:sadmin /sadmin/usr/doc [ OK ]
-  - chmod 0775 /sadmin/usr/mon [ OK ]
-  - chown sadmin:sadmin /sadmin/usr/mon [ OK ]
-  - chmod 0775 /sadmin/dat/nmon [ OK ]
-  - chown sadmin:sadmin /sadmin/dat/nmon [ OK ]
-  - chmod 0775 /sadmin/dat/dr [ OK ]
-  - chown sadmin:sadmin /sadmin/dat/dr [ OK ]
-  - chmod 0775 /sadmin/dat/rch [ OK ]
-  - chown sadmin:sadmin /sadmin/dat/rch [ OK ]
-  - chmod 0775 /sadmin/dat/dbb [ OK ]
-  - chown sadmin:sadmin /sadmin/dat/dbb [ OK ]
-  - chmod 0775 /sadmin/dat/net [ OK ]
-  - chown sadmin:sadmin /sadmin/dat/net [ OK ]
-  - chmod 4775 /sadmin/lost+found [ OK ]
-  - chown root:root /sadmin/lost+found [ OK ]
+  - chmod 0775 /opt/sadmin [ OK ]
+  - chown sadmin:sadmin /opt/sadmin [ OK ]
+  - chmod 0775 /opt/sadmin/bin [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/bin [ OK ]
+  - chmod 0775 /opt/sadmin/cfg [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/cfg [ OK ]
+  - chmod 0775 /opt/sadmin/dat [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat [ OK ]
+  - chmod 0775 /opt/sadmin/doc [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/doc [ OK ]
+  - chmod 0775 /opt/sadmin/lib [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/lib [ OK ]
+  - chmod 0775 /opt/sadmin/log [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/log [ OK ]
+  - chmod 775 /opt/sadmin/pkg [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/pkg [ OK ]
+  - chmod 775 /opt/sadmin/setup [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/setup [ OK ]
+  - chmod 0775 /opt/sadmin/sys [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/sys [ OK ]
+  - chmod 1777 /opt/sadmin/tmp [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/tmp [ OK ]
+  - chmod 0775 /opt/sadmin/usr [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/usr [ OK ]
+  - chmod 0775 /opt/sadmin/usr/bin [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/usr/bin [ OK ]
+  - chmod 0775 /opt/sadmin/usr/lib [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/usr/lib [ OK ]
+  - chmod 0775 /opt/sadmin/usr/doc [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/usr/doc [ OK ]
+  - chmod 0775 /opt/sadmin/usr/mon [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/usr/mon [ OK ]
+  - chmod 0775 /opt/sadmin/dat/nmon [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat/nmon [ OK ]
+  - chmod 0775 /opt/sadmin/dat/dr [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat/dr [ OK ]
+  - chmod 0775 /opt/sadmin/dat/rch [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat/rch [ OK ]
+  - chmod 0775 /opt/sadmin/dat/dbb [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat/dbb [ OK ]
+  - chmod 0775 /opt/sadmin/dat/net [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/dat/net [ OK ]
 
 SADMIN Client Files Housekeeping.
   - chmod 0644 /etc/cron.d/sadm_client [ OK ]
@@ -139,46 +138,56 @@ SADMIN Client Files Housekeeping.
   - chown root:root /etc/cron.d/sadm_backup [ OK ]
   - chmod 0644 /etc/cron.d/sadm_rear_backup [ OK ]
   - chown root:root /etc/cron.d/sadm_rear_backup [ OK ]
-  - chmod 0664 /sadmin/readme.md [ OK ]
-  - chown sadmin:sadmin /sadmin/readme.md [ OK ]
-  - chmod 0664 /sadmin/license [ OK ]
-  - chown sadmin:sadmin /sadmin/license [ OK ]
-  - chmod 0664 /sadmin/changelog.md [ OK ]
-  - chown sadmin:sadmin /sadmin/changelog.md [ OK ]
-  - find /sadmin/dat -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/dat -type f -exec chmod 0664{} \; [ OK ]
-  - find /sadmin/log -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/log -type f -exec chmod 0666{} \; [ OK ]
-  - find /sadmin/usr -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/usr -type f -exec chmod 0644{} \; [ OK ]
-  - find /sadmin/usr/bin -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/usr/bin -type f -exec chmod 0775{} \; [ OK ]
-  - find /sadmin/usr/lib -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/usr/lib -type f -exec chmod 0775{} \; [ OK ]
-  - find /sadmin/usr/mon -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/usr/mon -type f -exec chmod 0775{} \; [ OK ]
-  - find /sadmin/cfg -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/cfg -type f -exec chmod 0664{} \; [ OK ]
-  - find /sadmin/sys -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/sys -type f -exec chmod 0770{} \; [ OK ]
-  - find /sadmin/bin -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/bin -type f -exec chmod 0775{} \; [ OK ]
-  - find /sadmin/lib -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/lib -type f -exec chmod 0775{} \; [ OK ]
-  - find /sadmin/pkg -type f -exec chown sadmin:sadmin {} \; [ OK ]
-  - find /sadmin/pkg -type f -exec chmod 0755{} \; [ OK ]
+  - chmod 0664 /opt/sadmin/readme.md [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/readme.md [ OK ]
+  - chmod 0664 /opt/sadmin/license [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/license [ OK ]
+  - chmod 0664 /opt/sadmin/changelog.md [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/changelog.md [ OK ]
+  - chmod 0640 /opt/sadmin/cfg/.dbpass [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/cfg/.dbpass [ OK ]
+  - chmod 0640 /opt/sadmin/cfg/.gmpw [ OK ]
+  - chown sadmin:sadmin /opt/sadmin/cfg/.gmpw [ OK ]
+  - chmod 0600 /etc/postfix/sasl_passwd [ OK ]
+  - chown root:root /etc/postfix/sasl_passwd [ OK ]
+  - chmod 0600 /etc/postfix/sasl_passwd.db [ OK ]
+  - chown root:root /etc/postfix/sasl_passwd.db [ OK ]
+  - find /opt/sadmin/tmp -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/tmp -type f -exec chmod 1777{} \; [ OK ]
+  - find /opt/sadmin/dat -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/dat -type f -exec chmod 0664{} \; [ OK ]
+  - find /opt/sadmin/log -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/log -type f -exec chmod 0666{} \; [ OK ]
+  - find /opt/sadmin/usr -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/usr -type f -exec chmod 0644{} \; [ OK ]
+  - find /opt/sadmin/usr/bin -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/usr/bin -type f -exec chmod 0775{} \; [ OK ]
+  - find /opt/sadmin/usr/lib -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/usr/lib -type f -exec chmod 0775{} \; [ OK ]
+  - find /opt/sadmin/usr/mon -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/usr/mon -type f -exec chmod 0775{} \; [ OK ]
+  - find /opt/sadmin/cfg -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/cfg -type f -exec chmod 0664{} \; [ OK ]
+  - find /opt/sadmin/sys -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/sys -type f -exec chmod 0770{} \; [ OK ]
+  - find /opt/sadmin/bin -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/bin -type f -exec chmod 0775{} \; [ OK ]
+  - find /opt/sadmin/lib -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/lib -type f -exec chmod 0775{} \; [ OK ]
+  - find /opt/sadmin/pkg -type f -exec chown sadmin:sadmin {} \; [ OK ]
+  - find /opt/sadmin/pkg -type f -exec chmod 0755{} \; [ OK ]
 
 SADMIN Files Pruning.
-  - Remove any unmodified file(s) for more than 7 days in /sadmin/tmp.
-    - find /sadmin/tmp  -type f -mtime +7 -exec rm -f {} \; [ OK ]
+  - Remove unmodified file(s) for more than 7 days in /opt/sadmin/tmp.
+    - find /opt/sadmin/tmp  -type f -mtime +7 -exec rm -f {} \; [ OK ]
   - Remove all pid files once a day - This prevent script from not running.
-    - find /sadmin/tmp  -type f -name '*.pid' -exec rm -f {} \; [ OK ]
-  - Remove any unmodified *.rch file(s) for more than 40 days in /sadmin/dat/rch.
-    - find /sadmin/dat/rch -type f -mtime +40 -name '*.rch' -exec rm -f {} \; [ OK ]
-  - Remove any unmodified *.log file(s) for more than 40 days in /sadmin/log.
-    - find /sadmin/log -type f -mtime +40 -name '*.log' -exec rm -f {} \; [ OK ]
-  - Remove any unmodified *.nmon file(s) for more than 40 days in /sadmin/dat/nmon.
-    - find /sadmin/dat/nmon -mtime +40 -type f -name '*.nmon' -exec rm {} \; [ OK ]
+    - find /opt/sadmin/tmp  -type f -name '*.pid' -exec rm -f {} \; [ OK ]
+  - Remove any unmodified *.rch file(s) for more than 40 days in /opt/sadmin/dat/rch.
+    - find /opt/sadmin/dat/rch -type f -mtime +40 -name '*.rch' -exec rm -f {} \; [ OK ]
+  - Remove any unmodified *.log file(s) for more than 40 days in /opt/sadmin/log.
+    - find /opt/sadmin/log -type f -mtime +40 -name '*.log' -exec rm -f {} \; [ OK ]
+  - Remove any unmodified *.nmon file(s) for more than 40 days in /opt/sadmin/dat/nmon.
+    - find /opt/sadmin/dat/nmon -mtime +40 -type f -name '*.nmon' -exec rm {} \; [ OK ]
 
 Check status of account 'sadmin' ...
   - Making sure account 'sadmin' doesn't expire.
@@ -186,15 +195,19 @@ Check status of account 'sadmin' ...
   - We recommend changing 'sadmin' password at regular interval.
   - No problem with 'sadmin' account. [ OK ]
 
-==================================================
-Script exit code is 0 (Success) and execution time is 00:00:05
-History (/sadmin/dat/rch/holmes_sadm_client_housekeeping.rch) trim to 35 lines ($SADM_MAX_RCLINE=35).
-Script will send an alert only when it terminate with error ($SADM_ALERT_TYPE=1).
-Script succeeded, no alert will be send to 'default' alert group.
-New log (/sadmin/log/holmes_sadm_client_housekeeping.log) created ($SADM_LOG_APPEND='N').
-End of sadm_client_housekeeping.sh - Sat May 29 11:13:42 EDT 2021
-================================================================================
+Check SADMIN client 'sadmin' crontab & System monitor config file ...
+  - Make sure sadm_client crontab (/etc/cron.d/sadm_client) have 'sadm_nmon_watcher.sh' line.
+  - Yes, crontab (/etc/cron.d/sadm_client) already got 'sadm_nmon_watcher.sh' line.
+  - Making sure that script:swatch_nmon.sh is no longer in /opt/sadmin/cfg/sherlock.smon
 
+==================================================
+Script exit code is 0 (Success) and execution time is 00:00:07
+History file '$SADMIN/dat/rch/sherlock_sadm_client_housekeeping.rch' trim to 35 lines.
+Script is set to send an alert only when it terminate with error.
+Script succeeded, no alert will be send ($SADM_ALERT_TYPE=1).
+New log created '$SADMIN/log/sherlock_sadm_client_housekeeping.log'.
+End of sadm_client_housekeeping.sh - Thu 28 Jul 2022 01:00:25 PM EDT
+================================================================================
 ```
 <!-- ![Daily Script Report Example](/assets/img/man/sadm_daily_report_script.png){: .align-center} -->
 

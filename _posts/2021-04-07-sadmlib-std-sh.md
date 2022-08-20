@@ -2,8 +2,8 @@
 title:          sadmlib_std.sh
 permalink:      /sadmlib-std-sh/
 desc:           SADMIN standard shell library
-updated:        2021-09-07
-version:        3.74
+updated:        2022-07-30
+version:        4.04
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
@@ -23,19 +23,20 @@ sidebar:
 {% include sadm/sadm_page_info.md %}
 
 
-## SADMIN Standard library functions
+## SADMIN shell standard library documentation
 
-| Function Call |   Description |  Return value example | 
-| :---  | :--- | :---  |
-| sadm_ask "Are you sure"                   | Display "Are you sure [y/n] ? " and wait for answer   | 0=No 1=Yes | 
-| sadm_create_lockfile "hostname"           | Suspend monitoring of the received system name        | 0=Lock, 1=Can't Lock |
-| sadm_is_system_lock  "hostname"           | Check if system name received is currently lock       | 0=Not Lock, 1=Lock |
-| sadm_remove_lockfile "hostname"           | Resume monitoring of the received system name         | 0=Unlock, 1=Can't Unlock |
-| $(sadm_get_release)                       | Return SADMIN Release Number                          | 1.2.9 |
+| Function Call                             | Description                                           | Return value example    | 
+| :---                                      | :---                                                  | :---                    |
+| sadm_ask "Question"                       | Show 'Question' & wait for Y, y, N or n               | 0=No 1=Yes              | 
+| $(sadm_capitalize "LINUX")                | Return 1st char. in uppercase & rest in lower         | Linux                   |
+| sadm_check_system_lock "hostname"         | Check the system name ($1) is currently lock          | 0=Not Lock, 1=Lock      |
+| sadm_lock_system "hostname"               | Lock the system name ($1), suspend monitoring of it.  | 0=Lock,   1=Can't Lock  |
+| sadm_unlock_system "hostname"             | Unlock the system name ($1), resume monitoring of it. | 0=Unlock, 1=Can't Unlock|
+| $(sadm_get_release)                       | Return SADMIN Release Number                          | 1.4.1 |
 | $(sadm_get_ostype)                        | Return OS type in uppercase (LINUX,AIX,DARWIN)        | LINUX |
 | $(sadm_get_osversion)                     | Return O/S version (Ex: 7.2, 6.5)                     | 7.9.2009 |
-| $(sadm_get_osmajorversion)                | Return O/S major version (Ex 7, 6)                    | 7 |
-| $(sadm_get_osminorversion)                | Return O/S minor version (Ex 2, 3)                    | 9 |
+| $(sadm_get_osmajorversion)                | Return O/S major version (Ex 7, 6)                    | 9 |
+| $(sadm_get_osminorversion)                | Return O/S minor version (Ex 2, 3)                    | 0 |
 | $(sadm_get_osname)                        | Return Uppercase O/S name (REDHAT,CENTOS,UBUNTU,..)   | CENTOS |
 | $(sadm_get_oscodename)                    | Return O/S project code name                          | focal |
 | $(sadm_get_kernel_version)                | Return O/S kernel version                             | 5.4.0-58-generic |
@@ -66,18 +67,20 @@ sidebar:
 | $(sadm_server_ips)                        | Net Dev (Name\|IP\|Netmask\|MAC)                      | eth0\| 192.168.1.8\| 255.255.255.0\| c8:2a:14:3b:59:a1 |
 | $(sadm_toupper "Linux")                   | Return string in uppercase                            | LINUX |
 | $(sadm_tolower "LINUX")                   | Return string in lowercase                            | linux | 
-| $(sadm_capitalize "LINUX")                | Return 1st Char. in uppercase & rest in lower         | Linux |
 | sadm_isnumeric 25                         | Return 0 if it is an integer else 1                   | 0 |
 | sadm_check_requirements()                 | Check/Set Path of require commands                    | 0=OK or 1=Error |
 | sadm_get_command_path "lscpu"             | Get full path (return blank if not found)             | /usr/bin/lscpu |
 | sadm_load_config_file                     | Load/Reload sadmin.cfg in Global Var.                 | Exit if fail |
+| sadm_sendmail "email" "subject" "boby" "file" | Sendmail, file is optional, multiple files separated by ','.| 0=Mail sent or 1=Error |
 | sadm_show_version                         | Show Script Name,Ver.,Libr.Ver,OS Name/Ver,KernelVer  | Used for script -v arg. |
 | sadm_sleep 60 15                          | Sleep 60 seconds, update progress bar every 15 sec.   | 0...15...30...45...60 |
 | [sadm_start]({% post_url 2019-10-12-sadmlib-std-demo-sh %}#sadm_start) | Init SADMIN Env. log, rch, tmpfile, pid | Exit if fail |
 | [sadm_stop]({% post_url 2019-10-12-sadmlib-std-demo-sh %}#sadm_stop) 0 | Stop 0=Success 1=Error (Close log,rch Del PID,tmp) | 0 or 1 |
 | sadm_trimfile "$file" 125                 | Trim file ($1) to number of lines ($2)                | sadm_trimfile "test.log" 125 |
-| sadm_write "message"                      | Write message without LF in Log and Screen            | message  |
-| sadm_writelog "message"                   | Write message with LF in Log and Screen               | message\n  |
+| sadm_write "message"                      | Write message without LF in log and on screen         | message  |
+| sadm_writelog "message"                   | Write message with LF in log and on screen            | message\n  |
+| sadm_write_err "message"                  | Write message with LF in error log, std log & screen  | message\n  |
+| sadm_write_log "message"                  | Write message with LF in log and on screen            | message\n  |
 
 
 
