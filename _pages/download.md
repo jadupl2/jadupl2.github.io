@@ -23,8 +23,8 @@ sidebar:
 | Version         | 1.4.0    | 
 | Release Date    | 2022-08-26  | 
 | Release Notes   | [Release Notes](https://github.com/jadupl2/sadmin/releases/tag/1.4.0) | 
-| Full Changelog  | [Full Changelog](https://github.com/jadupl2/sadmin/blob/master/changelog.md) |
-| Download link   | [sadmin_1.4.0.tgz](https://github.com/jadupl2/sadmin/releases/download/1.4.0/sadmin_1.4.0.tgz) (20MMb) | 
+| Full Changelog  | [Full Changelog](https://github.com/jadupl2/sadmin/blob/master/changelog.md) | 
+| Download link   | [sadmin_1.4.0.tgz](https://github.com/jadupl2/sadmin/releases/download/1.4.0/sadmin_1.4.0.tgz) (20M) | 
 | SHA256 checksum | [sadmin_1.4.0.tgz.sha256](https://github.com/jadupl2/sadmin/releases/download/1.4.0/sadmin_1.4.0.tgz.sha256)|
 | SHA512 checksum | [sadmin_1.4.0.tgz.sha512](https://github.com/jadupl2/sadmin/releases/download/1.4.0/sadmin_1.4.0.tgz.sha512)|
 
