@@ -82,7 +82,8 @@ sidebar:
 | [How-to use the script wrapper]({% post_url 2018-02-11-sadm-wrapper %})           | [sadm_wrapper.sh]({% post_url 2018-02-11-sadm-wrapper %})     | Use the wrapper to run your existing scripts  
 | [SADMIN Shell Library Doc.]({% post_url 2021-04-07-sadmlib-std-sh %})             | [sadmlib_std.sh]({% post_url 2021-04-07-sadmlib-std-sh %}) | SADMIN standard shell library  
 | [SADMIN Shell Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-sh %})        | [sadmlib_std_demo.sh]({% post_url 2019-10-12-sadmlib-std-demo-sh %})  | SADMIN Shell library demonstrator   
-| [SADMIN Python Library Doc.]({% post_url 2021-04-07-sadmlib-std-py %})            | [sadmlib_std.py]({% post_url 2021-04-07-sadmlib-std-py %})  | SADMIN standard python library  
+| [SADMIN Python Library v1 Doc.]({% post_url 2021-04-07-sadmlib-std-py %})         | [sadmlib_std.py]({% post_url 2021-04-07-sadmlib-std-py %})            | SADMIN standard python library v1 ***(Depreciated)***
+| [SADMIN Python Library v2 Doc.]({% post_url 2022-08-02-sadmlib2-std-py %})        | [sadmlib2_std.py]({% post_url 2022-08-02-sadmlib2-std-py %})          | SADMIN standard python library v2
 | [SADMIN Python Library Demo]({% post_url 2019-10-12-sadmlib-std-demo-py %})       | [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %})  | SADMIN Python library demonstrator
 | [ Library Code Section](/libraries/sadmin-section) | Code to include | Minimal code for using SADMIN library |
 | [SADMIN Menu Builder Library]({% post_url 2019-10-12-sadmlib-screen-sh %})        | [sadmlib_screen.sh]({% post_url 2019-10-12-sadmlib-screen-sh %})   | Library use to build shell menu   

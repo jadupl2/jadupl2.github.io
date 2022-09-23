@@ -1,9 +1,9 @@
 ---
-title:          sadmlib2_std.py
+title:          SADMIN Python Library v2 - sadmlib2_std.py
 permalink:      /sadmlib2-std-py/
 desc:           SADMIN standard python library v2
-updated:        2022-08-02
-version:        4.22
+updated:        2022-09-16
+version:        4.25
 os:             Linux, Aix, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
@@ -19,15 +19,10 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+### Documentation of each functions in the library   
 
+If you are not already familiar with our Python library, you may want to read [how-to use the SADMIN Python Library]({% post_url 2021-03-16-sadm-template-py %}).
 
-{% include sadm/sadm_page_info.md %}
-
-<br>
-See the python template [sadm_template.py]({% post_url 2021-03-16-sadm-template-py %}) and [sadmlib_std_demo.py]({% post_url 2019-10-12-sadmlib-std-demo-py %}) to give you a good idea of how to use this library and see how 
-it can help you.
-
-## SADMIN Standard library functions
 
 | Function Call |   Description |  Return value example |   
 | :---  | :--- | :---  |  
@@ -62,8 +57,9 @@ it can help you.
 | silentremove(filename)            | Remove file name received - no error msg - even if failed | |
 | start()                           | Make sure dir. exist, init log,rch,pid, chk multiple exec | abort if fail |
 | stop(return_code)                 | Write footer to log,rch, del pid, close db, trim log,rch  | |
-| trimfile(fname, nlines=500)       | Trim file received to number of lines specified(500 default) | 0 |
+| [trimfile(filename,nlines=500)]({% post_url 2022-09-15-lib-trim-py %}) | Trim file received to number of lines specified(500 default) | 0 |
 | writelog(msg,stype="normal")      | Write message to log File, Screen or Both (st.log_type)   | |
+
 
 
 
