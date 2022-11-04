@@ -21,6 +21,33 @@ sidebar:
 
 | Release         | Version    | 
 | :---            | :---       | 
+| Version         | 1.4.2    | 
+| Release Date    | 2022-11-04  | 
+| Release Notes   | [Release Notes](https://github.com/jadupl2/sadmin/releases/tag/1.4.2) | 
+| Full Changelog  | [Full Changelog](https://github.com/jadupl2/sadmin/blob/master/changelog.md) | 
+| Download link   | [sadmin_1.4.2.tgz](https://github.com/jadupl2/sadmin/releases/download/1.4.2/sadmin_1.4.2.tgz) (19M) | 
+| SHA256 checksum | [sadmin_1.4.2.tgz.sha256](https://github.com/jadupl2/sadmin/releases/download/1.4.2/sadmin_1.4.2.tgz.sha256)|
+| SHA512 checksum | [sadmin_1.4.2.tgz.sha512](https://github.com/jadupl2/sadmin/releases/download/1.4.2/sadmin_1.4.2.tgz.sha512)|
+
+To verify data integrity of the SADMIN package, download a checksum file and run the appropriate 
+checksum command (like below).
+```bash
+$ sha256sum --check sadmin_1.4.2.tgz.sha256
+sadmin_1.4.2.tgz: OK
+$ sha512sum --check sadmin_1.4.2.tgz.sha512
+sadmin_1.4.2.tgz: OK
+```
+
+
+
+
+
+
+## Previous Release 
+
+
+| Release         | Version    | 
+| :---            | :---       | 
 | Version         | 1.4.1    | 
 | Release Date    | 2022-08-26  | 
 | Release Notes   | [Release Notes](https://github.com/jadupl2/sadmin/releases/tag/1.4.1) | 
@@ -31,17 +58,13 @@ sidebar:
 
 To verify data integrity of the SADMIN package, download a checksum file and run the appropriate 
 checksum command (like below).
+
 ```bash
 $ sha256sum --check sadmin_1.4.1.tgz.sha256
 sadmin_1.4.1.tgz: OK
 $ sha512sum --check sadmin_1.4.1.tgz.sha512
 sadmin_1.4.1.tgz: OK
 ```
-
-
-
-## Previous Release 
-
 
 
 | Release         | Version    | 

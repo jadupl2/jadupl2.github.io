@@ -1,7 +1,7 @@
 ---
 layout:         single
-version:        1.4.1
-updated:        2022-08-26
+version:        1.4.2
+updated:        2022-11-04
 paginate:       false
 show_excerpts:  false
 entries_layout: list
