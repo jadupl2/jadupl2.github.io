@@ -97,7 +97,7 @@ a 'SADMIN server' or a 'SADMIN client'. As an example, I have kept the
 
 - If you are installing a 'SADMIN server':  
     - Setup script will install and configure for you the 'Mariadb' (Database) and the Apache web 
-server. At the end of the installation you will have a working Web SADMIN environment at 'http://sadmin' 
+server. At the end of the installation you will have a working Web SADMIN environment at 'https://sadmin' 
 or 'http://localhost'.
 
 After running the setup script, you need to log out and log back in before using SADMIN Tools or type the command below.  
@@ -108,6 +108,6 @@ This will make sure “SADMIN” environment variable is define.
 
 The installation is now completed :
 - If you have installed a SADMIN server take a look at the web interface at http://`FQDN of your server`
-or http://sadmin or http://localhost (if you are on the server)..
+or https://sadmin or http://localhost (if you are on the server)..
 - If you have installed a client, you need to add your client via the web interface and setup the
 ssh keys for that client. See the instruction on [how-to add a client to SADMIN]({% post_url 2021-04-11-web-add-client %}).
