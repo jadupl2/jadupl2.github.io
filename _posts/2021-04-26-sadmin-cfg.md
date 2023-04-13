@@ -520,21 +520,6 @@ SADM_YEARLY_BACKUP_DATE     =   31
 
 
 
-<a id="sadm_mksysb_nfs_server"></a>
-## AIX mksysb information
-Below is the information that indicate where the AIX mksysb image will be stored and what is the
-retention policy (Used by sadm_create_mksysb.sh script).
- ```bash
-#----------------------------------------------------------------------------
-# NFS Server, mount point and Number of Mksysb backup to keep 
-#----------------------------------------------------------------------------
-SADM_MKSYSB_NFS_SERVER      = batnas.maison.ca
-SADM_MKSYSB_NFS_MOUNT_POINT = /volume1/mksysb
-SADM_MKSYSB_BACKUP_TO_KEEP  = 2
-```
-
-
-
 <a id="sadm_network"></a>
 ## The network subnet you want to scan every day
 You can define up to five subnets to scan every day. This information is used by the network 

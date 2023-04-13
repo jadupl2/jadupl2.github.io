@@ -226,9 +226,6 @@ SADMIN CONFIG FILE VARIABLES           Description                           Thi
 [030] $SADM_NETWORK3                   Network/Netmask 3 inv. IP/Name/Mac  :                                
 [031] $SADM_NETWORK4                   Network/Netmask 4 inv. IP/Name/Mac  :                                
 [032] $SADM_NETWORK5                   Network/Netmask 5 inv. IP/Name/Mac  :                                
-[033] $SADM_MKSYSB_NFS_SERVER          AIX MKSYSB NFS Server IP or Name    : batnfs.maison.ca               
-[034] $SADM_MKSYSB_NFS_MOUNT_POINT     AIX MKSYSB NFS Mount Point          : /volume1/mksysb                
-[035] $SADM_MKSYSB_BACKUP_TO_KEEP      AIX MKSYSB NFS Backup - Nb. to keep : 2                              
 [036] $SADM_REAR_NFS_SERVER            Rear NFS Server IP or Name          : batnas.maison.ca               
 [037] $SADM_REAR_NFS_MOUNT_POINT       Rear NFS Mount Point                : /volume1/Linux_DR              
 [038] $SADM_REAR_BACKUP_TO_KEEP        Rear NFS Backup - Nb. to keep       : 3                              
