@@ -4,7 +4,7 @@ permalink:      /sadmlib2-std-py/
 desc:           SADMIN standard python library v2
 updated:        2022-09-16
 version:        4.25
-os:             Linux, Aix, MacOS
+os:             Linux, MacOS
 type:           D  # [D]oc [S]=Server only [C]=Client [B]oth
 tags:           [ libraries ] 
 categories:     [ libraries ] 

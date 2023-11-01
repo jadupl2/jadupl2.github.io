@@ -1,15 +1,15 @@
 ---
-title:          sadm_nmon_watcher.sh
+title:          sadm_nmon_watcher.py
 permalink:      /sadm-nmon-watcher/
-desc:           Check if performance collector (nmon) is running, if it is not start it.
-version:        2.7
+desc:           This script ensure that 'nmon' performance monitor is running.
+version:        1.5
 summary: |         
     This script is automatically run from the client crontab every 45 minute. It check if the 
     performance collector 'nmon' is running, it it isn't it will start it.
     {: .text-justify}
-updated:        2021-06-30
-os:             Linux, Aix
-type:           C  # [D]oc [S]=Server only [C]=Client [B]oth
+updated:        2023-10-18
+os:             Linux
+type:           B  # [D]oc [S]=Server only [C]=Client [B]oth
 categories:     [ test ] 
 #categories:     [ how-to, web_interface, backup, configuration-files, system_monitor, server-scripts, client-scripts, command_line,  utilities, libraries, templates, test ] 
 tags:           [ test ] 

@@ -18,6 +18,8 @@ sidebar:
   nav:          sidebar-manpage
 ---
 
+---
+
 | Release         | Version    | 
 | :---            | :---       | 
 | Version         | 1.4.9    | 
@@ -40,6 +42,8 @@ sadmin_1.4.9.tgz: OK
 
 ---
 
+## Previous Release
+
 | Release         | Version    | 
 | :---            | :---       | 
 | Version         | 1.4.7    | 
@@ -59,14 +63,7 @@ $ sha512sum --check sadmin_1.4.7.tgz.sha512
 sadmin_1.4.7.tgz: OK
 ```
 
-
-
-
-
-
-## Previous Release 
-
-
+---
 
 | Release         | Version    | 
 | :---            | :---       | 
@@ -86,6 +83,8 @@ sadmin_1.4.05.tgz: OK
 $ sha512sum --check sadmin_1.4.05.tgz.sha512
 sadmin_1.4.05.tgz: OK
 ```
+
+---
 
 
 | Release         | Version    | 
@@ -107,6 +106,7 @@ $ sha512sum --check sadmin_1.4.4.tgz.sha512
 sadmin_1.4.4.tgz: OK
 ```
 
+---
 
 
 | Release         | Version    | 
@@ -128,6 +128,7 @@ $ sha512sum --check sadmin_1.4.2.tgz.sha512
 sadmin_1.4.2.tgz: OK
 ```
 
+---
 
 
 | Release         | Version    | 
@@ -150,8 +151,7 @@ $ sha512sum --check sadmin_1.4.1.tgz.sha512
 sadmin_1.4.1.tgz: OK
 ```
 
-
-
+---
 
 | Release         | Version    | 
 | :---            | :---       | 

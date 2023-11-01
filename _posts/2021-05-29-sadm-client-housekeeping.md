@@ -1,5 +1,5 @@
 ---
-title:          sadm_client-housekeeping.sh
+title:          sadm_client_housekeeping.sh
 permalink:      /sadm-client-housekeeping/
 desc:           Set $SADMIN owner/group/permission, prune old log & rch files,check sadmin account.
 version:        2.06
