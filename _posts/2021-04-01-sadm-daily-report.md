@@ -49,9 +49,7 @@ from the SADMIN server crontab (/etc/cron.d/sadm_server), but you can also be ru
 when desired. It can only be run on the SADMIN server.
 {: .text-justify}
 
-If the package '[wkhtmltopdf](https://wkhtmltopdf.org/)' is present on the SADMIN server (It 
-should have been installed by the setup process), a PDF version of each report is also attached 
-to the email.
+
 {: .text-justify}
 
 If one of the three report is not desired, you can use the '-r', '-b' or the '-s' command line 
