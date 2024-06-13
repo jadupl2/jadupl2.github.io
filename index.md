@@ -20,7 +20,7 @@ toc:            false
 If you're a Unix system administrator who's taking care of multiple servers, you probably 
 created some scripts to help you keeping your environment stable and under control. SADMIN can 
 help you by centralizing your scripts logs, viewing their results in one place and
-you can even can be notified if something goes wrong. With SADMIN you can be notified, when a 
+you can even be notified if something went wrong. With SADMIN you can be notified, when a 
 script fail or just to let you know that your script ran with success. You can received 
 notification via email, SMS or the Slack application. 
 SADMIN can surely help you improve and standardize the administration of your server farm.
@@ -29,6 +29,7 @@ SADMIN can surely help you improve and standardize the administration of your se
 [![monitor](/assets/img/sadm_sysmon/sadm_view_sysmon.png)](/assets/img/sadm_sysmon/sadm_view_sysmon.png)
 
 ## Monitor your scripts from just one place
+
 * View the [status of all your scripts](/assets/img/webui/scripts_status.png) that run in your server farm.
 * View your script log directly from the [web interface](/assets/img/webui/view_logs.png) or from the [command line](/assets/img/cmdline/cat_log.png).
 * When a script fail or succeed, can receive a notification by ['SMS/Texto'](/assets/img/sms/textbelt_step10_sms_receive.png), ['Slack'](/assets/img/slack/slack_warning.png) or by [email](/assets/img/mail/sysmon_mail_notification.png).
@@ -36,6 +37,7 @@ SADMIN can surely help you improve and standardize the administration of your se
 
 
 ## Using our templates 
+
 * Use our [Shell]({% post_url 2021-03-16-sadm-template-sh %}) and [Python]({% post_url 2021-03-16-sadm-template-py %}) 
 templates to create new scripts and benefit of SADMIN tools.  
 * Use [SADMIN wrapper]( {% post_url 2018-02-11-sadm-wrapper %}) and *run your existing scripts using the SADMIN tools*.  
@@ -46,6 +48,7 @@ templates to create new scripts and benefit of SADMIN tools.
 
 
 ## Inventory of your systems
+
 * Add, [update](/assets/img/webui/server_static_info.png) or delete system in your inventory.
 * It collect [system configuration](/assets/img/webui/server_information.png) and [performance data](/assets/img/perfo/rrd_update_cpu_graph.png) of your systems.
 * Access all this information from a [web interface](/assets/img/webui/main_screen.png) or from the command line.
@@ -56,6 +59,7 @@ templates to create new scripts and benefit of SADMIN tools.
 
 
 ## Web Interface to administrate your systems
+
 * Use it to add, update and delete server in your server farm.
 * View [performance graph of your servers up to two years in the past](assets/img/perfo/sadm_perf_adhoc.png).
 * Have your systems configuration on hand, useful in case of a Disaster Recovery.
@@ -64,6 +68,7 @@ templates to create new scripts and benefit of SADMIN tools.
 
 
 ## Automate your system update
+
 * Choose when and what system are updated.
 * Choose [date and time to perform the update](/assets/img/webui/osupdate_screen.png).
 * Choose to reboot or not your system after the update.
@@ -74,6 +79,7 @@ templates to create new scripts and benefit of SADMIN tools.
 
 
 ## Backup to a NFS server
+
 Choose what to backup, what to exclude and [how many copies to keep](/assets/img/backup/backup_options.png).
 Backup directory structure automatically [daily, weekly, monthly and yearly](/assets/img/backup/backup_tree.png) created.
 Decide when is [the right time to perform the daily backup](/assets/img/backup/backup_screen.png).
@@ -94,6 +100,7 @@ will continue to add and enhance the SADMIN tools over the years to come.
 
 
 ## Downloading SADMIN Tools
+
 We recommend cloning the SADMIN repository and then run the setup script.  
     * `cd /opt/`    
     * `git clone https://github.com/jadupl2/sadmin.git`    
@@ -108,6 +115,7 @@ For more information about the installation process, view our [install guide](/_
 
 
 ## SADMIN Support
+
 Should you ran into problem while installing or running the SADMIN tools, please run the 
 'sadm_support_request.sh', attach the resulting file to an email with a description of your 
 problem or question and sent it to <sadmlinux@gmail.com>.
@@ -119,6 +127,7 @@ We will get back to you as soon as possible.
 
 
 ## Copyright and license
+
 The SADMIN is a collection of free software: you can redistribute it and/or modify it under the 
 terms of the GNU General Public License as published by the Free Software Foundation, either 
 version 3 of the License, or (at your option) any later version. 
