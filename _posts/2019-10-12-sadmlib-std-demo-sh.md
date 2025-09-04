@@ -310,7 +310,7 @@ SADMIN FILES VARIABLES AVAIL.   Description                           This Syste
 [12] $SADM_TMP_FILE2            User usable Temp Work File 2       : /sadmin/tmp/sadmlib_std_demo_2.26992
 [13] $SADM_TMP_FILE3            User usable Temp Work File 3       : /sadmin/tmp/sadmlib_std_demo_3.26992
 [14] $SADM_LOG                  Script Log File                    : /sadmin/log/holmes_sadmlib_std_demo.log
-[15] $SADM_RCHLOG               Script Return Code History File    : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch
+[15] $SADM_RCH_FILE               Script Return Code History File    : /sadmin/dat/rch/holmes_sadmlib_std_demo.rch
 [16] $DBPASSFILE                SADMIN Database User Password File : /sadmin/cfg/.dbpass            
 [17] $SADM_RPT_FILE             SYStem MONitor Report File         : /sadmin/dat/rpt/holmes.rpt     
 [18] $SADM_BACKUP_LIST          Backup List File Name              : /sadmin/cfg/backup_list.txt    

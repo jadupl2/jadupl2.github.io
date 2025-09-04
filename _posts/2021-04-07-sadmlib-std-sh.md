@@ -29,8 +29,8 @@ sidebar:
 | :---                                      | :---                                                  | :---                    |
 | sadm_ask "Question"                       | Show 'Question' & wait for Y, y, N or n               | 0=No 1=Yes              | 
 | $(sadm_capitalize "LINUX")                | Return 1st char. in uppercase & rest in lower         | Linux                   |
-| sadm_check_system_lock "hostname"         | Check the system name ($1) is currently lock          | 0=Not Lock, 1=Lock      |
-| sadm_lock_system "hostname"               | Lock the system name ($1), suspend monitoring of it.  | 0=Lock,   1=Can't Lock  |
+| sadm_lock_status "hostname"         | Check the system name ($1) is currently lock          | 0=Not Lock, 1=Lock      |
+| sadm_lock_status "hostname"               | Lock the system name ($1), suspend monitoring of it.  | 0=Lock,   1=Can't Lock  |
 | sadm_unlock_system "hostname"             | Unlock the system name ($1), resume monitoring of it. | 0=Unlock, 1=Can't Unlock|
 | $(sadm_get_release)                       | Return SADMIN Release Number                          | 1.4.1 |
 | $(sadm_get_ostype)                        | Return OS type in uppercase (LINUX,AIX,DARWIN)        | LINUX |
